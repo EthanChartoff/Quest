@@ -22,9 +22,3 @@ clean:
 
 lint:
 	clang-tidy src/*.c src/include/*.h
-
-lint-fix:
-	clang-tidy -fix src/*.c src/include/*.h
-
-format:
-	clang-format src/*.c src/include/*.h
