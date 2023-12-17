@@ -17,3 +17,4 @@
 1. string
 2. pointers
 3. unaddressing
+4. boolean

@@ -1,0 +1,77 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-fPIC",
+      "-o",
+      "obj/quest.o",
+      "src/quest.c"
+    ],
+    "directory": "/home/goodman/School/Quest",
+    "file": "/home/goodman/School/Quest/src/quest.c",
+    "output": "/home/goodman/School/Quest/obj/quest.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-fPIC",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/goodman/School/Quest",
+    "file": "/home/goodman/School/Quest/src/main.c",
+    "output": "/home/goodman/School/Quest/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-fPIC",
+      "-o",
+      "obj/lexer.o",
+      "src/lexer.c"
+    ],
+    "directory": "/home/goodman/School/Quest",
+    "file": "/home/goodman/School/Quest/src/lexer.c",
+    "output": "/home/goodman/School/Quest/obj/lexer.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-fPIC",
+      "-o",
+      "obj/io.o",
+      "src/io.c"
+    ],
+    "directory": "/home/goodman/School/Quest",
+    "file": "/home/goodman/School/Quest/src/io.c",
+    "output": "/home/goodman/School/Quest/obj/io.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-fPIC",
+      "-o",
+      "obj/token.o",
+      "src/token.c"
+    ],
+    "directory": "/home/goodman/School/Quest",
+    "file": "/home/goodman/School/Quest/src/token.c",
+    "output": "/home/goodman/School/Quest/obj/token.o"
+  }
+]
