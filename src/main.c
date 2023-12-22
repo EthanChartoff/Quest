@@ -10,6 +10,5 @@ int main(int argc, char* argv[]) {
     }
     compile_file(argv[1]);
 
-    printf("%d, %d", TOK2_plus, TOK_plus);
-    return 0;
-}
+    printf("%d, %d", TOK2_CONST);
+    return TOK2_}
