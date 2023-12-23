@@ -3,20 +3,11 @@
 
 // main file
 typedef enum TOKEN_ENUM {
-    #define TOK(name, str, str_name, val, is_kw) TOK_##name,
+    #define TOK(name, str, val, is_kw) TOK_##name = val,
     #include "tokens.h"
     #undef TOK
     NUM_TOK
 } token_type_t;
-
-typedef enum TOKEN_ENUM2 {
-    #define TOK(name, str, str_name, val, is_kw) TOK2_##str_name,
-    #include "tokens.h"
-    #undef TOK
-    NUM_TOK2
-} token_type_t2;
-
-
 
 typedef struct TOKEN_STRUCT {
     char* value;
