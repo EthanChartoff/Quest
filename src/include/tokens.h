@@ -1,4 +1,4 @@
-//===--- The Quest Language's Tokens -------------------===
+//===--- The Quest Language: Tokens -------------------===
 //
 // In here all of Quest's tokens are defined.
 // Macros are used to define the tokens for external 
@@ -8,31 +8,31 @@
 // WORK IN PROGRESS
 //
 // - TODO: not necessary, but maybe organize by type, defenitions, etc...
-//===---------------------------------------------------===
+//===--------------------------------------------------===
 
 #ifndef TOK
 #define TOK(name, str, val, is_kw)
 #endif
-#ifndef DEBUG
-#define DEBUG(name)                  TOK(name,    ,    , 0)
+#ifndef DEBUG0
+#define DEBUG(name)                  TOK(name      ,    ,    , 0)
 #endif
 #ifndef KEYWORD
-#define KEYWORD(name)                TOK(name,    ,    , 1)
+#define KEYWORD(name, str)           TOK(name      , str,    , 1)
 #endif
 #ifndef PUNCTUATOR
-#define PUNCTUATOR(name, str)        TOK(name, str,    , 0)
+#define PUNCTUATOR(name, str)        TOK(name      , str,    , 0)
 #endif
 #ifndef PUNCTUAVAL
-#define PUNCTUAVAL(name, str, val)   TOK(name, str, val, 0)
+#define PUNCTUAVAL(name, str, val)   TOK(name = val, str, val, 0)
 #endif
 #ifndef OPERATOR
-#define OPERATOR(name, str)          TOK(name, str,    , 1)
+#define OPERATOR(name, str)          TOK(name      , str,    , 1)
 #endif
 #ifndef OPERAVAL
-#define OPERAVAL(name, str, val)     TOK(name, str, val, 1)
+#define OPERAVAL(name, str, val)     TOK(name = val, str, val, 1)
 #endif
 #ifndef ALIAS
-#define ALIAS(name, val, is_kw)      TOK(name,    , val, is_kw)
+#define ALIAS(name, val, is_kw)      TOK(name = val,    , val, is_kw)
 #endif
 
 //------------------
@@ -49,29 +49,29 @@ DEBUG(COMMENT)
 // Keywords
 //------------------
 
-KEYWORD(BOOL)
-KEYWORD(BREAK)
-KEYWORD(CASE)
-KEYWORD(CHAR)
-KEYWORD(CONST)
-KEYWORD(CONTINUE)
-KEYWORD(DO)
-KEYWORD(DOUBLE)
-KEYWORD(ELSE)
-KEYWORD(ENUM)
-KEYWORD(FALSE)
-KEYWORD(FLOAT)
-KEYWORD(FOR)
-KEYWORD(IF)
-KEYWORD(INT)
-KEYWORD(LONG)
-KEYWORD(RET)
-KEYWORD(SHORT)
-KEYWORD(SWITCH)
-KEYWORD(TRUE)
-KEYWORD(TYPEDEF)
-KEYWORD(VOID)
-KEYWORD(WHILE)
+KEYWORD(BOOL, "bool")
+KEYWORD(BREAK, "break")
+KEYWORD(CASE, "case")
+KEYWORD(CHAR, "char")
+KEYWORD(CONST, "const")
+KEYWORD(CONTINUE, "continue")
+KEYWORD(DO, "do")
+KEYWORD(DOUBLE, "double")
+KEYWORD(ELSE, "else")
+KEYWORD(ENUM, "enum")
+KEYWORD(FALSE, "false")
+KEYWORD(FLOAT, "float")
+KEYWORD(FOR, "for")
+KEYWORD(IF, "if")
+KEYWORD(INT, "int")
+KEYWORD(LONG, "long")
+KEYWORD(RET, "ret")
+KEYWORD(SHORT, "short")
+KEYWORD(SWITCH, "switch")
+KEYWORD(TRUE, "true")
+KEYWORD(TYPEDEF, "typedef")
+KEYWORD(VOID, "void")
+KEYWORD(WHILE, "while")
 
 //------------------
 // Operators
@@ -90,14 +90,13 @@ OPERAVAL(BITXOR,    "^", '^')
 ALIAS(   CARET,          '^', 1)
 OPERAVAL(BITNOT,    "!", '!')
 OPERAVAL(STAR,      "*", '*')
-OPERATOR(SLASH,     "/", '/')
+OPERAVAL(SLASH,     "/", '/')
 OPERAVAL(PLUS,      "+", '+')
 OPERAVAL(MINUS,     "-", '-')
 OPERAVAL(PRECENT,   "%", '%')
 OPERAVAL(GREATER,   ">", '>')
 OPERAVAL(LESSER,    "<", '<')
 OPERAVAL(EQUEL,     "=", '=')
-
 
 OPERATOR(ELLIPSES, "...")
 OPERATOR(ARROW, "->")

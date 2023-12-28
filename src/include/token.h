@@ -3,7 +3,7 @@
 
 // main file
 typedef enum TOKEN_ENUM {
-    #define TOK(name, str, val, is_kw) TOK_##name = val,
+    #define TOK(name, str, val, is_kw) TOK_##name,
     #include "tokens.h"
     #undef TOK
     NUM_TOK
