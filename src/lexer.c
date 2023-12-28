@@ -1,3 +1,12 @@
+//===--- The Quest Language: Lexer -------------------===
+//
+// The lexer of the compiler.
+//
+//
+// WORK IN PROGRESS
+//
+//===------------------------------------------------===
+
 #include "include/lexer.h"
 #include "include/macros.h"
 #include <string.h>
@@ -7,7 +16,7 @@
 
 // initilize lexer with a source.
 lexer_T* init_lexer(char *src) {
-    lexer_T* lex = calloc(1, sizeof(lexer_T));
+    lexer_T *lex = calloc(1, sizeof(lexer_T));
 
     lex->src = src;
     lex->src_size = strlen(src);

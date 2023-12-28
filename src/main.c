@@ -1,5 +1,6 @@
 #include "include/macros.h"
 #include "include/quest.h"
+#include "include/token.h"
 #include <stdio.h>
 
 int main(int argc, char* argv[]) {
@@ -9,6 +10,5 @@ int main(int argc, char* argv[]) {
     }
     compile_file(argv[1]);
 
-
-    return 0;
+    return
 }
