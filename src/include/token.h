@@ -1,12 +1,11 @@
 #ifndef QUEST_TOKEN_H
 #define QUEST_TOKEN_H
 
-// main file
 typedef enum TOKEN_ENUM {
-    #define TOK(name, str, val, is_kw) TOK_##name,
+    #define TOK(name, str, val, is_kw) TOK_##name val,
     #include "tokens.h"
     #undef TOK
-    NUM_TOK
+    NUM_TOK = 76
 } token_type_t;
 
 typedef struct TOKEN_STRUCT {

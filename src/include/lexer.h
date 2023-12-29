@@ -8,9 +8,10 @@ typedef struct LEXER_STRUCT {
     size_t src_size;
     char c;             // curr character the lexer is on
     unsigned int i;     // curr index the lexer is on 
+    short **dfa;        // automata of the lexer
 } lexer_T;
 
-lexer_T* init_lexer(char *src);
+lexer_T* init_lexer(char *src, const char *dfa_src);
 
 void lexer_advance(lexer_T* lex);
 

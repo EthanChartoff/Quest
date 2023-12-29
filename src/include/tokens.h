@@ -13,7 +13,7 @@
 #ifndef TOK
 #define TOK(name, str, val, is_kw)
 #endif
-#ifndef DEBUG0
+#ifndef DEBUG
 #define DEBUG(name)                  TOK(name      ,    ,    , 0)
 #endif
 #ifndef KEYWORD
@@ -23,25 +23,25 @@
 #define PUNCTUATOR(name, str)        TOK(name      , str,    , 0)
 #endif
 #ifndef PUNCTUAVAL
-#define PUNCTUAVAL(name, str, val)   TOK(name = val, str, val, 0)
+#define PUNCTUAVAL(name, str, val)   TOK(name, str, =val, 0)
 #endif
 #ifndef OPERATOR
 #define OPERATOR(name, str)          TOK(name      , str,    , 1)
 #endif
 #ifndef OPERAVAL
-#define OPERAVAL(name, str, val)     TOK(name = val, str, val, 1)
+#define OPERAVAL(name, str, val)     TOK(name, str, =val, 1)
 #endif
 #ifndef ALIAS
-#define ALIAS(name, val, is_kw)      TOK(name = val,    , val, is_kw)
+#define ALIAS(name, val, is_kw)      TOK(name,    , =val, is_kw)
 #endif
 
 //------------------
 // Debug Tokens
 //------------------
 
+DEBUG(null)
 DEBUG(UNKNOWN)
-DEBUG(NULL)
-DEBUG(EOF)
+DEBUG(eof)
 
 DEBUG(COMMENT)
 

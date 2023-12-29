@@ -1,6 +1,17 @@
 {
     "files.associations": {
-        "typeinfo": "c"
+        "*.h": "c",
+        "typeinfo": "c",
+        "cstddef": "c",
+        "random": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "compare": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
