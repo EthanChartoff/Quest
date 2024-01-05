@@ -88,7 +88,7 @@ int init_dfa(token_T **toks, const size_t n_toks, const char *filename) {
 int init_default_dfa() {
     token_T *toks[NUM_TOK];
     int i = 0;
-    #define TOK(name, str, val, is_kw) toks[i++] = init_token(#str, TOK_##name);
+    #define TOK(name, lexeme, val, is_kw) toks[i++] = init_token(#str, TOK_##name);
     #include "../include/tokens.h"
     #undef TOK
 

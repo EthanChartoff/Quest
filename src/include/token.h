@@ -2,7 +2,7 @@
 #define QUEST_TOKEN_H
 
 typedef enum TOKEN_ENUM {
-    #define TOK(name, str, val, is_kw) TOK_##name val,
+    #define TOK(name, lexeme, val, is_kw) TOK_##name val,
     #include "tokens.h"
     #undef TOK
     NUM_TOK = 76
