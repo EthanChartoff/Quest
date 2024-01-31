@@ -5,10 +5,10 @@
 #include <stdio.h>
 
 void compile(char *src) {
-    lexer_T* lex = init_lexer(src);
+    lexer_T* lex = init_lexer(src, "src/config/lexer_dfa.txt");
     token_T* tk = 0;
 
-    while((tk = lexer_next_token(lex))->type != TK_EOF)
+    while((tk = lexer_next_token(lex))->type != TOK_eof)
         printf("TOKEN(%s) (%d)\n", tk->value, tk->type);
 }
 

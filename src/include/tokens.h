@@ -34,9 +34,6 @@
 #ifndef OPERAVAL
 #define OPERAVAL(name, lexeme, val)   TOK(name, lexeme, =val, 1)
 #endif
-#ifndef ALIAS
-#define ALIAS(name, val, is_kw)       TOK(name,       , =val, is_kw)
-#endif
 
 //------------------
 // Debug Tokens
@@ -51,6 +48,7 @@ DEBUG(COMMENT)
 //------------------
 // Keywords
 //------------------
+
 BASETOK(IDENTIFIER)
 BASETOK(NUMBERCONSTANT)
 
@@ -89,11 +87,8 @@ OPERAVAL(COMMA,     ",", ',')
 OPERAVAL(TILDE,     "~", '~')
 OPERAVAL(NOT,       "!", '!')
 OPERAVAL(BITAND,    "&", '&')
-ALIAS(   AMPERSAND,      '&', 1)
 OPERAVAL(BITOR,     "|", '|')
-ALIAS(   PIPE,           '|', 1)
 OPERAVAL(BITXOR,    "^", '^')
-ALIAS(   CARET,          '^', 1)
 OPERAVAL(BITNOT,    "!", '!')
 OPERAVAL(STAR,      "*", '*')
 OPERAVAL(SLASH,     "/", '/')
