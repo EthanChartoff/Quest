@@ -254,8 +254,12 @@ int init_dfa(token_T **toks, const size_t n_toks, const char *filename, unsigned
     for(i = 0; i < dfa->n_toks; ++i)
         add_tok_to_DFA(dfa, toks[i]);
 
-    // print DFA into file to save it 
+    // print DFA into file to save it and print state lexme/ 
     for(i = 0; i < dfa->n_states; ++i) {
+        if(dfa->states[i]->type == ACCEPT)  
+            fprintf(fp, "%d ", dfa->DFA[i][j]);
+        
+
         for(j = 0; j < ASCII_SIZE; ++j) {
             fprintf(fp, "%d ", dfa->DFA[i][j]);
         }
