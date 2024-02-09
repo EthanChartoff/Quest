@@ -4,8 +4,8 @@
 #include <stddef.h>
 
 typedef struct LEXER_STRUCT {
-    char* src;
-    size_t src_size;
+    char* src;          // src code
+    size_t src_size;    // size of src code
     char c;             // curr character the lexer is on
     unsigned int i;     // curr index the lexer is on 
     short **dfa;        // automata of the lexer

@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 void compile(char *src) {
-    lexer_T* lex = init_lexer(src, "src/config/lexer_dfa.txt");
+    lexer_T* lex = init_lexer(src, "src/config/lexer_dfa.dat");
     token_T* tk = 0;
 
     while((tk = lexer_next_token(lex))->type != TOK_eof)

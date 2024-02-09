@@ -14,11 +14,11 @@
 #include <ctype.h>
 #include <stdio.h>
 
-
+// initialize dfa 
 static short** init_dfa(const char *dfa_src) {
     short **dfa;
     FILE *dfa_file = fopen(dfa_src, "r");
-    int rows = 0, cols = 0, i, j, k;
+    size_t rows, cols, i, j, k;
 
     // handle file not opening
     if(dfa_file == NULL) {
@@ -26,16 +26,18 @@ static short** init_dfa(const char *dfa_src) {
         exit(EXIT_FAILURE);
     }
 
-    while(fscanf(dfa_file, "%d, ", &cols) == 1)
-        rows++;
-    fseek(dfa_file, 0, SEEK_SET);
+    // get rows and columns of the dfa's 2d arr
+    fscanf(dfa_file, "%zd", &rows);
+    fscanf(dfa_file, "%zd", &cols);
 
     dfa = (short**)malloc(rows * sizeof(short*));
+
     for(i = 0; i < rows; ++i) 
         dfa[i] = (short*)malloc(cols * sizeof(short));
 
     for(i = 0; i < rows; ++i) {
         for(j = 0; j < cols; ++j) {
+            // if theres an error reading from the file
             if(fscanf(dfa_file, "%hd", &dfa[i][j]) != 1) {
                 perror("Error reading from file");
                 fclose(dfa_file);
@@ -49,13 +51,6 @@ static short** init_dfa(const char *dfa_src) {
         }
     }
 
-    fclose(dfa_file);
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%d ", dfa[i][j]);
-        }
-        // printf("\n");
-    }
     return dfa;
 }
 
