@@ -1,6 +1,7 @@
 #include "include/lexer_DFA.h"
 #include "include/transitions.h"
 #include "../../include/tokens.h"
+#include "../../include/macros.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -232,10 +233,9 @@ int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, char
             exit(EXIT_FAILURE);
         }
 
-        fprintf(DFA_states_fp, "%s: %d [%s]\n", 
-                dfa->states[i]->lexeme, 
+        fprintf(DFA_states_fp, "%d %d\n",  
                 dfa->states[i]->index,
-                state_type_to_string(dfa->states[i]->type)
+                dfa->states[i]->type
         );
         
         for(j = 0; j < ASCII_SIZE; ++j) {
@@ -254,13 +254,13 @@ int init_default_dfa() {
     int i = 0;
 
     #define TOK(name, lexeme, val, is_kw) toks[i++] = init_token(remove_first_last_char(#lexeme), TOK_##name);
-    #include "../../include/tokens.h"
+    #include TOKS_PATH
     #undef TOK
 
     init_dfa(toks, 
             NUM_TOK, 
-            "src/config/lexer_dfa.dat", 
-            "src/config/lexer_dfa_states.dat",
+            LEXER_DFA_PATH, 
+            LEXER_DFA_STATES_PATH,
             ADD_IDENTIFIER_STATE_FLAG + ADD_NUMBER_STATE_FLAG + ADD_CHAR_STATES_FLAG + ADD_STRING_STATES_FLAG);
 
     for(i = 0; i < NUM_TOK; ++i)

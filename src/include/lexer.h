@@ -1,14 +1,15 @@
 #ifndef QUEST_LEXER_H
 #define QUEST_LEXER_H
+#include "lexer_automata.h"
 #include "token.h"
 #include <stddef.h>
 
 typedef struct LEXER_STRUCT {
-    char* src;          // src code
-    size_t src_size;    // size of src code
-    char c;             // curr character the lexer is on
-    unsigned int i;     // curr index the lexer is on 
-    short **dfa;        // automata of the lexer
+    char* src;                      // src code
+    size_t src_size;                // size of src code
+    char c;                         // curr character the lexer is on
+    unsigned int i;                 // curr index the lexer is on 
+    lexer_automata_T *automata;     // automata of the lexer
 } lexer_T;
 
 lexer_T* init_lexer(char *src, const char *dfa_src);

@@ -8,64 +8,12 @@
 //===------------------------------------------------===
 
 #include "include/lexer.h"
+#include "include/lexer_automata.h"
 #include "include/macros.h"
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
-
-// initialize dfa 
-static short** init_dfa(const char *dfa_src) {
-    short **dfa;
-    FILE *dfa_file = fopen(dfa_src, "r");
-    size_t rows, cols, i, j, k;
-
-    // handle file not opening
-    if(dfa_file == NULL) {
-        perror("Error opening dfa file");
-        exit(EXIT_FAILURE);
-    }
-
-    // get rows and columns of the dfa's 2d arr
-    fscanf(dfa_file, "%zd", &rows);
-    fscanf(dfa_file, "%zd", &cols);
-
-    dfa = (short**)malloc(rows * sizeof(short*));
-
-    for(i = 0; i < rows; ++i) 
-        dfa[i] = (short*)malloc(cols * sizeof(short));
-
-    for(i = 0; i < rows; ++i) {
-        for(j = 0; j < cols; ++j) {
-            // if theres an error reading from the file
-            if(fscanf(dfa_file, "%hd", &dfa[i][j]) != 1) {
-                perror("Error reading from file");
-                fclose(dfa_file);
-
-                for(k = 0; k < rows; ++k)
-                    free(dfa[k]);
-                free(dfa);
-
-                exit(1);
-            }
-        }
-    }
-
-    return dfa;
-}
-
-// initilize lexer with a source.
-lexer_T* init_lexer(char *src, const char *dfa_src) {
-    lexer_T *lex = calloc(1, sizeof(lexer_T));
-
-    lex->src = src;
-    lex->src_size = strlen(src);
-    lex->i = 0;
-    lex->c = src[lex->i];    
-    lex->dfa =  init_dfa(dfa_src);
-
-    return lex;
-}
 
 // advance lexer to the next character in its source.
 void lexer_advance(lexer_T* lex) {
@@ -157,4 +105,19 @@ token_T* lexer_next_token(lexer_T* lex) {
     }
     
     return init_token(0, TOK_AND);
+}
+
+
+// initilize lexer with a source.
+// TODO: dont need dfa src
+lexer_T* init_lexer(char *src, const char *dfa_src) {
+    lexer_T *lex = malloc(sizeof(lexer_T));
+
+    lex->src = src;
+    lex->src_size = strlen(src);
+    lex->i = 0;
+    lex->c = src[lex->i];    
+    lex->automata = init_lexer_automata(LEXER_DFA_PATH, LEXER_DFA_STATES_PATH);
+
+    return lex;
 }

@@ -12,6 +12,7 @@
 #define QUEST_LEXER_DFA_H
 
 #include "../../../include/token.h"
+#include "../../../include/lexer_automata_state_type.h"
 #include <stddef.h>
 
 #define ASCII_SIZE 128
@@ -26,22 +27,10 @@
 #define is_single_quotes(c) ((c) == 39)
 #define is_quotes(c) ((c) == 34)
 
-typedef enum LEXER_DFA_STATE_TYPE {
-    DENY,                           // deny state, if lexeme ended in this state its not valid
-    CHAR_DENY,                      // first state of char states, if ended here theres no sigle quote to end char
-    STRING_DENY,                    // first state of string states
-    ACCEPT,                         // accept state
-    IDENTIFIER,                     // identifier
-    NUMBER,                         // number
-    CHAR,                           // char
-    STRING,                         // string
-    LEXER_DFA_STATE_TYPE_SIZE,      // size of valid state types, if a state is defined as this type theres an error
-} lexer_dfa_state_type_T;
-
 typedef struct LEXER_DFA_STATE_STRUCT {
-    unsigned int index;                 // index of state                
-    char *lexeme;                       // lexeme of state, if the state does not accept this will be NULL
-    lexer_dfa_state_type_T type;        // states type
+    unsigned int index;             // index of state                
+    char *lexeme;                   // lexeme of state, if the state does not accept this will be NULL
+    lexer_dfa_state_type_T type;    // states type
 } lexer_dfa_state_T;
 
 typedef struct LEXER_DFA_STRUCT {
