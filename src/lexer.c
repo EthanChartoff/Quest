@@ -10,10 +10,12 @@
 #include "include/lexer.h"
 #include "include/lexer_automata.h"
 #include "include/macros.h"
+#include "include/token.h"
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
+
 
 // advance lexer to the next character in its source.
 void lexer_advance(lexer_T* lex) {
@@ -21,26 +23,6 @@ void lexer_advance(lexer_T* lex) {
         lex->i++;
         lex->c = lex->src[lex->i];
     }
-}
-
-token_T* lexer_advance_with(lexer_T* lex, token_T* tk) {
-    lexer_advance(lex);
-    return tk;
-}
-
-token_T* lexer_advance_current(lexer_T* lex, int type) {
-    char* val = calloc(2, sizeof(char));
-    val[0] = lex->c;
-    val[1] = '\0';
-
-    token_T* token = init_token(val, type);
-    lexer_advance(lex);
-
-    return token;
-}
-
-char lexer_peek(lexer_T* lex, int offset) {
-    return lex->src[MIN(lex->i + offset, lex->src_size)];
 }
 
 void lexer_skip_whitespace(lexer_T* lex) {
@@ -51,60 +33,31 @@ void lexer_skip_whitespace(lexer_T* lex) {
         lexer_advance(lex); // skip
 }
 
-token_T* lexer_parse_id(lexer_T* lex) {
-    char* val = calloc(1, sizeof(char));
+static token_T* get_token(lexer_T* lex) {
+    unsigned int curr_state = 0, buffer_len = 1;
+    char *buffer = malloc(sizeof(char));
 
-    while (isalpha(lex->c)) {
-        val = realloc(val, (strlen(val) + 2) * sizeof(char));
-        strcat(val, (char[]){lex->c, 0});
+    do {
+        buffer = (char *) realloc(buffer, (++buffer_len) * sizeof(char));
+        buffer[buffer_len - 1] = '\0';
+        buffer[buffer_len - 2] = lex->c;
+
+        curr_state = lex->automata->automata[curr_state][lex->c];        
+
         lexer_advance(lex);
-    }
+    } while(lex->automata->automata[curr_state][lex->c] != -1);
 
-    return init_token(val, TOK_IDENTIFIER);
-}
-
-// for now, can only lex int
-token_T* lexer_parse_number(lexer_T* lex) {
-    char* val = calloc(1, sizeof(char));
-
-    while (isdigit(lex->c)) {
-        val = realloc(val, (strlen(val) + 2) * sizeof(char));
-        strcat(val, (char[]){lex->c, 0});
-        lexer_advance(lex);
-    }
-
-    return init_token(val, TOK_INT);
+    return init_token(buffer, lex->automata->state_type[curr_state]);
 }
 
 token_T* lexer_next_token(lexer_T* lex) {
     while (lex->c != '\0') {
         lexer_skip_whitespace(lex);
+        // lexer_advance(lex);
 
-        // check non-one character tokens
-        if(isalpha(lex->c))
-            return lexer_advance_with(lex, lexer_parse_id(lex));
-        else if (isdigit(lex->c))
-            return lexer_advance_with(lex, lexer_parse_number(lex));
-
-        // check one character tokens
-        switch (lex->c) {
-        case '(': return lexer_advance_current(lex, TOK_LPAREN);
-        case ')': return lexer_advance_current(lex, TOK_RPAREN);
-        case '{': return lexer_advance_current(lex, TOK_LBRACE);
-        case '}': return lexer_advance_current(lex, TOK_RBRACE);
-        case '[': return lexer_advance_current(lex, TOK_LBRACK);
-        case ']': return lexer_advance_current(lex, TOK_LBRACK);
-        case ':': return lexer_advance_current(lex, TOK_COLON);
-        case ';': return lexer_advance_current(lex, TOK_SEMICOLON);
-        default: {
-            printf("[LEXER]: Unexpected character: %c\n", lex->c);
-            exit(1);
-            break;
-            }
-        }
-    }
-    
-    return init_token(0, TOK_AND);
+        return get_token(lex);
+    }    
+    return init_token(0, TOK_eof);
 }
 
 

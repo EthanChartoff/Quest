@@ -11,9 +11,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // compile_file(argv[1]);
-    // init_lexer(argv[1], "src/config/lexer_dfa.dat");
-    
+    compile_file(argv[1]);
+    // init_def ault_dfa();
 
     return 0;
 }

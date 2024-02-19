@@ -12,7 +12,6 @@
 #define QUEST_LEXER_DFA_H
 
 #include "../../../include/token.h"
-#include "../../../include/lexer_automata_state_type.h"
 #include <stddef.h>
 
 #define ASCII_SIZE 128
@@ -28,9 +27,9 @@
 #define is_quotes(c) ((c) == 34)
 
 typedef struct LEXER_DFA_STATE_STRUCT {
-    unsigned int index;             // index of state                
-    char *lexeme;                   // lexeme of state, if the state does not accept this will be NULL
-    lexer_dfa_state_type_T type;    // states type
+    unsigned int index;   // index of state                
+    char *lexeme;         // lexeme of state, if the state does not accept this will be NULL
+    token_type_t type;    // states type
 } lexer_dfa_state_T;
 
 typedef struct LEXER_DFA_STRUCT {

@@ -1,4 +1,5 @@
 #include "include/lexer_automata.h"
+#include "utils/lexer_DFA/include/lexer_DFA.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,6 +7,7 @@
 static void init_automata_state_type(lexer_automata_T *automata, const char *states_src) {
     FILE *fp = fopen(states_src, "r");
     size_t i, state_index;
+    int type;
 
     // handle file not opening
     if(fp == NULL) {
@@ -14,7 +16,7 @@ static void init_automata_state_type(lexer_automata_T *automata, const char *sta
     }
 
     // TODO: need to handle file not opening
-    automata->state_type = (lexer_dfa_state_type_T *)malloc(automata->n_state * sizeof(lexer_dfa_state_type_T));
+    automata->state_type = (token_type_t *)malloc(automata->n_state * sizeof(token_type_t));
     for(i = 0; i < automata->n_state; ++i) {
         fscanf(fp, "%zd ", &state_index);
         fscanf(fp, "%d", &automata->state_type[state_index]); 

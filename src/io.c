@@ -18,7 +18,7 @@ char* read_file(const char *filename) {
         exit(1);
     }
 
-    buffer = calloc(1, sizeof(char));
+    buffer = malloc(sizeof(char));
     buffer[0] = '\0';
 
     while((read = getline(&line, &len, fp) != -1)) {

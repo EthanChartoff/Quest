@@ -7,10 +7,10 @@ void add_transition(lexer_dfa_T *dfa, lexer_dfa_state_T *src_state, int dest_sta
     if(
         is_id(c) && 
         (dfa->flags & ADD_IDENTIFIER_STATE_FLAG) &&
-        (dfa->last_states[IDENTIFIER]) &&
-        src_state->type == IDENTIFIER
+        (dfa->last_states[TOK_IDENTIFIER]) &&
+        src_state->type == TOK_IDENTIFIER
     ) {
-        dfa->DFA[src_state->index][c] = dfa->last_states[IDENTIFIER]->index;
+        dfa->DFA[src_state->index][c] = dfa->last_states[TOK_IDENTIFIER]->index;
     }
     else {
         dfa->DFA[src_state->index][c] = -1;

@@ -23,19 +23,7 @@ static char * remove_first_last_char(char *str) {
     return cpy;
 }
 
-// I would use a switch but you cant use break... 
-static char * state_type_to_string(int type) {
-    return type == DENY ? "DENY" :
-    type == CHAR_DENY ? "CHAR_DENY" :
-    type == STRING_DENY ? "STRING_DENY" :
-    type == ACCEPT ? "ACCEPT" :
-    type == IDENTIFIER ? "IDENTIFIER" :
-    type == NUMBER ? "NUMBER" :
-    type == CHAR ? "CHAR" : 
-    type == STRING ? "STRING" :
-    type == LEXER_DFA_STATE_TYPE_SIZE ? "LEXER_DFA_STATE_TYPE_SIZE" :
-    "invalid type"; 
-}
+
 
 // add a state to the dfa
 // if dest_state is NULL, dest_state will be equal to the source
@@ -58,7 +46,7 @@ static lexer_dfa_state_T * add_state_to_DFA(lexer_dfa_T *dfa, int type, char *le
 
     // change last state type to this state unless state is spacial state
 
-    if((type == DENY) || (type == ACCEPT) || dfa->last_states[type] == NULL) {
+    if((type == TOK_UNKNOWN) || dfa->last_states[type] == NULL) {
         dfa->last_states[type] = dfa->states[dfa->n_states - 1];
     }
     
@@ -88,7 +76,7 @@ static lexer_dfa_state_T * add_state_to_DFA(lexer_dfa_T *dfa, int type, char *le
 
 // add a token to the lexer's DFA
 static int add_tok_to_DFA(lexer_dfa_T *dfa, token_T *tok) {
-    unsigned int i, curr_state = 0, str_tok_len = strlen(tok->value), state_type = dfa->flags & ADD_IDENTIFIER_STATE_FLAG ? IDENTIFIER : DENY;
+    unsigned int i, curr_state = 0, str_tok_len = strlen(tok->value), state_type = dfa->flags & ADD_IDENTIFIER_STATE_FLAG ? TOK_IDENTIFIER : TOK_UNKNOWN;
     char *lexeme = malloc(sizeof(char)), *tmp_lex;
 
     // check if tok has lexeme
@@ -103,8 +91,8 @@ static int add_tok_to_DFA(lexer_dfa_T *dfa, token_T *tok) {
         
 
         // check if state type is valid to be an identifier
-        if(!(is_id(tok->value[i])) && state_type == IDENTIFIER)
-            state_type = DENY;
+        if(!(is_id(tok->value[i])) && state_type == TOK_IDENTIFIER)
+            state_type = TOK_UNKNOWN;
 
         // check if char at state has a response
         if(
@@ -119,7 +107,8 @@ static int add_tok_to_DFA(lexer_dfa_T *dfa, token_T *tok) {
     
 
     // state settings
-    dfa->states[curr_state]->type = ACCEPT;
+    // TODO: change state types (e.g. ACCEPT) to tok types (e.g. TOK_CHAR)
+    dfa->states[curr_state]->type = tok->type;
 
     dfa->states[curr_state]->lexeme = (char *) malloc(str_tok_len * sizeof(char));
     strcpy(dfa->states[curr_state]->lexeme, tok->value);
@@ -130,19 +119,19 @@ static int add_tok_to_DFA(lexer_dfa_T *dfa, token_T *tok) {
 static void init_special_states(lexer_dfa_T *dfa) {
     if(dfa->flags & ADD_IDENTIFIER_STATE_FLAG) {
         dfa->n_flag_states++;
-        add_state_to_DFA(dfa, IDENTIFIER, "(IDENTIFIER)", add_id_transition, 0);
+        add_state_to_DFA(dfa, TOK_IDENTIFIER, "(TOK_IDENTIFIER)", add_id_transition, 0);
     }
     if(dfa->flags & ADD_NUMBER_STATE_FLAG) {
         dfa->n_flag_states++;
-        add_state_to_DFA(dfa, NUMBER, "(NUMBER)", add_num_transition, 0);
+        add_state_to_DFA(dfa, TOK_NUMBER_CONSTANT, "(TOK_NUMBER_CONSTANT)", add_num_transition, 0);
     }
     if(dfa->flags & ADD_CHAR_STATES_FLAG) {
         dfa->n_flag_states += 2;
-        add_state_to_DFA(dfa, CHAR_DENY, "(CHAR_DENY)", add_first_char_transition, add_state_to_DFA(dfa, CHAR, "(CHAR)", add_second_char_transition, 0)->index);
+        add_state_to_DFA(dfa, TOK_UNKNOWN, "(CHAR_DENY)", add_first_char_transition, add_state_to_DFA(dfa, TOK_CHAR, "(CHAR)", add_second_char_transition, 0)->index);
     }
     if(dfa->flags & ADD_STRING_STATES_FLAG) {
         dfa->n_flag_states += 2;
-        add_state_to_DFA(dfa, STRING_DENY, "(STRING_DENY)", add_first_string_transition, add_state_to_DFA(dfa, STRING, "(STRING)", add_second_string_transition, 0)->index);
+        add_state_to_DFA(dfa, TOK_UNKNOWN, "(TOK_UNKNOWN)", add_first_string_transition, add_state_to_DFA(dfa, TOK_STRING_LITERAL, "(STRING)", add_second_string_transition, 0)->index);
     }
 
 }
@@ -195,18 +184,18 @@ int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, char
 
     dfa->states[0] = (lexer_dfa_state_T*)malloc(sizeof(lexer_dfa_state_T));
     dfa->states[0]->index = 0;
-    dfa->states[0]->type = DENY; 
+    dfa->states[0]->type = TOK_UNKNOWN; 
 
-    dfa->last_states = (lexer_dfa_state_T**)malloc(LEXER_DFA_STATE_TYPE_SIZE * sizeof(lexer_dfa_state_T*));
+    dfa->last_states = (lexer_dfa_state_T**)malloc(NUM_TOK * sizeof(lexer_dfa_state_T*));
     if(dfa->last_states == NULL) {
         perror("Error allocating memory for the DFA");
         exit(EXIT_FAILURE);
     }
-    for(i = 0; i < LEXER_DFA_STATE_TYPE_SIZE; ++i) {
+    for(i = 0; i < NUM_TOK; ++i) {
         dfa->last_states[i] = (lexer_dfa_state_T*)malloc(sizeof(lexer_dfa_state_T));
         dfa->last_states[i] = NULL;
     }
-    dfa->last_states[DENY] = dfa->states[0];
+    dfa->last_states[TOK_UNKNOWN] = dfa->states[0];
 
     // init filename
     dfa->filename = (char*)malloc(sizeof(char) * (strlen(DFA_filename) + 1));
@@ -227,12 +216,6 @@ int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, char
     fprintf(DFA_fp, "%d\n%d\n", dfa->n_states, ASCII_SIZE);
     
     for(i = 0; i < dfa->n_states; ++i) {    
-        // check invalid state type
-        if(dfa->states[i]->type >= LEXER_DFA_STATE_TYPE_SIZE) {
-            perror("Error defining states, invalid state type");
-            exit(EXIT_FAILURE);
-        }
-
         fprintf(DFA_states_fp, "%d %d\n",  
                 dfa->states[i]->index,
                 dfa->states[i]->type
