@@ -5,12 +5,16 @@
 #include <stdio.h>
 
 void compile(char *src) {
-    lexer_T* lex = init_lexer(src, "src/config/lexer_dfa.dat");
+    lexer_T* lex = init_lexer(src);
     token_T* tk = 0;
 
-    // lexer_next_token(lex);
     while((tk = lexer_next_token(lex))->type != TOK_eof) {
-        printf("TOKEN(%s) (%d)\n", tk->value, tk->type);
+        if(tk->type == TOK_UNKNOWN) {
+            printf("token is unknown: TOKEN(%s) (%d)\n", tk->value, tk->type);
+            // exit(EXIT_FAILURE);
+        } else {
+            printf("TOKEN(%s) (%d)\n", tk->value, tk->type);
+        }
     }
 }
 

@@ -138,9 +138,11 @@ static void init_special_states(lexer_dfa_T *dfa) {
 
 // initialize the lexer's Deterministic Finite Automata 
 // according to a set of tokens that set the rules. 
-int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, char *DFA_states_filename, unsigned short flags) {
+int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, const char *DFA_states_filename, const char *DFA_states_details_filename , unsigned short flags) {
     lexer_dfa_T *dfa = malloc(sizeof(lexer_dfa_T));
-    FILE *DFA_fp = fopen(DFA_filename, "w"), *DFA_states_fp = fopen(DFA_states_filename, "w");
+    FILE *DFA_fp = fopen(DFA_filename, "w"); 
+    FILE *DFA_states_fp = fopen(DFA_states_filename, "w");
+    FILE *DFA_states_details_fp = fopen(DFA_states_details_filename, "w");
     int i, j;
 
     // handle file not opening 
@@ -217,8 +219,14 @@ int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, char
     
     for(i = 0; i < dfa->n_states; ++i) {    
         fprintf(DFA_states_fp, "%d %d\n",  
-                dfa->states[i]->index,
-                dfa->states[i]->type
+            dfa->states[i]->index,
+            dfa->states[i]->type
+        );
+
+        fprintf(DFA_states_details_fp, "%s: %d (%d)\n",
+            dfa->states[i]->lexeme,
+            dfa->states[i]->index,
+            dfa->states[i]->type
         );
         
         for(j = 0; j < ASCII_SIZE; ++j) {
@@ -244,6 +252,7 @@ int init_default_dfa() {
             NUM_TOK, 
             LEXER_DFA_PATH, 
             LEXER_DFA_STATES_PATH,
+            LEXER_DFA_STATES_DETAILS_PATH,
             ADD_IDENTIFIER_STATE_FLAG + ADD_NUMBER_STATE_FLAG + ADD_CHAR_STATES_FLAG + ADD_STRING_STATES_FLAG);
 
     for(i = 0; i < NUM_TOK; ++i)

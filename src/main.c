@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     }
 
     compile_file(argv[1]);
-    // init_def ault_dfa();
+    // init_default_dfa();
 
     return 0;
 }

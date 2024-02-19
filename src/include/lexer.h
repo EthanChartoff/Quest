@@ -12,7 +12,7 @@ typedef struct LEXER_STRUCT {
     lexer_automata_T *automata;     // automata of the lexer
 } lexer_T;
 
-lexer_T* init_lexer(char *src, const char *dfa_src);
+lexer_T* init_lexer(char *src);
 
 void lexer_advance(lexer_T* lex);
 

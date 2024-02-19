@@ -41,6 +41,7 @@ static void init_automata_mat(lexer_automata_T *automata, const char *auto_src) 
 
     // init auto self
     automata->n_state = rows;
+    automata->n_symbols = cols;
     automata->automata = (short **)malloc(automata->n_state * sizeof(short *));
 
     // handle malloc not working properly

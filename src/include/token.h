@@ -5,7 +5,7 @@ typedef enum TOKEN_ENUM {
     #define TOK(name, lexeme, val, is_kw) TOK_##name val,
     #include "tokens.h"
     #undef TOK
-    NUM_TOK = 78
+    NUM_TOK = 80
 } token_type_t;
 
 typedef struct TOKEN_STRUCT {

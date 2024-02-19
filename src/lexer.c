@@ -18,14 +18,14 @@
 
 
 // advance lexer to the next character in its source.
-void lexer_advance(lexer_T* lex) {
+void lexer_advance(lexer_T *lex) {
     if(lex->i < lex->src_size && lex->c != '\0') {
         lex->i++;
         lex->c = lex->src[lex->i];
     }
 }
 
-void lexer_skip_whitespace(lexer_T* lex) {
+void lexer_skip_whitespace(lexer_T *lex) {
     while (lex->c == '\r'   // carriage return 
         || lex->c == '\n'   // newline 
         || lex->c == '\t'   // tab
@@ -33,10 +33,27 @@ void lexer_skip_whitespace(lexer_T* lex) {
         lexer_advance(lex); // skip
 }
 
-static token_T* get_token(lexer_T* lex) {
+void lexer_skip_bullshit(lexer_T *lex) {
+    while(lex->c > lex->automata->n_symbols) {
+        printf("Unexcepted symbol\n");
+        lexer_advance(lex);
+    }
+}
+
+static token_T* get_token(lexer_T *lex) {
     unsigned int curr_state = 0, buffer_len = 1;
     char *buffer = malloc(sizeof(char));
 
+    if(lex->automata->automata[curr_state][lex->c] == -1) {
+        buffer = (char *) realloc(buffer, (++buffer_len) * sizeof(char));
+        buffer[buffer_len - 1] = '\0';
+        buffer[buffer_len - 2] = lex->c;
+
+        lexer_advance(lex);
+
+        return init_token(buffer, lex->automata->state_type[curr_state]);
+    }
+    
     do {
         buffer = (char *) realloc(buffer, (++buffer_len) * sizeof(char));
         buffer[buffer_len - 1] = '\0';
@@ -45,15 +62,17 @@ static token_T* get_token(lexer_T* lex) {
         curr_state = lex->automata->automata[curr_state][lex->c];        
 
         lexer_advance(lex);
-    } while(lex->automata->automata[curr_state][lex->c] != -1);
+
+    } while(lex->automata->automata[curr_state][lex->c] != -1 && lex->c != '\0');
 
     return init_token(buffer, lex->automata->state_type[curr_state]);
 }
 
-token_T* lexer_next_token(lexer_T* lex) {
+token_T* lexer_next_token(lexer_T *lex) {
     while (lex->c != '\0') {
         lexer_skip_whitespace(lex);
-        // lexer_advance(lex);
+        lexer_skip_bullshit(lex);
+        lexer_skip_whitespace(lex);
 
         return get_token(lex);
     }    
@@ -63,7 +82,7 @@ token_T* lexer_next_token(lexer_T* lex) {
 
 // initilize lexer with a source.
 // TODO: dont need dfa src
-lexer_T* init_lexer(char *src, const char *dfa_src) {
+lexer_T* init_lexer(char *src) {
     lexer_T *lex = malloc(sizeof(lexer_T));
 
     lex->src = src;

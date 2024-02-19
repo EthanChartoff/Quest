@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/qc.dir/src/io.c.o CMakeFiles/qc.dir/src/lexer.c.o CMakeFiles/qc.dir/src/lexer_automata.c.o CMakeFiles/qc.dir/src/main.c.o CMakeFiles/qc.dir/src/quest.c.o CMakeFiles/qc.dir/src/token.c.o CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o -o qc 
