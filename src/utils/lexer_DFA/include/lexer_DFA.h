@@ -11,7 +11,7 @@
 #ifndef QUEST_LEXER_DFA_H
 #define QUEST_LEXER_DFA_H
 
-#include "../../../include/token.h"
+#include "../../../include/lexer/token.h"
 #include <stddef.h>
 
 #define ASCII_SIZE 128

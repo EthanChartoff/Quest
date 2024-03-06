@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/token.h"
+#include "../include/lexer/token.h"
 
 token_T* init_token(char* value, int type) {
     token_T* tk = calloc(1, sizeof(token_T));

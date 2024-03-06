@@ -36,23 +36,26 @@
 #endif
 
 //------------------
-// Debug Tokens
+// Debug Tokens (4)
 //------------------
 
 DEBUG(null)
 DEBUG(UNKNOWN)
 DEBUG(eof)
-
 DEBUG(COMMENT)
 
 //------------------
-// Keywords
+// Base (4)
 //------------------
 
 BASETOK(IDENTIFIER)
 BASETOK(NUMBER_CONSTANT)
 BASETOK(CHAR_CONSTANT)
 BASETOK(STRING_LITERAL)
+
+//------------------
+// Keywords (24)
+//------------------
 
 KEYWORD(BOOL,     "bool")
 KEYWORD(BREAK,    "break")
@@ -80,7 +83,7 @@ KEYWORD(VOID,     "void")
 KEYWORD(WHILE,    "while")
 
 //------------------
-// Operators
+// Operators (38)
 //------------------
 
 // one character symbols have theire ASCII value used as theire token's value
@@ -125,7 +128,7 @@ OPERATOR(SHIFTLEFTEQUEL,  "<<=")
 OPERATOR(SHIFTRIGHTEQUEL, ">>=")
 
 //------------------
-// Punctuators
+// Punctuators (10)
 //------------------
 
 // one character symbols have theire ASCII value used as theire token's value

@@ -1,0 +1,166 @@
+<program> ::= {<statement>}*
+
+<statement> ::= <expression-statement>
+              | <compound-statement>
+              | <selection-statement>
+              | <iteration-statement>
+              | <jump-statement>
+              | <labeled-statement>
+
+
+<expression-statement> ::= <expression> SEMICOLON
+
+<expression> ::= <assignment-expression>
+               | <expression> COMMA <assignment-expression>
+
+<assignment-expression> ::= <conditional-expression>
+                          | <unary-expression> <assignment-operator> <assignment-expression>
+
+<assignment-operator> ::= =
+                        | *=
+                        | /=
+                        | %=
+                        | +=
+                        | -=
+                        | <<=
+                        | >>=
+                        | &=
+                        | ^=
+                        | |=
+
+<unary-operator> ::= &
+                   | *
+                   | +
+                   | -
+                   | ~
+                   | !
+
+
+<conditional-expression> ::= <logical-or-expression>
+
+<logical-or-expression> ::= <logical-and-expression>
+                          | <logical-or-expression> OR <logical-and-expression>
+
+<logical-and-expression> ::= <inclusive-or-expression>
+                           | <logical-and-expression> AND <inclusive-or-expression>
+
+<inclusive-or-expression> ::= <exclusive-or-expression>
+                            | <inclusive-or-expression> BITOR <exclusive-or-expression>
+
+<exclusive-or-expression> ::= <and-expression>
+                            | <exclusive-or-expression> BITXOR <and-expression>
+
+<and-expression> ::= <equality-expression>
+                   | <and-expression> BITAND <equality-expression>
+
+<equality-expression> ::= <relational-expression>
+                        | <equality-expression> EQUELEQUEL <relational-expression>
+                        | <equality-expression> NOTEQUEL <relational-expression>
+
+<relational-expression> ::= <shift-expression>
+                          | <relational-expression> LESSER <shift-expression>
+                          | <relational-expression> GREATER <shift-expression>
+                          | <relational-expression> LESSEREQUEL <shift-expression>
+                          | <relational-expression> GREATEREQUEL <shift-expression>
+
+<shift-expression> ::= <additive-expression>
+                     | <shift-expression> SHIFTLEFT <additive-expression>
+                     | <shift-expression> SHIFTRIGHT <additive-expression>
+
+<additive-expression> ::= <multiplicative-expression>
+                        | <additive-expression> PLUS <multiplicative-expression>
+                        | <additive-expression> MINUS <multiplicative-expression>
+
+<multiplicative-expression> ::= <cast-expression>
+                              | <multiplicative-expression> STAR <cast-expression>
+                              | <multiplicative-expression> SLASH <cast-expression>
+                              | <multiplicative-expression> PRECENT <cast-expression>
+
+<cast-expression> ::= <unary-expression>
+                    | LPAREN <type-specifier> RPAREN <cast-expression>
+
+<unary-expression> ::= <postfix-expression>
+                     | <unary-operator> <cast-expression>
+
+<postfix-expression> ::= <primary-expression>
+                       | <postfix-expression> LBRACK <expression> RBRACK
+                       | <postfix-expression> LPAREN {<assignment-expression>}* RPAREN
+
+<primary-expression> ::= <identifier>
+                       | <constant>
+                       | LPAREN <expression> RPAREN
+
+<identifier> ::= IDENTIFIER
+
+<constant> ::= NUMBER_CONSTANT
+             | CHAR_CONSTANT
+             | STRING_LITERAL 
+
+<compound-statement> ::= LBRACE {declaration}* | {statement}* RBRACE
+
+
+<declaration> ::=  {<declaration-specifier>}+ {<init-declarator>}* SEMICOLON
+
+<declaration-specifier> ::= <type-specifier>
+                          | <type-qualifier>
+
+<type-specifier> ::= void
+                   | char
+                   | short
+                   | int
+                   | long
+                   | float
+                   | double
+
+<type-qualifier> ::= const
+                   | signed
+                   | unsigned
+
+<init-declarator> ::= <declarator>
+                    | <declarator> = <initializer>
+                    | <type-qualifier> <init-declarator>
+
+
+<selection-statement> ::= if ( <expression> ) <statement>
+                        | if ( <expression> ) <statement> else <statement>
+                        | switch ( <expression> ) <statement>
+
+
+<iteration-statement> ::= while ( <expression> ) <statement>
+                        | do <statement> while ( <expression> ) ;
+                        | for ( {<expression>}? ; {<expression>}? ; {<expression>}? ) <statement>
+
+
+<jump-statement> ::= continue ;
+                   | break ;
+                   | return {<expression>}? ;
+
+
+<labeled-statement> ::= CASE <constant-expression> COLON <statement>
+
+
+
+<function-definition> ::= <type-specifier> <identifier>'('<init-declarator-list>')' '{'<statement>'}'';'
+
+
+<declarator> ::= <identifier>
+               | '('<declarator>')'
+               | <declarator> '['<constant-expression>']'
+               
+
+<init-declarator-list> ::= <init-declarator>
+                         | <init-declarator>','
+
+<initializer> ::= <assignment-expression>
+                | { <initializer-list> }
+                | { <initializer-list> , }
+
+<initializer-list> ::= <initializer>
+                     | <initializer-list> , <initializer>
+
+        
+
+<constant-expression> ::= <conditional-expression>
+
+
+

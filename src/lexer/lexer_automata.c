@@ -1,5 +1,5 @@
-#include "include/lexer_automata.h"
-#include "utils/lexer_DFA/include/lexer_DFA.h"
+#include "../include/lexer/lexer_automata.h"
+#include "../utils/lexer_DFA/include/lexer_DFA.h"
 #include <stdio.h>
 #include <stdlib.h>
 

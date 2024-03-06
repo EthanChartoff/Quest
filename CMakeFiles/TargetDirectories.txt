@@ -1,0 +1,7 @@
+/home/goodman/school/Quest/CMakeFiles/qc.dir
+/home/goodman/school/Quest/CMakeFiles/edit_cache.dir
+/home/goodman/school/Quest/CMakeFiles/rebuild_cache.dir
+/home/goodman/school/Quest/CMakeFiles/list_install_components.dir
+/home/goodman/school/Quest/CMakeFiles/install.dir
+/home/goodman/school/Quest/CMakeFiles/install/local.dir
+/home/goodman/school/Quest/CMakeFiles/install/strip.dir

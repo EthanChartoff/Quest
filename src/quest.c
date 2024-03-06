@@ -1,5 +1,5 @@
 #include "include/quest.h"
-#include "include/lexer.h"
+#include "include/lexer/lexer.h"
 #include "include/io.h"
 #include <stdlib.h>
 #include <stdio.h>

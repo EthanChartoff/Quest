@@ -1,6 +1,6 @@
 #include "include/lexer_DFA.h"
 #include "include/transitions.h"
-#include "../../include/tokens.h"
+#include "../../include/lexer/tokens.h"
 #include "../../include/macros.h"
 #include <ctype.h>
 #include <stdio.h>

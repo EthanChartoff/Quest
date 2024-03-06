@@ -1,4 +1,4 @@
-//===--- The Quest Language: Lexer -------------------===
+//===--= Lexer =-------------------------------------===
 //
 // The lexer of the compiler.
 //
@@ -7,10 +7,10 @@
 //
 //===------------------------------------------------===
 
-#include "include/lexer.h"
-#include "include/lexer_automata.h"
-#include "include/macros.h"
-#include "include/token.h"
+#include "../include/lexer/lexer.h"
+#include "../include/lexer/lexer_automata.h"
+#include "../include/macros.h"
+#include "../include/lexer/token.h"
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>

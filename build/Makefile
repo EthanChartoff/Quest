@@ -198,53 +198,77 @@ src/io.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/io.c.s
 .PHONY : src/io.c.s
 
-src/lexer.o: src/lexer.c.o
-.PHONY : src/lexer.o
+src/lexer/lexer.o: src/lexer/lexer.c.o
+.PHONY : src/lexer/lexer.o
 
 # target to build an object file
-src/lexer.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer.c.o
-.PHONY : src/lexer.c.o
+src/lexer/lexer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/lexer.c.o
+.PHONY : src/lexer/lexer.c.o
 
-src/lexer.i: src/lexer.c.i
-.PHONY : src/lexer.i
+src/lexer/lexer.i: src/lexer/lexer.c.i
+.PHONY : src/lexer/lexer.i
 
 # target to preprocess a source file
-src/lexer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer.c.i
-.PHONY : src/lexer.c.i
+src/lexer/lexer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/lexer.c.i
+.PHONY : src/lexer/lexer.c.i
 
-src/lexer.s: src/lexer.c.s
-.PHONY : src/lexer.s
+src/lexer/lexer.s: src/lexer/lexer.c.s
+.PHONY : src/lexer/lexer.s
 
 # target to generate assembly for a file
-src/lexer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer.c.s
-.PHONY : src/lexer.c.s
+src/lexer/lexer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/lexer.c.s
+.PHONY : src/lexer/lexer.c.s
 
-src/lexer_automata.o: src/lexer_automata.c.o
-.PHONY : src/lexer_automata.o
+src/lexer/lexer_automata.o: src/lexer/lexer_automata.c.o
+.PHONY : src/lexer/lexer_automata.o
 
 # target to build an object file
-src/lexer_automata.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer_automata.c.o
-.PHONY : src/lexer_automata.c.o
+src/lexer/lexer_automata.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o
+.PHONY : src/lexer/lexer_automata.c.o
 
-src/lexer_automata.i: src/lexer_automata.c.i
-.PHONY : src/lexer_automata.i
+src/lexer/lexer_automata.i: src/lexer/lexer_automata.c.i
+.PHONY : src/lexer/lexer_automata.i
 
 # target to preprocess a source file
-src/lexer_automata.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer_automata.c.i
-.PHONY : src/lexer_automata.c.i
+src/lexer/lexer_automata.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/lexer_automata.c.i
+.PHONY : src/lexer/lexer_automata.c.i
 
-src/lexer_automata.s: src/lexer_automata.c.s
-.PHONY : src/lexer_automata.s
+src/lexer/lexer_automata.s: src/lexer/lexer_automata.c.s
+.PHONY : src/lexer/lexer_automata.s
 
 # target to generate assembly for a file
-src/lexer_automata.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer_automata.c.s
-.PHONY : src/lexer_automata.c.s
+src/lexer/lexer_automata.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/lexer_automata.c.s
+.PHONY : src/lexer/lexer_automata.c.s
+
+src/lexer/token.o: src/lexer/token.c.o
+.PHONY : src/lexer/token.o
+
+# target to build an object file
+src/lexer/token.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/token.c.o
+.PHONY : src/lexer/token.c.o
+
+src/lexer/token.i: src/lexer/token.c.i
+.PHONY : src/lexer/token.i
+
+# target to preprocess a source file
+src/lexer/token.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/token.c.i
+.PHONY : src/lexer/token.c.i
+
+src/lexer/token.s: src/lexer/token.c.s
+.PHONY : src/lexer/token.s
+
+# target to generate assembly for a file
+src/lexer/token.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lexer/token.c.s
+.PHONY : src/lexer/token.c.s
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
@@ -270,6 +294,78 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/parser/grammer.o: src/parser/grammer.c.o
+.PHONY : src/parser/grammer.o
+
+# target to build an object file
+src/parser/grammer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/grammer.c.o
+.PHONY : src/parser/grammer.c.o
+
+src/parser/grammer.i: src/parser/grammer.c.i
+.PHONY : src/parser/grammer.i
+
+# target to preprocess a source file
+src/parser/grammer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/grammer.c.i
+.PHONY : src/parser/grammer.c.i
+
+src/parser/grammer.s: src/parser/grammer.c.s
+.PHONY : src/parser/grammer.s
+
+# target to generate assembly for a file
+src/parser/grammer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/grammer.c.s
+.PHONY : src/parser/grammer.c.s
+
+src/parser/lr_item.o: src/parser/lr_item.c.o
+.PHONY : src/parser/lr_item.o
+
+# target to build an object file
+src/parser/lr_item.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_item.c.o
+.PHONY : src/parser/lr_item.c.o
+
+src/parser/lr_item.i: src/parser/lr_item.c.i
+.PHONY : src/parser/lr_item.i
+
+# target to preprocess a source file
+src/parser/lr_item.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_item.c.i
+.PHONY : src/parser/lr_item.c.i
+
+src/parser/lr_item.s: src/parser/lr_item.c.s
+.PHONY : src/parser/lr_item.s
+
+# target to generate assembly for a file
+src/parser/lr_item.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_item.c.s
+.PHONY : src/parser/lr_item.c.s
+
+src/parser/rule.o: src/parser/rule.c.o
+.PHONY : src/parser/rule.o
+
+# target to build an object file
+src/parser/rule.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/rule.c.o
+.PHONY : src/parser/rule.c.o
+
+src/parser/rule.i: src/parser/rule.c.i
+.PHONY : src/parser/rule.i
+
+# target to preprocess a source file
+src/parser/rule.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/rule.c.i
+.PHONY : src/parser/rule.c.i
+
+src/parser/rule.s: src/parser/rule.c.s
+.PHONY : src/parser/rule.s
+
+# target to generate assembly for a file
+src/parser/rule.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/rule.c.s
+.PHONY : src/parser/rule.c.s
+
 src/quest.o: src/quest.c.o
 .PHONY : src/quest.o
 
@@ -294,29 +390,53 @@ src/quest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/quest.c.s
 .PHONY : src/quest.c.s
 
-src/token.o: src/token.c.o
-.PHONY : src/token.o
+src/utils/DS/queue.o: src/utils/DS/queue.c.o
+.PHONY : src/utils/DS/queue.o
 
 # target to build an object file
-src/token.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/token.c.o
-.PHONY : src/token.c.o
+src/utils/DS/queue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/queue.c.o
+.PHONY : src/utils/DS/queue.c.o
 
-src/token.i: src/token.c.i
-.PHONY : src/token.i
+src/utils/DS/queue.i: src/utils/DS/queue.c.i
+.PHONY : src/utils/DS/queue.i
 
 # target to preprocess a source file
-src/token.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/token.c.i
-.PHONY : src/token.c.i
+src/utils/DS/queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/queue.c.i
+.PHONY : src/utils/DS/queue.c.i
 
-src/token.s: src/token.c.s
-.PHONY : src/token.s
+src/utils/DS/queue.s: src/utils/DS/queue.c.s
+.PHONY : src/utils/DS/queue.s
 
 # target to generate assembly for a file
-src/token.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/token.c.s
-.PHONY : src/token.c.s
+src/utils/DS/queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/queue.c.s
+.PHONY : src/utils/DS/queue.c.s
+
+src/utils/DS/stack.o: src/utils/DS/stack.c.o
+.PHONY : src/utils/DS/stack.o
+
+# target to build an object file
+src/utils/DS/stack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/stack.c.o
+.PHONY : src/utils/DS/stack.c.o
+
+src/utils/DS/stack.i: src/utils/DS/stack.c.i
+.PHONY : src/utils/DS/stack.i
+
+# target to preprocess a source file
+src/utils/DS/stack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/stack.c.i
+.PHONY : src/utils/DS/stack.c.i
+
+src/utils/DS/stack.s: src/utils/DS/stack.c.s
+.PHONY : src/utils/DS/stack.s
+
+# target to generate assembly for a file
+src/utils/DS/stack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/stack.c.s
+.PHONY : src/utils/DS/stack.c.s
 
 src/utils/lexer_DFA/lexer_DFA.o: src/utils/lexer_DFA/lexer_DFA.c.o
 .PHONY : src/utils/lexer_DFA/lexer_DFA.o
@@ -382,21 +502,36 @@ help:
 	@echo "... src/io.o"
 	@echo "... src/io.i"
 	@echo "... src/io.s"
-	@echo "... src/lexer.o"
-	@echo "... src/lexer.i"
-	@echo "... src/lexer.s"
-	@echo "... src/lexer_automata.o"
-	@echo "... src/lexer_automata.i"
-	@echo "... src/lexer_automata.s"
+	@echo "... src/lexer/lexer.o"
+	@echo "... src/lexer/lexer.i"
+	@echo "... src/lexer/lexer.s"
+	@echo "... src/lexer/lexer_automata.o"
+	@echo "... src/lexer/lexer_automata.i"
+	@echo "... src/lexer/lexer_automata.s"
+	@echo "... src/lexer/token.o"
+	@echo "... src/lexer/token.i"
+	@echo "... src/lexer/token.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/grammer.o"
+	@echo "... src/parser/grammer.i"
+	@echo "... src/parser/grammer.s"
+	@echo "... src/parser/lr_item.o"
+	@echo "... src/parser/lr_item.i"
+	@echo "... src/parser/lr_item.s"
+	@echo "... src/parser/rule.o"
+	@echo "... src/parser/rule.i"
+	@echo "... src/parser/rule.s"
 	@echo "... src/quest.o"
 	@echo "... src/quest.i"
 	@echo "... src/quest.s"
-	@echo "... src/token.o"
-	@echo "... src/token.i"
-	@echo "... src/token.s"
+	@echo "... src/utils/DS/queue.o"
+	@echo "... src/utils/DS/queue.i"
+	@echo "... src/utils/DS/queue.s"
+	@echo "... src/utils/DS/stack.o"
+	@echo "... src/utils/DS/stack.i"
+	@echo "... src/utils/DS/stack.s"
 	@echo "... src/utils/lexer_DFA/lexer_DFA.o"
 	@echo "... src/utils/lexer_DFA/lexer_DFA.i"
 	@echo "... src/utils/lexer_DFA/lexer_DFA.s"
