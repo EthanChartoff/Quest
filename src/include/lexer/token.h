@@ -6,11 +6,11 @@ typedef enum TOKEN_ENUM {
     #include "tokens.h"
     #undef TOK
     NUM_TOK = 80
-} token_type_t;
+} token_type_E;
 
 typedef struct TOKEN_STRUCT {
     char* value;
-    token_type_t type;
+    token_type_E type;
 } token_T;
 
 token_T* init_token(char* value, int type);

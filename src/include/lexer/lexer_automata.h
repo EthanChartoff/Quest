@@ -5,7 +5,7 @@
 
 typedef struct LEXER_AUTOMATA_STRUCT {
     short **automata;           // mat representing the automata 
-    token_type_t *state_type;   // arr representing states types: deny, accept... 
+    token_type_E *state_type;   // arr representing states types: deny, accept... 
     unsigned int n_state;       // number of states
     unsigned int n_symbols;     // number of symbols from the start of the 
 } lexer_automata_T;

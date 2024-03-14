@@ -3,61 +3,86 @@
 #include <stdlib.h>
 
 
-lr_item_T *init_lr_item(rule_T *rule, size_t dot_index) {
+lr_item_T *init_lr_item(rule_T *rule, size_t dot_index, token_T *lookahead) {
     lr_item_T *item = malloc(sizeof(lr_item_T));
     
     item->rule = rule;
     item->dot_index = dot_index;
+    item->lookahead = lookahead;
 
-    return  item;
+    return item;
 }
 
-int lr_item_compare(const lr_item_T *item1, const lr_item_T *item2) {
-    return rule_compare(item1->rule, item2->rule) && item1->dot_index == item2->dot_index;
+int lr_item_equals(const lr_item_T *item1, const lr_item_T *item2) {
+    return rule_equals(item1->rule, item2->rule) 
+            && item1->dot_index == item2->dot_index
+            && item1->lookahead->type == item2->lookahead->type;
 }
 
-// Closure of Item Sets
-//
-// If I is a set of items for a grammar G, then CLOSURE(I) is the set of items
-// constructed from I by the two rules:
-// 1. Initially, add every item in I to CLOSURE(I).
-// 2. If A -> a.Bb is in CLOSURE(I) and B ! is a production, then add the
-// item B -> .y to CLOSURE(I), if it is not already there.
-lr_item_T **closure(grammer_T *grammer, lr_item_T *item) {
-    int changed, found, closure_items_size = 1, i, j, k;
-    lr_item_T **closure_items = malloc(sizeof(lr_item_T *)), *tmp;
+symbol_set_T *first(const grammer_T *gram, const symbol_set_T *syms) {
+    int i, j, k, no_null;
+    symbol_set_T *first_set = init_symbol_set(), *tmp;
 
-    closure_items[0] = malloc(sizeof(lr_item_T));
-    closure_items[0] = item;
+    for(i = 0; i < syms->size; ++i) {
 
-    do {
-        changed = 0;
-        
-        // go over all closure items 
-        for(i = 0; i < closure_items_size && closure_items_size < 5; ++i) {
-            for(j = 0; j < grammer->size; ++j) {
-                // if the grammer 
-                if(grammer->rules[j]->left->type == item->rule->right[item->dot_index]->type) {
-                    
-                    found = 0;
-                    tmp = init_lr_item(grammer->rules[j], 0);
+        // symbol is terminal
+        if(syms->set[i]->sym_type == TERMINAL) {
+            add_symbol(first_set, syms->set[i]);
+            return first_set;
+        }
 
-                    for(k = 0; k < closure_items_size; ++k) {
-                        if((found = lr_item_compare(closure_items[k], tmp))) {
-                            break;
-                        }
+        // symbol is non-terminal
+        for(j = 0; j < gram->rules_size; ++j) {
+            if(gram->rules[j]->left == syms->set[i]->symbol->non_terminal) {
+                tmp = first(gram, init_symbol_set_with_symbols(gram->rules[j]->right, gram->rules[j]->right_size));
+                no_null = 1;
+
+                for(k = 0; k < tmp->size; ++k) {
+                    if(tmp->set[k]->symbol->terminal->type == TOK_null)
+                        no_null = 0;
+                    else {
+                        add_symbol(first_set, tmp->set[k]);
                     }
-
-                    if(!found) {
-                            closure_items = realloc(closure_items, sizeof(lr_item_T *) * (closure_items_size + 1));
-
-                            closure_items[closure_items_size++] = tmp;
-                            changed = 1;
-                        }
                 }
-            }
-        }   
-    } while(changed);
 
-    return closure_items;
+                if(no_null || j + 1 == gram->rules_size)
+                    break;
+            }
+        }
+    }
+    return first_set;
 }
+    
+    // for (i = 0; i < gram->rules_size; ++i) {
+    //     if(gram->rules[i]->left->type == sym->symbol->non_terminal->type) {
+    //         for(j = 0; j < gram->rules[i]->right_size; ++j) {
+
+    //             if(gram->rules[i]->right[j]->sym_type == TERMINAL && gram->rules[i]->right[j]->symbol->terminal->type == TOK_null) {
+    //                 add_token(first_set, init_token("", TOK_null));
+    //             }
+
+    //             else {                    
+
+    //                 no_null = 1;
+    //                 tmp = first(gram, gram->rules[i]->right[j]);
+                    
+    //                 for(k = 0; k < tmp->size; ++k) {
+    //                     if(tmp->set[k]->type == TOK_null) {
+    //                         add_token(first_set, tmp->set[k]);
+    //                     }
+    //                 }
+
+    //                 for(k = 0; k < first_set->size; ++k) {
+    //                     if(tmp->set[k]->type == TOK_null) {
+    //                         remove_token(first_set, tmp->set[k]);
+    //                         no_null = 0;
+    //                         break;
+    //                     }
+    //                 }
+                    
+    //                 if(j + 1 == gram->rules[i]->right_size || no_null)
+    //                     break;
+    //             }
+    //         }
+    //     }
+    // }

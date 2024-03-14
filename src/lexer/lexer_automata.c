@@ -16,7 +16,7 @@ static void init_automata_state_type(lexer_automata_T *automata, const char *sta
     }
 
     // TODO: need to handle file not opening
-    automata->state_type = (token_type_t *)malloc(automata->n_state * sizeof(token_type_t));
+    automata->state_type = (token_type_E *)malloc(automata->n_state * sizeof(token_type_E));
     for(i = 0; i < automata->n_state; ++i) {
         fscanf(fp, "%zd ", &state_index);
         fscanf(fp, "%d", &automata->state_type[state_index]); 

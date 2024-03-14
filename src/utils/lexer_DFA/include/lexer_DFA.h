@@ -29,7 +29,7 @@
 typedef struct LEXER_DFA_STATE_STRUCT {
     unsigned int index;   // index of state                
     char *lexeme;         // lexeme of state, if the state does not accept this will be NULL
-    token_type_t type;    // states type
+    token_type_E type;    // states type
 } lexer_dfa_state_T;
 
 typedef struct LEXER_DFA_STRUCT {
