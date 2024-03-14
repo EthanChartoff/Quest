@@ -27,18 +27,20 @@ int main(int argc, char* argv[]) {
     symbol_T *rp = init_symbol_terminal(init_token(")", TOK_RPAREN));
     symbol_T *id = init_symbol_terminal(init_token("id", TOK_IDENTIFIER));
 
-    symbol_T *EpT[3] = {x, p, E};
+    symbol_T *EpT[3] = {T, p, E};
+    symbol_T *TxF[3] = {F, x, T};
+    symbol_T *l_E_r[3] = {lp, E, rp};
 
     rule_T *start_r = init_rule(E_s->symbol->non_terminal, &E, 1);
     rule_T *EtoEpT = init_rule(E->symbol->non_terminal, EpT, 3);
     rule_T *EtoT = init_rule(E->symbol->non_terminal, &T, 1);
-    // rule_T *TtoTxF = init_rule(T->symbol->non_terminal, TxF, 3);
+    rule_T *TtoTxF = init_rule(T->symbol->non_terminal, TxF, 3);
     rule_T *TtoF = init_rule(T->symbol->non_terminal, &F, 1);
-    // rule_T *E_paren = init_rule(F->symbol->non_terminal, l_E_r, 1);
+    rule_T *E_paren = init_rule(F->symbol->non_terminal, l_E_r, 1);
     rule_T *idr = init_rule(F->symbol->non_terminal, &id, 1);
 
 
-    rule_T *rules[] = {start_r, EtoEpT, EtoT, TtoF, idr}; 
+    rule_T *rules[] = {start_r, EtoEpT, EtoT, TtoF, idr, TtoTxF, E_paren}; 
     symbol_T *symbols[] = {E_s, E, T, F, p, x, lp, rp, id};
 
     grammer_T gram = {

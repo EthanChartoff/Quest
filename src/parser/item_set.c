@@ -11,50 +11,61 @@ lr_item_set_T *init_lr_item_set() {
 
 lr_item_set_T *init_lr_item_set_with_item(lr_item_T *item) {
 	lr_item_set_T *set = init_lr_item_set();
-	add_item(set, item);
+	add_item(&set, item);
 
     return set;
 }
 
-int add_item(lr_item_set_T *set, lr_item_T *item) {
+int add_item(lr_item_set_T **set, lr_item_T *item) {
 	size_t i;
 
-	for (i = 0; i < set->size; i++) {
-		if (lr_item_equals(set->set[i], item)) {
+	for (i = 0; i < (*set)->size; i++) {
+		if (lr_item_equals((*set)->set[i], item)) {
 			return 0; 
 		}
   	}
 
-  	set->set = (lr_item_T**)realloc(set->set, sizeof(lr_item_T*) * (set->size + 1));
-  	set->set[set->size] = item;
- 	set->size++;
+  	(*set)->set = (lr_item_T**)realloc((*set)->set, sizeof(lr_item_T*) * ((*set)->size + 1));
+  	(*set)->set[(*set)->size] = item;
+ 	(*set)->size++;
 
 	return 1;
 }
 
-int add_set(lr_item_set_T *set, lr_item_set_T *set_to_add) {
+int add_set(lr_item_set_T **set, lr_item_set_T *set_to_add) {
 	int added_count = 0, found;
 	size_t i, j;
 
 	for (i = 0; i < set_to_add->size; ++i) {
 		found = 0;
 
-		for(j = 0; j < set->size; ++j) {
-			if(lr_item_equals(set->set[j], set_to_add->set[i])) {
+		for(j = 0; j < (*set)->size; ++j) {
+			if(lr_item_equals((*set)->set[j], set_to_add->set[i])) {
 				found = 1;
 				break;
 			}
 		}
 
 		if(!found) {
-			set->set = (lr_item_T**)realloc(set->set, sizeof(lr_item_T*) * (set->size + 1));
-			set->set[set->size] = set_to_add->set[i];
-			set->size++;
+			(*set)->set = (lr_item_T**)realloc((*set)->set, sizeof(lr_item_T*) * ((*set)->size + 1));
+			(*set)->set[(*set)->size] = set_to_add->set[i];
+			(*set)->size++;
 			added_count++;
 		}
 	}
 
 	return added_count;
+}
+
+int is_item_in_set(const lr_item_set_T *set, const lr_item_T *item) {
+	int i;
+
+	for(i = 0; i < set->size; ++i) {
+		if(lr_item_equals(set->set[i], item)) {
+			return 1;
+		}
+	}
+	return 0;
 }
 
 // Closure of Item Sets
@@ -70,7 +81,7 @@ lr_item_set_T *closure(grammer_T *grammer, lr_item_set_T *items) {
     lr_item_T *tmp;
 
 
-    add_set(closure_items, items);
+    add_set(&closure_items, items);
 
     do {
         changed = 0;
@@ -94,7 +105,7 @@ lr_item_set_T *closure(grammer_T *grammer, lr_item_set_T *items) {
                     }
 
                     if(!found) {
-                        add_item(closure_items, tmp);
+                        add_item(&closure_items, tmp);
                         changed = 1;
                     }   
                 }
@@ -111,39 +122,27 @@ lr_item_set_T *closure_lookahead(grammer_T *grammer, lr_item_set_T *items) {
     lr_item_T *tmp;
 	symbol_set_T *first_set;
 
-    add_set(closure_items, items);
+    add_set(&closure_items, items);
 
     do {
         changed = 0;
 
         // go over all closure items 
         for(i = 0; i < closure_items->size; ++i) {
-            for(j = 0; j < grammer->symbols_size; ++j) {
+            for(j = 0; j < grammer->rules_size; ++j) {
 
                 if(
 					closure_items->set[i]->dot_index < closure_items->set[i]->rule->right_size
 					&& closure_items->set[i]->rule->right[closure_items->set[i]->dot_index]->sym_type == NON_TERMINAL
 					&& grammer->rules[j]->left->type == closure_items->set[i]->rule->right[closure_items->set[i]->dot_index]->symbol->non_terminal->type) {
-					
+
+					// TODO: first lookahead should be a set, 
 					first_set = first(grammer, init_symbol_set_with_symbols(&grammer->rules[j]->right[0], 1));
 
 					for(k = 0; k < first_set->size; ++k) {
 
-						found = 0;
 						tmp = init_lr_item(grammer->rules[j], closure_items->set[i]->dot_index, first_set->set[k]->symbol->terminal);
-
-						for(l = 0; l < closure_items->size; ++l) {
-							printf("\n%d, %s\n", k, first_set->set[k]->symbol->terminal->value);
-
-							if((found = lr_item_equals(closure_items->set[l], tmp))) {
-								break;
-							}
-						}
-
-						if(!found) {
-							add_item(closure_items, tmp);
-							changed = 1;
-						}
+						add_item(&closure_items, tmp);
 					}   
                 }
             }
@@ -152,6 +151,24 @@ lr_item_set_T *closure_lookahead(grammer_T *grammer, lr_item_set_T *items) {
 
     return closure_items;
 }
+
+lr_item_set_T *go_to_lookahead(grammer_T *grammer, lr_item_set_T *items, symbol_T *symbol) {
+	int i;
+    lr_item_set_T *goto_items = init_lr_item_set(); 
+
+	for(i = 0; i < items->size; ++i) {
+		if(
+			items->set[i]->dot_index < items->set[i]->rule->right_size 
+			&& symbol_equals(items->set[i]->rule->right[items->set[i]->dot_index], symbol)) {
+			add_set(
+				&goto_items,
+				init_lr_item_set_with_item(
+					init_lr_item(items->set[i]->rule, items->set[i]->dot_index + 1, init_token(items->set[i]->lookahead->value, items->set[i]->lookahead->type))));
+		}
+	}
+	return closure_lookahead(grammer, goto_items);
+}
+
 
 lr_item_set_T *go_to(grammer_T *grammer, lr_item_set_T *items, symbol_T *symbol) {
 	int i;
@@ -162,9 +179,9 @@ lr_item_set_T *go_to(grammer_T *grammer, lr_item_set_T *items, symbol_T *symbol)
 			items->set[i]->dot_index < items->set[i]->rule->right_size 
 			&& symbol_equals(items->set[i]->rule->right[items->set[i]->dot_index], symbol)) {
 			add_set(
-				goto_items,
+				&goto_items,
 				init_lr_item_set_with_item(
-					init_lr_item(items->set[i]->rule, items->set[i]->dot_index + 1, init_token("", TOK_null))));
+					init_lr_item(items->set[i]->rule, items->set[i]->dot_index + 1, init_token("eof", TOK_eof))));
 		}
 	}
 	return closure(grammer, goto_items);
@@ -181,7 +198,7 @@ lr_item_set_T *lr0_items(grammer_T *grammer, lr_item_T *starting_item) {
 			for (j = 0; j < grammer->symbols_size; ++j) {
 				if(
 					(goto_set = go_to(grammer, init_lr_item_set_with_item(lr0_items->set[i]), grammer->symbols[j]))->size != 0				
-					&& (count = add_set(lr0_items, goto_set)) != 0
+					&& (count = add_set(&lr0_items, goto_set)) != 0
 				) {
 					changed = 1;
 				}	
@@ -202,8 +219,8 @@ lr_item_set_T *lr1_items(grammer_T *grammer, lr_item_T *starting_item) {
 		for(i = 0; i < lr1_items->size; ++i) {
 			for (j = 0; j < grammer->symbols_size; ++j) {
 				if(
-					(goto_set = go_to(grammer, init_lr_item_set_with_item(lr1_items->set[i]), grammer->symbols[j]))->size != 0				
-					&& (count = add_set(lr1_items, goto_set)) != 0
+					(goto_set = go_to_lookahead(grammer, init_lr_item_set_with_item(lr1_items->set[i]), grammer->symbols[j]))->size != 0				
+					&& (count = add_set(&lr1_items, goto_set)) != 0
 				) {
 					changed = 1;
 				}	

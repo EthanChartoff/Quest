@@ -14,9 +14,21 @@ lr_item_T *init_lr_item(rule_T *rule, size_t dot_index, token_T *lookahead) {
 }
 
 int lr_item_equals(const lr_item_T *item1, const lr_item_T *item2) {
+    int flag = 1;
+
+    if(item1->lookahead == NULL)
+        flag = item2->lookahead == NULL ? 1 : 0;
+    
+
+    if(flag && item1->lookahead->type == item2->lookahead->type)
+        flag = 1;
+    else 
+        flag = 0;
+
+
     return rule_equals(item1->rule, item2->rule) 
             && item1->dot_index == item2->dot_index
-            && item1->lookahead->type == item2->lookahead->type;
+            && flag;  
 }
 
 symbol_set_T *first(const grammer_T *gram, const symbol_set_T *syms) {
@@ -52,37 +64,3 @@ symbol_set_T *first(const grammer_T *gram, const symbol_set_T *syms) {
     }
     return first_set;
 }
-    
-    // for (i = 0; i < gram->rules_size; ++i) {
-    //     if(gram->rules[i]->left->type == sym->symbol->non_terminal->type) {
-    //         for(j = 0; j < gram->rules[i]->right_size; ++j) {
-
-    //             if(gram->rules[i]->right[j]->sym_type == TERMINAL && gram->rules[i]->right[j]->symbol->terminal->type == TOK_null) {
-    //                 add_token(first_set, init_token("", TOK_null));
-    //             }
-
-    //             else {                    
-
-    //                 no_null = 1;
-    //                 tmp = first(gram, gram->rules[i]->right[j]);
-                    
-    //                 for(k = 0; k < tmp->size; ++k) {
-    //                     if(tmp->set[k]->type == TOK_null) {
-    //                         add_token(first_set, tmp->set[k]);
-    //                     }
-    //                 }
-
-    //                 for(k = 0; k < first_set->size; ++k) {
-    //                     if(tmp->set[k]->type == TOK_null) {
-    //                         remove_token(first_set, tmp->set[k]);
-    //                         no_null = 0;
-    //                         break;
-    //                     }
-    //                 }
-                    
-    //                 if(j + 1 == gram->rules[i]->right_size || no_null)
-    //                     break;
-    //             }
-    //         }
-    //     }
-    // }
