@@ -14,5 +14,8 @@ typedef struct TOKEN_STRUCT {
 } token_T;
 
 token_T* init_token(char* value, int type);
+int token_cmp(const token_T *tok1, const token_T *tok2);
+int token_cmp_generic(const void *tok1, const void *tok2);
+
 
 #endif

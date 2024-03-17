@@ -486,6 +486,54 @@ src/quest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/quest.c.s
 .PHONY : src/quest.c.s
 
+src/utils/DS/generic_set.o: src/utils/DS/generic_set.c.o
+.PHONY : src/utils/DS/generic_set.o
+
+# target to build an object file
+src/utils/DS/generic_set.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o
+.PHONY : src/utils/DS/generic_set.c.o
+
+src/utils/DS/generic_set.i: src/utils/DS/generic_set.c.i
+.PHONY : src/utils/DS/generic_set.i
+
+# target to preprocess a source file
+src/utils/DS/generic_set.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/generic_set.c.i
+.PHONY : src/utils/DS/generic_set.c.i
+
+src/utils/DS/generic_set.s: src/utils/DS/generic_set.c.s
+.PHONY : src/utils/DS/generic_set.s
+
+# target to generate assembly for a file
+src/utils/DS/generic_set.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/generic_set.c.s
+.PHONY : src/utils/DS/generic_set.c.s
+
+src/utils/DS/hashset.o: src/utils/DS/hashset.c.o
+.PHONY : src/utils/DS/hashset.o
+
+# target to build an object file
+src/utils/DS/hashset.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/hashset.c.o
+.PHONY : src/utils/DS/hashset.c.o
+
+src/utils/DS/hashset.i: src/utils/DS/hashset.c.i
+.PHONY : src/utils/DS/hashset.i
+
+# target to preprocess a source file
+src/utils/DS/hashset.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/hashset.c.i
+.PHONY : src/utils/DS/hashset.c.i
+
+src/utils/DS/hashset.s: src/utils/DS/hashset.c.s
+.PHONY : src/utils/DS/hashset.s
+
+# target to generate assembly for a file
+src/utils/DS/hashset.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/hashset.c.s
+.PHONY : src/utils/DS/hashset.c.s
+
 src/utils/DS/queue.o: src/utils/DS/queue.c.o
 .PHONY : src/utils/DS/queue.o
 
@@ -533,6 +581,30 @@ src/utils/DS/stack.s: src/utils/DS/stack.c.s
 src/utils/DS/stack.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/DS/stack.c.s
 .PHONY : src/utils/DS/stack.c.s
+
+src/utils/err/err.o: src/utils/err/err.c.o
+.PHONY : src/utils/err/err.o
+
+# target to build an object file
+src/utils/err/err.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/err/err.c.o
+.PHONY : src/utils/err/err.c.o
+
+src/utils/err/err.i: src/utils/err/err.c.i
+.PHONY : src/utils/err/err.i
+
+# target to preprocess a source file
+src/utils/err/err.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/err/err.c.i
+.PHONY : src/utils/err/err.c.i
+
+src/utils/err/err.s: src/utils/err/err.c.s
+.PHONY : src/utils/err/err.s
+
+# target to generate assembly for a file
+src/utils/err/err.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/utils/err/err.c.s
+.PHONY : src/utils/err/err.c.s
 
 src/utils/lexer_DFA/lexer_DFA.o: src/utils/lexer_DFA/lexer_DFA.c.o
 .PHONY : src/utils/lexer_DFA/lexer_DFA.o
@@ -634,12 +706,21 @@ help:
 	@echo "... src/quest.o"
 	@echo "... src/quest.i"
 	@echo "... src/quest.s"
+	@echo "... src/utils/DS/generic_set.o"
+	@echo "... src/utils/DS/generic_set.i"
+	@echo "... src/utils/DS/generic_set.s"
+	@echo "... src/utils/DS/hashset.o"
+	@echo "... src/utils/DS/hashset.i"
+	@echo "... src/utils/DS/hashset.s"
 	@echo "... src/utils/DS/queue.o"
 	@echo "... src/utils/DS/queue.i"
 	@echo "... src/utils/DS/queue.s"
 	@echo "... src/utils/DS/stack.o"
 	@echo "... src/utils/DS/stack.i"
 	@echo "... src/utils/DS/stack.s"
+	@echo "... src/utils/err/err.o"
+	@echo "... src/utils/err/err.i"
+	@echo "... src/utils/err/err.s"
 	@echo "... src/utils/lexer_DFA/lexer_DFA.o"
 	@echo "... src/utils/lexer_DFA/lexer_DFA.i"
 	@echo "... src/utils/lexer_DFA/lexer_DFA.s"

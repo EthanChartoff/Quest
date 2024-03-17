@@ -2,17 +2,15 @@
 #define QUEST_GRAMMER_H
 
 #include "rule.h"
-#include <stddef.h>
-#include "../lexer/token.h"
 #include "symbol.h"
+#include "../lexer/token.h"
+#include "../../utils/DS//include/generic_set.h"
 
 typedef struct GRAMMER_STRUCT {
-    rule_T **rules;
-    size_t rules_size;
-    symbol_T **symbols;
-    size_t symbols_size;
+    set_T *rules;
+    set_T *symbols;
 } grammer_T;
 
-grammer_T *init_grammer(rule_T **rules, size_t rules_size, symbol_T **symbols, size_t symbols_size);
+grammer_T *init_grammer(set_T *rules, set_T *symbols);
 
 #endif

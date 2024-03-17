@@ -23,6 +23,10 @@ typedef struct RULE_STRUCT {
 
 rule_T *init_rule(non_terminal_T *left, symbol_T **right, size_t right_size);
 
-int rule_equals(const rule_T *rule1, const rule_T *rule2);
+int rule_cmp(const rule_T *rule1, const rule_T *rule2);
+int rule_cmp_generic(const void *rule1, const void *rule2);
+
+int find_first_nt(const rule_T *rule, int offset);
+
 
 #endif
