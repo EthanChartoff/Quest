@@ -35,11 +35,11 @@ int main(int argc, char* argv[]) {
 
 
     rule_T *start = init_rule(E_s->symbol->non_terminal, &E, 1);
-    rule_T *EEpT = init_rule(E->symbol->non_terminal, EpT, 2);
+    rule_T *EEpT = init_rule(E->symbol->non_terminal, EpT, 3);
     rule_T *ET = init_rule(E->symbol->non_terminal, &T, 1);
-    rule_T *TTxF = init_rule(T->symbol->non_terminal, TxF, 2);
+    rule_T *TTxF = init_rule(T->symbol->non_terminal, TxF, 3);
     rule_T *TF = init_rule(T->symbol->non_terminal, &F, 1);
-    rule_T *FlEr = init_rule(F->symbol->non_terminal, lEr, 2);
+    rule_T *FlEr = init_rule(F->symbol->non_terminal, lEr, 3);
     rule_T *Fid = init_rule(F->symbol->non_terminal, &id, 1);
 
     set_T *rules = set_init(rule_cmp_generic);
@@ -58,6 +58,11 @@ int main(int argc, char* argv[]) {
     set_add(syms, id);
     set_add(syms, lp);
     set_add(syms, rp);
+    set_add(syms, E_s);
+    set_add(syms, E);
+    set_add(syms, T);
+    set_add(syms, F);
+
     
     grammer_T *gram = init_grammer(rules, syms);
 
@@ -84,7 +89,7 @@ int main(int argc, char* argv[]) {
             itm_itm_itm = cur_itm->data;
             print_item(itm_itm_itm);
             cur_itm = cur_itm->next;
-        }
+        } 
         curr = curr->next;
     }
     return 0;
