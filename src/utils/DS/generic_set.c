@@ -47,23 +47,56 @@ int set_add_all(set_T* set, set_T *more_set) {
 
 // Function to check if an element exists in the set
 int set_contains(set_T* set, void* data) {
-  set_node_T* current = set->head;
-  while (current != NULL) {
-    if (set->compare(current->data, data) == 0) {
-      return 1;  // Element found
-    }
-    current = current->next;
-  }
-  return 0;  // Element not found
+	set_node_T* current = set->head;
+
+	while (current != NULL) {
+		if (set->compare(current->data, data) == 0) {
+		return 1;  // Element found
+		}
+		current = current->next;
+	}
+	return 0;  // Element not found
+}
+
+// Function to remove an element from the set
+int set_remove(set_T* set, void* data) {
+	set_node_T* current = set->head;
+	set_node_T* prev = NULL;
+
+	// Find the node to remove and the node before it
+	while (current != NULL) {
+		if (set->compare(current->data, data) == 0) {
+			break;
+		}
+		prev = current;
+		current = current->next;
+	}
+
+	// If element not found, return 0 (failure)
+	if (current == NULL) {
+		return 0;
+	}
+
+	// Handle removing the head node
+	if (prev == NULL) {
+		set->head = current->next;
+	} else {
+		prev->next = current->next;
+	}
+
+	free(current->data);  // Free data if needed (depending on data type)
+	free(current);
+	set->size--;
+	return 1;  // Element removed	 successfully
 }
 
 void set_free(set_T* set) {
-  set_node_T* current = set->head;
-  while (current != NULL) {
-    set_node_T* temp = current;
-    current = current->next;
-    free(temp->data);  // Free data if needed (depending on data type)
-    free(temp);
-  }
-  free(set);
+	set_node_T* current = set->head;
+	while (current != NULL) {
+		set_node_T* temp = current;
+		current = current->next;
+		free(temp->data);  // Free data if needed (depending on data type)
+		free(temp);
+	}
+	free(set);
 }

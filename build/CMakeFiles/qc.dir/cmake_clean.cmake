@@ -11,8 +11,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/qc.dir/src/main.c.o.d"
   "CMakeFiles/qc.dir/src/parser/grammer.c.o"
   "CMakeFiles/qc.dir/src/parser/grammer.c.o.d"
-  "CMakeFiles/qc.dir/src/parser/item_set.c.o"
-  "CMakeFiles/qc.dir/src/parser/item_set.c.o.d"
   "CMakeFiles/qc.dir/src/parser/lr_item.c.o"
   "CMakeFiles/qc.dir/src/parser/lr_item.c.o.d"
   "CMakeFiles/qc.dir/src/parser/non_terminal.c.o"

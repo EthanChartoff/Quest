@@ -21,7 +21,6 @@ int lr_item_cmp_generic(const void *item1, const void *item2);
 int lr_item_set_cmp(const set_T *set1, const set_T *set2);  
 int lr_item_set_cmp_generic(const void *item1, const void *item2);
 
-
 set_T *first(const grammer_T *gram, const symbol_T **syms, const size_t size);
 
 set_T *closure(grammer_T *grammer, set_T *items);

@@ -295,12 +295,10 @@ CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /home/goodman/school/Quest/src/include/parser/item_set.h \
   /home/goodman/school/Quest/src/include/parser/lr_item.h \
   /home/goodman/school/Quest/src/include/parser/grammer.h \
   /home/goodman/school/Quest/src/include/parser/symbol_set.h \
   /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
-  /home/goodman/school/Quest/src/include/parser/lr_item.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
   /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
@@ -370,9 +368,6 @@ CMakeFiles/qc.dir/src/parser/grammer.c.o: /home/goodman/school/Quest/src/parser/
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
-
-CMakeFiles/qc.dir/src/parser/item_set.c.o: /home/goodman/school/Quest/src/parser/item_set.c \
-  /usr/include/stdc-predef.h
 
 CMakeFiles/qc.dir/src/parser/lr_item.c.o: /home/goodman/school/Quest/src/parser/lr_item.c \
   /usr/include/stdc-predef.h \
@@ -1107,15 +1102,11 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: /home/goodman/school/Ques
 
 /home/goodman/school/Quest/src/parser/non_terminal.c:
 
-/home/goodman/school/Quest/src/parser/item_set.c:
-
 /home/goodman/school/Quest/src/parser/grammer.c:
 
 /home/goodman/school/Quest/src/include/parser/symbol_set.h:
 
 /home/goodman/school/Quest/src/include/parser/lr_item.h:
-
-/home/goodman/school/Quest/src/include/parser/item_set.h:
 
 /home/goodman/school/Quest/src/utils/DS/include/generic_set.h:
 

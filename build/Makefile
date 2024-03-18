@@ -318,30 +318,6 @@ src/parser/grammer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/grammer.c.s
 .PHONY : src/parser/grammer.c.s
 
-src/parser/item_set.o: src/parser/item_set.c.o
-.PHONY : src/parser/item_set.o
-
-# target to build an object file
-src/parser/item_set.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/item_set.c.o
-.PHONY : src/parser/item_set.c.o
-
-src/parser/item_set.i: src/parser/item_set.c.i
-.PHONY : src/parser/item_set.i
-
-# target to preprocess a source file
-src/parser/item_set.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/item_set.c.i
-.PHONY : src/parser/item_set.c.i
-
-src/parser/item_set.s: src/parser/item_set.c.s
-.PHONY : src/parser/item_set.s
-
-# target to generate assembly for a file
-src/parser/item_set.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/item_set.c.s
-.PHONY : src/parser/item_set.c.s
-
 src/parser/lr_item.o: src/parser/lr_item.c.o
 .PHONY : src/parser/lr_item.o
 
@@ -685,9 +661,6 @@ help:
 	@echo "... src/parser/grammer.o"
 	@echo "... src/parser/grammer.i"
 	@echo "... src/parser/grammer.s"
-	@echo "... src/parser/item_set.o"
-	@echo "... src/parser/item_set.i"
-	@echo "... src/parser/item_set.s"
 	@echo "... src/parser/lr_item.o"
 	@echo "... src/parser/lr_item.i"
 	@echo "... src/parser/lr_item.s"
