@@ -22,14 +22,21 @@ static size_t find_goto_index(grammer_T *gram, set_T *items, symbol_T *symbol, s
 }
 
 
-static char **init_goto_table();
+static goto_tbl_T *init_goto_table();
 
-static char*** init_action_table(slr_T *lr0) {
+static action_tbl_T *init_action_table(slr_T *lr0) {
     int i, j; 
+    char *action;
+    action_tbl_T *actions;
     size_t gti;
     set_T *itemset;
     set_node_T *cur_itemset_node, *cn_item;
     lr_item_T *item;
+
+    actions = init_action_tbl(
+        terminals_in_symbol_set(lr0->grammer->symbols), 
+        n_terminals_in_symbol_set(lr0->grammer->symbols), 
+        lr0->lr0_cc_size);
 
     // go over collection
     for(i = 0; i < lr0->lr0_cc_size; ++i) {
@@ -43,13 +50,23 @@ static char*** init_action_table(slr_T *lr0) {
             // If [A -> a.ab ] is in Ii and GOTO(Ii, a) = Ij , then set ACTION[i, a] to
             // shift j. Here a must be a terminal.
             if(item->dot_index < item->rule->right_size && item->dot_index > 0 
-            && item->rule->right[item->dot_index - 1] == item->rule->right[item->dot_index]) {
-                gti = find_goto_index(lr0->grammer, 
-                                    itemset, 
-                                    item->rule->right[item->dot_index - 1], 
-                                    lr0->lr0_cc,
-                                    lr0->lr0_cc_size);
-                lr0->action[i, ]
+            && item->rule->right[item->dot_index]->sym_type == TERMINAL 
+            && symbol_equals(item->rule->right[item->dot_index - 1], item->rule->right[item->dot_index])) {
+                gti = find_goto_index(
+                    lr0->grammer, 
+                    itemset, 
+                    item->rule->right[item->dot_index - 1], 
+                    lr0->lr0_cc,
+                    lr0->lr0_cc_size);
+
+                action = "s0";
+                action[1] += gti;
+                lr0->action->actions[i][action_tbl_find_terminal(actions, item->rule->right[item->dot_index - 1]->symbol->terminal)] = action;
+            }
+            // If [A -> a.] is in Ii , then set ACTION[i, a] to "reduce A -> a" for all
+            // a in FOLLOW(A); here A may not be S'.
+            else if(item->dot_index == item->rule->right_size && item->rule->left->type != NON_TERM_start) {
+                
             }
 
             cn_item = cn_item->next;
