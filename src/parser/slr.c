@@ -36,7 +36,7 @@ static goto_tbl_T *init_goto_table(slr_T *lr0) {
         lr0->lr0_cc_size);
 
     // go over collection
-    for (i = 0; gotos->n_states; ++i) {
+    for (i = 0; lr0->lr0_cc_size && lr0->lr0_cc[i]; ++i) {
         itemset = lr0->lr0_cc[i];
 
         for(j = 0; j < gotos->n_non_terminals; ++j) {
@@ -45,14 +45,12 @@ static goto_tbl_T *init_goto_table(slr_T *lr0) {
                     itemset, 
                     init_symbol_non_terminal(gotos->non_terminals[j]), 
                     lr0->lr0_cc,
-                    lr0->lr0_cc_size);     
-                           
+                    lr0->lr0_cc_size); 
+
             if(gti != -1) {
-                printf("\n%d\n", gti);
                 gotos->gotos[i][goto_tbl_find_non_terminal(gotos, gotos->non_terminals[j])] = gti;
             }
         }
-
     }
 
     return gotos;
