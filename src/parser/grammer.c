@@ -110,18 +110,17 @@ size_t n_non_terminals_in_symbol_set(set_T *symbols) {
     return termc;
 }
 
-size_t find_right_grammer_index(const grammer_T *gram, const symbol_T **right, const size_t right_size) {
+size_t find_right_grammer_index(const grammer_T *gram, symbol_T **right, size_t right_size) {
     int i ,j, equ = 0;
     set_node_T *cn = gram->rules->head;
     rule_T *rule;   
 
     for(i = 0; i < gram->rules->size; ++i) {
         rule = cn->data;
-
         if(rule->right_size == right_size) {
             equ = 1;
             for(j = 0; j < right_size; ++j) {
-                if(symbol_cmp(rule->right[i], right[i])) {
+                if(symbol_cmp(rule->right[j], right[j])) {
                     equ = 0;
                     break;
                 }

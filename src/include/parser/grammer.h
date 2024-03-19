@@ -21,6 +21,6 @@ size_t n_terminals_in_symbol_set(set_T *symbols);
 non_terminal_T **non_terminals_in_symbol_set(set_T *symbols);
 size_t n_non_terminals_in_symbol_set(set_T *symbols);
 
-size_t find_right_grammer_index(const grammer_T *gram, const symbol_T **right, const size_t right_size);
+size_t find_right_grammer_index(const grammer_T *gram, symbol_T **right, size_t right_size);
 
 #endif

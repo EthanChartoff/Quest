@@ -73,9 +73,9 @@ int main(int argc, char* argv[]) {
     set_T *tmp = set_init(lr_item_cmp_generic);
     set_add(tmp, init_lr_item(start, 0, NULL));
 
-    // set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
-    // slr_T *slr = follow(gram, init_non_terminal("E'", NON_TERM_start));
-    printf("\n%zu\n", follow(gram, init_non_terminal("E'", NON_TERM_start))->size);
+    set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
+    slr_T *slr = init_slr(itms, gram);
+    // printf("\n%zu\n", follow(gram, init_non_terminal("F", NON_TERM_F))->size);
     // printf("\n%d\n", itms->size);
     // set_node_T *curr = itms->head, *cur_itm;
     // lr_item_T *itm_itm_itm;

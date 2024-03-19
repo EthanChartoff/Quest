@@ -84,32 +84,32 @@ set_T *first(const grammer_T *gram, const symbol_T *sym) {
 }
 
 set_T *follow(const grammer_T *gram, const non_terminal_T *nt) {
-    int i, j, term_flag;
+    int i, j;
     set_T *follow_set = set_init(token_cmp_generic);
     set_node_T *cn;
     rule_T *cur_rule;
 
+
+    if(nt->type == NON_TERM_start)
+        set_add(follow_set, init_token("", TOK_eof));
+
     cn = gram->rules->head;
-    for(i = 0; i < gram->rules->size; ++i) {    
+    for(i = 0; i < gram->rules->size; ++i) { 
         cur_rule = cn->data;
 
         // get immidiate terminals, meanining terminals in the grammer that follow the nt
-        term_flag = 0;
+        for(j = 0; j < cur_rule->right_size; ++j) {    
 
-        for(j = 0; j < cur_rule->right_size; ++i) {
-            if(cur_rule->right[i]->sym_type == NON_TERMINAL
-            && !non_terminal_cmp(nt, cur_rule->right[j]->symbol->non_terminal)) {
-                set_add_all(follow_set, first(gram, cur_rule->right[j]));
-            }
-            else if(cur_rule->right[i]->sym_type == TERMINAL) {
-                term_flag = 1;
+            if(cur_rule->right[j]->sym_type == NON_TERMINAL
+            && !non_terminal_cmp(nt, cur_rule->right[j]->symbol->non_terminal)
+            && j + 1 < cur_rule->right_size) {                
+                set_add_all(follow_set, first(gram, cur_rule->right[j + 1]));
             }
         }
 
-
-
         // get non-immidiate terminals, meaning follow of non-terminal ending symbol
-        if(!term_flag && cur_rule->right[cur_rule->right_size - 1]) {
+        if(cur_rule->right[cur_rule->right_size - 1]->sym_type == NON_TERMINAL 
+        && !non_terminal_cmp(cur_rule->right[cur_rule->right_size - 1]->symbol->non_terminal, nt)) {
             set_add_all(follow_set, follow(gram, cur_rule->left));
         }
 
