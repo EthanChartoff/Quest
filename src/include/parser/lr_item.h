@@ -2,6 +2,7 @@
 #define QUEST_LR_ITEM_H
 
 #include "grammer.h"
+#include "non_terminal.h"
 #include "rule.h"
 #include "symbol_set.h"
 #include "symbol.h"
@@ -21,7 +22,8 @@ int lr_item_cmp_generic(const void *item1, const void *item2);
 int lr_item_set_cmp(const set_T *set1, const set_T *set2);  
 int lr_item_set_cmp_generic(const void *item1, const void *item2);
 
-set_T *first(const grammer_T *gram, const symbol_T **syms, const size_t size);
+set_T *first(const grammer_T *gram, const symbol_T *sym);
+set_T *follow(const grammer_T *gram, const non_terminal_T *nt);
 
 set_T *closure(grammer_T *grammer, set_T *items);
 set_T *go_to(grammer_T *grammer, set_T *items, symbol_T *symbol);

@@ -17,7 +17,10 @@ int token_cmp(const token_T *tok1, const token_T *tok2) {
     delta = tok1->type - tok2->type;
     IF_SIGN(delta);
 
-    return strcmp(tok1->value, tok2->value);
+    delta = strcmp(tok1->value, tok2->value);
+    IF_SIGN(delta);
+
+    return 0;
 }
 
 int token_cmp_generic(const void *tok1, const void *tok2) {

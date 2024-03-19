@@ -8,11 +8,11 @@ action_tbl_T *init_action_tbl(token_T **terminals, size_t n_terminals, size_t n_
     if(!action)
         thrw(ALLOC_ERR);
 
-    action->actions = malloc(sizeof(char **) * n_terminals);
+    action->actions = malloc(sizeof(char **) * n_states);
     if(!action->actions)
         thrw(ALLOC_ERR);
-    for(i = 0; i < n_terminals; ++i) {
-        action->actions[i] = malloc(sizeof(char *) * n_states);
+    for(i = 0; i < n_states; ++i) {
+        action->actions[i] = malloc(sizeof(char *) * n_terminals);
         if(!action->actions[i])
             thrw(ALLOC_ERR);
     }

@@ -3,9 +3,11 @@
 #include "include/parser/lr_item.h"
 #include "include/parser/non_terminal.h"
 #include "include/parser/rule.h"
+#include "include/parser/slr.h"
 #include "include/parser/symbol.h"
 #include "include/quest.h"
 #include "utils/DS/include/generic_set.h"
+
 #include "include/macros.h"
 #include <stdio.h>
 
@@ -71,25 +73,27 @@ int main(int argc, char* argv[]) {
     set_T *tmp = set_init(lr_item_cmp_generic);
     set_add(tmp, init_lr_item(start, 0, NULL));
 
-    set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
+    // set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
+    // slr_T *slr = follow(gram, init_non_terminal("E'", NON_TERM_start));
+    printf("\n%zu\n", follow(gram, init_non_terminal("E'", NON_TERM_start))->size);
     // printf("\n%d\n", itms->size);
-    set_node_T *curr = itms->head, *cur_itm;
-    lr_item_T *itm_itm_itm;
+    // set_node_T *curr = itms->head, *cur_itm;
+    // lr_item_T *itm_itm_itm;
 
-    for(int i = 0; i < itms->size; ++i) {
-        itm_itm = curr->data;
+    // for(int i = 0; i < itms->size; ++i) {
+    //     itm_itm = curr->data;
         
-        // print_item(((lr_item_T *) itm_itm));
+    //     // print_item(((lr_item_T *) itm_itm));
 
-        printf("\n%d\n", i);
-        cur_itm = itm_itm->head;
-        // printf("\n%d\n", itm_itm->size);
-        for(int j = 0; j < itm_itm->size; ++j) {
-            itm_itm_itm = cur_itm->data;
-            print_item(itm_itm_itm);
-            cur_itm = cur_itm->next;
-        } 
-        curr = curr->next;
-    }
+    //     printf("\n%d\n", i);
+    //     cur_itm = itm_itm->head;
+    //     // printf("\n%d\n", itm_itm->size);
+    //     for(int j = 0; j < itm_itm->size; ++j) {
+    //         itm_itm_itm = cur_itm->data;
+    //         print_item(itm_itm_itm);
+    //         cur_itm = cur_itm->next;
+    //     } 
+    //     curr = curr->next;
+    // }
     return 0;
 }

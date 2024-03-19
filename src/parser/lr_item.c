@@ -56,6 +56,69 @@ int lr_item_set_cmp_generic(const void *item1, const void *item2) {
     return lr_item_set_cmp((const set_T *) item1, (const set_T *) item2);
 }
 
+set_T *first(const grammer_T *gram, const symbol_T *sym) {
+    int i;
+    set_T *first_set = set_init(token_cmp_generic);
+    set_node_T *cn;
+    rule_T *cur_rule;
+
+    // if symbol is term, return it
+    if(sym->sym_type == TERMINAL) {
+        set_add(first_set, sym->symbol->terminal);
+    }
+    // sym is non-term
+    else {
+        cn = gram->rules->head;
+        for(i = 0; i < gram->rules->size; ++i) {
+            cur_rule = cn->data;
+            
+            // get rules of symbol and see what is there start symbol 
+            if(!non_terminal_cmp(sym->symbol->non_terminal, cur_rule->left)) 
+                set_add_all(first_set, first(gram, cur_rule->right[0]));
+
+            cn = cn->next;
+        }
+    }
+
+    return first_set;
+}
+
+set_T *follow(const grammer_T *gram, const non_terminal_T *nt) {
+    int i, j, term_flag;
+    set_T *follow_set = set_init(token_cmp_generic);
+    set_node_T *cn;
+    rule_T *cur_rule;
+
+    cn = gram->rules->head;
+    for(i = 0; i < gram->rules->size; ++i) {    
+        cur_rule = cn->data;
+
+        // get immidiate terminals, meanining terminals in the grammer that follow the nt
+        term_flag = 0;
+
+        for(j = 0; j < cur_rule->right_size; ++i) {
+            if(cur_rule->right[i]->sym_type == NON_TERMINAL
+            && !non_terminal_cmp(nt, cur_rule->right[j]->symbol->non_terminal)) {
+                set_add_all(follow_set, first(gram, cur_rule->right[j]));
+            }
+            else if(cur_rule->right[i]->sym_type == TERMINAL) {
+                term_flag = 1;
+            }
+        }
+
+
+
+        // get non-immidiate terminals, meaning follow of non-terminal ending symbol
+        if(!term_flag && cur_rule->right[cur_rule->right_size - 1]) {
+            set_add_all(follow_set, follow(gram, cur_rule->left));
+        }
+
+        cn = cn->next;
+    } 
+
+    return follow_set;
+}
+
 // Closure of Item Sets
 //
 // If I is a set of items for a grammar G, then CLOSURE(I) is the set of items

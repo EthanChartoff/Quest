@@ -16,4 +16,6 @@ typedef struct NON_TERMINAL_T {
 
 non_terminal_T *init_non_terminal(char *value, non_terminal_E type);
 
+int non_terminal_cmp(const non_terminal_T *nt1, const non_terminal_T *nt2);
+
 #endif

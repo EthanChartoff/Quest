@@ -294,6 +294,54 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/parser/action_table.o: src/parser/action_table.c.o
+.PHONY : src/parser/action_table.o
+
+# target to build an object file
+src/parser/action_table.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/action_table.c.o
+.PHONY : src/parser/action_table.c.o
+
+src/parser/action_table.i: src/parser/action_table.c.i
+.PHONY : src/parser/action_table.i
+
+# target to preprocess a source file
+src/parser/action_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/action_table.c.i
+.PHONY : src/parser/action_table.c.i
+
+src/parser/action_table.s: src/parser/action_table.c.s
+.PHONY : src/parser/action_table.s
+
+# target to generate assembly for a file
+src/parser/action_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/action_table.c.s
+.PHONY : src/parser/action_table.c.s
+
+src/parser/goto_table.o: src/parser/goto_table.c.o
+.PHONY : src/parser/goto_table.o
+
+# target to build an object file
+src/parser/goto_table.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/goto_table.c.o
+.PHONY : src/parser/goto_table.c.o
+
+src/parser/goto_table.i: src/parser/goto_table.c.i
+.PHONY : src/parser/goto_table.i
+
+# target to preprocess a source file
+src/parser/goto_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/goto_table.c.i
+.PHONY : src/parser/goto_table.c.i
+
+src/parser/goto_table.s: src/parser/goto_table.c.s
+.PHONY : src/parser/goto_table.s
+
+# target to generate assembly for a file
+src/parser/goto_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/goto_table.c.s
+.PHONY : src/parser/goto_table.c.s
+
 src/parser/grammer.o: src/parser/grammer.c.o
 .PHONY : src/parser/grammer.o
 
@@ -389,6 +437,30 @@ src/parser/rule.s: src/parser/rule.c.s
 src/parser/rule.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/rule.c.s
 .PHONY : src/parser/rule.c.s
+
+src/parser/slr.o: src/parser/slr.c.o
+.PHONY : src/parser/slr.o
+
+# target to build an object file
+src/parser/slr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/slr.c.o
+.PHONY : src/parser/slr.c.o
+
+src/parser/slr.i: src/parser/slr.c.i
+.PHONY : src/parser/slr.i
+
+# target to preprocess a source file
+src/parser/slr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/slr.c.i
+.PHONY : src/parser/slr.c.i
+
+src/parser/slr.s: src/parser/slr.c.s
+.PHONY : src/parser/slr.s
+
+# target to generate assembly for a file
+src/parser/slr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/slr.c.s
+.PHONY : src/parser/slr.c.s
 
 src/parser/symbol.o: src/parser/symbol.c.o
 .PHONY : src/parser/symbol.o
@@ -658,6 +730,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/action_table.o"
+	@echo "... src/parser/action_table.i"
+	@echo "... src/parser/action_table.s"
+	@echo "... src/parser/goto_table.o"
+	@echo "... src/parser/goto_table.i"
+	@echo "... src/parser/goto_table.s"
 	@echo "... src/parser/grammer.o"
 	@echo "... src/parser/grammer.i"
 	@echo "... src/parser/grammer.s"
@@ -670,6 +748,9 @@ help:
 	@echo "... src/parser/rule.o"
 	@echo "... src/parser/rule.i"
 	@echo "... src/parser/rule.s"
+	@echo "... src/parser/slr.o"
+	@echo "... src/parser/slr.i"
+	@echo "... src/parser/slr.s"
 	@echo "... src/parser/symbol.o"
 	@echo "... src/parser/symbol.i"
 	@echo "... src/parser/symbol.s"

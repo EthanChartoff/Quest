@@ -25,5 +25,8 @@ symbol_T *init_symbol_terminal(token_T *tok);
 symbol_T *init_symbol_non_terminal(non_terminal_T *nt);
 
 int symbol_equals(const symbol_T *sym1, const symbol_T *sym2);
+int symbol_cmp(const symbol_T *sym1, const symbol_T *sym2);
+int symbol_cmp_generic(const void *sym1, const void *sym2);
+
 
 #endif
