@@ -1,5 +1,6 @@
 #include "../include/parser/action_table.h"
 #include "../utils/err/err.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 action_tbl_T *init_action_tbl(token_T **terminals, size_t n_terminals, size_t n_states) {
@@ -23,7 +24,7 @@ action_tbl_T *init_action_tbl(token_T **terminals, size_t n_terminals, size_t n_
     return action;
 }
 
-size_t action_tbl_find_terminal(action_tbl_T *tbl, token_T *term) {
+int action_tbl_find_terminal(action_tbl_T *tbl, token_T *term) {
     int i;
 
     for(i = 0; i < tbl->n_terminals; ++i) {
@@ -31,4 +32,21 @@ size_t action_tbl_find_terminal(action_tbl_T *tbl, token_T *term) {
             return i;
     }
     return -1;
+}
+
+void action_tbl_print_to_file(action_tbl_T *tbl, char *dest) {
+    int i, j;
+    FILE *fp = fopen(dest, "w");
+
+    for(i = 0; i < tbl->n_states; ++i) {
+        for(j = 0; j < tbl->n_terminals; ++j) {
+            if(!tbl->actions[i][j])
+                fprintf(fp, "    ");
+            else
+                fprintf(fp, "%3s ", tbl->actions[i][j]);
+        } 
+        fprintf(fp, "\n", tbl->actions[i][j]);
+    }
+
+    fclose(fp);
 }

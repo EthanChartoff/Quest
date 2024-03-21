@@ -1,4 +1,5 @@
 #include "include/lexer/token.h"
+#include "include/parser/action_table.h"
 #include "include/parser/grammer.h"
 #include "include/parser/lr_item.h"
 #include "include/parser/non_terminal.h"
@@ -75,6 +76,9 @@ int main(int argc, char* argv[]) {
 
     set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
     slr_T *slr = init_slr(itms, gram);
+    action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
+    goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
+
     // printf("\n%zu\n", follow(gram, init_non_terminal("F", NON_TERM_F))->size);
     // printf("\n%d\n", itms->size);
     // set_node_T *curr = itms->head, *cur_itm;

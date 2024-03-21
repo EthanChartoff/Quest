@@ -35,3 +35,17 @@ size_t goto_tbl_find_non_terminal(goto_tbl_T *tbl, non_terminal_T *nterm) {
     }
     return -1;
 }
+
+void goto_tbl_print_to_file(goto_tbl_T *tbl, char *dest) {
+    int i, j;
+    FILE *fp = fopen(dest, "w");
+
+    for(i = 0; i < tbl->n_states; ++i) {
+        for(j = 0; j < tbl->n_non_terminals; ++j) {
+            fprintf(fp, "%d ", tbl->gotos[i][j]);
+        } 
+        fprintf(fp, "\n");
+    }
+
+    fclose(fp);
+}

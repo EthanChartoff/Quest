@@ -8,8 +8,10 @@
 #include "../include/parser/slr.h"
 #include "../include/parser/lr_item.h"
 #include "../utils/err/err.h"
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 // finds items goto index inside cc arr.
 static size_t find_goto_index(grammer_T *gram, set_T *items, symbol_T *symbol, set_T **cc, size_t cc_size) {
@@ -57,10 +59,9 @@ static goto_tbl_T *init_goto_table(slr_T *lr0) {
 }
 
 static action_tbl_T *init_action_table(slr_T *lr0) {
-    int i, j, k; 
+    int i, j, k, tmp; 
     char action[5];
     action_tbl_T *actions;
-    size_t tmp;
     set_T *itemset, *followset;
     set_node_T *cur_itemset_node, *cn_item, *cn_term;
     lr_item_T *item;
@@ -83,7 +84,7 @@ static action_tbl_T *init_action_table(slr_T *lr0) {
 
             // If [A -> a.ab ] is in Ii and GOTO(Ii, a) = Ij , then set ACTION[i, a] to
             // shift j. Here a must be a terminal.
-            if(item->dot_index < item->rule->right_size && item->dot_index > 0 
+            if(item->dot_index < item->rule->right_size
             && item->rule->right[item->dot_index]->sym_type == TERMINAL) {            
                 tmp = find_goto_index(
                     lr0->grammer, 
@@ -92,9 +93,11 @@ static action_tbl_T *init_action_table(slr_T *lr0) {
                     lr0->lr0_cc,
                     lr0->lr0_cc_size);
 
+                printf("\n%d\n", tmp);
+
                 if(tmp != -1) {
                     sprintf(action, "s%d", tmp);
-                    actions->actions[i][action_tbl_find_terminal(actions, item->rule->right[item->dot_index - 1]->symbol->terminal)] = action;
+                    actions->actions[i][action_tbl_find_terminal(actions, item->rule->right[item->dot_index]->symbol->terminal)] = strdup(action);
                 }
             }
             // If [A -> a.] is in Ii , then set ACTION[i, a] to "reduce A -> a" for all
@@ -111,7 +114,7 @@ static action_tbl_T *init_action_table(slr_T *lr0) {
                     for(k = 0; k < followset->size; ++k) {
                         cur_term = cn_term->data;
 
-                        actions->actions[i][action_tbl_find_terminal(actions, cur_term)] = action;
+                        actions->actions[i][action_tbl_find_terminal(actions, cur_term)] = strdup(action);
 
                         cn_term = cn_term->next;
                     }
@@ -121,7 +124,7 @@ static action_tbl_T *init_action_table(slr_T *lr0) {
             else if(item->rule->left->type == NON_TERM_start && item->dot_index == item->rule->right_size) {
                 sprintf(action, "acc");
                 tmp = action_tbl_find_terminal(actions, init_token("", TOK_eof));          
-                actions->actions[i][tmp] = action;  
+                actions->actions[i][tmp] = strdup(action);  
             }
 
             cn_item = cn_item->next;

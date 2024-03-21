@@ -6,6 +6,10 @@
 #define LEXER_DFA_STATES_PATH "/home/goodman/school/Quest/build/lexer_dfa_states.dat"
 #define LEXER_DFA_STATES_DETAILS_PATH "/home/goodman/school/Quest/build/lexer_dfa_states_details.dat"
 
+#define PARSER_ACTION_PATH "/home/goodman/school/Quest/build/parser_action.dat"
+#define PARSER_GOTO_PATH "/home/goodman/school/Quest/build/parser_goto.dat"
+
+
 #define MAX(a, b) a > b ? a : b
 #define MIN(a, b) a < b ? a : b
 #define IF_SIGN(x) if((x)) {return ((x) / (abs(x)));} 
