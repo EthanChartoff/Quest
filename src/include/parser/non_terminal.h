@@ -3,7 +3,7 @@
 
 typedef enum NON_TERMINAL_ENUM {
     #define NON_TERM(name, symbol) NON_TERM_##name,
-    #include "non_terminals.h"
+    #include "non_terminals_bnf.h"
     #undef NON_TERM
     NUM_NON_TERM
 } non_terminal_E;

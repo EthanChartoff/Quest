@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/qc.dir/src/main.c.o.d"
   "CMakeFiles/qc.dir/src/parser/action_table.c.o"
   "CMakeFiles/qc.dir/src/parser/action_table.c.o.d"
+  "CMakeFiles/qc.dir/src/parser/bnf.c.o"
+  "CMakeFiles/qc.dir/src/parser/bnf.c.o.d"
   "CMakeFiles/qc.dir/src/parser/goto_table.c.o"
   "CMakeFiles/qc.dir/src/parser/goto_table.c.o.d"
   "CMakeFiles/qc.dir/src/parser/grammer.c.o"

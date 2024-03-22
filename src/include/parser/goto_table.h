@@ -14,6 +14,9 @@ typedef struct GOTO_TABLE_STRUCT {
 goto_tbl_T *init_goto_tbl(non_terminal_T **non_terminals, size_t n_non_terminals, size_t n_states);
 
 size_t goto_tbl_find_non_terminal(goto_tbl_T *tbl, non_terminal_T *nterm);
+
 void goto_tbl_print_to_file(goto_tbl_T *tbl, char *dest);
+void goto_tbl_pretty_print_to_file(goto_tbl_T *tbl, char *dest);
+
 
 #endif

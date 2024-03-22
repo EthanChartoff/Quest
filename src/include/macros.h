@@ -7,7 +7,21 @@
 #define LEXER_DFA_STATES_DETAILS_PATH "/home/goodman/school/Quest/build/lexer_dfa_states_details.dat"
 
 #define PARSER_ACTION_PATH "/home/goodman/school/Quest/build/parser_action.dat"
+#define PARSER_ACTION_PRETTY_PATH "/home/goodman/school/Quest/build/parser_action_pretty.dat"
 #define PARSER_GOTO_PATH "/home/goodman/school/Quest/build/parser_goto.dat"
+#define PARSER_GOTO_PRETTY_PATH "/home/goodman/school/Quest/build/parser_goto_pretty.dat"
+#define PARSER_BNF "/home/goodman/school/Quest/resources/language/.ebnf"
+#define PARSER_BNF_XLAT "/home/goodman/school/Quest/src/parser/slr_xlat.c"
+
+#define PARSER_NON_TERMINALS_HEADER "\
+#ifndef NON_TERM \n\
+#define NON_TERM(name, symbol) \n\
+#endif \n\
+\n\
+NON_TERM(null, \"\") \n\
+NON_TERM(start, \"S'\") \n\
+"
+#define PARSER_NON_TERMINALS_FOOTER "\n#undef NON_TERM"
 
 
 #define MAX(a, b) a > b ? a : b

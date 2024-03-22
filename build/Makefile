@@ -318,6 +318,30 @@ src/parser/action_table.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/action_table.c.s
 .PHONY : src/parser/action_table.c.s
 
+src/parser/bnf.o: src/parser/bnf.c.o
+.PHONY : src/parser/bnf.o
+
+# target to build an object file
+src/parser/bnf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/bnf.c.o
+.PHONY : src/parser/bnf.c.o
+
+src/parser/bnf.i: src/parser/bnf.c.i
+.PHONY : src/parser/bnf.i
+
+# target to preprocess a source file
+src/parser/bnf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/bnf.c.i
+.PHONY : src/parser/bnf.c.i
+
+src/parser/bnf.s: src/parser/bnf.c.s
+.PHONY : src/parser/bnf.s
+
+# target to generate assembly for a file
+src/parser/bnf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/bnf.c.s
+.PHONY : src/parser/bnf.c.s
+
 src/parser/goto_table.o: src/parser/goto_table.c.o
 .PHONY : src/parser/goto_table.o
 
@@ -733,6 +757,9 @@ help:
 	@echo "... src/parser/action_table.o"
 	@echo "... src/parser/action_table.i"
 	@echo "... src/parser/action_table.s"
+	@echo "... src/parser/bnf.o"
+	@echo "... src/parser/bnf.i"
+	@echo "... src/parser/bnf.s"
 	@echo "... src/parser/goto_table.o"
 	@echo "... src/parser/goto_table.i"
 	@echo "... src/parser/goto_table.s"

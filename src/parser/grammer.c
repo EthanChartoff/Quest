@@ -46,7 +46,7 @@ token_T **terminals_in_symbol_set_and_dollar(set_T *symbols) {
     token_T **terms = terminals_in_symbol_set(symbols);
 
     terms = realloc(terms, (n_terminals_in_symbol_set(symbols) + 1) * sizeof(token_T *));
-    terms[n_terminals_in_symbol_set(symbols)] = init_token("", TOK_eof);
+    terms[n_terminals_in_symbol_set(symbols)] = init_token("$", TOK_eof);
 
     return terms;
 }

@@ -15,6 +15,8 @@ typedef struct ACTION_TABLE_STRUCT {
 action_tbl_T *init_action_tbl(token_T **terminals, size_t n_terminals, size_t n_states);
 
 int action_tbl_find_terminal(action_tbl_T *tbl, token_T *term);
+
 void action_tbl_print_to_file(action_tbl_T *tbl, char *dest);
+void action_tbl_pretty_print_to_file(action_tbl_T *tbl, char *dest);
 
 #endif

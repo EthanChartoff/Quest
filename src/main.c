@@ -1,5 +1,7 @@
 #include "include/lexer/token.h"
 #include "include/parser/action_table.h"
+#include "include/parser/bnf.h"
+#include "include/parser/goto_table.h"
 #include "include/parser/grammer.h"
 #include "include/parser/lr_item.h"
 #include "include/parser/non_terminal.h"
@@ -20,64 +22,12 @@ int main(int argc, char* argv[]) {
     
     // compile_file(argv[1]);
     // init_default_dfa();
-    symbol_T *E_s =  init_symbol_non_terminal(init_non_terminal("E'", NON_TERM_start));
-    symbol_T *E = init_symbol_non_terminal(init_non_terminal("E", NON_TERM_E));
-    symbol_T *T = init_symbol_non_terminal(init_non_terminal("T" ,NON_TERM_T));
-    symbol_T *F = init_symbol_non_terminal(init_non_terminal("F" ,NON_TERM_F));
-
-    symbol_T *p = init_symbol_terminal(init_token("+", TOK_PLUS));
-    symbol_T *x = init_symbol_terminal(init_token("*", TOK_STAR));
-    symbol_T *id = init_symbol_terminal(init_token("id", TOK_IDENTIFIER));
-    symbol_T *lp = init_symbol_terminal(init_token("(", TOK_LPAREN));
-    symbol_T *rp = init_symbol_terminal(init_token(")", TOK_RPAREN));
-
-    symbol_T *EpT[] = {E, p, T};
-    symbol_T *TxF[] = {T, x, F};
-    symbol_T *lEr[] = {lp, E, rp};
-
-
-    rule_T *start = init_rule(E_s->symbol->non_terminal, &E, 1);
-    rule_T *EEpT = init_rule(E->symbol->non_terminal, EpT, 3);
-    rule_T *ET = init_rule(E->symbol->non_terminal, &T, 1);
-    rule_T *TTxF = init_rule(T->symbol->non_terminal, TxF, 3);
-    rule_T *TF = init_rule(T->symbol->non_terminal, &F, 1);
-    rule_T *FlEr = init_rule(F->symbol->non_terminal, lEr, 3);
-    rule_T *Fid = init_rule(F->symbol->non_terminal, &id, 1);
-
-    set_T *rules = set_init(rule_cmp_generic);
-    set_add(rules, start);
-    set_add(rules, EEpT);
-    set_add(rules, ET);
-    set_add(rules, TTxF);
-    set_add(rules, TF);
-    set_add(rules, FlEr);
-    set_add(rules, Fid);
-
     
-    set_T *syms = set_init(token_cmp_generic);
-    set_add(syms, p);
-    set_add(syms, x);
-    set_add(syms, id);
-    set_add(syms, lp);
-    set_add(syms, rp);
-    set_add(syms, E_s);
-    set_add(syms, E);
-    set_add(syms, T);
-    set_add(syms, F);
-
+    // action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
+    // action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
+    // goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
+    // goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
     
-    grammer_T *gram = init_grammer(rules, syms);
-
-    set_T *la = set_init(token_cmp_generic);
-    set_add(la, init_token("eof", TOK_eof));
-
-    set_T *tmp = set_init(lr_item_cmp_generic);
-    set_add(tmp, init_lr_item(start, 0, NULL));
-
-    set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
-    slr_T *slr = init_slr(itms, gram);
-    action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
-    goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
 
     // printf("\n%zu\n", follow(gram, init_non_terminal("F", NON_TERM_F))->size);
     // printf("\n%d\n", itms->size);
@@ -99,5 +49,9 @@ int main(int argc, char* argv[]) {
     //     } 
     //     curr = curr->next;
     // }
+
+    // bnf_make_non_terminals(PARSER_BNF);
+
+    init_default_slr();
     return 0;
 }

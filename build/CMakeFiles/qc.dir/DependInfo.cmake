@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/goodman/school/Quest/src/lexer/token.c" "CMakeFiles/qc.dir/src/lexer/token.c.o" "gcc" "CMakeFiles/qc.dir/src/lexer/token.c.o.d"
   "/home/goodman/school/Quest/src/main.c" "CMakeFiles/qc.dir/src/main.c.o" "gcc" "CMakeFiles/qc.dir/src/main.c.o.d"
   "/home/goodman/school/Quest/src/parser/action_table.c" "CMakeFiles/qc.dir/src/parser/action_table.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/action_table.c.o.d"
+  "/home/goodman/school/Quest/src/parser/bnf.c" "CMakeFiles/qc.dir/src/parser/bnf.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/bnf.c.o.d"
   "/home/goodman/school/Quest/src/parser/goto_table.c" "CMakeFiles/qc.dir/src/parser/goto_table.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/goto_table.c.o.d"
   "/home/goodman/school/Quest/src/parser/grammer.c" "CMakeFiles/qc.dir/src/parser/grammer.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/grammer.c.o.d"
   "/home/goodman/school/Quest/src/parser/lr_item.c" "CMakeFiles/qc.dir/src/parser/lr_item.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/lr_item.c.o.d"

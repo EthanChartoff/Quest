@@ -91,7 +91,7 @@ set_T *follow(const grammer_T *gram, const non_terminal_T *nt) {
 
 
     if(nt->type == NON_TERM_start)
-        set_add(follow_set, init_token("", TOK_eof));
+        set_add(follow_set, init_token("$", TOK_eof));
 
     cn = gram->rules->head;
     for(i = 0; i < gram->rules->size; ++i) { 

@@ -15,5 +15,6 @@ typedef struct SLR_STRUCT {
 } slr_T;
 
 slr_T *init_slr(set_T *lr0, grammer_T *gram);
+slr_T *init_default_slr();
 
 #endif

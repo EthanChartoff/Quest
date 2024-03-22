@@ -49,3 +49,31 @@ void goto_tbl_print_to_file(goto_tbl_T *tbl, char *dest) {
 
     fclose(fp);
 }
+
+void goto_tbl_pretty_print_to_file(goto_tbl_T *tbl, char *dest) {
+    int i, j;
+    FILE *fp = fopen(dest, "w");
+
+    // print header
+    fprintf(fp, "   |");
+    for(i = 0; i < tbl->n_non_terminals; ++i) {
+        fprintf(fp, "%3s ", tbl->non_terminals[i]->value);
+    }
+    fprintf(fp, "\n");
+
+    fprintf(fp, "   |");
+    for(i = 0; i < tbl->n_non_terminals; ++i) {
+        fprintf(fp, "____");
+    }
+    fprintf(fp, "\n");
+
+    for(i = 0; i < tbl->n_states; ++i) {
+        fprintf(fp, " %2d|", i);
+        for(j = 0; j < tbl->n_non_terminals; ++j) {
+            fprintf(fp, "%3d ", tbl->gotos[i][j]);
+        } 
+        fprintf(fp, "\n");
+    }
+
+    fclose(fp);
+}
