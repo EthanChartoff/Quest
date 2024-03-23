@@ -4,6 +4,7 @@
 #include "action_table.h"
 #include "goto_table.h"
 #include "slr.h"
+#include "../../utils/DS/include/queue.h"
 
 typedef struct PARSER_STRUCT {
     action_tbl_T *action;
@@ -13,6 +14,6 @@ typedef struct PARSER_STRUCT {
 parser_T *init_parser(slr_T *slr);
 
 void parse_tok(token_T *tok);
-void parse();
+void parse(queue_T *queue_tok);
 
 #endif

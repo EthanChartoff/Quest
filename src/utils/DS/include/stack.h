@@ -5,13 +5,13 @@
 
 #define IS_EMPTY(s) ((s)->top == NULL)
 
-typedef struct Node {
+typedef struct queue_node_T {
   void* data;
-  struct Node* next;
-} Node;
+  struct queue_node_T* next;
+} queue_node_T;
 
 typedef struct Stack {
-  Node* top;
+  queue_node_T* top;
   int size;
 } Stack;
 

@@ -9,7 +9,7 @@ Stack* stack_init() {
 }
 
 void stack_push(Stack* s, void* data) {
-  Node* new_node = (Node*)malloc(sizeof(Node));
+  queue_node_T* new_node = (queue_node_T*)malloc(sizeof(queue_node_T));
   new_node->data = data;
   new_node->next = s->top;
   s->top = new_node;
@@ -20,7 +20,7 @@ void* stack_pop(Stack* s) {
   if (IS_EMPTY(s)) {
     return NULL;
   }
-  Node* temp = s->top;
+  queue_node_T* temp = s->top;
   void* data = temp->data;
   s->top = s->top->next;
   free(temp);

@@ -4,23 +4,23 @@
 #include <stdlib.h>
 
 
-typedef struct Node {
-  void* data;
-  struct Node* next;
-} Node;
+typedef struct GENERIC_QUEUE_NODE_STRUCT {
+    void* data;
+    struct GENERIC_QUEUE_NODE_STRUCT* next;
+} queue_node_T;
 
-typedef struct Queue {
-  Node* head;
-  Node* tail;
-  int size;
-} Queue;
+typedef struct GENERIC_QUEUE_STRUCT {
+    queue_node_T* head;
+    queue_node_T* tail;
+    int size;
+} queue_T;
 
-Queue* queue_init();
-int is_empty(Queue* q);
-void queue_enqueue(Queue* q, void* data);
-void* queue_dequeue(Queue* q);
-void* queue_peek(Queue* q);
-void queue_clear(Queue* q);
-int queue_size(Queue* q);
+queue_T* queue_init();
+int is_empty(queue_T* q);
+void queue_enqueue(queue_T* q, void* data);
+void* queue_dequeue(queue_T* q);
+void* queue_peek(queue_T* q);
+void queue_clear(queue_T* q);
+int queue_size(queue_T* q);
 
 #endif /* QUEST_QUEUE_H */
