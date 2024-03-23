@@ -42,7 +42,7 @@ void goto_tbl_print_to_file(goto_tbl_T *tbl, char *dest) {
 
     for(i = 0; i < tbl->n_states; ++i) {
         for(j = 0; j < tbl->n_non_terminals; ++j) {
-            fprintf(fp, "%d ", tbl->gotos[i][j]);
+            fprintf(fp, "%3d ", tbl->gotos[i][j]);
         } 
         fprintf(fp, "\n");
     }

@@ -1,0 +1,23 @@
+set_T *syms = set_init(symbol_cmp_generic);symbol_T *constant = init_symbol_non_terminal(init_non_terminal("constant", NON_TERM_constant));
+symbol_T *operator = init_symbol_non_terminal(init_non_terminal("operator", NON_TERM_operator));
+symbol_T *math_expression = init_symbol_non_terminal(init_non_terminal("math_expression", NON_TERM_math_expression));
+symbol_T *expression = init_symbol_non_terminal(init_non_terminal("expression", NON_TERM_expression));
+symbol_T *statement_block = init_symbol_non_terminal(init_non_terminal("statement_block", NON_TERM_statement_block));
+symbol_T *while_loop = init_symbol_non_terminal(init_non_terminal("while_loop", NON_TERM_while_loop));
+symbol_T *conditional = init_symbol_non_terminal(init_non_terminal("conditional", NON_TERM_conditional));
+symbol_T *assignment = init_symbol_non_terminal(init_non_terminal("assignment", NON_TERM_assignment));
+symbol_T *statement = init_symbol_non_terminal(init_non_terminal("statement", NON_TERM_statement));
+symbol_T *statement_list = init_symbol_non_terminal(init_non_terminal("statement_list", NON_TERM_statement_list));
+symbol_T *program = init_symbol_non_terminal(init_non_terminal("program", NON_TERM_program));
+
+set_add(syms, constant);
+set_add(syms, operator);
+set_add(syms, math_expression);
+set_add(syms, expression);
+set_add(syms, statement_block);
+set_add(syms, while_loop);
+set_add(syms, conditional);
+set_add(syms, assignment);
+set_add(syms, statement);
+set_add(syms, statement_list);
+set_add(syms, program);

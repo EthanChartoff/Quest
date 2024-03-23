@@ -8,6 +8,7 @@ typedef enum TOKEN_ENUM {
     NUM_TOK = 80
 } token_type_E;
 
+
 typedef struct TOKEN_STRUCT {
     char* value;
     token_type_E type;

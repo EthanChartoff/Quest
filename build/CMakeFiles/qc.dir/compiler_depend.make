@@ -243,18 +243,7 @@ CMakeFiles/qc.dir/src/lexer/token.c.o: /home/goodman/school/Quest/src/lexer/toke
 
 CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /usr/include/stdc-predef.h \
-  /home/goodman/school/Quest/src/include/lexer/token.h \
-  /home/goodman/school/Quest/src/include/lexer/tokens.h \
-  /home/goodman/school/Quest/src/include/parser/action_table.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
-  /home/goodman/school/Quest/src/include/lexer/token.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
-  /home/goodman/school/Quest/src/include/parser/bnf.h \
-  /home/goodman/school/Quest/src/include/parser/goto_table.h \
-  /home/goodman/school/Quest/src/include/parser/grammer.h \
-  /home/goodman/school/Quest/src/include/parser/rule.h \
-  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/parser/slr.h \
   /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -266,6 +255,7 @@ CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -298,34 +288,23 @@ CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /home/goodman/school/Quest/src/include/parser/lr_item.h \
-  /home/goodman/school/Quest/src/include/parser/grammer.h \
-  /home/goodman/school/Quest/src/include/parser/symbol_set.h \
-  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/rule.h \
-  /home/goodman/school/Quest/src/include/parser/slr.h \
   /home/goodman/school/Quest/src/include/parser/action_table.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/goto_table.h \
+  /home/goodman/school/Quest/src/include/parser/grammer.h \
+  /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
-  /home/goodman/school/Quest/src/include/quest.h \
   /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
-  /home/goodman/school/Quest/src/include/macros.h \
-  /usr/include/stdio.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+  /home/goodman/school/Quest/src/include/quest.h
 
 CMakeFiles/qc.dir/src/parser/action_table.c.o: /home/goodman/school/Quest/src/parser/action_table.c \
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/parser/action_table.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
@@ -386,8 +365,8 @@ CMakeFiles/qc.dir/src/parser/bnf.c.o: /home/goodman/school/Quest/src/parser/bnf.
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/parser/bnf.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
-  /home/goodman/school/Quest/src/include/macros.h \
-  /usr/include/stdio.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
   /usr/include/features-time64.h \
@@ -398,23 +377,14 @@ CMakeFiles/qc.dir/src/parser/bnf.c.o: /home/goodman/school/Quest/src/parser/bnf.
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
-  /usr/include/stdlib.h \
-  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
-  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
-  /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
@@ -439,6 +409,16 @@ CMakeFiles/qc.dir/src/parser/bnf.c.o: /home/goodman/school/Quest/src/parser/bnf.
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/include/macros.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
@@ -448,7 +428,7 @@ CMakeFiles/qc.dir/src/parser/goto_table.c.o: /home/goodman/school/Quest/src/pars
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/parser/goto_table.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
   /usr/include/stdio.h \
@@ -507,7 +487,7 @@ CMakeFiles/qc.dir/src/parser/grammer.c.o: /home/goodman/school/Quest/src/parser/
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/parser/grammer.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
@@ -571,7 +551,7 @@ CMakeFiles/qc.dir/src/parser/lr_item.c.o: /home/goodman/school/Quest/src/parser/
   /home/goodman/school/Quest/src/include/parser/lr_item.h \
   /home/goodman/school/Quest/src/include/parser/grammer.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
@@ -636,7 +616,7 @@ CMakeFiles/qc.dir/src/parser/lr_item.c.o: /home/goodman/school/Quest/src/parser/
 CMakeFiles/qc.dir/src/parser/non_terminal.c.o: /home/goodman/school/Quest/src/parser/non_terminal.c \
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/macros.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -692,7 +672,7 @@ CMakeFiles/qc.dir/src/parser/rule.c.o: /home/goodman/school/Quest/src/parser/rul
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /home/goodman/school/Quest/src/include/macros.h \
@@ -797,7 +777,7 @@ CMakeFiles/qc.dir/src/parser/slr.c.o: /home/goodman/school/Quest/src/parser/slr.
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/parser/action_table.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/goto_table.h \
@@ -822,7 +802,12 @@ CMakeFiles/qc.dir/src/parser/slr.c.o: /home/goodman/school/Quest/src/parser/slr.
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/threads.h \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h
 
 CMakeFiles/qc.dir/src/parser/symbol.c.o: /home/goodman/school/Quest/src/parser/symbol.c \
   /usr/include/stdc-predef.h \
@@ -830,7 +815,7 @@ CMakeFiles/qc.dir/src/parser/symbol.c.o: /home/goodman/school/Quest/src/parser/s
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
@@ -882,7 +867,7 @@ CMakeFiles/qc.dir/src/parser/symbol_set.c.o: /home/goodman/school/Quest/src/pars
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -1363,6 +1348,12 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: /home/goodman/school/Ques
 
 /home/goodman/school/Quest/src/parser/symbol_set.c:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/time.h:
+
 /home/goodman/school/Quest/src/utils/DS/include/stack.h:
 
 /home/goodman/school/Quest/src/parser/rule.c:
@@ -1371,17 +1362,15 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: /home/goodman/school/Ques
 
 /home/goodman/school/Quest/src/parser/non_terminal.c:
 
+/home/goodman/school/Quest/src/include/parser/symbol_set.h:
+
+/home/goodman/school/Quest/src/include/parser/lr_item.h:
+
 /home/goodman/school/Quest/src/parser/grammer.c:
 
 /home/goodman/school/Quest/src/parser/goto_table.c:
 
 /home/goodman/school/Quest/src/parser/bnf.c:
-
-/home/goodman/school/Quest/src/include/parser/symbol_set.h:
-
-/home/goodman/school/Quest/src/include/parser/lr_item.h:
-
-/home/goodman/school/Quest/src/utils/DS/include/generic_set.h:
 
 /home/goodman/school/Quest/src/include/parser/symbol.h:
 
@@ -1389,11 +1378,13 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: /home/goodman/school/Ques
 
 /home/goodman/school/Quest/src/include/parser/goto_table.h:
 
-/home/goodman/school/Quest/src/include/parser/non_terminals.h:
+/home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h:
 
 /home/goodman/school/Quest/src/include/parser/non_terminal.h:
 
 /home/goodman/school/Quest/src/include/parser/action_table.h:
+
+/home/goodman/school/Quest/src/utils/DS/include/generic_set.h:
 
 /home/goodman/school/Quest/src/utils/lexer_DFA/include/lexer_DFA.h:
 
@@ -1425,9 +1416,13 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: /home/goodman/school/Ques
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/features.h:
+
+/usr/include/threads.h:
 
 /home/goodman/school/Quest/src/main.c:
 

@@ -110,6 +110,8 @@ set_T *follow(const grammer_T *gram, const non_terminal_T *nt) {
         // get non-immidiate terminals, meaning follow of non-terminal ending symbol
         if(cur_rule->right[cur_rule->right_size - 1]->sym_type == NON_TERMINAL 
         && !non_terminal_cmp(cur_rule->right[cur_rule->right_size - 1]->symbol->non_terminal, nt)) {
+            // printf("%s\n", nt->value);
+
             set_add_all(follow_set, follow(gram, cur_rule->left));
         }
 

@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <threads.h>
 
 // finds items goto index inside cc arr.
 static size_t find_goto_index(grammer_T *gram, set_T *items, symbol_T *symbol, set_T **cc, size_t cc_size) {
@@ -40,7 +41,7 @@ static goto_tbl_T *init_goto_table(slr_T *lr0) {
         lr0->lr0_cc_size);
 
     // go over collection
-    for (i = 0; lr0->lr0_cc_size && lr0->lr0_cc[i]; ++i) {
+    for (i = 0; i < lr0->lr0_cc_size && lr0->lr0_cc[i]; ++i) {
         itemset = lr0->lr0_cc[i];
 
         for(j = 0; j < gotos->n_non_terminals; ++j) {
@@ -50,6 +51,7 @@ static goto_tbl_T *init_goto_table(slr_T *lr0) {
                     init_symbol_non_terminal(gotos->non_terminals[j]), 
                     lr0->lr0_cc,
                     lr0->lr0_cc_size); 
+
 
             if(gti != -1) {
                 gotos->gotos[i][goto_tbl_find_non_terminal(gotos, gotos->non_terminals[j])] = gti;
@@ -172,143 +174,147 @@ slr_T *init_slr(set_T *lr0, grammer_T *gram) {
     return slr; 
 }
 
+void slr_write_to_bin(slr_T *slr, char *dest) {
+    FILE *fp = fopen(dest, "wb");
+    if(!fp)
+        thrw(OPEN_FILE_ERR);
+
+    fwrite(slr, sizeof(slr_T), 1, fp);
+}
+
+slr_T *slr_read_from_bin(char *src) {
+    slr_T *slr = malloc(sizeof(slr_T));
+    if(!slr)
+        thrw(ALLOC_ERR);
+    FILE *fp = fopen(src, "rb");
+    if(!fp)
+        thrw(OPEN_FILE_ERR);
+
+    fread(slr, sizeof(slr_T), 1, fp);
+    return slr;
+}
+
 slr_T *init_default_slr() {
-    // symbol_T *E = init_symbol_non_terminal(init_non_terminal("E", NON_TERM_E));
-    // symbol_T *T = init_symbol_non_terminal(init_non_terminal("T" ,NON_TERM_T));
-    // symbol_T *F = init_symbol_non_terminal(init_non_terminal("F" ,NON_TERM_F));
+    set_T *syms = set_init(symbol_cmp_generic);
 
-    // symbol_T *p = init_symbol_terminal(init_token("+", TOK_PLUS));
-    // symbol_T *x = init_symbol_terminal(init_token("*", TOK_STAR));
-    // symbol_T *id = init_symbol_terminal(init_token("id", TOK_IDENTIFIER));
-    // symbol_T *lp = init_symbol_terminal(init_token("(", TOK_LPAREN));
-    // symbol_T *rp = init_symbol_terminal(init_token(")", TOK_RPAREN));
+    symbol_T *constant = init_symbol_non_terminal(init_non_terminal("constant", NON_TERM_constant));
+    symbol_T *operator = init_symbol_non_terminal(init_non_terminal("operator", NON_TERM_operator));
+    symbol_T *math_expression = init_symbol_non_terminal(init_non_terminal("math_expression", NON_TERM_math_expression));
+    symbol_T *expression = init_symbol_non_terminal(init_non_terminal("expression", NON_TERM_expression));
+    symbol_T *statement_block = init_symbol_non_terminal(init_non_terminal("statement_block", NON_TERM_statement_block));
+    symbol_T *while_loop = init_symbol_non_terminal(init_non_terminal("while_loop", NON_TERM_while_loop));
+    symbol_T *conditional = init_symbol_non_terminal(init_non_terminal("conditional", NON_TERM_conditional));
+    symbol_T *assignment = init_symbol_non_terminal(init_non_terminal("assignment", NON_TERM_assignment));
+    symbol_T *statement = init_symbol_non_terminal(init_non_terminal("statement", NON_TERM_statement));
+    symbol_T *statement_list = init_symbol_non_terminal(init_non_terminal("statement_list", NON_TERM_statement_list));
+    symbol_T *program = init_symbol_non_terminal(init_non_terminal("program", NON_TERM_program));
+    symbol_T *start = init_symbol_non_terminal(init_non_terminal("S'", NON_TERM_start));
 
-    // symbol_T *EpT[] = {E, p, T};
-    // symbol_T *TxF[] = {T, x, F};
-    // symbol_T *lEr[] = {lp, E, rp};
+    symbol_T *equal = init_symbol_terminal(init_token("equal", TOK_EQUEL));
+    symbol_T *if_tok = init_symbol_terminal(init_token("if", TOK_IF));
+    symbol_T *lp = init_symbol_terminal(init_token("(", TOK_LPAREN));
+    symbol_T *rp = init_symbol_terminal(init_token(")", TOK_RPAREN));
+    symbol_T *else_tok = init_symbol_terminal(init_token("else", TOK_ELSE));
+    symbol_T *lb = init_symbol_terminal(init_token("{", TOK_LBRACE));
+    symbol_T *rb = init_symbol_terminal(init_token("}", TOK_RBRACE));
+    symbol_T *num = init_symbol_terminal(init_token("num", TOK_NUMBER_CONSTANT));
+    symbol_T *while_tok = init_symbol_terminal(init_token("while", TOK_WHILE));
+    symbol_T *id = init_symbol_terminal(init_token("id", TOK_IDENTIFIER));
+    symbol_T *p = init_symbol_terminal(init_token("+", TOK_PLUS));
+    symbol_T *m = init_symbol_terminal(init_token("-", TOK_MINUS));
+
+    set_add(syms, constant);
+    set_add(syms, operator);
+    set_add(syms, math_expression);
+    set_add(syms, expression);
+    set_add(syms, statement_block);
+    set_add(syms, while_loop);
+    set_add(syms, conditional);
+    set_add(syms, assignment);
+    set_add(syms, statement);
+    set_add(syms, statement_list);
+    set_add(syms, program);
+    set_add(syms, start);
 
 
-    // rule_T *start = init_rule(E_s->symbol->non_terminal, &E, 1);
-    // rule_T *EEpT = init_rule(E->symbol->non_terminal, EpT, 3);
-    // rule_T *ET = init_rule(E->symbol->non_terminal, &T, 1);
-    // rule_T *TTxF = init_rule(T->symbol->non_terminal, TxF, 3);
-    // rule_T *TF = init_rule(T->symbol->non_terminal, &F, 1);
-    // rule_T *FlEr = init_rule(F->symbol->non_terminal, lEr, 3);
-    // rule_T *Fid = init_rule(F->symbol->non_terminal, &id, 1);
+    set_add(syms, equal);
+    set_add(syms, if_tok);
+    set_add(syms, lp);
+    set_add(syms, rp);
+    set_add(syms, else_tok);
+    set_add(syms, lb);
+    set_add(syms, rb);
+    set_add(syms, num);
+    set_add(syms, id);
+    set_add(syms, p);
+    set_add(syms, m);
 
-    // set_T *rules = set_init(rule_cmp_generic);
-    // set_add(rules, start);
-    // set_add(rules, EEpT);
-    // set_add(rules, ET);
-    // set_add(rules, TTxF);
-    // set_add(rules, TF);
-    // set_add(rules, FlEr);
-    // set_add(rules, Fid);
 
-    
-    // set_T *syms = set_init(token_cmp_generic);
-    // set_add(syms, p);
-    // set_add(syms, x);
-    // set_add(syms, id);
-    // set_add(syms, lp);
-    // set_add(syms, rp);
-    // set_add(syms, E_s);
-    // set_add(syms, E);
-    // set_add(syms, T);
-    // set_add(syms, F);
+    symbol_T *stat_list[] = {statement_list, statement};
+    symbol_T *ass_list[] = {id, equal, expression};
+    symbol_T *cond_list[] = {if_tok, lp, expression, rp, statement_block, else_tok, statement_block};
+    symbol_T *while_loop_list[] = {while_tok, lp, expression, rp, statement_block};
+    symbol_T *statement_block_list[] = {lp, statement_list, rp};
+    symbol_T *ler[] = {lp, expression, rp};
+    symbol_T *me[] = {math_expression, operator, constant};
 
-    
-    // grammer_T *gram = init_grammer(rules, syms);
 
-    // set_T *la = set_init(token_cmp_generic);
-    // set_add(la, init_token("eof", TOK_eof));
+    set_T *rules = set_init(rule_cmp_generic);
 
-    // set_T *tmp = set_init(lr_item_cmp_generic);
-    // set_add(tmp, init_lr_item(start, 0, NULL));
+    rule_T *start_r = init_rule(start->symbol->non_terminal, &program, 1);
+    rule_T *program_sl = init_rule(program->symbol->non_terminal, &statement_list, 1);
+    rule_T *sl_s = init_rule(statement_list->symbol->non_terminal, &statement, 1);
+    rule_T *sl_sl = init_rule(statement_list->symbol->non_terminal, stat_list, 2);
+    rule_T *s_ass = init_rule(statement->symbol->non_terminal, &assignment, 1);
+    rule_T *s_cond = init_rule(statement->symbol->non_terminal, &conditional, 1);
+    rule_T *s_while = init_rule(statement->symbol->non_terminal, &while_loop, 1);
+    rule_T *ass_e = init_rule(assignment->symbol->non_terminal, ass_list, 3);
+    rule_T *cond_e = init_rule(conditional->symbol->non_terminal, cond_list, 7);
+    rule_T *while_e = init_rule(while_loop->symbol->non_terminal, while_loop_list, 5);
+    rule_T *sb = init_rule(statement_list->symbol->non_terminal, statement_block_list, 3);
+    rule_T *e_lr = init_rule(expression->symbol->non_terminal, ler, 3);
+    rule_T *e_math_e = init_rule(expression->symbol->non_terminal, &math_expression, 1);
+    rule_T *math_e = init_rule(math_expression->symbol->non_terminal, me, 3);
+    rule_T *op_p = init_rule(operator->symbol->non_terminal, &p, 1);
+    rule_T *op_m = init_rule(operator->symbol->non_terminal, &m, 1);
+    rule_T *c_num = init_rule(constant->symbol->non_terminal, &num, 1);
+    rule_T *c_id = init_rule(constant->symbol->non_terminal, &id, 1);
 
-    // set_T *itms = lr0_items(gram, init_lr_item(start, 0, NULL)), *itm_itm;
+
+    set_add(rules, start_r);
+    set_add(rules, program_sl);
+    set_add(rules, sl_s);
+    set_add(rules, sl_sl);
+    set_add(rules, s_ass);
+    set_add(rules, s_cond);
+    set_add(rules, s_while);
+    set_add(rules, ass_e);
+    set_add(rules, cond_e);
+    set_add(rules, while_e);
+    set_add(rules, sb);
+    set_add(rules, e_lr);
+    set_add(rules, e_math_e);
+    set_add(rules, math_e);
+    set_add(rules, op_p);
+    set_add(rules, op_m);
+    set_add(rules, c_num);
+    set_add(rules, c_id);
+
+
+    grammer_T *gram = init_grammer(rules, syms);
+
+
+    // set_T *itms = lr0_items(gram, init_lr_item(start_r, 0, NULL));
     // slr_T *slr = init_slr(itms, gram);
+    // slr_write_to_bin(slr, PARSER_SLR_BIN);
 
-    set_T *rules = set_init(rule_cmp_generic);symbol_T *program =  init_symbol_non_terminal(init_non_terminal("program", NON_TERM_program));
-    set_add(rules, program);
-    symbol_T *statement =  init_symbol_non_terminal(init_non_terminal("statement", NON_TERM_statement));
-    set_add(rules, statement);
-    symbol_T *expression_statement =  init_symbol_non_terminal(init_non_terminal("expression_statement", NON_TERM_expression_statement));
-    set_add(rules, expression_statement);
-    symbol_T *expression =  init_symbol_non_terminal(init_non_terminal("expression", NON_TERM_expression));
-    set_add(rules, expression);
-    symbol_T *assignment_expression =  init_symbol_non_terminal(init_non_terminal("assignment_expression", NON_TERM_assignment_expression));
-    set_add(rules, assignment_expression);
-    symbol_T *assignment_operator =  init_symbol_non_terminal(init_non_terminal("assignment_operator", NON_TERM_assignment_operator));
-    set_add(rules, assignment_operator);
-    symbol_T *unary_operator =  init_symbol_non_terminal(init_non_terminal("unary_operator", NON_TERM_unary_operator));
-    set_add(rules, unary_operator);
-    symbol_T *conditional_expression =  init_symbol_non_terminal(init_non_terminal("conditional_expression", NON_TERM_conditional_expression));
-    set_add(rules, conditional_expression);
-    symbol_T *logical_or_expression =  init_symbol_non_terminal(init_non_terminal("logical_or_expression", NON_TERM_logical_or_expression));
-    set_add(rules, logical_or_expression);
-    symbol_T *logical_and_expression =  init_symbol_non_terminal(init_non_terminal("logical_and_expression", NON_TERM_logical_and_expression));
-    set_add(rules, logical_and_expression);
-    symbol_T *inclusive_or_expression =  init_symbol_non_terminal(init_non_terminal("inclusive_or_expression", NON_TERM_inclusive_or_expression));
-    set_add(rules, inclusive_or_expression);
-    symbol_T *exclusive_or_expression =  init_symbol_non_terminal(init_non_terminal("exclusive_or_expression", NON_TERM_exclusive_or_expression));
-    set_add(rules, exclusive_or_expression);
-    symbol_T *and_expression =  init_symbol_non_terminal(init_non_terminal("and_expression", NON_TERM_and_expression));
-    set_add(rules, and_expression);
-    symbol_T *equality_expression =  init_symbol_non_terminal(init_non_terminal("equality_expression", NON_TERM_equality_expression));
-    set_add(rules, equality_expression);
-    symbol_T *relational_expression =  init_symbol_non_terminal(init_non_terminal("relational_expression", NON_TERM_relational_expression));
-    set_add(rules, relational_expression);
-    symbol_T *shift_expression =  init_symbol_non_terminal(init_non_terminal("shift_expression", NON_TERM_shift_expression));
-    set_add(rules, shift_expression);
-    symbol_T *additive_expression =  init_symbol_non_terminal(init_non_terminal("additive_expression", NON_TERM_additive_expression));
-    set_add(rules, additive_expression);
-    symbol_T *multiplicative_expression =  init_symbol_non_terminal(init_non_terminal("multiplicative_expression", NON_TERM_multiplicative_expression));
-    set_add(rules, multiplicative_expression);
-    symbol_T *cast_expression =  init_symbol_non_terminal(init_non_terminal("cast_expression", NON_TERM_cast_expression));
-    set_add(rules, cast_expression);
-    symbol_T *unary_expression =  init_symbol_non_terminal(init_non_terminal("unary_expression", NON_TERM_unary_expression));
-    set_add(rules, unary_expression);
-    symbol_T *postfix_expression =  init_symbol_non_terminal(init_non_terminal("postfix_expression", NON_TERM_postfix_expression));
-    set_add(rules, postfix_expression);
-    symbol_T *primary_expression =  init_symbol_non_terminal(init_non_terminal("primary_expression", NON_TERM_primary_expression));
-    set_add(rules, primary_expression);
-    symbol_T *identifier =  init_symbol_non_terminal(init_non_terminal("identifier", NON_TERM_identifier));
-    set_add(rules, identifier);
-    symbol_T *constant =  init_symbol_non_terminal(init_non_terminal("constant", NON_TERM_constant));
-    set_add(rules, constant);
-    symbol_T *compound_statement =  init_symbol_non_terminal(init_non_terminal("compound_statement", NON_TERM_compound_statement));
-    set_add(rules, compound_statement);
-    symbol_T *declaration =  init_symbol_non_terminal(init_non_terminal("declaration", NON_TERM_declaration));
-    set_add(rules, declaration);
-    symbol_T *declaration_specifier =  init_symbol_non_terminal(init_non_terminal("declaration_specifier", NON_TERM_declaration_specifier));
-    set_add(rules, declaration_specifier);
-    symbol_T *type_specifier =  init_symbol_non_terminal(init_non_terminal("type_specifier", NON_TERM_type_specifier));
-    set_add(rules, type_specifier);
-    symbol_T *type_qualifier =  init_symbol_non_terminal(init_non_terminal("type_qualifier", NON_TERM_type_qualifier));
-    set_add(rules, type_qualifier);
-    symbol_T *init_declarator =  init_symbol_non_terminal(init_non_terminal("init_declarator", NON_TERM_init_declarator));
-    set_add(rules, init_declarator);
-    symbol_T *selection_statement =  init_symbol_non_terminal(init_non_terminal("selection_statement", NON_TERM_selection_statement));
-    set_add(rules, selection_statement);
-    symbol_T *iteration_statement =  init_symbol_non_terminal(init_non_terminal("iteration_statement", NON_TERM_iteration_statement));
-    set_add(rules, iteration_statement);
-    symbol_T *jump_statement =  init_symbol_non_terminal(init_non_terminal("jump_statement", NON_TERM_jump_statement));
-    set_add(rules, jump_statement);
-    symbol_T *labeled_statement =  init_symbol_non_terminal(init_non_terminal("labeled_statement", NON_TERM_labeled_statement));
-    set_add(rules, labeled_statement);
-    symbol_T *declarator =  init_symbol_non_terminal(init_non_terminal("declarator", NON_TERM_declarator));
-    set_add(rules, declarator);
-    symbol_T *init_declarator_list =  init_symbol_non_terminal(init_non_terminal("init_declarator_list", NON_TERM_init_declarator_list));
-    set_add(rules, init_declarator_list);
-    symbol_T *initializer =  init_symbol_non_terminal(init_non_terminal("initializer", NON_TERM_initializer));
-    set_add(rules, initializer);
-    symbol_T *initializer_list =  init_symbol_non_terminal(init_non_terminal("initializer_list", NON_TERM_initializer_list));
-    set_add(rules, initializer_list);
-    symbol_T *constant_expression =  init_symbol_non_terminal(init_non_terminal("constant_expression", NON_TERM_constant_expression));
-    set_add(rules, constant_expression);
+    slr_T *slr = slr_read_from_bin(PARSER_SLR_BIN);
+    printf("%zu\n", slr->lr0_cc_size);
 
-    
-    bnf_make_non_terminals(PARSER_BNF, "/home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h");
+    // action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
+    // action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
+    // goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
+    // goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
 
+    // bnf_make_non_terminals(PARSER_BNF, PARSER_BNF_NON_TERMINALS);
 }
