@@ -28,7 +28,7 @@ int action_tbl_find_terminal(action_tbl_T *tbl, token_T *term) {
     int i;
 
     for(i = 0; i < tbl->n_terminals; ++i) {
-        if(!token_cmp(tbl->terminals[i], term))
+        if(tbl->terminals[i]->type == term->type)
             return i;
     }
     return -1;

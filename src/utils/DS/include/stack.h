@@ -5,22 +5,22 @@
 
 #define IS_EMPTY(s) ((s)->top == NULL)
 
-typedef struct queue_node_T {
+typedef struct stack_node_T {
   void* data;
-  struct queue_node_T* next;
-} queue_node_T;
+  struct stack_node_T* next;
+} stack_node_T;
 
-typedef struct Stack {
-  queue_node_T* top;
-  int size;
-} Stack;
+typedef struct GENERIC_STACK_STRUCT {
+  stack_node_T* top;
+  size_t size;
+} stack_T;
 
 
-Stack* stack_init();
-void stack_push(Stack* s, void* data);
-void* stack_pop(Stack* s);
-void* stack_peek(Stack* s);
-void stack_clear(Stack* s);
-int stack_size(Stack* s);
+stack_T* stack_init();
+void stack_push(stack_T* s, void* data);
+void* stack_pop(stack_T* s);
+void* stack_peek(stack_T* s);
+void stack_clear(stack_T* s);
+size_t stack_size(stack_T* s);
 
 #endif /* QUEST_STACK_H */

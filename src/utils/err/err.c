@@ -27,6 +27,10 @@ void thrw(int code){
 		case ALLOC_ERR:
 			fprintf(stderr, "%s: Error while allocating memory, terminating\n", prog);
 			break;
+		
+		case PARSER_ACTION_ERROR:
+			fprintf(stderr, "%s: Error parsing, specifically in action table\n", prog);
+
 	}
 	exit(code);
 }

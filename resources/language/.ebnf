@@ -15,10 +15,10 @@ while_loop ::= "WHILE" "LPAREN" expression "RPAREN" statement_block
 
 statement_block ::= "LBRACE" statement_list "RBRACE"
 
-expression ::= "LPAREN" expression "RPAREN"
-            | math_expression
+expression ::= math_expression
 
 math_expression ::= math_expression operator constant
+                | constant
 
 operator ::= "PLUS"
         | "MINUS"

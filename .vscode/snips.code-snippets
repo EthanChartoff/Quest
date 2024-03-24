@@ -16,6 +16,22 @@
 			"//",
 			"//===-----------------------------------------------------------------==="
 		],
-		"description": "Log output to console"
+		"description": "file header"
+	},
+
+	"struct_heading": {
+		"scope": "c",
+		"prefix": "struct_heading",
+		"body": [
+			"#ifndef QUEST_$1_H",
+			"#define QUEST_$1_H",
+			"",
+			"typedef struct $1_STRUCT {",
+			"\t$2",
+			"} $3",
+			"",
+			"#endif /* QUEST_$1_H */"
+		],
+		"description": "struct(ure)"
 	}
 }

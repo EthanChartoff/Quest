@@ -414,6 +414,30 @@ src/parser/lr_item.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_item.c.s
 .PHONY : src/parser/lr_item.c.s
 
+src/parser/lr_stack.o: src/parser/lr_stack.c.o
+.PHONY : src/parser/lr_stack.o
+
+# target to build an object file
+src/parser/lr_stack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_stack.c.o
+.PHONY : src/parser/lr_stack.c.o
+
+src/parser/lr_stack.i: src/parser/lr_stack.c.i
+.PHONY : src/parser/lr_stack.i
+
+# target to preprocess a source file
+src/parser/lr_stack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_stack.c.i
+.PHONY : src/parser/lr_stack.c.i
+
+src/parser/lr_stack.s: src/parser/lr_stack.c.s
+.PHONY : src/parser/lr_stack.s
+
+# target to generate assembly for a file
+src/parser/lr_stack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/lr_stack.c.s
+.PHONY : src/parser/lr_stack.c.s
+
 src/parser/non_terminal.o: src/parser/non_terminal.c.o
 .PHONY : src/parser/non_terminal.o
 
@@ -437,6 +461,30 @@ src/parser/non_terminal.s: src/parser/non_terminal.c.s
 src/parser/non_terminal.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/non_terminal.c.s
 .PHONY : src/parser/non_terminal.c.s
+
+src/parser/parser.o: src/parser/parser.c.o
+.PHONY : src/parser/parser.o
+
+# target to build an object file
+src/parser/parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/parser.c.o
+.PHONY : src/parser/parser.c.o
+
+src/parser/parser.i: src/parser/parser.c.i
+.PHONY : src/parser/parser.i
+
+# target to preprocess a source file
+src/parser/parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/parser.c.i
+.PHONY : src/parser/parser.c.i
+
+src/parser/parser.s: src/parser/parser.c.s
+.PHONY : src/parser/parser.s
+
+# target to generate assembly for a file
+src/parser/parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/parser.c.s
+.PHONY : src/parser/parser.c.s
 
 src/parser/rule.o: src/parser/rule.c.o
 .PHONY : src/parser/rule.o
@@ -769,9 +817,15 @@ help:
 	@echo "... src/parser/lr_item.o"
 	@echo "... src/parser/lr_item.i"
 	@echo "... src/parser/lr_item.s"
+	@echo "... src/parser/lr_stack.o"
+	@echo "... src/parser/lr_stack.i"
+	@echo "... src/parser/lr_stack.s"
 	@echo "... src/parser/non_terminal.o"
 	@echo "... src/parser/non_terminal.i"
 	@echo "... src/parser/non_terminal.s"
+	@echo "... src/parser/parser.o"
+	@echo "... src/parser/parser.i"
+	@echo "... src/parser/parser.s"
 	@echo "... src/parser/rule.o"
 	@echo "... src/parser/rule.i"
 	@echo "... src/parser/rule.s"

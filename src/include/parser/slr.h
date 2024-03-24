@@ -10,7 +10,7 @@ typedef struct SLR_STRUCT {
     set_T **lr0_cc;         // cannonical collection of all lr0 items. the reason its an array of items is because its more efficient and easy to work with.
     size_t lr0_cc_size;     // size of cc
     action_tbl_T *action;   // action table 
-    goto_tbl_T *go_to;     // goto table
+    goto_tbl_T *go_to;      // goto table
     grammer_T *grammer;     // grammer of the
 } slr_T;
 

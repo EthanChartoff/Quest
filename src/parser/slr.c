@@ -53,9 +53,8 @@ static goto_tbl_T *init_goto_table(slr_T *lr0) {
                     lr0->lr0_cc_size); 
 
 
-            if(gti != -1) {
-                gotos->gotos[i][goto_tbl_find_non_terminal(gotos, gotos->non_terminals[j])] = gti;
-            }
+            gotos->gotos[i][goto_tbl_find_non_terminal(gotos, gotos->non_terminals[j])] = gti;
+            
         }
     }
 
@@ -130,6 +129,13 @@ static action_tbl_T *init_action_table(slr_T *lr0) {
             }
 
             cn_item = cn_item->next;
+        }
+    }
+
+    for(i = 0; i < actions->n_states; ++i) {
+        for(j = 0; j < actions->n_terminals; ++j) {
+            if(!actions->actions[i][j])
+                actions->actions[i][j] = strdup("e");  
         }
     }
     
@@ -210,7 +216,7 @@ slr_T *init_default_slr() {
     symbol_T *program = init_symbol_non_terminal(init_non_terminal("program", NON_TERM_program));
     symbol_T *start = init_symbol_non_terminal(init_non_terminal("S'", NON_TERM_start));
 
-    symbol_T *equal = init_symbol_terminal(init_token("equal", TOK_EQUEL));
+    symbol_T *equal = init_symbol_terminal(init_token("=", TOK_EQUEL));
     symbol_T *if_tok = init_symbol_terminal(init_token("if", TOK_IF));
     symbol_T *lp = init_symbol_terminal(init_token("(", TOK_LPAREN));
     symbol_T *rp = init_symbol_terminal(init_token(")", TOK_RPAREN));
@@ -245,6 +251,7 @@ slr_T *init_default_slr() {
     set_add(syms, lb);
     set_add(syms, rb);
     set_add(syms, num);
+    set_add(syms, while_tok);
     set_add(syms, id);
     set_add(syms, p);
     set_add(syms, m);
@@ -254,8 +261,7 @@ slr_T *init_default_slr() {
     symbol_T *ass_list[] = {id, equal, expression};
     symbol_T *cond_list[] = {if_tok, lp, expression, rp, statement_block, else_tok, statement_block};
     symbol_T *while_loop_list[] = {while_tok, lp, expression, rp, statement_block};
-    symbol_T *statement_block_list[] = {lp, statement_list, rp};
-    symbol_T *ler[] = {lp, expression, rp};
+    symbol_T *statement_block_list[] = {lb, statement_list, rb};
     symbol_T *me[] = {math_expression, operator, constant};
 
 
@@ -271,10 +277,10 @@ slr_T *init_default_slr() {
     rule_T *ass_e = init_rule(assignment->symbol->non_terminal, ass_list, 3);
     rule_T *cond_e = init_rule(conditional->symbol->non_terminal, cond_list, 7);
     rule_T *while_e = init_rule(while_loop->symbol->non_terminal, while_loop_list, 5);
-    rule_T *sb = init_rule(statement_list->symbol->non_terminal, statement_block_list, 3);
-    rule_T *e_lr = init_rule(expression->symbol->non_terminal, ler, 3);
+    rule_T *sb = init_rule(statement_block->symbol->non_terminal, statement_block_list, 3);
     rule_T *e_math_e = init_rule(expression->symbol->non_terminal, &math_expression, 1);
     rule_T *math_e = init_rule(math_expression->symbol->non_terminal, me, 3);
+    rule_T *math_c = init_rule(math_expression->symbol->non_terminal, &constant, 1);
     rule_T *op_p = init_rule(operator->symbol->non_terminal, &p, 1);
     rule_T *op_m = init_rule(operator->symbol->non_terminal, &m, 1);
     rule_T *c_num = init_rule(constant->symbol->non_terminal, &num, 1);
@@ -292,9 +298,9 @@ slr_T *init_default_slr() {
     set_add(rules, cond_e);
     set_add(rules, while_e);
     set_add(rules, sb);
-    set_add(rules, e_lr);
     set_add(rules, e_math_e);
     set_add(rules, math_e);
+    set_add(rules, math_c);
     set_add(rules, op_p);
     set_add(rules, op_m);
     set_add(rules, c_num);
@@ -304,17 +310,20 @@ slr_T *init_default_slr() {
     grammer_T *gram = init_grammer(rules, syms);
 
 
-    // set_T *itms = lr0_items(gram, init_lr_item(start_r, 0, NULL));
-    // slr_T *slr = init_slr(itms, gram);
-    // slr_write_to_bin(slr, PARSER_SLR_BIN);
+    set_T *itms = lr0_items(gram, init_lr_item(start_r, 0, NULL));
+    slr_T *slr = init_slr(itms, gram);
+    slr_write_to_bin(slr, PARSER_SLR_BIN);
 
-    slr_T *slr = slr_read_from_bin(PARSER_SLR_BIN);
-    printf("%zu\n", slr->lr0_cc_size);
+    // slr_T *slr = slr_read_from_bin(PARSER_SLR_BIN);
 
-    // action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
-    // action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
-    // goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
-    // goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
+    // printf("%zu\n", slr->lr0_cc_size);
+
+    action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
+    action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
+    goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
+    goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
 
     // bnf_make_non_terminals(PARSER_BNF, PARSER_BNF_NON_TERMINALS);
+
+    return slr;
 }

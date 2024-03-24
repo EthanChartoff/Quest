@@ -35,7 +35,7 @@ void lexer_skip_whitespace(lexer_T *lex) {
 
 void lexer_skip_bullshit(lexer_T *lex) {
     while(lex->c > lex->automata->n_symbols) {
-        printf("Unexcepted symbol\n");
+        // printf("Unexcepted symbol\n");
         lexer_advance(lex);
     }
 }
@@ -76,7 +76,7 @@ token_T* lexer_next_token(lexer_T *lex) {
 
         return get_token(lex);
     }    
-    return init_token(0, TOK_eof);
+    return init_token("$", TOK_eof);
 }
 
 
