@@ -39,6 +39,20 @@ int lr_stack_peek(lr_stack_T *s) {
     return s->top[s->size - 1];
 }   
 
+int lr_stack_peek_inside(lr_stack_T *s, int n) {
+    int i, tmp;
+    int items[n];
+
+    for(i = 0; i < n; ++i) {
+        items[i] = lr_stack_pop(s);
+    }
+    tmp = lr_stack_peek(s);
+    for(i = 0; i < n; ++i) {
+        lr_stack_push(s, items[n - i - 1]);
+    }
+    return tmp;
+}
+
 int lr_stack_full(lr_stack_T *s) {
     return s->capacity <= s->size; 
 }

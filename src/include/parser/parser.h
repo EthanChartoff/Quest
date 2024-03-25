@@ -5,17 +5,23 @@
 #include "goto_table.h"
 #include "grammer.h"
 #include "lr_stack.h"
+#include "parse_tree.h"
 #include "rule.h"
 #include "slr.h"
 #include "../../utils/DS/include/queue.h"
+#include "symbol.h"
 
-typedef enum PARSE_ACTION_ENUM {
+typedef enum PARSE_STATUS_TYPE_ENUM {
     ERR,
     ACCEPT,
     SHIFT,
     REDUCE
-} parse_action_E;
+} parse_status_type_E;
 
+typedef struct PARSE_STATUS_STRUCT {
+    symbol_T *sym;  // symbol that came with the status
+    int type;       // status type
+} parse_status_T;
 
 typedef struct PARSER_STRUCT {
     action_tbl_T *action;   // action table
@@ -26,12 +32,13 @@ typedef struct PARSER_STRUCT {
 } parser_T;
 
 parser_T *init_parser(slr_T *slr);
+parse_status_T *init_parse_status(symbol_T *sym, int type);
 
-int parse_tok(parser_T *prs, token_T *tok);
-void parse(parser_T *prs, queue_T *queue_tok);
+parse_status_T *parse_tok(parser_T *prs, token_T *tok);
+parse_tree_node_T *parse(parser_T *prs, queue_T *queue_tok);
 
 void parser_shift(parser_T *prs, int data);
-void parser_reduce(parser_T *prs, rule_T *rule);
+symbol_T *parser_reduce(parser_T *prs, rule_T *rule);
 
 
 #endif

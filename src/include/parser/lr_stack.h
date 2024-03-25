@@ -18,6 +18,7 @@ lr_stack_T *init_lr_stack(size_t alloc_size);
 void lr_stack_push(lr_stack_T *s, int data);
 int lr_stack_pop(lr_stack_T *s);
 int lr_stack_peek(lr_stack_T *s);
+int lr_stack_peek_inside(lr_stack_T *s, int n);
 int lr_stack_full(lr_stack_T *s);
 void lr_stack_clear(lr_stack_T *s);
 

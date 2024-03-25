@@ -462,6 +462,30 @@ src/parser/non_terminal.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/non_terminal.c.s
 .PHONY : src/parser/non_terminal.c.s
 
+src/parser/parse_tree.o: src/parser/parse_tree.c.o
+.PHONY : src/parser/parse_tree.o
+
+# target to build an object file
+src/parser/parse_tree.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/parse_tree.c.o
+.PHONY : src/parser/parse_tree.c.o
+
+src/parser/parse_tree.i: src/parser/parse_tree.c.i
+.PHONY : src/parser/parse_tree.i
+
+# target to preprocess a source file
+src/parser/parse_tree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/parse_tree.c.i
+.PHONY : src/parser/parse_tree.c.i
+
+src/parser/parse_tree.s: src/parser/parse_tree.c.s
+.PHONY : src/parser/parse_tree.s
+
+# target to generate assembly for a file
+src/parser/parse_tree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/parser/parse_tree.c.s
+.PHONY : src/parser/parse_tree.c.s
+
 src/parser/parser.o: src/parser/parser.c.o
 .PHONY : src/parser/parser.o
 
@@ -823,6 +847,9 @@ help:
 	@echo "... src/parser/non_terminal.o"
 	@echo "... src/parser/non_terminal.i"
 	@echo "... src/parser/non_terminal.s"
+	@echo "... src/parser/parse_tree.o"
+	@echo "... src/parser/parse_tree.i"
+	@echo "... src/parser/parse_tree.s"
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"

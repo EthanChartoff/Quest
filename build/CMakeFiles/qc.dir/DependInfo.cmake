@@ -20,6 +20,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/goodman/school/Quest/src/parser/lr_item.c" "CMakeFiles/qc.dir/src/parser/lr_item.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/lr_item.c.o.d"
   "/home/goodman/school/Quest/src/parser/lr_stack.c" "CMakeFiles/qc.dir/src/parser/lr_stack.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/lr_stack.c.o.d"
   "/home/goodman/school/Quest/src/parser/non_terminal.c" "CMakeFiles/qc.dir/src/parser/non_terminal.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/non_terminal.c.o.d"
+  "/home/goodman/school/Quest/src/parser/parse_tree.c" "CMakeFiles/qc.dir/src/parser/parse_tree.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/parse_tree.c.o.d"
   "/home/goodman/school/Quest/src/parser/parser.c" "CMakeFiles/qc.dir/src/parser/parser.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/parser.c.o.d"
   "/home/goodman/school/Quest/src/parser/rule.c" "CMakeFiles/qc.dir/src/parser/rule.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/rule.c.o.d"
   "/home/goodman/school/Quest/src/parser/slr.c" "CMakeFiles/qc.dir/src/parser/slr.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/slr.c.o.d"

@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/qc.dir/src/parser/lr_stack.c.o.d"
   "CMakeFiles/qc.dir/src/parser/non_terminal.c.o"
   "CMakeFiles/qc.dir/src/parser/non_terminal.c.o.d"
+  "CMakeFiles/qc.dir/src/parser/parse_tree.c.o"
+  "CMakeFiles/qc.dir/src/parser/parse_tree.c.o.d"
   "CMakeFiles/qc.dir/src/parser/parser.c.o"
   "CMakeFiles/qc.dir/src/parser/parser.c.o.d"
   "CMakeFiles/qc.dir/src/parser/rule.c.o"
