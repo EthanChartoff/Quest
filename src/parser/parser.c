@@ -91,7 +91,6 @@ parse_tree_node_T *parse(parser_T *prs, queue_T *queue_tok) {
                 tmp[i] = children[i];
             
 
-
             root = init_parse_tree_node(
                 parse_status->sym, 
                 tmp, 

@@ -7,7 +7,6 @@
 
 #include "../include/parser/slr.h"
 #include "../include/parser/lr_item.h"
-#include "../include/parser/bnf.h"
 #include "../include/macros.h"
 #include "../utils/err/err.h"
 #include <string.h>
