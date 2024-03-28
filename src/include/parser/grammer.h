@@ -5,7 +5,7 @@
 #include "rule.h"
 #include "symbol.h"
 #include "../lexer/token.h"
-#include "../../utils/DS//include/generic_set.h"
+#include "../../utils/DS/include/generic_set.h"
 #include <stddef.h>
 
 typedef struct GRAMMER_STRUCT {

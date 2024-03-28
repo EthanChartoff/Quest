@@ -1,3 +1,11 @@
+//===--= goto_table.h =-----------------------------------------------===
+//
+// A struct representing a goto table. A goto table is used after reducing
+// a production. Its main purpose is to map a state and a non-terminal 
+// to a state.
+//
+//===-----------------------------------------------------------------===
+
 #ifndef QUEST_GOTO_TABLE_H
 #define QUEST_GOTO_TABLE_H
 

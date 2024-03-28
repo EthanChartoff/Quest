@@ -1,6 +1,6 @@
 //===--= hashset.h =----------------------------------------------------===
 //
-// a generic hash set for. you know whats a hash set. 
+// a generic hash set. you know whats a hash set. 
 //
 //===-----------------------------------------------------------------===
 
