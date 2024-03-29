@@ -59,7 +59,7 @@ int hash_set_add(hashset_T *set, void* data) {
 	// Check for resize condition
 	if ((float)set->size / set->capacity >= set->load_factor) {
 		if (!hash_set_resize(set, set->capacity * 2)) {
-			thrw(HASHSET_RESIZE_ERR); // Resize failed
+			thrw(ALLOC_ERR); // Resize failed
 		}
 	}
 

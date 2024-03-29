@@ -12,6 +12,4 @@ typedef struct PARSE_TREE_NODE_STRUCT {
 
 parse_tree_node_T *init_parse_tree_node(symbol_T *sym, parse_tree_node_T **children, size_t n_children);
 
-
-
 #endif /* QUEST_PARSE_TREE_NODE_H */

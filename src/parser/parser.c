@@ -47,6 +47,7 @@ parse_status_T *parse_tok(parser_T *prs, token_T *tok) {
     char action = prs->action->actions[top][terminal_col][0];
     rule_T *cur_rule;
 
+    // TODO: switch switch to array of function pointers
     switch (action) {
         case 's': /* shift action */ 
             parser_shift(prs, atoi(prs->action->actions[top][terminal_col] + 1));
@@ -60,7 +61,7 @@ parse_status_T *parse_tok(parser_T *prs, token_T *tok) {
             return init_parse_status(NULL, ACCEPT);
 
         default:  /* error */
-            thrw(PARSER_ACTION_ERROR);
+            thrw(PARSER_ACTION_ERR);
             return init_parse_status(NULL, ERR);
     }
 }
