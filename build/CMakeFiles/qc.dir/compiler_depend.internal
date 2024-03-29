@@ -816,6 +816,10 @@ CMakeFiles/qc.dir/src/parser/parser.c.o
  /home/goodman/school/Quest/src/utils/DS/include/queue.h
  /home/goodman/school/Quest/src/utils/err/err.h
  /home/goodman/school/Quest/src/utils/err/errors.h
+ /home/goodman/school/Quest/src/utils/DS/include/stack.h
+ /usr/include/ctype.h
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
  /usr/include/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h

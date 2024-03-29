@@ -25,7 +25,7 @@ void lr_stack_push(lr_stack_T *s, int data) {
 }
 
 int lr_stack_pop(lr_stack_T *s) {
-    if(IS_EMPTY(s))
+    if(LR_IS_EMPTY(s))
         return -1;
 
     s->size--;
@@ -33,7 +33,7 @@ int lr_stack_pop(lr_stack_T *s) {
 }
 
 int lr_stack_peek(lr_stack_T *s) {
-    if(IS_EMPTY(s))
+    if(LR_IS_EMPTY(s))
         return -1;
 
     return s->top[s->size - 1];
@@ -58,6 +58,6 @@ int lr_stack_full(lr_stack_T *s) {
 }
 
 void lr_stack_clear(lr_stack_T *s) {
-    while (!IS_EMPTY(s))
+    while (!LR_IS_EMPTY(s))
         lr_stack_pop(s);
 }

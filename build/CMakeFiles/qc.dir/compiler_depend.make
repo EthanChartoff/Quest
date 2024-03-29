@@ -802,6 +802,10 @@ CMakeFiles/qc.dir/src/parser/parser.c.o: /home/goodman/school/Quest/src/parser/p
   /home/goodman/school/Quest/src/utils/DS/include/queue.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
   /home/goodman/school/Quest/src/utils/err/errors.h \
+  /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /usr/include/ctype.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -1944,9 +1948,9 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h:
 
-/home/goodman/school/Quest/src/parser/rule.c:
-
 /home/goodman/school/Quest/src/utils/DS/include/stack.h:
+
+/home/goodman/school/Quest/src/parser/rule.c:
 
 /usr/include/time.h:
 

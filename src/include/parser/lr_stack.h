@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 
-#define IS_EMPTY(s) ((s)->size == 0)
+#define LR_IS_EMPTY(s) ((s)->size == 0)
 
 
 typedef struct LR_STACK_STRUCT {
