@@ -25,8 +25,9 @@ void compile(char *src) {
             queue_enqueue(queue, tk);
         }
     } while(tk->type != TOK_eof);
-        
-    traverse_parse_tree(parse(prs, queue), 0);
+    
+    parse_tree_node_T *root = parse(prs, queue);
+    traverse_parse_tree(root, 0);
 }
 
 void compile_file(const char *filename) {

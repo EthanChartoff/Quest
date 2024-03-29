@@ -19,18 +19,17 @@ static parse_status_T *shift_action(parser_T *prs, token_T *tok, parse_tree_node
 
 // this function is what the parser should do when encountering a reduce action in the action table
 static parse_status_T *reduce_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
-    printf("%s\n", tok->value);
 
     int terminal_col = action_tbl_find_terminal(prs->action, tok);
     int top = lr_stack_peek(prs->stack);
     int i;
     rule_T *cur_rule = prs->rules[atoi(prs->action->actions[top][terminal_col] + 1)];
-    parse_tree_node_T **children = malloc(cur_rule->right_size * sizeof(parse_tree_node_T *)), *root;
+    parse_tree_node_T **children = malloc(cur_rule->right_size * sizeof(parse_tree_node_T *)), *root = NULL;
 
     for(i = 0; i < cur_rule->right_size; ++i) 
         children[i] = stack_pop(sym_s);
     
-    node = init_parse_tree_node(init_symbol_non_terminal(cur_rule->left), children, cur_rule->right_size);
+    root = init_parse_tree_node(init_symbol_non_terminal(cur_rule->left), children, cur_rule->right_size);
     stack_push(sym_s, root);
     return init_parse_status(parser_reduce(prs, cur_rule), REDUCE);
 }

@@ -25,4 +25,3 @@ operator ::= "PLUS"
 
 constant ::= "NUMBER_CONSTANT"
         | "IDENTIFIER"
-

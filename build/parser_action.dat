@@ -16,21 +16,19 @@
  r1  r1  r1  r1   e  r1   e   e  r1   e  r1   e  r1 
   e   e r10 r10   e r10   e   e   e   e r10   e r10 
 s23 s24  r6  r6   e  r6   e   e  r6   e  r6   e  r6 
-s23 s24   e   e   e   e   e   e   e   e   e   e   e 
+ r4  r4  r4  r4   e  r4   e   e  r4   e  r4   e  r4 
   e   e   e   e   e   e   e   e s22   e   e   e   e 
   e   e   e   e   e   e   e   e s21   e   e   e   e 
-  e   e   e   e   e   e s29   e   e   e   e   e   e 
-  e   e   e   e   e   e s29   e   e   e   e   e   e 
+  e   e   e   e   e   e s27   e   e   e   e   e   e 
+  e   e   e   e   e   e s27   e   e   e   e   e   e 
   e   e  r2   e  r2   e   e   e   e   e   e   e   e 
   e   e  r3   e  r3   e   e   e   e   e   e   e   e 
   e   e s14   e s15   e   e   e   e   e   e   e   e 
-  e   e s14   e s15   e   e   e   e   e   e   e   e 
  r5  r5  r5  r5   e  r5   e   e  r5   e  r5   e  r5 
- r4  r4  r4  r4   e  r4   e   e  r4   e  r4   e  r4 
   e   e  s1  s2   e   e   e   e   e   e  s3   e   e 
   e   e  r8  r8   e  r8   e   e   e   e  r8   e  r8 
-  e   e   e   e   e   e   e s32   e   e   e   e   e 
-  e   e   e   e   e   e s29   e   e   e   e   e   e 
-  e   e  s1  s2   e s34   e   e   e   e  s3   e   e 
+  e   e   e   e   e   e   e s30   e   e   e   e   e 
+  e   e   e   e   e   e s27   e   e   e   e   e   e 
+  e   e  s1  s2   e s32   e   e   e   e  s3   e   e 
   e   e  r7  r7   e  r7   e  r7   e   e  r7   e  r7 
   e   e  r9  r9   e  r9   e   e   e   e  r9   e  r9 
