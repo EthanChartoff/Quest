@@ -630,6 +630,54 @@ src/quest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/quest.c.s
 .PHONY : src/quest.c.s
 
+src/semantic_analizer/sdt.o: src/semantic_analizer/sdt.c.o
+.PHONY : src/semantic_analizer/sdt.o
+
+# target to build an object file
+src/semantic_analizer/sdt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o
+.PHONY : src/semantic_analizer/sdt.c.o
+
+src/semantic_analizer/sdt.i: src/semantic_analizer/sdt.c.i
+.PHONY : src/semantic_analizer/sdt.i
+
+# target to preprocess a source file
+src/semantic_analizer/sdt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.i
+.PHONY : src/semantic_analizer/sdt.c.i
+
+src/semantic_analizer/sdt.s: src/semantic_analizer/sdt.c.s
+.PHONY : src/semantic_analizer/sdt.s
+
+# target to generate assembly for a file
+src/semantic_analizer/sdt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.s
+.PHONY : src/semantic_analizer/sdt.c.s
+
+src/semantic_analizer/semantic_analyzer.o: src/semantic_analizer/semantic_analyzer.c.o
+.PHONY : src/semantic_analizer/semantic_analyzer.o
+
+# target to build an object file
+src/semantic_analizer/semantic_analyzer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o
+.PHONY : src/semantic_analizer/semantic_analyzer.c.o
+
+src/semantic_analizer/semantic_analyzer.i: src/semantic_analizer/semantic_analyzer.c.i
+.PHONY : src/semantic_analizer/semantic_analyzer.i
+
+# target to preprocess a source file
+src/semantic_analizer/semantic_analyzer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.i
+.PHONY : src/semantic_analizer/semantic_analyzer.c.i
+
+src/semantic_analizer/semantic_analyzer.s: src/semantic_analizer/semantic_analyzer.c.s
+.PHONY : src/semantic_analizer/semantic_analyzer.s
+
+# target to generate assembly for a file
+src/semantic_analizer/semantic_analyzer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.s
+.PHONY : src/semantic_analizer/semantic_analyzer.c.s
+
 src/semantic_analizer/semantic_rule.o: src/semantic_analizer/semantic_rule.c.o
 .PHONY : src/semantic_analizer/semantic_rule.o
 
@@ -964,6 +1012,12 @@ help:
 	@echo "... src/quest.o"
 	@echo "... src/quest.i"
 	@echo "... src/quest.s"
+	@echo "... src/semantic_analizer/sdt.o"
+	@echo "... src/semantic_analizer/sdt.i"
+	@echo "... src/semantic_analizer/sdt.s"
+	@echo "... src/semantic_analizer/semantic_analyzer.o"
+	@echo "... src/semantic_analizer/semantic_analyzer.i"
+	@echo "... src/semantic_analizer/semantic_analyzer.s"
 	@echo "... src/semantic_analizer/semantic_rule.o"
 	@echo "... src/semantic_analizer/semantic_rule.i"
 	@echo "... src/semantic_analizer/semantic_rule.s"

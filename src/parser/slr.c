@@ -261,27 +261,40 @@ slr_T *init_default_slr() {
     symbol_T *cond_list[] = {if_tok, lp, expression, rp, statement_block, else_tok, statement_block};
     symbol_T *while_loop_list[] = {while_tok, lp, expression, rp, statement_block};
     symbol_T *statement_block_list[] = {lb, statement_list, rb};
-    symbol_T *me[] = {math_expression, operator, constant};
+    symbol_T *moc[] = {math_expression, operator, constant};
+    symbol_T *coc[] = {constant, operator, constant};
+
 
 
     set_T *rules = set_init(rule_cmp_generic);
 
     rule_T *start_r = init_rule(start->symbol->non_terminal, &program, 1);
+
     rule_T *program_sl = init_rule(program->symbol->non_terminal, &statement_list, 1);
+
     rule_T *sl_s = init_rule(statement_list->symbol->non_terminal, &statement, 1);
     rule_T *sl_sl = init_rule(statement_list->symbol->non_terminal, stat_list, 2);
+
     rule_T *s_ass = init_rule(statement->symbol->non_terminal, &assignment, 1);
     rule_T *s_cond = init_rule(statement->symbol->non_terminal, &conditional, 1);
     rule_T *s_while = init_rule(statement->symbol->non_terminal, &while_loop, 1);
+
     rule_T *ass_e = init_rule(assignment->symbol->non_terminal, ass_list, 3);
+
     rule_T *cond_e = init_rule(conditional->symbol->non_terminal, cond_list, 7);
+
     rule_T *while_e = init_rule(while_loop->symbol->non_terminal, while_loop_list, 5);
+
     rule_T *sb = init_rule(statement_block->symbol->non_terminal, statement_block_list, 3);
+
     rule_T *e_math_e = init_rule(expression->symbol->non_terminal, &math_expression, 1);
-    rule_T *math_e = init_rule(math_expression->symbol->non_terminal, me, 3);
-    rule_T *math_c = init_rule(math_expression->symbol->non_terminal, &constant, 1);
+
+    rule_T *math_e = init_rule(math_expression->symbol->non_terminal, moc, 3);
+    rule_T *math_c = init_rule(math_expression->symbol->non_terminal, coc, 3);
+
     rule_T *op_p = init_rule(operator->symbol->non_terminal, &p, 1);
     rule_T *op_m = init_rule(operator->symbol->non_terminal, &m, 1);
+
     rule_T *c_num = init_rule(constant->symbol->non_terminal, &num, 1);
     rule_T *c_id = init_rule(constant->symbol->non_terminal, &id, 1);
 

@@ -34,9 +34,7 @@ typedef struct PARSER_STRUCT {
 parser_T *init_parser(slr_T *slr);
 parse_status_T *init_parse_status(symbol_T *sym, int type);
 
-parse_status_T *parse_tok(parser_T *prs, token_T *tok);
 parse_tree_node_T *parse(parser_T *prs, queue_T *queue_tok);
-
 void parser_shift(parser_T *prs, int data);
 symbol_T *parser_reduce(parser_T *prs, rule_T *rule);
 

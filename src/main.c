@@ -1,6 +1,4 @@
-#include "include/parser/slr.h"
 #include "include/quest.h"
-#include "utils/err/err.h"
 #include <stdio.h>
  
 int main(int argc, char* argv[]) {

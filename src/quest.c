@@ -5,6 +5,7 @@
 #include "include/parser/parser.h"
 #include "include/parser/slr.h"
 #include "utils/DS/include/queue.h"
+#include "include/semantic_analizer/semantic_analyzer.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -24,8 +25,8 @@ void compile(char *src) {
             queue_enqueue(queue, tk);
         }
     } while(tk->type != TOK_eof);
-
-    parse(prs, queue);    
+        
+    traverse_parse_tree(parse(prs, queue), 0);
 }
 
 void compile_file(const char *filename) {
