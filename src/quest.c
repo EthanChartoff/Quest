@@ -2,8 +2,10 @@
 #include "include/lexer/lexer.h"
 #include "include/io.h"
 #include "include/macros.h"
+#include "include/parser/parse_tree.h"
 #include "include/parser/parser.h"
 #include "include/parser/slr.h"
+#include "include/semantic_analizer/AST.h"
 #include "utils/DS/include/queue.h"
 #include "include/semantic_analizer/semantic_analyzer.h"
 #include <stdlib.h>
@@ -26,8 +28,10 @@ void compile(char *src) {
         }
     } while(tk->type != TOK_eof);
     
-    parse_tree_node_T *root = parse(prs, queue);
-    traverse_parse_tree(root, 0);
+    parse_tree_T *tree = parse(prs, queue);
+    // ast_node_T *ast = build_ast(tree);
+    traverse_parse_tree(tree->root, 0);
+    // traverse_ast(ast, 0); 
 }
 
 void compile_file(const char *filename) {

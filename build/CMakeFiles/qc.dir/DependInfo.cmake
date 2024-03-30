@@ -27,6 +27,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/goodman/school/Quest/src/parser/symbol.c" "CMakeFiles/qc.dir/src/parser/symbol.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/symbol.c.o.d"
   "/home/goodman/school/Quest/src/parser/symbol_set.c" "CMakeFiles/qc.dir/src/parser/symbol_set.c.o" "gcc" "CMakeFiles/qc.dir/src/parser/symbol_set.c.o.d"
   "/home/goodman/school/Quest/src/quest.c" "CMakeFiles/qc.dir/src/quest.c.o" "gcc" "CMakeFiles/qc.dir/src/quest.c.o.d"
+  "/home/goodman/school/Quest/src/semantic_analizer/AST.c" "CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o" "gcc" "CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o.d"
+  "/home/goodman/school/Quest/src/semantic_analizer/definitions.c" "CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o" "gcc" "CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o.d"
   "/home/goodman/school/Quest/src/semantic_analizer/sdt.c" "CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o" "gcc" "CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o.d"
   "/home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c" "CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o" "gcc" "CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o.d"
   "/home/goodman/school/Quest/src/semantic_analizer/semantic_rule.c" "CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o" "gcc" "CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o.d"

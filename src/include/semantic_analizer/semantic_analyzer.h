@@ -2,7 +2,9 @@
 #define QUEST_SEMANTIC_ANALYZER_H
 
 #include "../parser/parse_tree.h"
+#include "AST.h"
+#include "sdt.h"
 
-void traverse_parse_tree(parse_tree_node_T *tree, int layer);
+ast_node_T *build_ast(parse_tree_T *tree);
 
 #endif

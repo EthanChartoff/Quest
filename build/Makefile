@@ -630,6 +630,54 @@ src/quest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/quest.c.s
 .PHONY : src/quest.c.s
 
+src/semantic_analizer/AST.o: src/semantic_analizer/AST.c.o
+.PHONY : src/semantic_analizer/AST.o
+
+# target to build an object file
+src/semantic_analizer/AST.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o
+.PHONY : src/semantic_analizer/AST.c.o
+
+src/semantic_analizer/AST.i: src/semantic_analizer/AST.c.i
+.PHONY : src/semantic_analizer/AST.i
+
+# target to preprocess a source file
+src/semantic_analizer/AST.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/AST.c.i
+.PHONY : src/semantic_analizer/AST.c.i
+
+src/semantic_analizer/AST.s: src/semantic_analizer/AST.c.s
+.PHONY : src/semantic_analizer/AST.s
+
+# target to generate assembly for a file
+src/semantic_analizer/AST.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/AST.c.s
+.PHONY : src/semantic_analizer/AST.c.s
+
+src/semantic_analizer/definitions.o: src/semantic_analizer/definitions.c.o
+.PHONY : src/semantic_analizer/definitions.o
+
+# target to build an object file
+src/semantic_analizer/definitions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o
+.PHONY : src/semantic_analizer/definitions.c.o
+
+src/semantic_analizer/definitions.i: src/semantic_analizer/definitions.c.i
+.PHONY : src/semantic_analizer/definitions.i
+
+# target to preprocess a source file
+src/semantic_analizer/definitions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.i
+.PHONY : src/semantic_analizer/definitions.c.i
+
+src/semantic_analizer/definitions.s: src/semantic_analizer/definitions.c.s
+.PHONY : src/semantic_analizer/definitions.s
+
+# target to generate assembly for a file
+src/semantic_analizer/definitions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.s
+.PHONY : src/semantic_analizer/definitions.c.s
+
 src/semantic_analizer/sdt.o: src/semantic_analizer/sdt.c.o
 .PHONY : src/semantic_analizer/sdt.o
 
@@ -1012,6 +1060,12 @@ help:
 	@echo "... src/quest.o"
 	@echo "... src/quest.i"
 	@echo "... src/quest.s"
+	@echo "... src/semantic_analizer/AST.o"
+	@echo "... src/semantic_analizer/AST.i"
+	@echo "... src/semantic_analizer/AST.s"
+	@echo "... src/semantic_analizer/definitions.o"
+	@echo "... src/semantic_analizer/definitions.i"
+	@echo "... src/semantic_analizer/definitions.s"
 	@echo "... src/semantic_analizer/sdt.o"
 	@echo "... src/semantic_analizer/sdt.i"
 	@echo "... src/semantic_analizer/sdt.s"

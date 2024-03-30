@@ -689,16 +689,14 @@ CMakeFiles/qc.dir/src/parser/non_terminal.c.o: /home/goodman/school/Quest/src/pa
 CMakeFiles/qc.dir/src/parser/parse_tree.c.o: /home/goodman/school/Quest/src/parser/parse_tree.c \
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
-  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
   /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
-  /home/goodman/school/Quest/src/utils/err/err.h \
-  /home/goodman/school/Quest/src/utils/err/errors.h \
-  /usr/include/stdlib.h \
-  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/features.h \
   /usr/include/features-time64.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -707,11 +705,6 @@ CMakeFiles/qc.dir/src/parser/parse_tree.c.o: /home/goodman/school/Quest/src/pars
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
-  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
-  /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -737,6 +730,23 @@ CMakeFiles/qc.dir/src/parser/parse_tree.c.o: /home/goodman/school/Quest/src/pars
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /home/goodman/school/Quest/src/utils/err/err.h \
+  /home/goodman/school/Quest/src/utils/err/errors.h \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
 
@@ -1071,15 +1081,215 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /home/goodman/school/Quest/src/include/io.h \
   /home/goodman/school/Quest/src/include/macros.h \
-  /home/goodman/school/Quest/src/include/parser/parser.h \
-  /home/goodman/school/Quest/src/include/parser/action_table.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/include/parser/rule.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
   /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
-  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /home/goodman/school/Quest/src/include/parser/parser.h \
+  /home/goodman/school/Quest/src/include/parser/action_table.h \
   /home/goodman/school/Quest/src/include/parser/goto_table.h \
   /home/goodman/school/Quest/src/include/parser/grammer.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/include/parser/lr_stack.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/include/parser/slr.h \
+  /home/goodman/school/Quest/src/utils/DS/include/queue.h \
+  /home/goodman/school/Quest/src/include/parser/slr.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/utils/DS/include/queue.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+
+CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o: /home/goodman/school/Quest/src/semantic_analizer/AST.c \
+  /usr/include/stdc-predef.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+  /home/goodman/school/Quest/src/utils/err/err.h \
+  /home/goodman/school/Quest/src/utils/err/errors.h \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+
+CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: /home/goodman/school/Quest/src/semantic_analizer/definitions.c \
+  /usr/include/stdc-predef.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/definitions.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+
+CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o: /home/goodman/school/Quest/src/semantic_analizer/sdt.c \
+  /usr/include/stdc-predef.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
   /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -1091,6 +1301,7 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -1123,64 +1334,24 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /home/goodman/school/Quest/src/include/parser/lr_stack.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
-  /home/goodman/school/Quest/src/include/parser/slr.h \
-  /home/goodman/school/Quest/src/utils/DS/include/queue.h \
-  /home/goodman/school/Quest/src/include/parser/slr.h \
-  /home/goodman/school/Quest/src/utils/DS/include/queue.h \
-  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h \
-  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
-  /usr/include/stdio.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
-
-CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o: /home/goodman/school/Quest/src/semantic_analizer/sdt.c \
-  /usr/include/stdc-predef.h
+  /home/goodman/school/Quest/src/include/parser/rule.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/definitions.h \
+  /home/goodman/school/Quest/src/utils/err/err.h \
+  /home/goodman/school/Quest/src/utils/err/errors.h
 
 CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o: /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c \
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
-  /home/goodman/school/Quest/src/include/parser/symbol.h \
-  /home/goodman/school/Quest/src/include/lexer/token.h \
-  /home/goodman/school/Quest/src/include/lexer/tokens.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
-  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
-  /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
-  /usr/include/features.h \
-  /usr/include/features-time64.h \
-  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
-  /usr/include/x86_64-linux-gnu/bits/timesize.h \
-  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
-  /usr/include/x86_64-linux-gnu/bits/long-double.h \
-  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
-  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
-  /usr/include/x86_64-linux-gnu/bits/types.h \
-  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
-  /usr/include/x86_64-linux-gnu/bits/time64.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
-
-CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: /home/goodman/school/Quest/src/semantic_analizer/semantic_rule.c \
-  /usr/include/stdc-predef.h \
-  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/lexer/tokens.h \
@@ -1188,8 +1359,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: /home/goodman/school/
   /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
-  /usr/include/stdlib.h \
-  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/features.h \
   /usr/include/features-time64.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -1198,11 +1368,6 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: /home/goodman/school/
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
-  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
-  /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -1228,6 +1393,83 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: /home/goodman/school/
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
+  /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: /home/goodman/school/Quest/src/semantic_analizer/semantic_rule.c \
+  /usr/include/stdc-predef.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/include/parser/rule.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminal.h \
+  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
 
@@ -1732,11 +1974,17 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/utils/lexer_DFA/lexer_DFA.c:
 
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/stdint.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
+
+/home/goodman/school/Quest/src/utils/hashes/hashes.h:
+
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
-/home/goodman/school/Quest/src/utils/hashes/hashes.h:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -1754,11 +2002,13 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
 /home/goodman/school/Quest/src/include/parser/bnf.h:
 
 /home/goodman/school/Quest/src/parser/symbol.c:
-
-/usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
@@ -1771,6 +2021,10 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/stdc-predef.h:
+
+/home/goodman/school/Quest/src/include/semantic_analizer/sdt.h:
 
 /usr/include/features-time64.h:
 
@@ -1807,10 +2061,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /home/goodman/school/Quest/src/io.c:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
@@ -1906,13 +2156,9 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/include/parser/action_table.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
 /home/goodman/school/Quest/src/include/parser/non_terminal.h:
 
 /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h:
-
-/usr/include/stdint.h:
 
 /home/goodman/school/Quest/src/parser/bnf.c:
 
@@ -1941,6 +2187,8 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/include/parser/symbol_set.h:
 
 /home/goodman/school/Quest/src/include/parser/lr_stack.h:
+
+/home/goodman/school/Quest/src/include/semantic_analizer/definitions.h:
 
 /home/goodman/school/Quest/src/parser/non_terminal.c:
 
@@ -1972,6 +2220,12 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/utils/DS/include/hashset.h:
 
+/home/goodman/school/Quest/src/include/semantic_analizer/AST.h:
+
+/home/goodman/school/Quest/src/semantic_analizer/AST.c:
+
+/home/goodman/school/Quest/src/semantic_analizer/definitions.c:
+
 /home/goodman/school/Quest/src/include/macros.h:
 
 /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c:
@@ -1987,5 +2241,3 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/utils/DS/generic_set.c:
 
 /home/goodman/school/Quest/src/utils/hashes/hashes.c:
-
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:

@@ -12,7 +12,7 @@ static parse_status_T *shift_action(parser_T *prs, token_T *tok, parse_tree_node
     int terminal_col = action_tbl_find_terminal(prs->action, tok);
     int top = lr_stack_peek(prs->stack);
 
-    stack_push(sym_s, init_parse_tree_node(init_symbol_terminal(tok), NULL, 0));
+    stack_push(sym_s, init_parse_tree_leaf(init_symbol_terminal(tok)));
     parser_shift(prs, atoi(prs->action->actions[top][terminal_col] + 1));
     return init_parse_status(init_symbol_terminal(tok), SHIFT);
 }
@@ -29,7 +29,7 @@ static parse_status_T *reduce_action(parser_T *prs, token_T *tok, parse_tree_nod
     for(i = 0; i < cur_rule->right_size; ++i) 
         children[i] = stack_pop(sym_s);
     
-    root = init_parse_tree_node(init_symbol_non_terminal(cur_rule->left), children, cur_rule->right_size);
+    root = init_parse_tree_node(init_symbol_non_terminal(cur_rule->left), atoi(prs->action->actions[top][terminal_col] + 1), children, cur_rule->right_size);
     stack_push(sym_s, root);
     return init_parse_status(parser_reduce(prs, cur_rule), REDUCE);
 }
@@ -88,7 +88,7 @@ parse_status_T *init_parse_status(symbol_T *sym, int type) {
     return s;
 }
 
-parse_tree_node_T *parse(parser_T *prs, queue_T *queue_tok) {
+parse_tree_T *parse(parser_T *prs, queue_T *queue_tok) {
     parse_status_T *parse_status = init_parse_status(NULL, ACCEPT);
     int n_children = 0, children_capacity = 0, i;
     token_T *tok = queue_dequeue(queue_tok);
@@ -110,12 +110,10 @@ parse_tree_node_T *parse(parser_T *prs, queue_T *queue_tok) {
         if(parse_status->type == SHIFT) 
             tok = queue_dequeue(queue_tok);
         
-        // TODO: BUG, not adding by size of rule
-
         parse_status = parse_tok(prs, tok, root, sym_s, action_funcs);
     } while(parse_status->type != ACCEPT);
 
-    return stack_pop(sym_s);
+    return init_parse_tree(stack_pop(sym_s), prs->rules, prs->n_rules);
 }
 
 void parser_shift(parser_T *prs, int data) {
