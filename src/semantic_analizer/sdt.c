@@ -36,11 +36,12 @@ sdt_T *init_sdt(semantic_rule_T **definitions, size_t n_defenitions) {
 }
 
 sdt_T *init_default_sdt(rule_T **rules, size_t n_rules) {
-    semantic_rule_T **srs = malloc(sizeof(semantic_rule_T *) * 2);
+    semantic_rule_T **srs = malloc(sizeof(semantic_rule_T *) * 4);
 
-    // srs[0] = init_sementic_rule(rules[4], definition_math_expression_constant);
     srs[0] = init_sementic_rule(rules[5], definition_math_expression_operation);
     srs[1] = init_sementic_rule(rules[10], definition_assignment);
+    srs[2] = init_sementic_rule(rules[14], definition_statement_list_statement_list);
+    srs[3] = init_sementic_rule(rules[9], definition_conditional);
 
-    return match_parser_sdt_rules(rules, n_rules, srs, 2);
+    return match_parser_sdt_rules(rules, n_rules, srs, 4);
 }

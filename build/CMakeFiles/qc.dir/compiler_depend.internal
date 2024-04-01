@@ -1167,6 +1167,7 @@ CMakeFiles/qc.dir/src/quest.c.o
  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h
  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h
  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h
+ /home/goodman/school/Quest/src/utils/DS/include/stack.h
  /usr/include/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h
@@ -1289,9 +1290,19 @@ CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h
- /home/goodman/school/Quest/src/include/parser/parse_tree.h
- /usr/include/stdio.h
+ /home/goodman/school/Quest/src/utils/DS/include/stack.h
+ /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h
+ /usr/include/x86_64-linux-gnu/bits/floatn.h
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h
+ /usr/include/alloca.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+ /home/goodman/school/Quest/src/include/parser/parse_tree.h
+ /home/goodman/school/Quest/src/utils/err/err.h
+ /home/goodman/school/Quest/src/utils/err/errors.h
+ /usr/include/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h
@@ -1300,13 +1311,6 @@ CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
- /usr/include/x86_64-linux-gnu/bits/floatn.h
- /usr/include/x86_64-linux-gnu/bits/floatn-common.h
- /usr/include/stdlib.h
- /usr/include/x86_64-linux-gnu/bits/waitflags.h
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h
- /usr/include/alloca.h
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
 
 CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o
  /home/goodman/school/Quest/src/semantic_analizer/sdt.c
@@ -1364,6 +1368,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o
  /home/goodman/school/Quest/src/include/parser/non_terminal.h
  /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h
  /home/goodman/school/Quest/src/include/parser/symbol.h
+ /home/goodman/school/Quest/src/utils/DS/include/stack.h
  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h
  /home/goodman/school/Quest/src/include/parser/symbol.h
  /home/goodman/school/Quest/src/include/semantic_analizer/definitions.h
@@ -1430,6 +1435,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h
  /home/goodman/school/Quest/src/utils/DS/include/stack.h
+ /home/goodman/school/Quest/src/utils/DS/include/stack.h
  /usr/include/stdio.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h
@@ -1486,8 +1492,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h
- /home/goodman/school/Quest/src/include/semantic_analizer/AST.h
- /home/goodman/school/Quest/src/include/parser/symbol.h
+ /home/goodman/school/Quest/src/utils/DS/include/stack.h
  /usr/include/stdlib.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
@@ -1496,6 +1501,8 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
  /usr/include/alloca.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+ /home/goodman/school/Quest/src/include/semantic_analizer/AST.h
+ /home/goodman/school/Quest/src/include/parser/symbol.h
 
 CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o
  /home/goodman/school/Quest/src/utils/DS/generic_set.c

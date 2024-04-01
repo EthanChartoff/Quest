@@ -42,17 +42,21 @@ void traverse_parse_tree(parse_tree_node_T *tree, int layer) {
         return;
 
     int i;
-    char *val = tree->n_children > 0 
+    char *val = tree->symbol->sym_type == NON_TERMINAL 
         ? tree->symbol->symbol->non_terminal->value  
         : tree->symbol->symbol->terminal->value;
 
-    for(i = 0; i < tree->n_children; ++i) {
-        traverse_parse_tree(tree->children[i], layer + 1);
-    }
+    int type = tree->symbol->sym_type == NON_TERMINAL 
+        ? tree->symbol->symbol->non_terminal->type  
+        : tree->symbol->symbol->terminal->type;
 
     for(i = 0; i < layer; ++i) {
         printf("  ");
     }
 
     printf("%s - %zu, %zd\n", val, tree->n_children, tree->rule_index);
+    
+    for(i = 0; i < tree->n_children; ++i) {
+        traverse_parse_tree(tree->children[i], layer + 1);
+    }
 }   
