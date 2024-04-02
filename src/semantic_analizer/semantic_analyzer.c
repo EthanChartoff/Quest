@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 static ast_node_T *build_ast_rec(parse_tree_node_T *tree, sdt_T *sdt, stack_T *ast_s) {
-    if(tree->rule_index == -1) {
+    if(tree->symbol->sym_type == TERMINAL) {
         stack_push(ast_s, init_ast_leaf(tree->symbol));
         return NULL;
     }
@@ -17,10 +17,8 @@ static ast_node_T *build_ast_rec(parse_tree_node_T *tree, sdt_T *sdt, stack_T *a
         build_ast_rec(tree->children[i], sdt, ast_s);                
     }
 
-    if(sdt->definitions[tree->rule_index]->definition) {
-        ast = sdt->definitions[tree->rule_index]->definition(tree, ast_s);
-        stack_push(ast_s, ast);
-    }
+    if(sdt->definitions[tree->rule_index]->definition)
+        sdt->definitions[tree->rule_index]->definition(ast_s);
     
     // printf("%zu\n", ast_s->size);
     return stack_peek(ast_s);

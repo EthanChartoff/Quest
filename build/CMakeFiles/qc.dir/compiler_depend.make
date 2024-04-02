@@ -1220,7 +1220,11 @@ CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o: /home/goodman/school/Quest/src/
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h
 
 CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: /home/goodman/school/Quest/src/semantic_analizer/definitions.c \
   /usr/include/stdc-predef.h \

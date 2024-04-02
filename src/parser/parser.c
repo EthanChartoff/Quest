@@ -13,6 +13,7 @@ static parse_status_T *shift_action(parser_T *prs, token_T *tok, parse_tree_node
     int top = lr_stack_peek(prs->stack);
 
     stack_push(sym_s, init_parse_tree_leaf(init_symbol_terminal(tok)));
+    
     parser_shift(prs, atoi(prs->action->actions[top][terminal_col] + 1));
     return init_parse_status(init_symbol_terminal(tok), SHIFT);
 }
@@ -26,8 +27,14 @@ static parse_status_T *reduce_action(parser_T *prs, token_T *tok, parse_tree_nod
     rule_T *cur_rule = prs->rules[atoi(prs->action->actions[top][terminal_col] + 1)];
     parse_tree_node_T **children = malloc(cur_rule->right_size * sizeof(parse_tree_node_T *)), *root = NULL;
 
-    for(i = 0; i < cur_rule->right_size; ++i) 
+    for(i = 0; i < cur_rule->right_size; ++i) {
         children[i] = stack_pop(sym_s);
+
+        char *val = children[i]->symbol->sym_type == NON_TERMINAL 
+        ? children[i]->symbol->symbol->non_terminal->value  
+        : children[i]->symbol->symbol->terminal->value;
+
+    }
     
     root = init_parse_tree_node(init_symbol_non_terminal(cur_rule->left), atoi(prs->action->actions[top][terminal_col] + 1), children, cur_rule->right_size);
     stack_push(sym_s, root);
@@ -89,9 +96,9 @@ parse_status_T *init_parse_status(symbol_T *sym, int type) {
 }
 
 parse_tree_T *parse(parser_T *prs, queue_T *queue_tok) {
-    parse_status_T *parse_status = init_parse_status(NULL, ACCEPT);
+    parse_status_T *parse_status = init_parse_status(NULL, SHIFT);
     int n_children = 0, children_capacity = 0, i;
-    token_T *tok = queue_dequeue(queue_tok);
+    token_T *tok;
     parse_tree_node_T **children = NULL, **tmp = NULL, *root;
     stack_T *sym_s = stack_init();
     parse_status_T *(*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s);
