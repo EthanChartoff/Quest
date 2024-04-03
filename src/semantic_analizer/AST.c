@@ -50,7 +50,7 @@ void traverse_ast(ast_node_T *ast, int layer) {
         printf("  ");
     }
 
-    printf("%s - %zd\n", val, ast->n_children);
+    printf("%s\n", val);
 
     for(i = 0; i < ast->n_children; ++i) {
         traverse_ast(ast->children[i], layer + 1);

@@ -52,13 +52,11 @@ void definition_assignment(stack_T *astack) {
 
 void definition_conditional(stack_T *astack) {
     ast_node_T **children = malloc(sizeof(ast_node_T *) * 3);
-    if(children == NULL) {
-        // Handle memory allocation error
+    if(!children)
         thrw(ALLOC_ERR);
-        return;
-    }
 
     ast_node_T *cond = stack_pop(astack); // if
+
     stack_pop(astack); // (
     children[0] = stack_pop(astack); // exp
     stack_pop(astack); // )
@@ -74,7 +72,22 @@ void definition_conditional(stack_T *astack) {
 }
 
 void definition_while(stack_T *astack) {
-    // Implement while statement logic here
+    ast_node_T **children = malloc(sizeof(ast_node_T *) * 2);
+    if(!children)
+        thrw(ALLOC_ERR);
+
+    ast_node_T *whyle = stack_pop(astack);  // while 
+
+    stack_pop(astack);                      // (
+    children[0] = stack_pop(astack);        // exp
+    stack_pop(astack);                      // )
+    stack_pop(astack);                      // {
+    children[1] = stack_pop(astack);        // stmts
+    stack_pop(astack);                      // }
+
+    stack_push(
+        astack, 
+        init_ast_node(whyle->symbol, children, 2));                                                  
 }
 
 void definition_semantic_block(stack_T *astack) {
