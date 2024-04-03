@@ -30,7 +30,7 @@ void compile(char *src) {
     
     parse_tree_T *tree = parse(prs, queue);
     ast_node_T *ast = build_ast(tree);
-    traverse_parse_tree(tree->root, 0);
+    // traverse_parse_tree(tree->root, 0);
     traverse_ast(ast, 0); 
 }
 

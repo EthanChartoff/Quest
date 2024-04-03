@@ -45,8 +45,6 @@ void traverse_ast(ast_node_T *ast, int layer) {
         ? ast->symbol->symbol->non_terminal->value  
         : ast->symbol->symbol->terminal->value; 
 
-    
-
     for(i = 0; i < layer; ++i) {
         printf("  ");
     }
@@ -54,6 +52,7 @@ void traverse_ast(ast_node_T *ast, int layer) {
     printf("%s\n", val);
 
     for(i = 0; i < ast->n_children; ++i) {
+        printf("%d", ast->children[i]->symbol->sym_type);
         traverse_ast(ast->children[i], layer + 1);
     }
 }
