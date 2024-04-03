@@ -52,7 +52,7 @@ void traverse_parse_tree(parse_tree_node_T *tree, int layer) {
 
     
     for(i = 0; i < tree->n_children; ++i) {
-        traverse_parse_tree(tree->children[tree->n_children - i - 1], layer + 1);
+        traverse_parse_tree(tree->children[i], layer + 1);
     }
 
     for(i = 0; i < layer; ++i) {

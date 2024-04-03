@@ -18,7 +18,6 @@ void definition_statement_list_statement(stack_T *astack) {
 void definition_statement_list_statement_list(stack_T *astack) {
     ast_node_T *stmt_list = stack_pop(astack);
     ast_add_to_node(stmt_list, stack_pop(astack));
-    printf("%zd\n", stmt_list->n_children);
     
     stack_push(astack, stmt_list);
 }
@@ -114,4 +113,5 @@ void definition_op_minus(stack_T *astack) {
 
 void definition_op_plus(stack_T *astack);
 void definition_op_minus(stack_T *astack);
+
 
