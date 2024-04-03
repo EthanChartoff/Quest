@@ -51,13 +51,14 @@ void traverse_parse_tree(parse_tree_node_T *tree, int layer) {
         : tree->symbol->symbol->terminal->type;
 
     
+    for(i = 0; i < tree->n_children; ++i) {
+        traverse_parse_tree(tree->children[tree->n_children - i - 1], layer + 1);
+    }
+
     for(i = 0; i < layer; ++i) {
         printf("  ");
     }
 
     printf("%s - %zu, %zd\n", val, tree->n_children, tree->rule_index);
     
-    for(i = 0; i < tree->n_children; ++i) {
-        traverse_parse_tree(tree->children[tree->n_children - i - 1], layer + 1);
-    }
 }   

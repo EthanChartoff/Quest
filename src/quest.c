@@ -29,10 +29,10 @@ void compile(char *src) {
     } while(tk->type != TOK_eof);
     
     parse_tree_T *tree = parse(prs, queue);
-    traverse_parse_tree(tree->root, 0);
+    // travers  e_parse_tree(tree->root, 0);
 
     ast_node_T *ast = build_ast(tree);
-    traverse_ast(ast, 0); 
+    // traverse_ast(ast, 0); 
 }
 
 void compile_file(const char *filename) {
