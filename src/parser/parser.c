@@ -8,18 +8,18 @@
 #include <stdlib.h>
 
 // this function is what the parser should do when encountering a shift action in the action table
-static parse_status_T *shift_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
+static int shift_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
     int terminal_col = action_tbl_find_terminal(prs->action, tok);
     int top = lr_stack_peek(prs->stack);
 
     stack_push(sym_s, init_parse_tree_leaf(init_symbol_terminal(tok)));
     
     parser_shift(prs, atoi(prs->action->actions[top][terminal_col] + 1));
-    return init_parse_status(init_symbol_terminal(tok), SHIFT);
+    return SHIFT;
 }
 
 // this function is what the parser should do when encountering a reduce action in the action table
-static parse_status_T *reduce_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
+static int reduce_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
 
     int terminal_col = action_tbl_find_terminal(prs->action, tok);
     int top = lr_stack_peek(prs->stack);
@@ -29,30 +29,26 @@ static parse_status_T *reduce_action(parser_T *prs, token_T *tok, parse_tree_nod
 
     for(i = 0; i < cur_rule->right_size; ++i) {
         children[i] = stack_pop(sym_s);
-
-        char *val = children[i]->symbol->sym_type == NON_TERMINAL 
-        ? children[i]->symbol->symbol->non_terminal->value  
-        : children[i]->symbol->symbol->terminal->value;
-
     }
     
     root = init_parse_tree_node(init_symbol_non_terminal(cur_rule->left), atoi(prs->action->actions[top][terminal_col] + 1), children, cur_rule->right_size);
     stack_push(sym_s, root);
-    return init_parse_status(parser_reduce(prs, cur_rule), REDUCE);
+    parser_reduce(prs, cur_rule);
+    return REDUCE;
 }
 
 // this function is what the parser should do when encountering an accept action in the action table
-static parse_status_T *accept_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
-    return init_parse_status(NULL, ACCEPT);
+static int accept_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
+    return ACCEPT;
 }
 
 // this function is what the parser should do when encountering an error action in the action table
-static parse_status_T *error_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
+static int error_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s) {
     thrw(PARSER_ACTION_ERR);
-    return init_parse_status(NULL, ERR);
+    return ERR;
 }
 
-static parse_status_T *parse_tok(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s, parse_status_T *(*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s)) {    
+static int parse_tok(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s, int (*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s)) {    
     char action = prs->action->actions[lr_stack_peek(prs->stack)][action_tbl_find_terminal(prs->action, tok)][0];
 
     if(!islower(action))
@@ -86,22 +82,13 @@ parser_T *init_parser(slr_T *slr) {
     return prs;
 }
 
-parse_status_T *init_parse_status(symbol_T *sym, int type) {
-    parse_status_T *s = malloc(sizeof(parse_status_T));
-
-    s->sym = sym;
-    s->type = type;
-
-    return s;
-}
-
 parse_tree_T *parse(parser_T *prs, queue_T *queue_tok) {
-    parse_status_T *parse_status = init_parse_status(NULL, SHIFT);
+    int parse_status = SHIFT;
     int n_children = 0, children_capacity = 0, i;
     token_T *tok;
     parse_tree_node_T **children = NULL, **tmp = NULL, *root;
     stack_T *sym_s = stack_init();
-    parse_status_T *(*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s);
+    int (*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s);
 
     action_funcs['s' - 'a'] = &shift_action;
     action_funcs['r' - 'a'] = &reduce_action;
@@ -114,11 +101,11 @@ parse_tree_T *parse(parser_T *prs, queue_T *queue_tok) {
     }
 
     do {
-        if(parse_status->type == SHIFT) 
+        if(parse_status == SHIFT) 
             tok = queue_dequeue(queue_tok);
         
         parse_status = parse_tok(prs, tok, root, sym_s, action_funcs);
-    } while(parse_status->type != ACCEPT);
+    } while(parse_status != ACCEPT);
 
     return init_parse_tree(stack_pop(sym_s), prs->rules, prs->n_rules);
 }
@@ -128,13 +115,15 @@ void parser_shift(parser_T *prs, int data) {
 }
 
 symbol_T *parser_reduce(parser_T *prs, rule_T *rule) {
-    int i;
+    int i, state;
 
     for(i = 0; i < rule->right_size; ++i) {
         lr_stack_pop(prs->stack);
     }
 
-    i = prs->go_to->gotos[lr_stack_peek(prs->stack)][goto_tbl_find_non_terminal(prs->go_to, rule->left)];
+    state = lr_stack_peek(prs->stack);
+
+    i = prs->go_to->gotos[state][goto_tbl_find_non_terminal(prs->go_to, rule->left)];
     lr_stack_push(prs->stack,  i);
     return init_symbol_non_terminal(rule->left);
 }

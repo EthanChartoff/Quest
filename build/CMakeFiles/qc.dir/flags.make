@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/goodman/school/Quest/src/include
 
-C_FLAGS = -std=gnu11
+C_FLAGS = -g -std=gnu11
 

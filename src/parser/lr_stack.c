@@ -28,8 +28,10 @@ int lr_stack_pop(lr_stack_T *s) {
     if(LR_IS_EMPTY(s))
         return -1;
 
-    s->size--;
-    return s->top[s->size];
+    int data = s->top[--s->size];
+    s->top = realloc(s->top, sizeof(int) * s->capacity);
+
+    return data;
 }
 
 int lr_stack_peek(lr_stack_T *s) {
@@ -41,7 +43,9 @@ int lr_stack_peek(lr_stack_T *s) {
 
 int lr_stack_peek_inside(lr_stack_T *s, int n) {
     int i, tmp;
-    int items[n];
+    int *items = malloc(sizeof(int) * n);
+    if(!items)
+        thrw(ALLOC_ERR);
 
     for(i = 0; i < n; ++i) {
         items[i] = lr_stack_pop(s);
@@ -50,6 +54,7 @@ int lr_stack_peek_inside(lr_stack_T *s, int n) {
     for(i = 0; i < n; ++i) {
         lr_stack_push(s, items[n - i - 1]);
     }
+    free(items);
     return tmp;
 }
 

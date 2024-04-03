@@ -41,18 +41,18 @@ void traverse_ast(ast_node_T *ast, int layer) {
     
 
     int i;
-    char *val = ast->symbol->sym_type 
-        ? ast->symbol->symbol->non_terminal->value  
-        : ast->symbol->symbol->terminal->value; 
+    char *val = ast->symbol->sym_type == TERMINAL
+        ? ast->symbol->symbol->terminal->value  
+        : ast->symbol->symbol->non_terminal->value; 
 
+    // printf("%c\n", val[0]);
     for(i = 0; i < layer; ++i) {
         printf("  ");
     }
 
-    printf("%s\n", val);
+    printf("%s - %zd\n", val, ast->n_children);
 
     for(i = 0; i < ast->n_children; ++i) {
-        printf("%d", ast->children[i]->symbol->sym_type);
         traverse_ast(ast->children[i], layer + 1);
     }
 }

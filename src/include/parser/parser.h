@@ -21,11 +21,6 @@ typedef enum PARSE_STATUS_TYPE_ENUM {
     N_PARSE_STATUS
 } parse_status_type_E;
 
-typedef struct PARSE_STATUS_STRUCT {
-    symbol_T *sym;  // symbol that came with the status
-    int type;       // status type
-} parse_status_T;
-
 typedef struct PARSER_STRUCT {
     action_tbl_T *action;                                                                   // action table
     goto_tbl_T *go_to;                                                                      // goto table
@@ -35,7 +30,6 @@ typedef struct PARSER_STRUCT {
 } parser_T;
 
 parser_T *init_parser(slr_T *slr);
-parse_status_T *init_parse_status(symbol_T *sym, int type);
 
 parse_tree_T *parse(parser_T *prs, queue_T *queue_tok);
 void parser_shift(parser_T *prs, int data);
