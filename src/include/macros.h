@@ -10,9 +10,9 @@
 #define PARSER_ACTION_PRETTY_PATH "/home/goodman/school/Quest/build/parser_action_pretty.dat"
 #define PARSER_GOTO_PATH "/home/goodman/school/Quest/build/parser_goto.dat"
 #define PARSER_GOTO_PRETTY_PATH "/home/goodman/school/Quest/build/parser_goto_pretty.dat"
-#define PARSER_BNF "/home/goodman/school/Quest/resources/language/.ebnf"
+#define PARSER_BNF "/home/goodman/school/Quest/resources/language/quest.ebnf"
 #define PARSER_BNF_NON_TERMINALS "/home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h"
-#define PARSER_BNF_XLAT "/home/goodman/school/Quest/build/slr_xlat"
+#define PARSER_BNF_XLAT "/home/goodman/school/Quest/resources/slr_xlat"
 #define PARSER_SLR_BIN "/home/goodman/school/Quest/build/slr.bin"
 
 #define PARSER_NON_TERMINALS_HEADER "\

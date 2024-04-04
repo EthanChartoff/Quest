@@ -198,6 +198,30 @@ src/io.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/io.c.s
 .PHONY : src/io.c.s
 
+src/lang.o: src/lang.c.o
+.PHONY : src/lang.o
+
+# target to build an object file
+src/lang.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lang.c.o
+.PHONY : src/lang.c.o
+
+src/lang.i: src/lang.c.i
+.PHONY : src/lang.i
+
+# target to preprocess a source file
+src/lang.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lang.c.i
+.PHONY : src/lang.c.i
+
+src/lang.s: src/lang.c.s
+.PHONY : src/lang.s
+
+# target to generate assembly for a file
+src/lang.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/lang.c.s
+.PHONY : src/lang.c.s
+
 src/lexer/lexer.o: src/lexer/lexer.c.o
 .PHONY : src/lexer/lexer.o
 
@@ -1006,6 +1030,9 @@ help:
 	@echo "... src/io.o"
 	@echo "... src/io.i"
 	@echo "... src/io.s"
+	@echo "... src/lang.o"
+	@echo "... src/lang.i"
+	@echo "... src/lang.s"
 	@echo "... src/lexer/lexer.o"
 	@echo "... src/lexer/lexer.i"
 	@echo "... src/lexer/lexer.s"

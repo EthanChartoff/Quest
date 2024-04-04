@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/goodman/school/Quest/src/io.c" "CMakeFiles/qc.dir/src/io.c.o" "gcc" "CMakeFiles/qc.dir/src/io.c.o.d"
+  "/home/goodman/school/Quest/src/lang.c" "CMakeFiles/qc.dir/src/lang.c.o" "gcc" "CMakeFiles/qc.dir/src/lang.c.o.d"
   "/home/goodman/school/Quest/src/lexer/lexer.c" "CMakeFiles/qc.dir/src/lexer/lexer.c.o" "gcc" "CMakeFiles/qc.dir/src/lexer/lexer.c.o.d"
   "/home/goodman/school/Quest/src/lexer/lexer_automata.c" "CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o" "gcc" "CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o.d"
   "/home/goodman/school/Quest/src/lexer/token.c" "CMakeFiles/qc.dir/src/lexer/token.c.o" "gcc" "CMakeFiles/qc.dir/src/lexer/token.c.o.d"

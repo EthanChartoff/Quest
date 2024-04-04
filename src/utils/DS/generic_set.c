@@ -45,6 +45,14 @@ int set_add_all(set_T* set, set_T *more_set) {
 	return c;
 }
 
+int set_add_arr(set_T* set, void **more_set, size_t size) {
+	int i, c;
+	for(i = 0; i < size; ++i) {
+		c += set_add(set, more_set[i]);
+	}
+	return c;
+}
+
 // Function to check if an element exists in the set
 int set_contains(set_T* set, void* data) {
 	set_node_T* current = set->head;

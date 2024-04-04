@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/qc.dir/src/io.c.o"
   "CMakeFiles/qc.dir/src/io.c.o.d"
+  "CMakeFiles/qc.dir/src/lang.c.o"
+  "CMakeFiles/qc.dir/src/lang.c.o.d"
   "CMakeFiles/qc.dir/src/lexer/lexer.c.o"
   "CMakeFiles/qc.dir/src/lexer/lexer.c.o.d"
   "CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o"

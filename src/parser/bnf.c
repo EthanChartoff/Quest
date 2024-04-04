@@ -44,6 +44,8 @@ static void print_syms(set_T *s, FILE *xlat) {
     int i;
     set_node_T *cn = s->head;
 
+    fprintf(xlat, "symbol_T *start = init_symbol_non_terminal(init_non_terminal(\"S'\", NON_TERM_start));\n");
+    
     for(i = 0; i < s->size; ++i) {
         cur_left = cn->data;
 
@@ -57,6 +59,7 @@ static void print_syms(set_T *s, FILE *xlat) {
     }
 
     fprintf(xlat, "\n");
+    fprintf(xlat, "set_add(syms, start);\n");
 
     cn = s->head;
     for(i = 0; i < s->size; ++i) {
@@ -98,7 +101,8 @@ void bnf_make_non_terminals(char *src, char *dest) {
 
     // header
     fprintf(fp_dest, "%s\n", PARSER_NON_TERMINALS_HEADER);
-    fprintf(fp_xlat, "set_T *syms = set_init(symbol_cmp_generic);");
+    fprintf(fp_xlat, "set_T *syms = set_init(symbol_cmp_generic);\n");
+
 
 
     while (read != -1 && (read = getline(&line, &len, fp_src) != -1)) {

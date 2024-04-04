@@ -1,26 +1,38 @@
 program ::= statement-list
 
-statement-list 
-              ::= statement
+statement-list ::= statement
                 | statement statement-list
 
-/* the different kinds of statements in quest */
-statement   
-         ::= expression-statement
-           | compound-statement
-           | selection-statement
-           | iteration-statement
-           | jump-statement
-           | labeled-statement
-		   | declaration
+statement ::= expression-statement
+			| compound-statement
+			| selection-statement
+			| iteration-statement
+			| jump-statement
+			| labeled-statement
+			| declaration
+
+declaration ::= type-specifier identifier '=' constant-expression ';'
+
+type-specifier ::= 'VOID'
+				  | 'CHAR'
+				  | 'SHORT'
+				  | 'INT'
+				  | 'LONG'
+				  | 'FLOAT'
+				  | 'DOUBLE'
+				  | 'SIGNED'
+				  | 'UNSIGNED'
+
+function-definition ::= type-specifier identifier '(' parameter-list ')' compound-statement
+
+parameter-list ::= parameter-declaration
+				   | parameter-declaration ',' parameter-list
+				   
+parameter-declaration ::= type-specifier identifier
 
 expression-statement ::= constant-expression 'SEMICOLON'
 
-/* define order of precedence for different expressions types */
-constant-expression ::= conditional-expression
-
-conditional-expression ::= logical-or-expression
-                           | logical-or-expression '?' expression ':' conditional-expression
+constant-expression ::= logical-or-expression
 
 logical-or-expression ::= logical-and-expression
                           | logical-or-expression '||' logical-and-expression
@@ -84,8 +96,8 @@ assignment-operator ::= '='
                         | '*='
                         | '/='
                         | '%='
-                        | '+='
-                        | '-='
+                        | '+='                 
+						| '-='
                         | '<<='
                         | '>>='
                         | '&='
@@ -112,18 +124,4 @@ jump-statement ::= 'CONTINUE' ';'
 
 labeled-statement ::= 'CASE' constant-expression ':' statement
 					 | 'DEFAULT' ':' statement
-
-declaration ::= type-qualifier type-specifier '=' constant-expression ';'
-
-type-qualifier ::= 'CONST'
-
-type-specifier ::= 'VOID'
-				  | 'CHAR'
-				  | 'SHORT'
-				  | 'INT'
-				  | 'LONG'
-				  | 'FLOAT'
-				  | 'DOUBLE'
-				  | 'SIGNED'
-				  | 'UNSIGNED'
 

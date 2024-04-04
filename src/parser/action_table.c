@@ -58,13 +58,13 @@ void action_tbl_pretty_print_to_file(action_tbl_T *tbl, char *dest) {
     // print header
     fprintf(fp, "   |");
     for(i = 0; i < tbl->n_terminals; ++i) {
-        fprintf(fp, "%3s ", tbl->terminals[i]->value);
+        fprintf(fp, "%10s ", tbl->terminals[i]->value);
     }
     fprintf(fp, "\n");
 
     fprintf(fp, "   |");
     for(i = 0; i < tbl->n_terminals; ++i) {
-        fprintf(fp, "____");
+        fprintf(fp, "___________");
     }
     fprintf(fp, "\n");
 
@@ -75,7 +75,7 @@ void action_tbl_pretty_print_to_file(action_tbl_T *tbl, char *dest) {
             if(!tbl->actions[i][j])
                 fprintf(fp, "    ");
             else
-                fprintf(fp, "%3s ", tbl->actions[i][j]);
+                fprintf(fp, "%10s ", tbl->actions[i][j]);
         } 
         fprintf(fp, "\n");
     }
