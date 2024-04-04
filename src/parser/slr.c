@@ -323,7 +323,7 @@ slr_T *init_default_slr() {
     // goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
     // goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
 
-    bnf_make_non_terminals(PARSER_BNF, PARSER_BNF_NON_TERMINALS);
+    // bnf_make_non_terminals(PARSER_BNF, PARSER_BNF_NON_TERMINALS);
 
     return NULL;
 }

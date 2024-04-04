@@ -5,11 +5,13 @@
 #include "include/macros.h"
 #include "include/parser/bnf.h"
 #include "include/parser/symbol.h"
+#include "include/quest.h"
 #include "utils/DS/include/generic_set.h"
+#include "utils/err/err.h"
 
 
 // TODO: make a sysmtem that doesnt need to have all these defs
-static void init_default_lang() {    
+static slr_T *init_default_lang() {    
     /*
         symbols
     */
@@ -186,17 +188,52 @@ static void init_default_lang() {
     set_add(syms, void_tok);
     set_add(syms, return_tok);
 
+    /*
+        symbol lists
+    */
+
     symbol_T *stat_list[] = {statement_list, statement};
 
     symbol_T *declaration_list[] = {type_specifier, id, assign, constant_expression, semicolon};
+
     symbol_T *exp_stmt_list[] = {constant_expression, semicolon};
 
     symbol_T *logic_or_exp_list[] = {logical_or_expression, logical_or, logical_and_expression};
+
     symbol_T *logic_and_exp_list[] = {logical_and_expression, logical_and, inclusive_or_expression};
-    
+
+    symbol_T *inclusive_or_expression_list[] = {inclusive_or_expression, bitor, exclusive_or_expression};
+
+    symbol_T *exclusive_or_expression_list[] = {exclusive_or_expression, bitxor, and_expression};
+
+    symbol_T *and_expression_list[] = {and_expression, bitand, equality_expression};
+
+    symbol_T *equality_expression_equal_list[] = {equality_expression, equal_equal, relational_expression};
+    symbol_T *equality_expression_notequal_list[] = {equality_expression, not_equal, relational_expression};
+
+    symbol_T *relational_expression_less_list[] = {relational_expression, less, shift_expression};
+    symbol_T *relational_expression_greater_list[] = {relational_expression, greater, shift_expression};
+    symbol_T *relational_expression_equal_greater_list[] = {relational_expression, greater_equal, shift_expression};
+    symbol_T *relational_expression_equal_less_list[] = {relational_expression, less_equal, shift_expression};
+
+    symbol_T *shift_expression_lshift_list[] = {shift_expression, lshift, additive_expression};
+    symbol_T *shift_expression_rshift_list[] = {shift_expression, rshift, additive_expression};
+
+    symbol_T *additive_expression_plus_list[] = {additive_expression, plus, multiplicative_expression};
+    symbol_T *additive_expression_minus_list[] = {additive_expression, minus, multiplicative_expression};
+
+    symbol_T *multiplicative_expression_multiply_list[] = {multiplicative_expression, multiply, assignment_expression};
+    symbol_T *multiplicative_expression_divide_list[] = {multiplicative_expression, divide, assignment_expression};
+    symbol_T *multiplicative_expression_mod_list[] = {multiplicative_expression, mod, assignment_expression};
+
+    symbol_T *assignment_expression_list[] = {assignment_expression, assign, primary_expression};
+
+    symbol_T *primary_expression_list[] = {lparen, expression, rparen};
 
 
-
+    /*
+        rules
+    */
     set_T *rules = set_init(rule_cmp_generic);
     
     rule_T *start_r = init_rule(start->symbol->non_terminal, &program, 1);
@@ -219,7 +256,7 @@ static void init_default_lang() {
     rule_T *type_float = init_rule(type_specifier->symbol->non_terminal, &float_tok, 1);
     rule_T *type_char = init_rule(type_specifier->symbol->non_terminal, &char_tok, 1);
     rule_T *type_void = init_rule(type_specifier->symbol->non_terminal, &void_tok, 1);
-
+    
     /* 
         function
         param-list
@@ -228,8 +265,54 @@ static void init_default_lang() {
 
     rule_T *exp_stmt = init_rule(expression_statement->symbol->non_terminal, exp_stmt_list, 2);
 
-    
+    rule_T *cnstnt_exp = init_rule(constant_expression->symbol->non_terminal, &logical_or_expression, 1);
 
+    rule_T *logical_or_exp_precedence = init_rule(logical_or_expression->symbol->non_terminal, &logical_and_expression, 1);
+    rule_T *logical_or_exp = init_rule(logical_or_expression->symbol->non_terminal, logic_or_exp_list, 3);
+
+    rule_T *logical_and_exp_precedence = init_rule(logical_and_expression->symbol->non_terminal, &inclusive_or_expression, 1);
+    rule_T *logical_and_exp = init_rule(logical_and_expression->symbol->non_terminal, logic_and_exp_list, 3);
+
+    rule_T *inclusive_or_exp_precedence = init_rule(inclusive_or_expression->symbol->non_terminal, &exclusive_or_expression, 1);
+    rule_T *inclusive_or_exp = init_rule(inclusive_or_expression->symbol->non_terminal, inclusive_or_expression_list, 3);
+
+    rule_T *exclusive_or_exp_precedence = init_rule(exclusive_or_expression->symbol->non_terminal, &and_expression, 1);
+    rule_T *exclusive_or_exp = init_rule(exclusive_or_expression->symbol->non_terminal, exclusive_or_expression_list, 3);
+
+    rule_T *and_exp_precedence = init_rule(and_expression->symbol->non_terminal, &equality_expression, 1);
+    rule_T *and_exp = init_rule(and_expression->symbol->non_terminal, and_expression_list, 3);
+
+    rule_T *equality_exp_precedence = init_rule(equality_expression->symbol->non_terminal, &relational_expression, 1);
+    rule_T *equality_equal_exp = init_rule(equality_expression->symbol->non_terminal, equality_expression_equal_list, 3);
+    rule_T *equality_notequal_exp = init_rule(equality_expression->symbol->non_terminal, equality_expression_notequal_list, 3);
+
+    rule_T *relational_exp_precedence = init_rule(relational_expression->symbol->non_terminal, &shift_expression, 1);
+    rule_T *relational_less_exp = init_rule(relational_expression->symbol->non_terminal, relational_expression_less_list, 3);
+    rule_T *relational_greater_exp = init_rule(relational_expression->symbol->non_terminal, relational_expression_greater_list, 3);
+    rule_T *relational_less_equal_exp = init_rule(relational_expression->symbol->non_terminal, relational_expression_equal_less_list, 3);
+    rule_T *relational_greater_equal_exp = init_rule(relational_expression->symbol->non_terminal, relational_expression_equal_greater_list, 3); 
+
+    rule_T *shift_exp_precedence = init_rule(shift_expression->symbol->non_terminal, &additive_expression, 1);
+    rule_T *shift_lshift_exp = init_rule(shift_expression->symbol->non_terminal, shift_expression_lshift_list, 3);
+    rule_T *shift_rshift_exp = init_rule(shift_expression->symbol->non_terminal, shift_expression_rshift_list, 3);
+
+    rule_T *additive_exp_precedence = init_rule(additive_expression->symbol->non_terminal, &multiplicative_expression, 1);
+    rule_T *additive_plus_exp = init_rule(additive_expression->symbol->non_terminal, additive_expression_plus_list, 3);
+    rule_T *additive_minus_exp = init_rule(additive_expression->symbol->non_terminal, additive_expression_minus_list, 3);
+
+    rule_T *multiplicative_exp_precedence = init_rule(multiplicative_expression->symbol->non_terminal, &assignment_expression, 1);
+    rule_T *multiplicative_multiply_exp = init_rule(multiplicative_expression->symbol->non_terminal, multiplicative_expression_multiply_list, 3);
+    rule_T *multiplicative_divide_exp = init_rule(multiplicative_expression->symbol->non_terminal, multiplicative_expression_divide_list, 3);
+    rule_T *multiplicative_mod_exp = init_rule(multiplicative_expression->symbol->non_terminal, multiplicative_expression_mod_list, 3);
+
+    rule_T *assignment_exp_precedence = init_rule(assignment_expression->symbol->non_terminal, &primary_expression, 1);
+    rule_T *assignment_exp = init_rule(assignment_expression->symbol->non_terminal, assignment_expression_list, 3);
+
+    rule_T *primary_exp_precedence = init_rule(primary_expression->symbol->non_terminal, primary_expression_list, 3);
+    rule_T *primary_exp_id = init_rule(primary_expression->symbol->non_terminal, &id, 1);
+    rule_T *primary_exp_constant = init_rule(primary_expression->symbol->non_terminal, &num, 1);
+
+    rule_T *exp_exp = init_rule(expression->symbol->non_terminal, &constant_expression, 3);
 
 
     set_add(rules, start_r);
@@ -244,23 +327,69 @@ static void init_default_lang() {
     set_add(rules, s_decl);
     set_add(rules, decl);
     set_add(rules, type_int);
-    set_add(rules, type_float);
     set_add(rules, type_char);
+    set_add(rules, type_float);
     set_add(rules, type_void);
+
+    set_add(rules, exp_stmt);
+    set_add(rules, cnstnt_exp);
+
+    set_add(rules, logical_or_exp_precedence);
+    set_add(rules, logical_or_exp);
+    set_add(rules, logical_and_exp_precedence);
+    set_add(rules, logical_and_exp);
+    set_add(rules, inclusive_or_exp_precedence);
+    set_add(rules, inclusive_or_exp);
+    set_add(rules, exclusive_or_exp_precedence);
+    set_add(rules, exclusive_or_exp);
+    set_add(rules, and_exp_precedence);
+    set_add(rules, and_exp);
+    set_add(rules, equality_exp_precedence);
+    set_add(rules, equality_equal_exp);
+    set_add(rules, equality_notequal_exp);
+    set_add(rules, relational_exp_precedence);
+    set_add(rules, relational_less_exp);
+    set_add(rules, relational_greater_exp);
+    set_add(rules, relational_less_equal_exp);
+    set_add(rules, relational_greater_equal_exp);
+    set_add(rules, shift_exp_precedence);
+    set_add(rules, shift_lshift_exp);
+    set_add(rules, shift_rshift_exp);
+    set_add(rules, additive_exp_precedence);
+    set_add(rules, additive_plus_exp);
+    set_add(rules, additive_minus_exp);
+    set_add(rules, multiplicative_exp_precedence);
+    set_add(rules, multiplicative_multiply_exp);
+    set_add(rules, multiplicative_divide_exp);
+    set_add(rules, multiplicative_mod_exp);
+    set_add(rules, assignment_exp_precedence);
+    set_add(rules, assignment_exp);
+    set_add(rules, primary_exp_precedence);
+    set_add(rules, primary_exp_id);
+    set_add(rules, primary_exp_constant);
+    set_add(rules, exp_exp);
 
     grammer_T *gram = init_grammer(rules, syms);
 
     set_T *itms = lr0_items(gram, init_lr_item(start_r, 0, NULL));
     slr_T *slr = init_slr(itms, gram);
 
-    action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
-    action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
-    goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
-    goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
+    // action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
+    // action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
+    // goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
+    // goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
+
+    return slr;
 }
 
-void init_quest() {
-    init_default_lang();
+quest_T *init_quest(char *src) {
+    quest_T *q = malloc(sizeof(quest_T));
+    if(!q)
+        thrw(ALLOC_ERR);
 
-    return;
+    q->src = src;
+    q->lexer = init_lexer(src);
+    q->parser = init_parser(init_default_lang());
+
+    return q;
 }

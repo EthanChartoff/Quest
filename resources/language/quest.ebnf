@@ -67,19 +67,10 @@ additive-expression ::= multiplicative-expression
                         | additive-expression '+' multiplicative-expression
                         | additive-expression '-' multiplicative-expression
 
-multiplicative-expression ::= unary-expression
-                              | multiplicative-expression '*' unary-expression
-                              | multiplicative-expression '/' unary-expression
-                              | multiplicative-expression '%' unary-expression
-
-unary-expression ::= postfix-expression
-					| '++' unary-expression
-					| '--' unary-expression
-					| unary-operator unary-expression
-
-postfix-expression ::= assignment-expression
-                       | postfix-expression '++'
-                       | postfix-expression '--'
+multiplicative-expression ::= assignment-expression
+                              | multiplicative-expression '*' assignment-expression
+                              | multiplicative-expression '/' assignment-expression
+                              | multiplicative-expression '%' assignment-expression
 
 assignment-expression ::= primary-expression
 						 | assignment-expression assignment-operator primary-expression	
@@ -90,7 +81,6 @@ primary-expression ::= identifier
                        | '(' expression ')'
 
 expression ::= constant-expression
-
 
 assignment-operator ::= '='
                         | '*='

@@ -24,7 +24,10 @@ parse_tree_T *init_parse_tree(parse_tree_node_T *root, rule_T **rules, size_t n_
 parse_tree_node_T *init_parse_tree_node(symbol_T *sym, ssize_t rule_index, parse_tree_node_T **children, size_t n_children);
 parse_tree_node_T *init_parse_tree_leaf(symbol_T *sym);
 
-void traverse_parse_tree(parse_tree_node_T *tree, int layer);
+void parse_tree_traverse_preorder(parse_tree_node_T *tree, int layer);
+void parse_tree_traverse_postorder(parse_tree_node_T *tree, int layer);
+
+
 
 
 #endif /* QUEST_PARSE_TREE_NODE_H */

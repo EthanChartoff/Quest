@@ -57,20 +57,20 @@ void goto_tbl_pretty_print_to_file(goto_tbl_T *tbl, char *dest) {
     // print header
     fprintf(fp, "   |");
     for(i = 0; i < tbl->n_non_terminals; ++i) {
-        fprintf(fp, "%10s ", tbl->non_terminals[i]->value);
+        fprintf(fp, "%20s ", tbl->non_terminals[i]->value);
     }
     fprintf(fp, "\n");
 
     fprintf(fp, "   |");
     for(i = 0; i < tbl->n_non_terminals; ++i) {
-        fprintf(fp, "___________");
+        fprintf(fp, "______________________");
     }
     fprintf(fp, "\n");
 
     for(i = 0; i < tbl->n_states; ++i) {
         fprintf(fp, " %2d|", i);
         for(j = 0; j < tbl->n_non_terminals; ++j) {
-            fprintf(fp, "%10d ", tbl->gotos[i][j]);
+            fprintf(fp, "%20d ", tbl->gotos[i][j]);
         } 
         fprintf(fp, "\n");
     }

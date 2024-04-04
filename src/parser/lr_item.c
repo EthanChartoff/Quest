@@ -73,8 +73,11 @@ set_T *first(const grammer_T *gram, const symbol_T *sym) {
             cur_rule = cn->data;
             
             // get rules of symbol and see what is there start symbol 
-            if(!non_terminal_cmp(sym->symbol->non_terminal, cur_rule->left)) 
-                set_add_all(first_set, first(gram, cur_rule->right[0]));
+            if(!non_terminal_cmp(sym->symbol->non_terminal, cur_rule->left)) {
+                if(sym->symbol->non_terminal != cur_rule->right[0]->symbol->non_terminal) {
+                    set_add_all(first_set, first(gram, cur_rule->right[0]));
+                }
+            }
 
             cn = cn->next;
         }

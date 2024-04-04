@@ -1,11 +1,5 @@
-x = 5 + 2 
+  int x = 10;  
+  int y = 5 & 4;   
 
-if (3) {  
-  z = x + 2
-} else {
-  z = x - 1 
-}
+  int sum = x + y;  
 
-while (x) {  
-  b = b + 1 
-}

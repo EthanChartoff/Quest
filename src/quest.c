@@ -1,21 +1,20 @@
 #include "include/quest.h"
+#include "include/lang.h"
 #include "include/lexer/lexer.h"
 #include "include/io.h"
-#include "include/macros.h"
 #include "include/parser/parse_tree.h"
 #include "include/parser/parser.h"
-#include "include/parser/slr.h"
-#include "include/semantic_analizer/AST.h"
 #include "utils/DS/include/queue.h"
-#include "include/semantic_analizer/semantic_analyzer.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 void compile(char *src) {
-    lexer_T* lex = init_lexer(src);
+    quest_T *q = init_quest(src);
+
+    lexer_T* lex = q->lexer;
+    parser_T *prs = q->parser;
+
     token_T* tk = 0;
     queue_T *queue = queue_init();
-    parser_T *prs = init_parser(init_default_slr());
 
     do {
         tk = lexer_next_token(lex);
@@ -29,10 +28,10 @@ void compile(char *src) {
     } while(tk->type != TOK_eof);
     
     parse_tree_T *tree = parse(prs, queue);
-    traverse_parse_tree(tree->root, 0);
+    parse_tree_traverse_preorder(tree->root, 0);
 
-    ast_node_T *ast = build_ast(tree);
-    traverse_ast(ast, 0); 
+    // ast_node_T *ast = build_ast(tree);
+    // traverse_ast(ast, 0); 
 }
 
 void compile_file(const char *filename) {

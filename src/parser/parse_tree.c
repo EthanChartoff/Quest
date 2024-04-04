@@ -62,3 +62,51 @@ void traverse_parse_tree(parse_tree_node_T *tree, int layer) {
     printf("%s - %zu, %zd\n", val, tree->n_children, tree->rule_index);
     
 }   
+
+void parse_tree_traverse_preorder(parse_tree_node_T *tree, int layer) {
+    if(tree == NULL)
+        return;
+
+    int i;
+    char *val = tree->symbol->sym_type == NON_TERMINAL 
+        ? tree->symbol->symbol->non_terminal->value  
+        : tree->symbol->symbol->terminal->value;
+
+    int type = tree->symbol->sym_type == NON_TERMINAL 
+        ? tree->symbol->symbol->non_terminal->type  
+        : tree->symbol->symbol->terminal->type;
+
+    for(i = 0; i < layer; ++i) {
+        printf("  ");
+    }
+
+    printf("%s\n", val);
+
+    for(i = 0; i < tree->n_children; ++i) {
+        parse_tree_traverse_preorder(tree->children[i], layer + 1);
+    }
+}
+
+void parse_tree_traverse_postorder(parse_tree_node_T *tree, int layer) {
+    if(tree == NULL)
+        return;
+
+    int i;
+    char *val = tree->symbol->sym_type == NON_TERMINAL
+        ? tree->symbol->symbol->non_terminal->value
+        : tree->symbol->symbol->terminal->value;
+
+    int type = tree->symbol->sym_type == NON_TERMINAL
+        ? tree->symbol->symbol->non_terminal->type
+        : tree->symbol->symbol->terminal->type;
+
+    for(i = 0; i < tree->n_children; ++i) {
+        parse_tree_traverse_postorder(tree->children[i], layer + 1);
+    }
+
+    for(i = 0; i < layer; ++i) {
+        printf("  ");
+    }
+
+    printf("%s\n", val);
+}
