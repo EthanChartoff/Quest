@@ -1,5 +1,18 @@
-  int x = 10;  
-  int y = 5 & 4;   
+int z = 7 % 3 + "z";
 
-  int sum = x + y;  
+int y = 5 && 4 >> 1;   
+
+int result = ((sum * 2));
+
+while ((count < 3)) { 
+int sum = x + y;
+
+	if (sum > 15) {  
+		x = 15;
+	} else {
+		x = 7 + x;
+	}
+
+count = count * 1;  
+}
 

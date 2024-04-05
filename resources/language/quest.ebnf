@@ -30,9 +30,12 @@ parameter-list ::= parameter-declaration
 				   
 parameter-declaration ::= type-specifier identifier
 
-expression-statement ::= constant-expression 'SEMICOLON'
+expression-statement ::= constant-expression ';'
 
-constant-expression ::= logical-or-expression
+constant-expression ::= assignment-expression
+
+assignment-expression ::= logical-or-expression
+                        | assignment-expression assignment-operator logical-or-expression 
 
 logical-or-expression ::= logical-and-expression
                           | logical-or-expression '||' logical-and-expression
@@ -67,20 +70,20 @@ additive-expression ::= multiplicative-expression
                         | additive-expression '+' multiplicative-expression
                         | additive-expression '-' multiplicative-expression
 
-multiplicative-expression ::= assignment-expression
-                              | multiplicative-expression '*' assignment-expression
-                              | multiplicative-expression '/' assignment-expression
-                              | multiplicative-expression '%' assignment-expression
-
-assignment-expression ::= primary-expression
-						 | assignment-expression assignment-operator primary-expression	
+multiplicative-expression ::= primary-expression
+                              | multiplicative-expression '*' primary-expression
+                              | multiplicative-expression '/' primary-expression
+                              | multiplicative-expression '%' primary-expression
 
 primary-expression ::= identifier
                        | constant
                        | string
                        | '(' expression ')'
 
-expression ::= constant-expression
+expression ::= constant-expression 
+             | expression ',' constant-expression
+
+
 
 assignment-operator ::= '='
                         | '*='
@@ -101,17 +104,17 @@ unary-operator ::=   '+'
 
 compound-statement ::= '{' statement-list '}'
 
-selection-statement ::= 'IF' '(' expression ')' statement
-						| 'IF' '(' expression ')' statement 'ELSE' statement
-						| 'SWITCH' '(' expression ')' statement
+selection-statement ::= 'IF' '(' constant-expression ')' compound_statement
+						| 'IF' '(' constant-expression ')' compound_statement 'ELSE' compound_statement
+						| 'SWITCH' '(' constant-expression ')' compound_statement
 
-iteration-statement ::= 'WHILE' '(' expression ')' statement
-						| 'DO' statement 'WHILE' '(' expression ')' ';'
+iteration-statement ::= 'WHILE' '(' constant-expression ')' compound_statement
+						| 'DO' compound_statement 'WHILE' '(' constant-expression ')' ';'
 						
 jump-statement ::= 'CONTINUE' ';'
 				   | 'BREAK' ';'
-				   | 'RET' expression ';'
+				   | 'RET' constant-expression ';'
 
-labeled-statement ::= 'CASE' constant-expression ':' statement
-					 | 'DEFAULT' ':' statement
+labeled-statement ::= 'CASE' constant-expression ':' compound_statement
+					 | 'DEFAULT' ':' compound_statement
 

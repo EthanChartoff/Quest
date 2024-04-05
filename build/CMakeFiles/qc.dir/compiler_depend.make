@@ -126,17 +126,37 @@ CMakeFiles/qc.dir/src/lang.c.o: /home/goodman/school/Quest/src/lang.c \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/include/parser/slr.h \
   /home/goodman/school/Quest/src/utils/DS/include/queue.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/parser/lr_item.h \
   /home/goodman/school/Quest/src/include/parser/symbol_set.h \
+  /home/goodman/school/Quest/src/include/parser/parser.h \
   /home/goodman/school/Quest/src/include/parser/rule.h \
   /home/goodman/school/Quest/src/include/parser/slr.h \
   /home/goodman/school/Quest/src/include/macros.h \
   /home/goodman/school/Quest/src/include/parser/bnf.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/quest.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/definitions.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
-  /home/goodman/school/Quest/src/utils/err/errors.h
+  /home/goodman/school/Quest/src/utils/err/errors.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
 
 CMakeFiles/qc.dir/src/lexer/lexer.c.o: /home/goodman/school/Quest/src/lexer/lexer.c \
   /usr/include/stdc-predef.h \
@@ -382,6 +402,13 @@ CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/include/parser/slr.h \
   /home/goodman/school/Quest/src/utils/DS/include/queue.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/lang.h \
   /home/goodman/school/Quest/src/include/quest.h \
   /usr/include/stdio.h \
@@ -1261,12 +1288,21 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/include/parser/slr.h \
   /home/goodman/school/Quest/src/utils/DS/include/queue.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
+  /home/goodman/school/Quest/src/utils/DS/include/generic_set.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
+  /home/goodman/school/Quest/src/include/parser/parse_tree.h \
+  /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
+  /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/lang.h \
   /home/goodman/school/Quest/src/include/quest.h \
   /home/goodman/school/Quest/src/include/lexer/lexer.h \
   /home/goodman/school/Quest/src/include/io.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/include/parser/parser.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
   /home/goodman/school/Quest/src/utils/DS/include/queue.h
 
 CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o: /home/goodman/school/Quest/src/semantic_analizer/AST.c \
@@ -2310,6 +2346,18 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h:
 
+/home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h:
+
+/home/goodman/school/Quest/src/quest.c:
+
+/home/goodman/school/Quest/src/utils/DS/include/hashset.h:
+
+/home/goodman/school/Quest/src/utils/DS/include/stack.h:
+
+/home/goodman/school/Quest/src/parser/rule.c:
+
+/home/goodman/school/Quest/src/include/semantic_analizer/AST.h:
+
 /usr/include/stdlib.h:
 
 /home/goodman/school/Quest/src/include/parser/lr_item.h:
@@ -2330,10 +2378,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/parser/grammer.c:
 
-/home/goodman/school/Quest/src/utils/DS/include/stack.h:
-
-/home/goodman/school/Quest/src/parser/rule.c:
-
 /usr/include/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
@@ -2348,15 +2392,7 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/semantic_analizer/sdt.c:
 
-/home/goodman/school/Quest/src/quest.c:
-
-/home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h:
-
-/home/goodman/school/Quest/src/utils/DS/include/hashset.h:
-
 /home/goodman/school/Quest/src/semantic_analizer/AST.c:
-
-/home/goodman/school/Quest/src/include/semantic_analizer/AST.h:
 
 /home/goodman/school/Quest/src/semantic_analizer/definitions.c:
 

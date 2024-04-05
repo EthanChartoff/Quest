@@ -22,6 +22,7 @@ int set_add_all(set_T* set, set_T *more_set);
 int set_add_arr(set_T* set, void **more_set, size_t size);
 int set_remove(set_T* set, void* data);
 int set_contains(set_T* set, void* data);
+void set_flip(set_T* set);
 void set_free(set_T* set);
 
 #endif

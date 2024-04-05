@@ -16,30 +16,133 @@
 /*
     each rule should have a corresponding definition
 */
+void definition_start_r(stack_T *astack, parse_tree_node_T *tree);
+void definition_program_sl(stack_T *astack, parse_tree_node_T *tree);
+void definition_sl_s(stack_T *astack, parse_tree_node_T *tree);
+void definition_sl_sl(stack_T *astack, parse_tree_node_T *tree);
+void definition_s_exp_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_s_compound_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_s_selection_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_s_iteration_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_s_labeled_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_s_decl(stack_T *astack, parse_tree_node_T *tree);
+void definition_decl(stack_T *astack, parse_tree_node_T *tree);
+void definition_type_int(stack_T *astack, parse_tree_node_T *tree);
+void definition_type_char(stack_T *astack, parse_tree_node_T *tree);
+void definition_type_float(stack_T *astack, parse_tree_node_T *tree);
+void definition_type_void(stack_T *astack, parse_tree_node_T *tree);
 
-void definition_program(stack_T *astack);
+void definition_exp_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_cnstnt_exp(stack_T *astack, parse_tree_node_T *tree);
 
-void definition_statement_list_statement(stack_T *astack);
-void definition_statement_list_statement_list(stack_T *astack);
+void definition_assignment_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_assignment_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_logical_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_logical_or_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_logical_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_logical_and_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_inclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_inclusive_or_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_exclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_exclusive_or_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_and_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_equality_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_equality_equal_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_equality_notequal_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_relational_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_relational_less_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_relational_less_equal_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_relational_greater_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_relational_greater_equal_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_shift_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_shift_lshift_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_shift_rshift_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_additive_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_additive_plus_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_additive_minus_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_multiplicative_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_multiplicative_multiply_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_multiplicative_divide_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_multiplicative_mod_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_primary_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_primary_exp_id(stack_T *astack, parse_tree_node_T *tree);
+void definition_primary_exp_constant(stack_T *astack, parse_tree_node_T *tree);
+void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree);
+void definition_exp_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
+void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree);
 
-void definition_statement_assignment(stack_T *astack);
-void definition_statement_condition(stack_T *astack);
-void definition_statement_while(stack_T *astack);
+void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree);
 
-void definition_assignment(stack_T *astack);
+void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree);
+void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree);
 
-void definition_conditional(stack_T *astack);
+void definition_iteration_stmt(stack_T *astack, parse_tree_node_T *tree);
 
-void definition_while(stack_T *astack);
+static void (*def_fns[])(stack_T *astack, parse_tree_node_T *tree) = {
+    definition_start_r,
+    definition_program_sl,
+    definition_sl_s,
+    definition_sl_sl,
+    definition_s_exp_stmt,
+    definition_s_compound_stmt,
+    definition_s_selection_stmt,
+    definition_s_iteration_stmt,
+    definition_s_labeled_stmt,
+    definition_s_decl,
+    definition_decl,
+    definition_type_int,
+    definition_type_char,
+    definition_type_float,
+    definition_type_void,
 
-void definition_semantic_block(stack_T *astack);
+    definition_exp_stmt,
+    definition_cnstnt_exp,
 
-void definition_expression(stack_T *astack);
+    definition_assignment_exp_precedence,
+    definition_assignment_exp,
+    definition_logical_or_exp_precedence,
+    definition_logical_or_exp,
+    definition_logical_and_exp_precedence,
+    definition_logical_and_exp,
+    definition_inclusive_or_exp_precedence,
+    definition_inclusive_or_exp,
+    definition_exclusive_or_exp_precedence,
+    definition_exclusive_or_exp,
+    definition_and_exp_precedence,
+    definition_and_exp,
+    definition_equality_exp_precedence,
+    definition_equality_equal_exp,
+    definition_equality_notequal_exp,
+    definition_relational_exp_precedence,
+    definition_relational_less_exp,
+    definition_relational_less_equal_exp,
+    definition_relational_greater_exp,
+    definition_relational_greater_equal_exp,
+    definition_shift_exp_precedence,
+    definition_shift_lshift_exp,
+    definition_shift_rshift_exp,
+    definition_additive_exp_precedence,
+    definition_additive_plus_exp,
+    definition_additive_minus_exp,
+    definition_multiplicative_exp_precedence,
+    definition_multiplicative_multiply_exp,
+    definition_multiplicative_divide_exp,
+    definition_multiplicative_mod_exp,
+    definition_primary_exp_precedence,
+    definition_primary_exp_id,
+    definition_primary_exp_constant,
+    definition_primary_exp_str,
+    definition_exp_exp_precedence,
+    definition_exp_exp,
 
-void definition_math_expression_operation(stack_T *astack);
-void definition_math_expression_constant(stack_T *astack);
+    definition_compount_stmt,
 
-void definition_op_plus(stack_T *astack);
-void definition_op_minus(stack_T *astack);
+    definition_selection_stmt_if,
+    definition_selection_stmt,
+
+    definition_iteration_stmt,
+};
+
 
 #endif

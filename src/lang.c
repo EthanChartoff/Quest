@@ -1,17 +1,24 @@
 #include "include/lang.h"
 #include "include/parser/lr_item.h"
+#include "include/parser/parser.h"
 #include "include/parser/rule.h"
 #include "include/parser/slr.h"
 #include "include/macros.h"
 #include "include/parser/bnf.h"
 #include "include/parser/symbol.h"
 #include "include/quest.h"
+#include "include/semantic_analizer/definitions.h"
+#include "include/semantic_analizer/sdt.h"
+#include "include/semantic_analizer/semantic_rule.h"
 #include "utils/DS/include/generic_set.h"
 #include "utils/err/err.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 // TODO: make a sysmtem that doesnt need to have all these defs
-static slr_T *init_default_lang() {    
+static slr_T *init_default_lang(quest_T *q) {    
+    int i;
     /*
         symbols
     */
@@ -130,6 +137,7 @@ static slr_T *init_default_lang() {
 
     symbol_T *id = init_symbol_terminal(init_token("id", TOK_IDENTIFIER));
     symbol_T *num = init_symbol_terminal(init_token("num", TOK_NUMBER_CONSTANT));
+    symbol_T *string = init_symbol_terminal(init_token("str", TOK_STRING_LITERAL));
 
     symbol_T *int_tok = init_symbol_terminal(init_token("int", TOK_INT));
     symbol_T *float_tok = init_symbol_terminal(init_token("float", TOK_FLOAT));
@@ -182,6 +190,7 @@ static slr_T *init_default_lang() {
     set_add(syms, while_tok);
     set_add(syms, id);
     set_add(syms, num);
+    set_add(syms, string);
     set_add(syms, int_tok);
     set_add(syms, float_tok);
     set_add(syms, char_tok);
@@ -197,6 +206,8 @@ static slr_T *init_default_lang() {
     symbol_T *declaration_list[] = {type_specifier, id, assign, constant_expression, semicolon};
 
     symbol_T *exp_stmt_list[] = {constant_expression, semicolon};
+
+    symbol_T *assignment_expression_list[] = {assignment_expression, assign, logical_or_expression};
 
     symbol_T *logic_or_exp_list[] = {logical_or_expression, logical_or, logical_and_expression};
 
@@ -222,13 +233,21 @@ static slr_T *init_default_lang() {
     symbol_T *additive_expression_plus_list[] = {additive_expression, plus, multiplicative_expression};
     symbol_T *additive_expression_minus_list[] = {additive_expression, minus, multiplicative_expression};
 
-    symbol_T *multiplicative_expression_multiply_list[] = {multiplicative_expression, multiply, assignment_expression};
-    symbol_T *multiplicative_expression_divide_list[] = {multiplicative_expression, divide, assignment_expression};
-    symbol_T *multiplicative_expression_mod_list[] = {multiplicative_expression, mod, assignment_expression};
-
-    symbol_T *assignment_expression_list[] = {assignment_expression, assign, primary_expression};
-
+    symbol_T *multiplicative_expression_multiply_list[] = {multiplicative_expression, multiply, primary_expression};
+    symbol_T *multiplicative_expression_divide_list[] = {multiplicative_expression, divide, primary_expression};
+    symbol_T *multiplicative_expression_mod_list[] = {multiplicative_expression, mod, primary_expression};
+    
     symbol_T *primary_expression_list[] = {lparen, expression, rparen};
+
+    symbol_T *expression_list[] = {expression, comma, constant_expression};
+
+
+    symbol_T *compound_stmt_list[] = {lbrace, statement_list, rbrace};
+
+    symbol_T *selection_stmt_if_list[] = {if_tok, lparen, constant_expression, rparen, compound_statement};
+    symbol_T *selection_stmt_list[] = {if_tok, lparen, constant_expression, rparen, compound_statement, else_tok, compound_statement};
+
+    symbol_T *iteration_stmt_while[] = {while_tok, lparen, constant_expression, rparen, compound_statement};
 
 
     /*
@@ -265,7 +284,10 @@ static slr_T *init_default_lang() {
 
     rule_T *exp_stmt = init_rule(expression_statement->symbol->non_terminal, exp_stmt_list, 2);
 
-    rule_T *cnstnt_exp = init_rule(constant_expression->symbol->non_terminal, &logical_or_expression, 1);
+    rule_T *cnstnt_exp = init_rule(constant_expression->symbol->non_terminal, &assignment_expression, 1);
+
+    rule_T *assignment_exp_precedence = init_rule(assignment_expression->symbol->non_terminal, &logical_or_expression, 1);
+    rule_T *assignment_exp = init_rule(assignment_expression->symbol->non_terminal, assignment_expression_list, 3);
 
     rule_T *logical_or_exp_precedence = init_rule(logical_or_expression->symbol->non_terminal, &logical_and_expression, 1);
     rule_T *logical_or_exp = init_rule(logical_or_expression->symbol->non_terminal, logic_or_exp_list, 3);
@@ -300,20 +322,25 @@ static slr_T *init_default_lang() {
     rule_T *additive_plus_exp = init_rule(additive_expression->symbol->non_terminal, additive_expression_plus_list, 3);
     rule_T *additive_minus_exp = init_rule(additive_expression->symbol->non_terminal, additive_expression_minus_list, 3);
 
-    rule_T *multiplicative_exp_precedence = init_rule(multiplicative_expression->symbol->non_terminal, &assignment_expression, 1);
+    rule_T *multiplicative_exp_precedence = init_rule(multiplicative_expression->symbol->non_terminal, &primary_expression, 1);
     rule_T *multiplicative_multiply_exp = init_rule(multiplicative_expression->symbol->non_terminal, multiplicative_expression_multiply_list, 3);
     rule_T *multiplicative_divide_exp = init_rule(multiplicative_expression->symbol->non_terminal, multiplicative_expression_divide_list, 3);
     rule_T *multiplicative_mod_exp = init_rule(multiplicative_expression->symbol->non_terminal, multiplicative_expression_mod_list, 3);
 
-    rule_T *assignment_exp_precedence = init_rule(assignment_expression->symbol->non_terminal, &primary_expression, 1);
-    rule_T *assignment_exp = init_rule(assignment_expression->symbol->non_terminal, assignment_expression_list, 3);
-
     rule_T *primary_exp_precedence = init_rule(primary_expression->symbol->non_terminal, primary_expression_list, 3);
     rule_T *primary_exp_id = init_rule(primary_expression->symbol->non_terminal, &id, 1);
     rule_T *primary_exp_constant = init_rule(primary_expression->symbol->non_terminal, &num, 1);
+    rule_T *primary_exp_str = init_rule(primary_expression->symbol->non_terminal, &string, 1);
 
-    rule_T *exp_exp = init_rule(expression->symbol->non_terminal, &constant_expression, 3);
+    rule_T *exp_exp_precedence = init_rule(expression->symbol->non_terminal, &constant_expression, 1);
+    rule_T *exp_exp = init_rule(expression->symbol->non_terminal, expression_list, 3);
 
+    rule_T *compount_stmt = init_rule(compound_statement->symbol->non_terminal, compound_stmt_list, 3);
+
+    rule_T *selection_stmt_if = init_rule(selection_statement->symbol->non_terminal, selection_stmt_if_list, sizeof(selection_stmt_if_list) / sizeof(selection_stmt_if_list[0]));
+    rule_T *selection_stmt = init_rule(selection_statement->symbol->non_terminal, selection_stmt_list, sizeof(selection_stmt_list) / sizeof(selection_stmt_list[0]));
+
+    rule_T *iteration_stmt = init_rule(iteration_statement->symbol->non_terminal, iteration_stmt_while, sizeof(iteration_stmt_while) / sizeof(iteration_stmt_while[0]));
 
     set_add(rules, start_r);
     set_add(rules, program_sl);
@@ -334,6 +361,8 @@ static slr_T *init_default_lang() {
     set_add(rules, exp_stmt);
     set_add(rules, cnstnt_exp);
 
+    set_add(rules, assignment_exp_precedence);
+    set_add(rules, assignment_exp);
     set_add(rules, logical_or_exp_precedence);
     set_add(rules, logical_or_exp);
     set_add(rules, logical_and_exp_precedence);
@@ -349,8 +378,8 @@ static slr_T *init_default_lang() {
     set_add(rules, equality_notequal_exp);
     set_add(rules, relational_exp_precedence);
     set_add(rules, relational_less_exp);
-    set_add(rules, relational_greater_exp);
     set_add(rules, relational_less_equal_exp);
+    set_add(rules, relational_greater_exp);
     set_add(rules, relational_greater_equal_exp);
     set_add(rules, shift_exp_precedence);
     set_add(rules, shift_lshift_exp);
@@ -362,22 +391,46 @@ static slr_T *init_default_lang() {
     set_add(rules, multiplicative_multiply_exp);
     set_add(rules, multiplicative_divide_exp);
     set_add(rules, multiplicative_mod_exp);
-    set_add(rules, assignment_exp_precedence);
-    set_add(rules, assignment_exp);
     set_add(rules, primary_exp_precedence);
     set_add(rules, primary_exp_id);
     set_add(rules, primary_exp_constant);
+    set_add(rules, primary_exp_str);
+    set_add(rules, exp_exp_precedence);
     set_add(rules, exp_exp);
+
+    set_add(rules, compount_stmt);
+
+    set_add(rules, selection_stmt_if);
+    set_add(rules, selection_stmt);
+
+    set_add(rules, iteration_stmt);
+    
+
+    set_flip(rules);
 
     grammer_T *gram = init_grammer(rules, syms);
 
     set_T *itms = lr0_items(gram, init_lr_item(start_r, 0, NULL));
     slr_T *slr = init_slr(itms, gram);
 
-    // action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
-    // action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
-    // goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
-    // goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
+    action_tbl_print_to_file(slr->action, PARSER_ACTION_PATH);
+    action_tbl_pretty_print_to_file(slr->action, PARSER_ACTION_PRETTY_PATH);
+    goto_tbl_print_to_file(slr->go_to, PARSER_GOTO_PATH);
+    goto_tbl_pretty_print_to_file(slr->go_to, PARSER_GOTO_PRETTY_PATH);
+
+    q->parser = init_parser(slr);
+
+    /*
+        sdt
+    */
+
+    // semantic_rule_T **srs = calloc(q->parser->n_rules, sizeof(semantic_rule_T *));
+
+    // for(i = 0; i < q->parser->n_rules; ++i) {
+    //     srs[i] = init_sementic_rule(q->parser->rules[i], def_fns[i]);
+    // }
+
+    // q->sdt = init_sdt(srs, q->parser->n_rules);
 
     return slr;
 }
@@ -389,7 +442,7 @@ quest_T *init_quest(char *src) {
 
     q->src = src;
     q->lexer = init_lexer(src);
-    q->parser = init_parser(init_default_lang());
+    init_default_lang(q);
 
     return q;
 }

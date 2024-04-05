@@ -5,6 +5,6 @@
 #include "AST.h"
 #include "sdt.h"
 
-ast_node_T *build_ast(parse_tree_T *tree);
+ast_node_T *build_ast(parse_tree_T *tree, sdt_T *sdt);
 
 #endif

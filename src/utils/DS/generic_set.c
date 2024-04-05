@@ -98,6 +98,21 @@ int set_remove(set_T* set, void* data) {
 	return 1;  // Element removed	 successfully
 }
 
+void set_flip(set_T *set) {
+	set_node_T *current = set->head;
+	set_node_T *prev = NULL;
+	set_node_T *next = NULL;
+
+	while (current != NULL) {
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	set->head = prev;
+}
+
 void set_free(set_T* set) {
 	set_node_T* current = set->head;
 	while (current != NULL) {

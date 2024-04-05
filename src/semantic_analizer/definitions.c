@@ -1,130 +1,440 @@
-// TODO: BUG FOUND, listing stmts doesnt work with certien trees
 #include "../include/semantic_analizer/definitions.h"
 #include "../include/parser/parse_tree.h"
 #include "../utils/err/err.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void definition_program(stack_T *astack);
+static ast_node_T *binop_node(ast_node_T *left, ast_node_T *node, ast_node_T *right) {
+    ast_add_to_node(node, right);
+    ast_add_to_node(node, left);
 
-void definition_statement_list_statement(stack_T *astack) {
-    ast_node_T *stmt_list = init_ast_leaf(
-        init_symbol_non_terminal(
-            init_non_terminal("statement_list", NON_TERM_statement_list)));
+    return node;
+}
+
+
+// void definition_start_r(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_program_sl(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_sl_s(stack_T *astack, parse_tree_node_T *tree) {
+//         ast_node_T *stmt_list = init_ast_leaf(tree->symbol);
+//         ast_add_to_node(stmt_list, stack_pop(astack));
+//         stack_push(astack, stmt_list);
+// }
+// void definition_sl_sl(stack_T *astack, parse_tree_node_T *tree) {
+//     ast_node_T *stmt_list = stack_pop(astack);
+//     ast_add_to_node(stmt_list, stack_pop(astack));
+    
+//     stack_push(astack, stmt_list);
+// }
+// void definition_s_exp_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_s_compound_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_s_selection_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_s_iteration_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_s_labeled_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_s_decl(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_decl(stack_T *astack, parse_tree_node_T *tree) {
+//     ast_node_T **children = malloc(sizeof(ast_node_T *) * 3);
+//     if(children == NULL) {
+//         // Handle memory allocation error
+//         thrw(ALLOC_ERR);
+//         return;
+//     }
+
+//     children[0] = stack_pop(astack); // type
+//     children[1] = stack_pop(astack); // id
+//     stack_pop(astack);               // exp
+//     children[2] = stack_pop(astack); // value
+//     stack_pop(astack);               // ; 
+
+//     stack_push(astack, 
+//         init_ast_node(tree->symbol, children, 3));
+// }
+// void definition_type_int(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_type_char(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_type_float(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_type_void(stack_T *astack, parse_tree_node_T *tree) {}
+
+// void definition_exp_stmt(stack_T *astack, parse_tree_node_T *tree) {
+//     ast_node_T *exp = stack_pop(astack);
+//     stack_pop(astack);
+
+//     stack_push(astack, exp);
+// }
+// void definition_cnstnt_exp(stack_T *astack, parse_tree_node_T *tree) {}
+
+// void definition_logical_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_logical_or_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_logical_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_logical_and_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_inclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_inclusive_or_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_exclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_exclusive_or_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_and_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_equality_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_equality_equal_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_equality_notequal_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_relational_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_relational_less_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_relational_greater_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_relational_less_equal_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_relational_greater_equal_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_shift_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_shift_lshift_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_shift_rshift_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_additive_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_additive_plus_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_additive_minus_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_multiplicative_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_multiplicative_multiply_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_multiplicative_divide_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_multiplicative_mod_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_assignment_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_assignment_exp(stack_T *astack, parse_tree_node_T *tree) {
+//     stack_push(
+//         astack, 
+//         binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack)));
+// }
+// void definition_primary_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {
+//     ast_node_T *exp;
+    
+//     stack_pop(astack); // (
+//     exp = stack_pop(astack);
+//     stack_pop(astack); // )
+
+//     stack_push(astack, exp);
+// }
+// void definition_primary_exp_id(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_primary_exp_constant(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree) {}
+
+// void definition_compount_stmts(stack_T *astack, parse_tree_node_T *tree) {}
+
+// void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree) {}
+// void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree) {
+//     ast_node_T *sec = init_ast_leaf(tree->symbol);
+
+//     stack_pop(astack);                          // if
+//     stack_pop(astack);                          // (
+//     ast_add_to_node(sec, stack_pop(astack));    // exp
+//     stack_pop(astack);                          // )
+//     stack_pop(astack);                          // {
+//     ast_add_to_node(sec, stack_pop(astack));    // stmts
+//     stack_pop(astack);                          // }
+//     stack_pop(astack);                          // else
+//     stack_pop(astack);                          // {
+//     ast_add_to_node(sec, stack_pop(astack));    // stmts
+//     stack_pop(astack);                          // }
+
+//     stack_push(astack, sec);
+// }
+
+// void definition_iteration_stmt(stack_T *astack, parse_tree_node_T *tree) {
+//     ast_node_T *it = init_ast_leaf(tree->symbol);
+
+//     printf("%s\n", ((ast_node_T *) astack->top)->symbol->symbol->terminal->value);
+//     stack_pop(astack);                      // while
+//     stack_pop(astack);                      // (
+//     ast_add_to_node(it, stack_pop(astack)); // exp
+//     stack_pop(astack);                      // )
+//     stack_pop(astack);                      // {
+//     ast_add_to_node(it, stack_pop(astack)); // stmts
+//     stack_pop(astack);                      // }
+
+//     stack_push(astack, it);
+// }
+
+void definition_start_r(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_program_sl(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_sl_s(stack_T *astack, parse_tree_node_T *tree) {
+    ast_node_T *stmt_list = init_ast_leaf(tree->symbol);
     ast_add_to_node(stmt_list, stack_pop(astack));
     stack_push(astack, stmt_list);
 }
-
-void definition_statement_list_statement_list(stack_T *astack) {
+void definition_sl_sl(stack_T *astack, parse_tree_node_T *tree) {
     ast_node_T *stmt_list = stack_pop(astack);
     ast_add_to_node(stmt_list, stack_pop(astack));
     
     stack_push(astack, stmt_list);
 }
-
-void definition_statement_assignment(stack_T *astack) {
-    // Implement assignment statement logic here
-}
-
-void definition_statement_condition(stack_T *astack) {
-    // Implement condition statement logic here
-}
-
-void definition_statement_while(stack_T *astack) {
-    // Implement while statement logic here
-}
-
-void definition_assignment(stack_T *astack) {
-    ast_node_T **children = malloc(sizeof(ast_node_T *) * 2);
-    if(children == NULL) {
-        // Handle memory allocation error
-        thrw(ALLOC_ERR);
-        return;
-    }
-
-    children[0] = stack_pop(astack);
-    ast_node_T *ass = stack_pop(astack);
-    children[1] = stack_pop(astack);
-
-    stack_push(astack, 
-        init_ast_node(ass->symbol, children, 2));
-}
-
-void definition_conditional(stack_T *astack) {
+void definition_s_exp_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_s_compound_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_s_selection_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_s_iteration_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_s_labeled_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_s_decl(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_decl(stack_T *astack, parse_tree_node_T *tree) {
     ast_node_T **children = malloc(sizeof(ast_node_T *) * 3);
     if(!children)
         thrw(ALLOC_ERR);
 
-    ast_node_T *cond = stack_pop(astack); // if
+    children[0] = stack_pop(astack); // type
+    children[1] = stack_pop(astack); // id
+    stack_pop(astack);               // exp
+    children[2] = stack_pop(astack); // value
+    stack_pop(astack);               // ; 
 
+    stack_push(astack, 
+        init_ast_node(tree->symbol, children, 3));
+}
+void definition_type_int(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_type_char(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_type_float(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_type_void(stack_T *astack, parse_tree_node_T *tree) {}
+
+void definition_exp_stmt(stack_T *astack, parse_tree_node_T *tree) {
+    ast_node_T *exp = stack_pop(astack);
+    stack_pop(astack);
+
+    stack_push(astack, exp);
+}
+void definition_cnstnt_exp(stack_T *astack, parse_tree_node_T *tree) {}
+
+void definition_assignment_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_assignment_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_logical_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_logical_or_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_logical_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_logical_and_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_inclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_inclusive_or_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_exclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_exclusive_or_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_and_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_equality_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_equality_equal_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_equality_notequal_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_relational_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_relational_less_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_relational_less_equal_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_relational_greater_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_relational_greater_equal_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_shift_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_shift_lshift_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_shift_rshift_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_additive_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_additive_plus_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_additive_minus_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_multiplicative_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_multiplicative_multiply_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_multiplicative_divide_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_multiplicative_mod_exp(stack_T *astack, parse_tree_node_T *tree) {
+    stack_push(
+        astack,
+        binop_node(stack_pop(astack), stack_pop(astack), stack_pop(astack))
+    );
+}
+void definition_primary_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {
+    ast_node_T *exp;
+    
     stack_pop(astack); // (
-    children[0] = stack_pop(astack); // exp
+    exp = stack_pop(astack);
     stack_pop(astack); // )
-    stack_pop(astack); // {
-    children[1] = stack_pop(astack); // stmt_list
-    stack_pop(astack); // }
-    stack_pop(astack); // else
-    stack_pop(astack); // {
-    children[2] = stack_pop(astack); // stmt block
-    stack_pop(astack); // }
 
-    stack_push(astack, init_ast_node(cond->symbol, children, 3));
+    stack_push(astack, exp);
+}
+void definition_primary_exp_id(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_primary_exp_constant(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_exp_exp_precedence(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree) {}
+
+void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree) {}
+
+void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree) {}
+void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree) {
+    ast_node_T *sec = init_ast_leaf(tree->symbol);
+
+    stack_pop(astack);                          // if
+    stack_pop(astack);                          // (
+    ast_add_to_node(sec, stack_pop(astack));    // exp
+    stack_pop(astack);                          // )
+    stack_pop(astack);                          // {
+    ast_add_to_node(sec, stack_pop(astack));    // stmts
+    stack_pop(astack);                          // }
+    stack_pop(astack);                          // else
+    stack_pop(astack);                          // {
+    ast_add_to_node(sec, stack_pop(astack));    // stmts
+    stack_pop(astack);                          // }
+
+    stack_push(astack, sec);
 }
 
-void definition_while(stack_T *astack) {
-    ast_node_T **children = malloc(sizeof(ast_node_T *) * 2);
-    if(!children)
-        thrw(ALLOC_ERR);
+void definition_iteration_stmt(stack_T *astack, parse_tree_node_T *tree) {
+    ast_node_T *it = init_ast_leaf(tree->symbol);
 
-    ast_node_T *whyle = stack_pop(astack);  // while 
-
+    printf("%s\n", ((ast_node_T *) astack->top)->symbol->symbol->terminal->value);
+    stack_pop(astack);                      // while
     stack_pop(astack);                      // (
-    children[0] = stack_pop(astack);        // exp
+    ast_add_to_node(it, stack_pop(astack)); // exp
     stack_pop(astack);                      // )
     stack_pop(astack);                      // {
-    children[1] = stack_pop(astack);        // stmts
+    ast_add_to_node(it, stack_pop(astack)); // stmts
     stack_pop(astack);                      // }
 
-    stack_push(
-        astack, 
-        init_ast_node(whyle->symbol, children, 2));                                                  
+    stack_push(astack, it);
 }
-
-void definition_semantic_block(stack_T *astack) {
-    // Implement semantic block logic here
-}
-
-void definition_expression(stack_T *astack) {
-    // Implement expression logic here
-}
-
-void definition_math_expression_operation(stack_T *astack) {
-    ast_node_T **children = malloc(sizeof(ast_node_T *) * 2);
-    if(children == NULL) {
-        // Handle memory allocation error
-        thrw(ALLOC_ERR);
-        return;
-    }
-
-    children[0] = stack_pop(astack);
-    ast_node_T *op = stack_pop(astack);
-    children[1] = stack_pop(astack);
-
-    stack_push(astack, init_ast_node(op->symbol, children, 2));
-}
-
-void definition_math_expression_constant(stack_T *astack) {
-    stack_push(astack, init_ast_leaf(stack_pop(astack)));
-}
-
-void definition_op_plus(stack_T *astack) {
-    // Implement addition operation logic here
-}
-
-void definition_op_minus(stack_T *astack) {
-}
-
-void definition_op_plus(stack_T *astack);
-void definition_op_minus(stack_T *astack);
-
-

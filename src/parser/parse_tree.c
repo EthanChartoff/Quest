@@ -37,31 +37,6 @@ parse_tree_node_T *init_parse_tree_leaf(symbol_T *sym) {
     return pt;
 }
 
-void traverse_parse_tree(parse_tree_node_T *tree, int layer) {
-    if(tree == NULL)
-        return;
-
-    int i;
-    char *val = tree->symbol->sym_type == NON_TERMINAL 
-        ? tree->symbol->symbol->non_terminal->value  
-        : tree->symbol->symbol->terminal->value;
-
-    int type = tree->symbol->sym_type == NON_TERMINAL 
-        ? tree->symbol->symbol->non_terminal->type  
-        : tree->symbol->symbol->terminal->type;
-
-    
-    for(i = 0; i < tree->n_children; ++i) {
-        traverse_parse_tree(tree->children[i], layer + 1);
-    }
-
-    for(i = 0; i < layer; ++i) {
-        printf("  ");
-    }
-
-    printf("%s - %zu, %zd\n", val, tree->n_children, tree->rule_index);
-    
-}   
 
 void parse_tree_traverse_preorder(parse_tree_node_T *tree, int layer) {
     if(tree == NULL)
@@ -80,7 +55,7 @@ void parse_tree_traverse_preorder(parse_tree_node_T *tree, int layer) {
         printf("  ");
     }
 
-    printf("%s\n", val);
+    printf("%s, %zd\n", val, tree->rule_index);
 
     for(i = 0; i < tree->n_children; ++i) {
         parse_tree_traverse_preorder(tree->children[i], layer + 1);
