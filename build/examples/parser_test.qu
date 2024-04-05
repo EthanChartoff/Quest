@@ -13,6 +13,6 @@ int sum = x + y;
 		x = 7 + x;
 	}
 
-count = count * 1;  
+count = count + 1;  
 }
 

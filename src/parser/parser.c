@@ -50,7 +50,6 @@ static int error_action(parser_T *prs, token_T *tok, parse_tree_node_T *node, st
 
 static int parse_tok(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s, int (*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s)) {    
     char action = prs->action->actions[lr_stack_peek(prs->stack)][action_tbl_find_terminal(prs->action, tok)][0];
-    printf("%c, %s, %d\n", action, tok->value, lr_stack_peek(prs->stack));
 
     if(!islower(action))
         thrw(PARSER_ACTION_ERR);

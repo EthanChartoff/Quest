@@ -424,13 +424,13 @@ static slr_T *init_default_lang(quest_T *q) {
         sdt
     */
 
-    // semantic_rule_T **srs = calloc(q->parser->n_rules, sizeof(semantic_rule_T *));
+    semantic_rule_T **srs = calloc(q->parser->n_rules, sizeof(semantic_rule_T *));
 
-    // for(i = 0; i < q->parser->n_rules; ++i) {
-    //     srs[i] = init_sementic_rule(q->parser->rules[i], def_fns[i]);
-    // }
+    for(i = 0; i < q->parser->n_rules; ++i) {
+        srs[i] = init_sementic_rule(q->parser->rules[i], def_fns[i]);
+    }
 
-    // q->sdt = init_sdt(srs, q->parser->n_rules);
+    q->sdt = init_sdt(srs, q->parser->n_rules);
 
     return slr;
 }

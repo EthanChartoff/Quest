@@ -16,11 +16,9 @@ static void build_ast_rec(parse_tree_node_T *tree, sdt_T *sdt, stack_T *ast_s) {
         ? tree->symbol->symbol->non_terminal->value  
         : tree->symbol->symbol->terminal->value;
 
-
     for(i = 0; i < tree->n_children; ++i)
         build_ast_rec(tree->children[i], sdt, ast_s); 
     
-
     if(sdt->definitions[tree->rule_index]->definition) 
         sdt->definitions[tree->rule_index]->definition(ast_s, tree);    
 }
