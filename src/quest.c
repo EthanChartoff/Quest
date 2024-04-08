@@ -29,7 +29,7 @@ void compile(char *src) {
     } while(tk->type != TOK_eof);
     
     parse_tree_T *tree = parse(prs, queue);
-    parse_tree_traverse_preorder(tree->root, 0);
+    parse_tree_traverse_postorder(tree->root, 0);
 
     ast_node_T *ast = build_ast(tree, q->sdt);
     traverse_ast(ast, 0); 

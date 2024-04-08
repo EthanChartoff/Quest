@@ -1435,6 +1435,8 @@ CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: /home/goodman/school/Qu
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
   /home/goodman/school/Quest/src/utils/err/errors.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -2416,11 +2418,11 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/semantic_analizer/definitions.c:
 
+/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h:
+
 /home/goodman/school/Quest/src/include/macros.h:
 
 /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c:
-
-/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h:
 
 /home/goodman/school/Quest/src/utils/hashes/hashes.c:
 

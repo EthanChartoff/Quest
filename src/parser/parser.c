@@ -83,13 +83,13 @@ parser_T *init_parser(slr_T *slr) {
 }
 
 parse_tree_T *parse(parser_T *prs, queue_T *queue_tok) {
-    int parse_status = SHIFT, i;
+    int parse_status = SHIFT;
+    int n_children = 0, children_capacity = 0, i;
     token_T *tok;
-    parse_tree_node_T *root;
+    parse_tree_node_T **children = NULL, **tmp = NULL, *root;
     stack_T *sym_s = stack_init();
     int (*action_funcs[LETTERS_SIZE])(parser_T *prs, token_T *tok, parse_tree_node_T *node, stack_T *sym_s);
 
-    // initialize action funcs
     action_funcs['s' - 'a'] = &shift_action;
     action_funcs['r' - 'a'] = &reduce_action;
     action_funcs['a' - 'a'] = &accept_action;
