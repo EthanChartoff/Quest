@@ -11,75 +11,76 @@
 #include "AST.h"
 #include "../parser/parse_tree.h"
 #include "../../utils/DS/include/stack.h"
+#include "../../utils/symbol_table/include/symbol_table.h"
 
 
 /*
     each rule should have a corresponding definition
 */
-void definition_start_r(stack_T *astack, parse_tree_node_T *tree);
-void definition_program_sl(stack_T *astack, parse_tree_node_T *tree);
-void definition_sl_s(stack_T *astack, parse_tree_node_T *tree);
-void definition_sl_sl(stack_T *astack, parse_tree_node_T *tree);
-void definition_s_exp_stmt(stack_T *astack, parse_tree_node_T *tree);
-void definition_s_compound_stmt(stack_T *astack, parse_tree_node_T *tree);
-void definition_s_selection_stmt(stack_T *astack, parse_tree_node_T *tree);
-void definition_s_iteration_stmt(stack_T *astack, parse_tree_node_T *tree);
-void definition_s_labeled_stmt(stack_T *astack, parse_tree_node_T *tree);
-void definition_s_decl(stack_T *astack, parse_tree_node_T *tree);
-void definition_decl(stack_T *astack, parse_tree_node_T *tree);
-void definition_type_int(stack_T *astack, parse_tree_node_T *tree);
-void definition_type_char(stack_T *astack, parse_tree_node_T *tree);
-void definition_type_float(stack_T *astack, parse_tree_node_T *tree);
-void definition_type_void(stack_T *astack, parse_tree_node_T *tree);
+void definition_start_r(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_program_sl(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_sl_s(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_sl_sl(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_s_exp_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_s_compound_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_s_selection_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_s_iteration_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_s_labeled_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_s_decl(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_decl(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_type_int(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_type_char(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_type_float(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_type_void(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
 
-void definition_exp_stmt(stack_T *astack, parse_tree_node_T *tree);
-void definition_cnstnt_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_exp_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_cnstnt_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
 
-void definition_assignment_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_assignment_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_logical_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_logical_or_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_logical_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_logical_and_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_inclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_inclusive_or_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_exclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_exclusive_or_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_and_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_equality_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_equality_equal_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_equality_notequal_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_relational_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_relational_less_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_relational_less_equal_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_relational_greater_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_relational_greater_equal_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_shift_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_shift_lshift_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_shift_rshift_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_additive_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_additive_plus_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_additive_minus_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_multiplicative_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_multiplicative_multiply_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_multiplicative_divide_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_multiplicative_mod_exp(stack_T *astack, parse_tree_node_T *tree);
-void definition_primary_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_primary_exp_id(stack_T *astack, parse_tree_node_T *tree);
-void definition_primary_exp_constant(stack_T *astack, parse_tree_node_T *tree);
-void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree);
-void definition_exp_exp_precedence(stack_T *astack, parse_tree_node_T *tree);
-void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree);
+void definition_assignment_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_assignment_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_logical_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_logical_or_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_logical_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_logical_and_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_inclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_inclusive_or_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_exclusive_or_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_exclusive_or_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_and_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_and_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_equality_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_equality_equal_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_equality_notequal_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_relational_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_relational_less_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_relational_less_equal_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_relational_greater_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_relational_greater_equal_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_shift_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_shift_lshift_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_shift_rshift_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_additive_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_additive_plus_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_additive_minus_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_multiplicative_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_multiplicative_multiply_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_multiplicative_divide_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_multiplicative_mod_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_primary_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_primary_exp_id(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_primary_exp_constant(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_exp_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
 
-void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
 
-void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree);
-void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
+void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
 
-void definition_iteration_stmt(stack_T *astack, parse_tree_node_T *tree);
+void definition_iteration_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl);
 
-static void (*def_fns[])(stack_T *astack, parse_tree_node_T *tree) = {
+static void (*def_fns[])(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) = {
     definition_start_r,
     definition_program_sl,
     definition_sl_s,

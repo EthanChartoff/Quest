@@ -131,6 +131,7 @@ CMakeFiles/qc.dir/src/lang.c.o: /home/goodman/school/Quest/src/lang.c \
   /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/parser/lr_item.h \
@@ -407,6 +408,7 @@ CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/lang.h \
@@ -1293,6 +1295,7 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/lang.h \
@@ -1428,6 +1431,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: /home/goodman/school/Qu
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
   /home/goodman/school/Quest/src/utils/err/errors.h \
@@ -1497,6 +1501,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o: /home/goodman/school/Quest/src/
   /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/definitions.h \
@@ -1571,7 +1576,10 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o: /home/goodman/sch
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/semantic_rule.h \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -1636,6 +1644,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: /home/goodman/school/
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h
 
@@ -2047,6 +2056,17 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o: /home/goodman/school/
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
@@ -2054,8 +2074,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o: /home/goodman/school/
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
@@ -2130,10 +2148,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
 
 
-/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h:
-
-/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h:
-
 /home/goodman/school/Quest/src/utils/symbol_table/symbol_table.c:
 
 /home/goodman/school/Quest/src/utils/lexer_DFA/include/transitions.h:
@@ -2149,6 +2163,8 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/utils/hashes/hashes.h:
 
 /home/goodman/school/Quest/src/utils/err/err.c:
+
+/home/goodman/school/Quest/src/utils/DS/stack.c:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
@@ -2356,6 +2372,10 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/parser/rule.c:
 
+/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h:
+
+/home/goodman/school/Quest/src/utils/DS/hashset.c:
+
 /home/goodman/school/Quest/src/include/semantic_analizer/AST.h:
 
 /usr/include/stdlib.h:
@@ -2400,14 +2420,12 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c:
 
+/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h:
+
 /home/goodman/school/Quest/src/utils/hashes/hashes.c:
 
 /home/goodman/school/Quest/src/utils/DS/generic_set.c:
 
-/home/goodman/school/Quest/src/utils/DS/hashset.c:
-
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h:
-
-/home/goodman/school/Quest/src/utils/DS/stack.c:

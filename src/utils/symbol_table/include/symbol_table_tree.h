@@ -25,6 +25,8 @@ typedef struct SYMBOL_TABLE_TREE_STRUCT {
 
 symbol_table_tree_T *init_symbol_table_tree(symbol_table_tree_node_T *root);
 symbol_table_tree_node_T *init_symbol_table_tree_node(symbol_table_T *table, symbol_table_tree_node_T **children, size_t n_children);
+symbol_table_tree_node_T *init_symbol_table_tree_leaf(symbol_table_T *table);
+
 
 
 #endif /* QUEST_SYMBOL_TABLE_TREE_H */

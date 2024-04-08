@@ -24,3 +24,14 @@ symbol_table_tree_node_T *init_symbol_table_tree_node(symbol_table_T *table, sym
 
     return sttn;
 }
+
+symbol_table_tree_node_T *init_symbol_table_tree_leaf(symbol_table_T *table) {
+    symbol_table_tree_node_T *sttn = malloc(sizeof(symbol_table_tree_node_T));
+
+    sttn->table = table;
+    sttn->children = NULL;
+    sttn->n_children = 0;
+
+    return sttn;
+}
+

@@ -15,6 +15,7 @@
 
 typedef struct SYMBOL_TABLE_ENTRY_STRUCT {
     char *name;
+    int type;
     void *value;
     struct SYMBOL_TABLE_ENTRY_STRUCT *next;
 } symbol_table_entry_T;
@@ -30,10 +31,12 @@ typedef struct SYMBOL_TABLE_STRUCT {
 symbol_table_T *init_symbol_table(unsigned int capacity, float load_factor, unsigned int (*hash)(char *, size_t length));
 symbol_table_T *init_symbol_table_default();
 
-symbol_table_entry_T *init_symbol_table_entry(char *name, void *value);
+symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value);
 
 unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste);
 symbol_table_entry_T *symbol_table_find(symbol_table_T *st, char *name);
 unsigned int symbol_table_resize(symbol_table_T *st);
+
+void symbol_table_print(symbol_table_T *st);
 
 #endif /* QUEST_SYMBOL_TABLE_H */

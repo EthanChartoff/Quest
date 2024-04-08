@@ -1,6 +1,7 @@
 #include "include/symbol_table.h"
 #include "../err/err.h"
 #include "../hashes/hashes.h"
+#include <stdio.h>
 #include <string.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -39,10 +40,11 @@ symbol_table_T *init_symbol_table_default() {
     return st;
 }
 
-symbol_table_entry_T *init_symbol_table_entry(char *name, void *value) {
+symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value) {
     symbol_table_entry_T *entry = malloc(sizeof(symbol_table_entry_T));
 
     entry->name = name;
+    entry->type = type;
     entry->value = value;
     entry->next = NULL;
 
@@ -64,7 +66,7 @@ unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste) 
 
     // check if need to resize
     if(!((float)st->size / st->capacity >= st->load_factor))
-        return 0;
+        return symbol_table_resize(st);
     
     return 1;
 }
@@ -112,4 +114,17 @@ unsigned int symbol_table_resize(symbol_table_T *st) {
     // free prev table
     free(st->buckets);
     st->buckets = new_buckets;
+
+    return 0;
+}
+
+void symbol_table_print(symbol_table_T *st) {
+    for(int i = 0; i < st->capacity; ++i) {
+        symbol_table_entry_T *cur = st->buckets[i];
+
+        while(cur) {
+            printf("name: %s, type: %d, value: %p\n", cur->name, cur->type, cur->value);
+            cur = cur->next;
+        }
+    }
 }

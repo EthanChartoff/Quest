@@ -1,18 +1,14 @@
-int z = 7 % 3 + "z";
+int c = 0;
 
-int y = 5 && 4 >> 1;   
+while (count < 3) {
+	int x = c + 1;
 
-int result = ((sum * 2));
-
-while ((count < 3)) { 
-int sum = x + y;
-
-	if (sum > 15) {  
-		x = 15;
+	if(x) {
+		x = x + 1;
 	} else {
-		x = 7 + x;
+		x = x;
 	}
 
-count = count + 1;  
+	c = c + 1;
 }
 
