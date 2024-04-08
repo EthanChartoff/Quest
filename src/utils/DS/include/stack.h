@@ -18,8 +18,8 @@ typedef struct GENERIC_STACK_STRUCT {
 
 stack_T* stack_init();
 void stack_push(stack_T* s, void* data);
-void* stack_pop(stack_T* s);
-void* stack_peek(stack_T* s);
+void *stack_pop(stack_T* s);
+void *stack_peek(stack_T* s);
 void stack_clear(stack_T* s);
 size_t stack_size(stack_T* s);
 

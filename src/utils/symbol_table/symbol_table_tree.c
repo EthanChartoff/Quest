@@ -35,3 +35,13 @@ symbol_table_tree_node_T *init_symbol_table_tree_leaf(symbol_table_T *table) {
     return sttn;
 }
 
+void symbol_table_tree_node_add(symbol_table_tree_node_T *sttn, symbol_table_tree_node_T *sttn_child) {
+    sttn->children = realloc(sttn->children, sizeof(symbol_table_tree_node_T *) * (sttn->n_children + 1));
+
+    sttn->children[sttn->n_children] = sttn_child;
+    sttn->n_children++;
+}
+
+void symbol_table_tree_print(symbol_table_tree_T *stt);
+
+

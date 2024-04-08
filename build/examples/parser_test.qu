@@ -7,8 +7,11 @@ while (count < 3) {
 		x = x + 1;
 	} else {
 		x = x;
+		int y = c + 1;
 	}
 
 	c = c + 1;
 }
+
+int d = c + 1;
 

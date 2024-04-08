@@ -52,8 +52,10 @@ symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value)
 }
 
 unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste) {
-    if(!ste)
+    if(!ste) {
+        thrw(ARG_ERR);
         return 0;
+    }
 
     uint32_t i = st->hash(ste->name, strlen(ste->name)) % st->capacity;
 
@@ -64,12 +66,15 @@ unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste) 
         st->buckets[i] = ste;   
     }
 
-    // check if need to resize
-    if(!((float)st->size / st->capacity >= st->load_factor))
+    // check if need to resize    
+    if(((float)st->size / st->capacity >= st->load_factor))
         return symbol_table_resize(st);
     
+    st->size++;
+
     return 1;
 }
+
 
 symbol_table_entry_T *symbol_table_find(symbol_table_T *st, char *name) {
     uint32_t i = st->hash(name, strlen(name));
@@ -86,7 +91,7 @@ symbol_table_entry_T *symbol_table_find(symbol_table_T *st, char *name) {
 
 unsigned int symbol_table_resize(symbol_table_T *st) {
     // check if need to resize
-    if(!((float)st->size / st->capacity >= st->load_factor))
+    if(((float)st->size / st->capacity >= st->load_factor))
         return 0;
 
     symbol_table_entry_T **new_buckets, *cur, *next;

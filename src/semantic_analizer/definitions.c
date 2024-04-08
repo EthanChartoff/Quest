@@ -204,9 +204,7 @@ void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree, symbol
 void definition_exp_exp_precedence(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
 void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
 
-void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {
-    
-}
+void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
 
 void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
 void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {
