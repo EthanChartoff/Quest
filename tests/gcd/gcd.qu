@@ -1,0 +1,17 @@
+int a = 94;
+int b = 3;
+int tmp = 0;
+
+if(a < b) {
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+
+while (b > 0) {
+    if(a > b) {
+        a = a - b;
+    } else {
+        b = b - a;
+    }
+}

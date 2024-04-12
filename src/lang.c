@@ -1,10 +1,10 @@
 #include "include/lang.h"
+#include "include/code_gen/code_generator.h"
 #include "include/parser/lr_item.h"
 #include "include/parser/parser.h"
 #include "include/parser/rule.h"
 #include "include/parser/slr.h"
 #include "include/macros.h"
-#include "include/parser/bnf.h"
 #include "include/parser/symbol.h"
 #include "include/quest.h"
 #include "include/semantic_analizer/definitions.h"
@@ -431,6 +431,16 @@ static slr_T *init_default_lang(quest_T *q) {
     }
 
     q->sdt = init_sdt(srs, q->parser->n_rules);
+
+    /*
+        code_gen
+    */
+
+    q->code_gen = init_code_gen_default(
+        "/home/goodman/school/Quest/tests",
+        NULL,
+        NULL
+    );
 
     return slr;
 }

@@ -16,8 +16,8 @@ typedef union SYMBOL_UNION {
 } symbol_U;
 
 typedef struct SYMBOL_STRUCT {
-    symbol_U *symbol;
     symbol_type_E sym_type;
+    symbol_U *symbol;
 } symbol_T;
 
 symbol_T *init_symbol(symbol_U *symbol, symbol_type_E type);

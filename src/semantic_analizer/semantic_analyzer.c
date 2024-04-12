@@ -32,13 +32,14 @@ static void build_ast_rec(parse_tree_node_T *tree, sdt_T *sdt, stack_T *ast_s, s
 }
 
 
-ast_node_T *build_ast(parse_tree_T *tree, sdt_T *sdt) {
+ast_node_T *build_ast(parse_tree_T *tree, quest_T *q) {
     stack_T *ast_s = stack_init();
     stack_T *st_s = stack_init();
     stack_push(st_s, init_symbol_table_tree_leaf(init_symbol_table_default()));
-    build_ast_rec(tree->root, sdt, ast_s, NULL, st_s);
+    build_ast_rec(tree->root, q->sdt, ast_s, NULL, st_s);
 
-    symbol_table_print(((symbol_table_tree_node_T *) stack_peek(st_s))->table);
+    q->code_gen->sym_tbl = init_symbol_table_tree(( (symbol_table_tree_node_T *) stack_peek(st_s)));
+
     return stack_pop(ast_s);
 }
 

@@ -13,10 +13,17 @@
 
 #include <stddef.h>
 
+typedef enum ENTRY_TYPES_ENUM {
+    GLOBAL,
+    LOCAL
+} entry_type_E;
+    
+
 typedef struct SYMBOL_TABLE_ENTRY_STRUCT {
     char *name;
     int type;
     void *value;
+    entry_type_E declaration_type;
     struct SYMBOL_TABLE_ENTRY_STRUCT *next;
 } symbol_table_entry_T;
 
@@ -31,7 +38,7 @@ typedef struct SYMBOL_TABLE_STRUCT {
 symbol_table_T *init_symbol_table(unsigned int capacity, float load_factor, unsigned int (*hash)(char *, size_t length));
 symbol_table_T *init_symbol_table_default();
 
-symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value);
+symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value, entry_type_E declaration_type);
 
 unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste);
 symbol_table_entry_T *symbol_table_find(symbol_table_T *st, char *name);

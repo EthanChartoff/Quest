@@ -1,6 +1,7 @@
 #ifndef QUEST_QUEST_H
 #define QUEST_QUEST_H
 
+#include "code_gen/code_generator.h"
 #include "lexer/lexer.h"
 #include "parser/parser.h"
 #include "semantic_analizer/sdt.h"
@@ -10,6 +11,7 @@ typedef struct QUEST_STRUCT {
     lexer_T *lexer;
     parser_T *parser;
     sdt_T *sdt;
+    code_gen_T *code_gen;
 } quest_T;
 
 void compile(char *src);

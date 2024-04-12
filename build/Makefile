@@ -174,6 +174,126 @@ qc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/build
 .PHONY : qc/fast
 
+src/code_gen/TTS.o: src/code_gen/TTS.c.o
+.PHONY : src/code_gen/TTS.o
+
+# target to build an object file
+src/code_gen/TTS.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/TTS.c.o
+.PHONY : src/code_gen/TTS.c.o
+
+src/code_gen/TTS.i: src/code_gen/TTS.c.i
+.PHONY : src/code_gen/TTS.i
+
+# target to preprocess a source file
+src/code_gen/TTS.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/TTS.c.i
+.PHONY : src/code_gen/TTS.c.i
+
+src/code_gen/TTS.s: src/code_gen/TTS.c.s
+.PHONY : src/code_gen/TTS.s
+
+# target to generate assembly for a file
+src/code_gen/TTS.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/TTS.c.s
+.PHONY : src/code_gen/TTS.c.s
+
+src/code_gen/code_generator.o: src/code_gen/code_generator.c.o
+.PHONY : src/code_gen/code_generator.o
+
+# target to build an object file
+src/code_gen/code_generator.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/code_generator.c.o
+.PHONY : src/code_gen/code_generator.c.o
+
+src/code_gen/code_generator.i: src/code_gen/code_generator.c.i
+.PHONY : src/code_gen/code_generator.i
+
+# target to preprocess a source file
+src/code_gen/code_generator.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/code_generator.c.i
+.PHONY : src/code_gen/code_generator.c.i
+
+src/code_gen/code_generator.s: src/code_gen/code_generator.c.s
+.PHONY : src/code_gen/code_generator.s
+
+# target to generate assembly for a file
+src/code_gen/code_generator.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/code_generator.c.s
+.PHONY : src/code_gen/code_generator.c.s
+
+src/code_gen/operand.o: src/code_gen/operand.c.o
+.PHONY : src/code_gen/operand.o
+
+# target to build an object file
+src/code_gen/operand.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/operand.c.o
+.PHONY : src/code_gen/operand.c.o
+
+src/code_gen/operand.i: src/code_gen/operand.c.i
+.PHONY : src/code_gen/operand.i
+
+# target to preprocess a source file
+src/code_gen/operand.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/operand.c.i
+.PHONY : src/code_gen/operand.c.i
+
+src/code_gen/operand.s: src/code_gen/operand.c.s
+.PHONY : src/code_gen/operand.s
+
+# target to generate assembly for a file
+src/code_gen/operand.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/operand.c.s
+.PHONY : src/code_gen/operand.c.s
+
+src/code_gen/register.o: src/code_gen/register.c.o
+.PHONY : src/code_gen/register.o
+
+# target to build an object file
+src/code_gen/register.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/register.c.o
+.PHONY : src/code_gen/register.c.o
+
+src/code_gen/register.i: src/code_gen/register.c.i
+.PHONY : src/code_gen/register.i
+
+# target to preprocess a source file
+src/code_gen/register.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/register.c.i
+.PHONY : src/code_gen/register.c.i
+
+src/code_gen/register.s: src/code_gen/register.c.s
+.PHONY : src/code_gen/register.s
+
+# target to generate assembly for a file
+src/code_gen/register.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/register.c.s
+.PHONY : src/code_gen/register.c.s
+
+src/code_gen/translation_rule.o: src/code_gen/translation_rule.c.o
+.PHONY : src/code_gen/translation_rule.o
+
+# target to build an object file
+src/code_gen/translation_rule.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o
+.PHONY : src/code_gen/translation_rule.c.o
+
+src/code_gen/translation_rule.i: src/code_gen/translation_rule.c.i
+.PHONY : src/code_gen/translation_rule.i
+
+# target to preprocess a source file
+src/code_gen/translation_rule.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translation_rule.c.i
+.PHONY : src/code_gen/translation_rule.c.i
+
+src/code_gen/translation_rule.s: src/code_gen/translation_rule.c.s
+.PHONY : src/code_gen/translation_rule.s
+
+# target to generate assembly for a file
+src/code_gen/translation_rule.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translation_rule.c.s
+.PHONY : src/code_gen/translation_rule.c.s
+
 src/io.o: src/io.c.o
 .PHONY : src/io.o
 
@@ -1027,6 +1147,21 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... qc"
+	@echo "... src/code_gen/TTS.o"
+	@echo "... src/code_gen/TTS.i"
+	@echo "... src/code_gen/TTS.s"
+	@echo "... src/code_gen/code_generator.o"
+	@echo "... src/code_gen/code_generator.i"
+	@echo "... src/code_gen/code_generator.s"
+	@echo "... src/code_gen/operand.o"
+	@echo "... src/code_gen/operand.i"
+	@echo "... src/code_gen/operand.s"
+	@echo "... src/code_gen/register.o"
+	@echo "... src/code_gen/register.i"
+	@echo "... src/code_gen/register.s"
+	@echo "... src/code_gen/translation_rule.o"
+	@echo "... src/code_gen/translation_rule.i"
+	@echo "... src/code_gen/translation_rule.s"
 	@echo "... src/io.o"
 	@echo "... src/io.i"
 	@echo "... src/io.s"

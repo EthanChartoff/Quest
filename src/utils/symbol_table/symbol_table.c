@@ -8,6 +8,15 @@
 #include <string.h>
 #include <sys/types.h>
 
+/**
+ * Creates a new symbol table with the given capacity and load factor.
+ * If capacity is 0, a default capacity is used.
+ * If load factor is 0.0, a default load factor is used.
+ * @param capacity The initial capacity of the symbol table.
+ * @param load_factor The load factor of the symbol table.
+ * @param hash A function that hashes strings.
+ * @return A new symbol table.
+ */
 symbol_table_T *init_symbol_table(unsigned int capacity, float load_factor, unsigned int (*hash)(char *, size_t length)) {
     symbol_table_T *st = malloc(sizeof(symbol_table_T));
     if(!st)
@@ -24,6 +33,10 @@ symbol_table_T *init_symbol_table(unsigned int capacity, float load_factor, unsi
     return st;
 }
 
+/**
+ * Creates a new symbol table with default capacity and load factor.
+ * @return A new symbol table.
+ */
 symbol_table_T *init_symbol_table_default() {
     symbol_table_T *st = malloc(sizeof(symbol_table_T));
     if(!st)
@@ -40,17 +53,32 @@ symbol_table_T *init_symbol_table_default() {
     return st;
 }
 
-symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value) {
+/**
+ * Creates a new entry for the symbol table.
+ * @param name The name of the variable.
+ * @param type The type of the variable.
+ * @param value The value of the variable.
+ * @param declaration_type The declaration type of the variable.
+ * @return The new entry.
+ */
+symbol_table_entry_T *init_symbol_table_entry(char *name, int type, void *value, entry_type_E declaration_type) {
     symbol_table_entry_T *entry = malloc(sizeof(symbol_table_entry_T));
 
     entry->name = name;
     entry->type = type;
     entry->value = value;
+    entry->declaration_type = declaration_type;
     entry->next = NULL;
 
     return entry;
 }
 
+/**
+ * Inserts an entry into the symbol table.
+ * @param st The symbol table.
+ * @param ste The entry to insert.
+ * @return 1 on success, 0 on failure.
+ */
 unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste) {
     if(!ste) {
         thrw(ARG_ERR);
@@ -76,6 +104,12 @@ unsigned int symbol_table_insert(symbol_table_T *st, symbol_table_entry_T *ste) 
 }
 
 
+/**
+ * Finds an entry in the symbol table.
+ * @param st The symbol table.
+ * @param name The name of the entry to find.
+ * @return The found entry or NULL if not found.
+ */
 symbol_table_entry_T *symbol_table_find(symbol_table_T *st, char *name) {
     uint32_t i = st->hash(name, strlen(name));
     symbol_table_entry_T *tmp = st->buckets[i];
@@ -89,6 +123,11 @@ symbol_table_entry_T *symbol_table_find(symbol_table_T *st, char *name) {
     return NULL;
 }
 
+/**
+ * Resizes the symbol table.
+ * @param st The symbol table.
+ * @return 1 on success, 0 on failure.
+ */
 unsigned int symbol_table_resize(symbol_table_T *st) {
     // check if need to resize
     if(((float)st->size / st->capacity >= st->load_factor))
@@ -123,6 +162,10 @@ unsigned int symbol_table_resize(symbol_table_T *st) {
     return 0;
 }
 
+/**
+ * Prints the symbol table.
+ * @param st The symbol table.
+ */
 void symbol_table_print(symbol_table_T *st) {
     for(int i = 0; i < st->capacity; ++i) {
         symbol_table_entry_T *cur = st->buckets[i];
@@ -133,3 +176,5 @@ void symbol_table_print(symbol_table_T *st) {
         }
     }
 }
+
+

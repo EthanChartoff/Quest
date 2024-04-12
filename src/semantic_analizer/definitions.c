@@ -35,21 +35,23 @@ void definition_decl(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *s
     ast_node_T **children = malloc(sizeof(ast_node_T *) * 3);
     if(!children)
         thrw(ALLOC_ERR);
+    ast_node_T *node;
 
     children[0] = stack_pop(astack); // type
     children[1] = stack_pop(astack); // id
     stack_pop(astack);               // exp
     children[2] = stack_pop(astack); // value
-    stack_pop(astack);               // ; 
+    stack_pop(astack);               // ;
 
-    stack_push(astack, 
-        init_ast_node(tree->symbol, children, 3));
-    
-    symbol_table_insert(sym_tbl, 
-        init_symbol_table_entry(
-            children[1]->symbol->symbol->terminal->value, 
-            children[0]->symbol->symbol->terminal->type,
-            NULL));
+    node = init_ast_node(tree->symbol, children, 3);
+    node->st_entry = init_symbol_table_entry(
+        children[1]->symbol->symbol->terminal->value, 
+        children[0]->symbol->symbol->terminal->type,
+        NULL,
+        GLOBAL);
+
+    stack_push(astack, node);
+    symbol_table_insert(sym_tbl, node->st_entry);
 }
 void definition_type_int(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
 void definition_type_char(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
@@ -206,7 +208,20 @@ void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree, symbol_table_T
 
 void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
 
-void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
+void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {
+    ast_node_T *sec = init_ast_leaf(tree->symbol);
+
+    stack_pop(astack);                          // if
+    stack_pop(astack);                          // (
+    ast_add_to_node(sec, stack_pop(astack));    // exp
+    stack_pop(astack);                          // )
+    stack_pop(astack);                          // {
+    ast_add_to_node(sec, stack_pop(astack));    // stmts
+    stack_pop(astack);                          // }
+
+    stack_push(astack, sec);
+}
+
 void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {
     ast_node_T *sec = init_ast_leaf(tree->symbol);
 

@@ -6,6 +6,7 @@
 #include "include/parser/parser.h"
 #include "include/semantic_analizer/semantic_analyzer.h"
 #include "utils/DS/include/queue.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 void compile(char *src) {
@@ -31,8 +32,10 @@ void compile(char *src) {
     parse_tree_T *tree = parse(prs, queue);
     // parse_tree_traverse_postorder(tree->root, 0);
 
-    ast_node_T *ast = build_ast(tree, q->sdt);
+    ast_node_T *ast = build_ast(tree, q);
     // traverse_ast(ast, 0); 
+
+    printf("%s\n", generate_code(ast, q->code_gen));
 }
 
 void compile_file(const char *filename) {
