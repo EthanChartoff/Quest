@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/goodman/school/Quest/src/code_gen/operand.c" "CMakeFiles/qc.dir/src/code_gen/operand.c.o" "gcc" "CMakeFiles/qc.dir/src/code_gen/operand.c.o.d"
   "/home/goodman/school/Quest/src/code_gen/register.c" "CMakeFiles/qc.dir/src/code_gen/register.c.o" "gcc" "CMakeFiles/qc.dir/src/code_gen/register.c.o.d"
   "/home/goodman/school/Quest/src/code_gen/translation_rule.c" "CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o" "gcc" "CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o.d"
+  "/home/goodman/school/Quest/src/code_gen/translations.c" "CMakeFiles/qc.dir/src/code_gen/translations.c.o" "gcc" "CMakeFiles/qc.dir/src/code_gen/translations.c.o.d"
   "/home/goodman/school/Quest/src/io.c" "CMakeFiles/qc.dir/src/io.c.o" "gcc" "CMakeFiles/qc.dir/src/io.c.o.d"
   "/home/goodman/school/Quest/src/lang.c" "CMakeFiles/qc.dir/src/lang.c.o" "gcc" "CMakeFiles/qc.dir/src/lang.c.o.d"
   "/home/goodman/school/Quest/src/lexer/lexer.c" "CMakeFiles/qc.dir/src/lexer/lexer.c.o" "gcc" "CMakeFiles/qc.dir/src/lexer/lexer.c.o.d"

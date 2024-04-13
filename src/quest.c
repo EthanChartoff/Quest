@@ -4,14 +4,13 @@
 #include "include/io.h"
 #include "include/parser/parse_tree.h"
 #include "include/parser/parser.h"
+#include "include/semantic_analizer/sdt.h"
 #include "include/semantic_analizer/semantic_analyzer.h"
 #include "utils/DS/include/queue.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void compile(char *src) {
-    quest_T *q = init_quest(src);
-
+void compile(quest_T *q) {
     lexer_T* lex = q->lexer;
     parser_T *prs = q->parser;
 
@@ -35,11 +34,10 @@ void compile(char *src) {
     ast_node_T *ast = build_ast(tree, q);
     // traverse_ast(ast, 0); 
 
-    printf("%s\n", generate_code(ast, q->code_gen));
+    write_file(q->destfile, generate_code(ast, q->code_gen));
 }
 
 void compile_file(const char *filename) {
-    char *src = read_file(filename);
-    compile(src);
-    free(src);
+    quest_T *q = init_quest(filename);
+    compile(q);
 }

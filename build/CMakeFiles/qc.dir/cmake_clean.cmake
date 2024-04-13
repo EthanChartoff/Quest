@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/qc.dir/src/code_gen/register.c.o.d"
   "CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o"
   "CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o.d"
+  "CMakeFiles/qc.dir/src/code_gen/translations.c.o"
+  "CMakeFiles/qc.dir/src/code_gen/translations.c.o.d"
   "CMakeFiles/qc.dir/src/io.c.o"
   "CMakeFiles/qc.dir/src/io.c.o.d"
   "CMakeFiles/qc.dir/src/lang.c.o"

@@ -294,6 +294,30 @@ src/code_gen/translation_rule.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translation_rule.c.s
 .PHONY : src/code_gen/translation_rule.c.s
 
+src/code_gen/translations.o: src/code_gen/translations.c.o
+.PHONY : src/code_gen/translations.o
+
+# target to build an object file
+src/code_gen/translations.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translations.c.o
+.PHONY : src/code_gen/translations.c.o
+
+src/code_gen/translations.i: src/code_gen/translations.c.i
+.PHONY : src/code_gen/translations.i
+
+# target to preprocess a source file
+src/code_gen/translations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translations.c.i
+.PHONY : src/code_gen/translations.c.i
+
+src/code_gen/translations.s: src/code_gen/translations.c.s
+.PHONY : src/code_gen/translations.s
+
+# target to generate assembly for a file
+src/code_gen/translations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qc.dir/build.make CMakeFiles/qc.dir/src/code_gen/translations.c.s
+.PHONY : src/code_gen/translations.c.s
+
 src/io.o: src/io.c.o
 .PHONY : src/io.o
 
@@ -1162,6 +1186,9 @@ help:
 	@echo "... src/code_gen/translation_rule.o"
 	@echo "... src/code_gen/translation_rule.i"
 	@echo "... src/code_gen/translation_rule.s"
+	@echo "... src/code_gen/translations.o"
+	@echo "... src/code_gen/translations.i"
+	@echo "... src/code_gen/translations.s"
 	@echo "... src/io.o"
 	@echo "... src/io.i"
 	@echo "... src/io.s"

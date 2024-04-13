@@ -6,6 +6,27 @@
 #include <stdlib.h>
 #include <string.h>
 
+static register_T **copy_nasm_regs() {
+    register_T **tmp = malloc(sizeof(register_T *) * NUM_REG);
+    if(!tmp)
+        thrw(ALLOC_ERR);
+
+    for(int i = 0; i < NUM_REG; ++i) {
+        tmp[i] = malloc(sizeof(register_T));
+        if(!tmp[i])
+            thrw(ALLOC_ERR);
+
+        *tmp[i] = NASM_REGS[i];
+    }
+    return tmp;
+}
+
+static void generate_text_section(code_gen_T *cg) {
+    cg->output = realloc(cg->output, strlen(cg->output) + strlen(TEXT) + strlen(GLOBAL("_start")) + strlen(LABEL("_start")) + 1);
+    strcat(cg->output, TEXT);
+    strcat(cg->output, GLOBAL("_start"));
+    strcat(cg->output, LABEL("_start"));    
+}
 
 static char *generate_global_variables(code_gen_T *cg) {
     int i;
@@ -43,43 +64,33 @@ static char *generate_global_variables(code_gen_T *cg) {
     return cg->output;
 }
 
-static void generate_code_rec(ast_node_T *ast, stack_T *astack, code_gen_T *cg) {
+static void generate_code_rec(ast_node_T *ast, stack_T *astack, tts_T *tts, register_T **regs) {
     if(!ast)
         return;
     
     int i;
     for(i = 0; i < ast->n_children; ++i) {
-        generate_code_rec(ast->children[i], astack, cg);
-    }    
+        generate_code_rec(ast->children[i], astack, tts, regs);
+    }
+
+    if(ast->symbol->sym_type == TERMINAL) {
+        if(tts->tok_translation[ast->symbol->symbol->terminal->type])
+            tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, regs);
+    } 
+    else {
+        if(tts->non_term_translation[ast->symbol->symbol->non_terminal->type])
+            tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, regs);
+    }
 }   
 
-code_gen_T *init_code_gen(register_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl, char *dest) {
+code_gen_T *init_code_gen(register_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {
     code_gen_T *cg = malloc(sizeof(code_gen_T));
     if(!cg)
         thrw(ALLOC_ERR);
 
-    cg->dest = dest;
-    cg->registers = registers;
-    cg->tts = tts;
-    cg->sym_tbl = sym_tbl;
-    cg->output = malloc(sizeof(char));
-    if(!cg->output)
-        thrw(ALLOC_ERR);
-    cg->output[0] = '\0';
-
-    return cg;
-}
-
-code_gen_T *init_code_gen_default(char *dest, tts_T *tts, symbol_table_tree_T *sym_tbl) {
-    code_gen_T *cg = malloc(sizeof(code_gen_T));
-    if(!cg)
-        thrw(ALLOC_ERR);
-
-    cg->dest = dest;
-    cg->registers = malloc(sizeof(register_T *) * NUM_REG);
-    if(!cg->registers)
-        thrw(ALLOC_ERR);
-    memcpy(cg->registers, NASM_REGS, sizeof(register_T *) * NUM_REG);
+    cg->registers = registers 
+    ? registers 
+    : copy_nasm_regs();
     cg->tts = tts;
     cg->sym_tbl = sym_tbl;
     cg->output = malloc(sizeof(char));
@@ -93,8 +104,13 @@ code_gen_T *init_code_gen_default(char *dest, tts_T *tts, symbol_table_tree_T *s
 char *generate_code(ast_node_T *ast, code_gen_T *cg) {
     stack_T *astack = stack_init();
     
-    return generate_global_variables(cg);
-    // generate_code_rec(ast, astack, cg);
+    char *tmp = generate_global_variables(cg);
+    cg->output = strdup(tmp);
+    free(tmp);
+    generate_text_section(cg);
+    // generate_code_rec(ast, astack, cg->tts, cg->registers);
+
+    return cg->output;
 }
 
 register_T *code_gen_get_register(code_gen_T *cg) {
@@ -105,13 +121,4 @@ register_T *code_gen_get_register(code_gen_T *cg) {
     }
 
     return NULL;
-}
-
-void code_gen_print_to_file(code_gen_T *cg, char *dest) {
-    FILE *fp = fopen(dest, "w");
-    
-    fprintf(fp, "%s", cg->output);
-    fclose(fp);
-
-    return;
 }

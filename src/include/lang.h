@@ -3,6 +3,6 @@
 
 #include "quest.h"
 
-quest_T *init_quest(char *src);
+quest_T *init_quest(const char *filename);
 
 #endif

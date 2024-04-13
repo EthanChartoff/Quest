@@ -57,6 +57,11 @@ CMakeFiles/qc.dir/src/code_gen/TTS.c.o: /home/goodman/school/Quest/src/code_gen/
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
   /home/goodman/school/Quest/src/utils/err/errors.h
 
@@ -307,8 +312,16 @@ CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o: /home/goodman/school/Quest/
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
   /home/goodman/school/Quest/src/utils/err/errors.h
+
+CMakeFiles/qc.dir/src/code_gen/translations.c.o: /home/goodman/school/Quest/src/code_gen/translations.c \
+  /usr/include/stdc-predef.h
 
 CMakeFiles/qc.dir/src/io.c.o: /home/goodman/school/Quest/src/io.c \
   /usr/include/stdc-predef.h \
@@ -459,7 +472,12 @@ CMakeFiles/qc.dir/src/lang.c.o: /home/goodman/school/Quest/src/lang.c \
   /home/goodman/school/Quest/src/utils/DS/include/stack.h \
   /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/AST.h \
-  /home/goodman/school/Quest/src/include/code_gen/code_generator.h \
+  /home/goodman/school/Quest/src/include/code_gen/TTS.h \
+  /home/goodman/school/Quest/src/include/code_gen/nasm_macros.h \
+  /home/goodman/school/Quest/src/include/code_gen/translation_rule.h \
+  /home/goodman/school/Quest/src/include/code_gen/translations.h \
+  /home/goodman/school/Quest/src/include/io.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /home/goodman/school/Quest/src/include/parser/lr_item.h \
   /home/goodman/school/Quest/src/include/parser/symbol_set.h \
   /home/goodman/school/Quest/src/include/parser/parser.h \
@@ -482,7 +500,11 @@ CMakeFiles/qc.dir/src/lang.c.o: /home/goodman/school/Quest/src/lang.c \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h
 
 CMakeFiles/qc.dir/src/lexer/lexer.c.o: /home/goodman/school/Quest/src/lexer/lexer.c \
   /usr/include/stdc-predef.h \
@@ -1661,6 +1683,7 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /home/goodman/school/Quest/src/include/io.h \
   /home/goodman/school/Quest/src/include/parser/parse_tree.h \
   /home/goodman/school/Quest/src/include/parser/parser.h \
+  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h \
   /home/goodman/school/Quest/src/include/quest.h \
   /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h \
@@ -2582,11 +2605,9 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
-/home/goodman/school/Quest/src/include/code_gen/code_generator.h:
+/usr/include/time.h:
 
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/home/goodman/school/Quest/src/include/lexer/token.h:
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
@@ -2595,8 +2616,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
-/home/goodman/school/Quest/src/code_gen/code_generator.c:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -2607,10 +2626,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
-
-/home/goodman/school/Quest/src/utils/err/errors.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -2648,9 +2663,15 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
-/usr/include/stdc-predef.h:
+/home/goodman/school/Quest/src/include/lexer/token.h:
 
-/home/goodman/school/Quest/src/include/semantic_analizer/sdt.h:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/home/goodman/school/Quest/src/utils/DS/queue.c:
+
+/usr/include/features.h:
+
+/home/goodman/school/Quest/src/include/parser/action_table.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
@@ -2673,6 +2694,12 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/lexer/lexer.c:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/home/goodman/school/Quest/src/include/code_gen/register.h:
 
 /home/goodman/school/Quest/src/include/code_gen/TTS.h:
 
@@ -2697,6 +2724,12 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/home/goodman/school/Quest/src/code_gen/code_generator.c:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/home/goodman/school/Quest/src/include/code_gen/code_generator.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
@@ -2724,22 +2757,6 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/home/goodman/school/Quest/src/include/code_gen/register.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/home/goodman/school/Quest/src/utils/DS/queue.c:
-
-/usr/include/features.h:
-
-/home/goodman/school/Quest/src/include/parser/action_table.h:
-
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
@@ -2747,6 +2764,10 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /home/goodman/school/Quest/src/io.c:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/home/goodman/school/Quest/src/utils/err/errors.h:
 
 /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h:
 
@@ -2761,6 +2782,10 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/home/goodman/school/Quest/src/code_gen/register.c:
 
 /home/goodman/school/Quest/src/utils/lexer_DFA/transitions.c:
 
@@ -2790,6 +2815,8 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 
 /home/goodman/school/Quest/src/code_gen/operand.c:
 
+/home/goodman/school/Quest/src/code_gen/translations.c:
+
 /home/goodman/school/Quest/src/include/code_gen/operand.h:
 
 /usr/include/string.h:
@@ -2803,6 +2830,12 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/lang.c:
 
 /home/goodman/school/Quest/src/include/lexer/lexer.h:
+
+/usr/include/stdc-predef.h:
+
+/home/goodman/school/Quest/src/include/semantic_analizer/sdt.h:
+
+/home/goodman/school/Quest/src/include/code_gen/translations.h:
 
 /home/goodman/school/Quest/src/include/quest.h:
 
@@ -2845,9 +2878,3 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/parser/goto_table.c:
 
 /home/goodman/school/Quest/src/parser/grammer.c:
-
-/usr/include/time.h:
-
-/home/goodman/school/Quest/src/code_gen/register.c:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:

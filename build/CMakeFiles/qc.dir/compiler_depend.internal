@@ -58,6 +58,11 @@ CMakeFiles/qc.dir/src/code_gen/TTS.c.o
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h
  /usr/include/alloca.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+ /home/goodman/school/Quest/src/include/code_gen/register.h
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
+ /usr/include/stdint.h
+ /usr/include/x86_64-linux-gnu/bits/wchar.h
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
  /home/goodman/school/Quest/src/utils/err/err.h
  /home/goodman/school/Quest/src/utils/err/errors.h
 
@@ -312,8 +317,17 @@ CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h
  /usr/include/alloca.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+ /home/goodman/school/Quest/src/include/code_gen/register.h
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
+ /usr/include/stdint.h
+ /usr/include/x86_64-linux-gnu/bits/wchar.h
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
  /home/goodman/school/Quest/src/utils/err/err.h
  /home/goodman/school/Quest/src/utils/err/errors.h
+
+CMakeFiles/qc.dir/src/code_gen/translations.c.o
+ /home/goodman/school/Quest/src/code_gen/translations.c
+ /usr/include/stdc-predef.h
 
 CMakeFiles/qc.dir/src/io.c.o
  /home/goodman/school/Quest/src/io.c
@@ -466,7 +480,12 @@ CMakeFiles/qc.dir/src/lang.c.o
  /home/goodman/school/Quest/src/utils/DS/include/stack.h
  /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h
  /home/goodman/school/Quest/src/include/semantic_analizer/AST.h
- /home/goodman/school/Quest/src/include/code_gen/code_generator.h
+ /home/goodman/school/Quest/src/include/code_gen/TTS.h
+ /home/goodman/school/Quest/src/include/code_gen/nasm_macros.h
+ /home/goodman/school/Quest/src/include/code_gen/translation_rule.h
+ /home/goodman/school/Quest/src/include/code_gen/translations.h
+ /home/goodman/school/Quest/src/include/io.h
+ /home/goodman/school/Quest/src/include/lexer/token.h
  /home/goodman/school/Quest/src/include/parser/lr_item.h
  /home/goodman/school/Quest/src/include/parser/symbol_set.h
  /home/goodman/school/Quest/src/include/parser/parser.h
@@ -490,6 +509,10 @@ CMakeFiles/qc.dir/src/lang.c.o
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+ /usr/include/string.h
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
+ /usr/include/strings.h
 
 CMakeFiles/qc.dir/src/lexer/lexer.c.o
  /home/goodman/school/Quest/src/lexer/lexer.c
@@ -1686,6 +1709,7 @@ CMakeFiles/qc.dir/src/quest.c.o
  /home/goodman/school/Quest/src/include/io.h
  /home/goodman/school/Quest/src/include/parser/parse_tree.h
  /home/goodman/school/Quest/src/include/parser/parser.h
+ /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h
  /home/goodman/school/Quest/src/include/semantic_analizer/semantic_analyzer.h
  /home/goodman/school/Quest/src/include/quest.h
  /home/goodman/school/Quest/src/include/semantic_analizer/sdt.h

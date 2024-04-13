@@ -1,5 +1,10 @@
 #include "include/lang.h"
-#include "include/code_gen/code_generator.h"
+#include "include/code_gen/TTS.h"
+#include "include/code_gen/nasm_macros.h"
+#include "include/code_gen/translation_rule.h"
+#include "include/code_gen/translations.h"
+#include "include/io.h"
+#include "include/lexer/token.h"
 #include "include/parser/lr_item.h"
 #include "include/parser/parser.h"
 #include "include/parser/rule.h"
@@ -14,6 +19,7 @@
 #include "utils/err/err.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 // TODO: make a sysmtem that doesnt need to have all these defs
@@ -435,23 +441,34 @@ static slr_T *init_default_lang(quest_T *q) {
     /*
         code_gen
     */
+    translation_rule_T *tts_tok[] = {
+        
+    };
 
-    q->code_gen = init_code_gen_default(
-        "/home/goodman/school/Quest/tests",
+    translation_rule_T *tts_nt[] = {
+        // init_translation_rule(declaration, &trans_decl),
+        // init_translation_rule(num, &trans_mov)
+    };
+
+    q->code_gen = init_code_gen(
         NULL,
+        NULL, // create_tts(tts_tok, NUM_TOK, tts_nt, NUM_NON_TERM),
         NULL
     );
 
     return slr;
 }
 
-quest_T *init_quest(char *src) {
+quest_T *init_quest(const char *filename) {
     quest_T *q = malloc(sizeof(quest_T));
     if(!q)
         thrw(ALLOC_ERR);
 
-    q->src = src;
-    q->lexer = init_lexer(src);
+    q->srcfile = strdup(filename);
+    q->destfile = get_new_filename(filename, ".asm");
+    q->src = read_file(filename);
+    q->lexer = init_lexer(q->src);
+
     init_default_lang(q);
 
     return q;

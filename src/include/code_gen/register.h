@@ -32,6 +32,8 @@ typedef struct REGISTER_STRUCT {
 
 register_T *init_register(register_E type, uint8_t is_preserved);
 
+register_T *get_register(register_T **regs);
+
 void reg_alloc(register_T *reg, uint64_t value);
 void reg_free(register_T *reg);
 
