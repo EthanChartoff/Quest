@@ -212,10 +212,9 @@ void definition_primary_exp_str(stack_T *astack, parse_tree_node_T *tree, stack_
 void definition_exp_exp_precedence(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {}
 void definition_exp_exp(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {}
 
-<<<<<<< HEAD
-void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {}
+void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {}
 
-void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {
+void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {
     ast_node_T *sec = init_ast_leaf(tree->symbol);
 
     stack_pop(astack);                          // if
@@ -229,13 +228,7 @@ void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, symb
     stack_push(astack, sec);
 }
 
-void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree, symbol_table_T *sym_tbl) {
-=======
-void definition_compount_stmt(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {}
-
-void definition_selection_stmt_if(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {}
 void definition_selection_stmt(stack_T *astack, parse_tree_node_T *tree, stack_T *st_s) {
->>>>>>> main
     ast_node_T *sec = init_ast_leaf(tree->symbol);
 
     stack_pop(astack);                          // if
