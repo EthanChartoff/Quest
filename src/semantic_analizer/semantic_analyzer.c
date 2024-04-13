@@ -28,7 +28,7 @@ static void build_ast_rec(parse_tree_node_T *tree, sdt_T *sdt, stack_T *ast_s, s
         build_ast_rec(tree->children[i], sdt, ast_s, st_node, st_s); 
     
     if(sdt->definitions[tree->rule_index]->definition) 
-        sdt->definitions[tree->rule_index]->definition(ast_s, tree, ((symbol_table_tree_node_T *) stack_peek(st_s))->table);    
+        sdt->definitions[tree->rule_index]->definition(ast_s, tree, st_s);    
 }
 
 

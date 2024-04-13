@@ -2880,38 +2880,3 @@ CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: /home/goodman/sc
 /home/goodman/school/Quest/src/parser/goto_table.c:
 
 /home/goodman/school/Quest/src/parser/grammer.c:
-<<<<<<< HEAD
-=======
-
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/home/goodman/school/Quest/src/parser/symbol_set.c:
-
-/home/goodman/school/Quest/src/semantic_analizer/sdt.c:
-
-/home/goodman/school/Quest/src/semantic_analizer/AST.c:
-
-/home/goodman/school/Quest/src/semantic_analizer/definitions.c:
-
-/home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table_tree.h:
-
-/home/goodman/school/Quest/src/include/macros.h:
-
-/home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c:
-
-/home/goodman/school/Quest/src/utils/hashes/hashes.c:
-
-/home/goodman/school/Quest/src/utils/DS/generic_set.c:
-
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h:
->>>>>>> main
