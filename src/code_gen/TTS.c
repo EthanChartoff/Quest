@@ -22,14 +22,14 @@ tts_T *create_tts(translation_rule_T **tok_translation, size_t n_tok, translatio
     if(!tts)
         thrw(ALLOC_ERR);
 
-    tts->n_tok = n_tok;
-    tts->n_non_term = n_non_term;
+    tts->n_tok = NUM_TOK;
+    tts->n_non_term = NUM_NON_TERM;
 
-    tts->tok_translation = calloc(n_tok, sizeof(translation_rule_T *));
+    tts->tok_translation = calloc(tts->n_tok, sizeof(translation_rule_T *));
     if(!tts->tok_translation)
         thrw(ALLOC_ERR);
 
-    tts->non_term_translation = calloc(n_non_term, sizeof(translation_rule_T *));
+    tts->non_term_translation = calloc(tts->n_non_term, sizeof(translation_rule_T *) * n_non_term);
     if(!tts->non_term_translation)
         thrw(ALLOC_ERR);
 

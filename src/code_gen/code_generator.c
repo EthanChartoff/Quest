@@ -33,23 +33,23 @@ static char *generate_global_variables(code_gen_T *cg) {
     symbol_table_entry_T *cur;
     char *tmp;
 
-    cg->output = realloc(cg->output, strlen(cg->output) + strlen(DATA) + 1);
-    strcat(cg->output, DATA);
+    cg->output = realloc(cg->output, strlen(cg->output) + strlen(BSS) + 1);
+    strcat(cg->output, BSS);
 
     for(i = 0; i < cg->sym_tbl->root->table->capacity; ++i) {
         cur = cg->sym_tbl->root->table->buckets[i];
 
         while(cur) {
-            tmp = malloc(strlen(DQ) + strlen(cur->name) + 1);
+            tmp = malloc(strlen(RESB("1")) + strlen(cur->name) + 1);
 
             switch (cur->type) {
                 case TOK_INT:
-                    sprintf(tmp, DQ, cur->name);
+                    sprintf(tmp, RESD("1"), cur->name);
                     strcat(cg->output, tmp);
                     break;
 
                 case TOK_CHAR:
-                    sprintf(tmp, DB, cur->name);
+                    sprintf(tmp, RESB("1"), cur->name);
                     strcat(cg->output, tmp);
                     break;
 
@@ -64,23 +64,25 @@ static char *generate_global_variables(code_gen_T *cg) {
     return cg->output;
 }
 
-static void generate_code_rec(ast_node_T *ast, stack_T *astack, tts_T *tts, register_T **regs) {
+static char *generate_code_rec(ast_node_T *ast, stack_T *astack, code_gen_T *cg, char *tmp) {
     if(!ast)
-        return;
+        return tmp;
     
     int i;
     for(i = 0; i < ast->n_children; ++i) {
-        generate_code_rec(ast->children[i], astack, tts, regs);
+        generate_code_rec(ast->children[i], astack, cg, tmp);
     }
 
     if(ast->symbol->sym_type == TERMINAL) {
-        if(tts->tok_translation[ast->symbol->symbol->terminal->type])
-            tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, regs);
+        if(cg->tts->tok_translation[ast->symbol->symbol->terminal->type]) 
+            strcat(tmp, cg->tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, cg->registers));
     } 
     else {
-        if(tts->non_term_translation[ast->symbol->symbol->non_terminal->type])
-            tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, regs);
+        if(cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type])
+            strcat(tmp, cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, cg->registers));
     }
+
+    return tmp;
 }   
 
 code_gen_T *init_code_gen(register_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {
@@ -93,10 +95,9 @@ code_gen_T *init_code_gen(register_T **registers, tts_T *tts, symbol_table_tree_
     : copy_nasm_regs();
     cg->tts = tts;
     cg->sym_tbl = sym_tbl;
-    cg->output = malloc(sizeof(char));
+    cg->output = calloc(1, 1);
     if(!cg->output)
         thrw(ALLOC_ERR);
-    cg->output[0] = '\0';
 
     return cg;
 }
@@ -108,17 +109,10 @@ char *generate_code(ast_node_T *ast, code_gen_T *cg) {
     cg->output = strdup(tmp);
     free(tmp);
     generate_text_section(cg);
-    // generate_code_rec(ast, astack, cg->tts, cg->registers);
+
+    tmp = calloc(1, 1);
+    strcat(cg->output, strdup(generate_code_rec(ast, astack, cg, tmp))); 
+    free(tmp);
 
     return cg->output;
-}
-
-register_T *code_gen_get_register(code_gen_T *cg) {
-    for(int i = 0; i < NUM_REG; ++i) {
-        if(!cg->registers[i]->is_used && !cg->registers[i]->is_preserved) {
-            return cg->registers[i];
-        }
-    }
-
-    return NULL;
 }

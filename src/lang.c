@@ -446,13 +446,13 @@ static slr_T *init_default_lang(quest_T *q) {
     };
 
     translation_rule_T *tts_nt[] = {
-        // init_translation_rule(declaration, &trans_decl),
+        init_translation_rule(declaration, &trans_decl),
         // init_translation_rule(num, &trans_mov)
     };
 
     q->code_gen = init_code_gen(
         NULL,
-        NULL, // create_tts(tts_tok, NUM_TOK, tts_nt, NUM_NON_TERM),
+        create_tts(tts_tok, 0, tts_nt, 1),
         NULL
     );
 

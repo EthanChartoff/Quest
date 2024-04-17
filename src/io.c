@@ -29,7 +29,7 @@ char* read_file(const char *filename) {
     fclose(fp);
     if(line)
         free(line);
-    
+
     return buffer;
 }
 
@@ -41,6 +41,7 @@ void write_file(const char *filename, char *content) {
         printf("Couldn't write to file %s\n", filename);
         exit(1);
     }
+
     fprintf(fp, "%s", content);
     fclose(fp);
 }

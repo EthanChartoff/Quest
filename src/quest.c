@@ -4,11 +4,8 @@
 #include "include/io.h"
 #include "include/parser/parse_tree.h"
 #include "include/parser/parser.h"
-#include "include/semantic_analizer/sdt.h"
 #include "include/semantic_analizer/semantic_analyzer.h"
 #include "utils/DS/include/queue.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 void compile(quest_T *q) {
     lexer_T* lex = q->lexer;

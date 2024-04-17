@@ -23,6 +23,32 @@ typedef enum REGISTER_TYPE {
     NUM_REG
 } register_E;
 
+static const char *REGS_STR[NUM_REG] = {
+    "ax",
+    "bx",
+    "cx",
+    "dx",
+    "sp",
+    "bp",
+    "si",
+    "di",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"  
+};
+
+typedef enum REGISTER_SIZE {
+    BYTE,
+    WORD,
+    DWORD,
+    QWORD
+} register_size_E;
+
 typedef struct REGISTER_STRUCT {
     register_E type;        // what register this is
     uint64_t value;         // val in the reg
@@ -33,6 +59,8 @@ typedef struct REGISTER_STRUCT {
 register_T *init_register(register_E type, uint8_t is_preserved);
 
 register_T *get_register(register_T **regs);
+char *get_register_name(register_T **regs);
+
 
 void reg_alloc(register_T *reg, uint64_t value);
 void reg_free(register_T *reg);
