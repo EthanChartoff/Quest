@@ -1,38 +1,96 @@
 #include "../include/code_gen/register.h"
+#include "../utils/err/err.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+// special case for data byte registers
+static register_T *get_data_byte_reg(register_pool_T **regs) {
+    int i = 0;
 
-register_T *init_register(register_E type, uint8_t is_preserved) {
-    register_T *reg = malloc(sizeof(register_T));
+    for(;i < NUM_REG; ++i) {
+        if(regs[i]->type != DATA)
+            continue;
 
-    reg->type = type;
-    reg->is_preserved = is_preserved;
-    reg->value = 0;
-    reg->is_used = 0;
-
-    return reg;
-}
-
-register_T *get_register(register_T **regs) {
-    for(int i = 0; i < NUM_REG; ++i) {
-        if(!regs[i]->is_used && !regs[i]->is_preserved) {
-            regs[i]->is_used = 1;
-            return regs[i];
+        if(!(regs[i]->in_use & LOW_BITS)) {
+            regs[i]->in_use = regs[i]->in_use | LOW_BITS;
+            return init_register(i, BYTE, NULL);
+        } else if(!(regs[i]->in_use & HIGH_BITS)) {
+            regs[i]->in_use = regs[i]->in_use | HIGH_BITS;
+            return init_register(i, BYTE, NULL);
         }
     }
 
     return NULL;
 }
 
-void reg_alloc(register_T *reg, uint64_t value) {
-    reg->value = value;
-    reg->is_used = 1;
+// general case
+static register_T *get_reg_reg(register_pool_T **regs, uint8_t type, uint8_t size) {
+    int i = 0;
+    uint64_t bits_on = (1 << (size * 2)) - 1;
+
+    for(;i < NUM_REG; ++i) {
+        if(regs[i]->type == type && !(regs[i]->in_use & bits_on)) {
+            regs[i]->in_use = regs[i]->in_use | bits_on;
+            return init_register(i, size, NULL);
+        }
+    }
+
+    return NULL;
+}
+
+register_T *init_register(uint8_t type, uint8_t size, char *name) {
+    register_T *reg = malloc(sizeof(register_T));
+    if(!reg)
+        thrw(ALLOC_ERR);
+
+    reg->reg = type;
+    reg->size = size;
+    reg->name = name ? name : get_register_name(type, size);
+
+    return reg;
+}
+
+register_pool_T *init_register_pool(uint8_t type) {
+    register_pool_T *pool = malloc(sizeof(register_pool_T));
+    if(!pool)
+        thrw(ALLOC_ERR);
+
+    pool->value = 0;
+    pool->in_use = 0;
+    pool->type = type;
+
+    return pool;
+}
+
+register_T *get_register(register_pool_T **regs, uint8_t type, uint8_t size) {
+    return type == DATA  && size == BYTE 
+    ? get_data_byte_reg(regs) 
+    : get_reg_reg(regs, type, size);
+}
+
+char *get_register_name(uint8_t type, uint8_t size) {
+    int size_num = 0;
+
+    while (size >>= 1) 
+        size_num++;
+
+    return strdup(REGS_STR[type][size_num]);
+}
+
+// void reg_alloc(register_T *reg, uint64_t value) {
+//     reg->value = value;
+//     reg->is_used = 1;
+
+//     return;
+// }
+
+void reg_free(register_pool_T **regs, register_T *reg) {
+    uint64_t bits_off = ~((1 << (reg->size * 2)) - 1);
+
+    regs[reg->reg]->in_use = regs[reg->reg]->in_use & bits_off;
+    free(reg);
 
     return;
 }
-void reg_free(register_T *reg) {
-    reg->is_used = 0;
 
-    return;
-}

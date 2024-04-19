@@ -7,13 +7,13 @@
 #include "../../utils/symbol_table/include/symbol_table_tree.h"
 
 typedef struct CODE_GENERATOR_STRUCT {
-    register_T **registers;
+    register_pool_T **registers;
     tts_T *tts;
     symbol_table_tree_T *sym_tbl;
     char *output;
 } code_gen_T;
 
-code_gen_T *init_code_gen(register_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl);
+code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl);
 
 char *generate_code(ast_node_T *ast, code_gen_T *cg);
 
@@ -22,24 +22,23 @@ char *generate_code(ast_node_T *ast, code_gen_T *cg);
 //  Registers 
 // ==---------------==
 
-static const register_T NASM_REGS[NUM_REG] = {
-    {RAX, 0, 0, 0},
-    {RBX, 0, 1, 0},
-    {RCX, 0, 0, 0},
-    {RDX, 0, 0, 0},
-    {RSP, 0, 1, 0},
-    {RBP, 0, 1, 0},
-    {RSI, 0, 1, 0},
-    {RDI, 0, 1, 0},
-    {R8,  0, 0, 0},
-    {R9,  0, 0, 0},
-    {R10, 0, 0, 0},
-    {R11, 0, 0, 0},
-    {R12, 0, 1, 0},
-    {R13, 0, 1, 0},
-    {R14, 0, 1, 0},
-    {R15, 0, 1, 0},
+static const register_pool_T NASM_REGS[NUM_REG] = {
+    {RAX, 0, DATA},
+    {RBX, 0, DATA},
+    {RCX, 0, DATA},
+    {RDX, 0, DATA},
+    {RSP, 0, POINTER},
+    {RBP, 0, POINTER},
+    {RSI, 0, INDEX},
+    {RDI, 0, INDEX},
+    {R8,  0, SCRATCH},
+    {R9,  0, SCRATCH},
+    {R10, 0, SCRATCH},
+    {R11, 0, SCRATCH},
+    {R12, 0, SCRATCH},
+    {R13, 0, SCRATCH},
+    {R14, 0, SCRATCH},
+    {R15, 0, SCRATCH},
 };
-
 
 #endif /* QUEST_CODE_GENERATOR_H */

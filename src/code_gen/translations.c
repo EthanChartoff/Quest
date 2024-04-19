@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *trans_decl(ast_node_T *ast, stack_T *astack, register_T **regs) {
+char *trans_decl(ast_node_T *ast, stack_T *astack, register_pool_T **regs) {
     char *tmp1 = calloc(1, 1);
     if(!tmp1)
         thrw(ALLOC_ERR);
@@ -14,14 +14,15 @@ char *trans_decl(ast_node_T *ast, stack_T *astack, register_T **regs) {
     if(!tmp2)
         thrw(ALLOC_ERR);
     
-    register_T *reg = get_register(regs);
+    register_T *reg = get_register(regs, DATA, DWORD);
     
-    sprintf(tmp1, MOV, REGS_STR[reg->type], ast->children[2]->symbol->symbol->terminal->value);
-    sprintf(tmp2, MOV_MEM, ast->children[1]->symbol->symbol->terminal->value, REGS_STR[reg->type]);
+    sprintf(tmp1, MOV, reg->name, ast->children[2]->symbol->symbol->terminal->value);
+    sprintf(tmp2, MOV_MEM, ast->children[1]->symbol->symbol->terminal->value, reg->name);
     strcat(tmp1, tmp2);
 
-    reg_free(reg);
+    reg_free(regs, reg);
 
     return tmp1;
 }   
+
 

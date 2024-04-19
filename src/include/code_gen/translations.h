@@ -13,7 +13,7 @@
 #include "register.h"
 #include "../../utils/DS/include/stack.h"
 
-char *trans_decl(ast_node_T *ast, stack_T *astack, register_T **regs);
-char *trans_mov(ast_node_T *ast, stack_T *astack, register_T **regs);
+char *trans_decl(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+char *trans_mov(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
 
 #endif /* QUEST_TRANSLATIONS_H */

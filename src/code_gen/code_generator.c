@@ -6,12 +6,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-static register_T **copy_nasm_regs() {
-    register_T **tmp = malloc(sizeof(register_T *) * NUM_REG);
+static register_pool_T **copy_nasm_regs() {
+    int i = 0;
+    register_pool_T **tmp = malloc(sizeof(register_pool_T *) * NUM_REG);
     if(!tmp)
         thrw(ALLOC_ERR);
 
-    for(int i = 0; i < NUM_REG; ++i) {
+    for(;i < NUM_REG; ++i) {
         tmp[i] = malloc(sizeof(register_T));
         if(!tmp[i])
             thrw(ALLOC_ERR);
@@ -22,8 +23,8 @@ static register_T **copy_nasm_regs() {
 }
 
 static void generate_text_section(code_gen_T *cg) {
-    cg->output = realloc(cg->output, strlen(cg->output) + strlen(TEXT) + strlen(GLOBAL("_start")) + strlen(LABEL("_start")) + 1);
-    strcat(cg->output, TEXT);
+    cg->output = realloc(cg->output, strlen(cg->output) + strlen(TEXT_SECTION) + strlen(GLOBAL("_start")) + strlen(LABEL("_start")) + 1);
+    strcat(cg->output, TEXT_SECTION);
     strcat(cg->output, GLOBAL("_start"));
     strcat(cg->output, LABEL("_start"));    
 }
@@ -33,8 +34,8 @@ static char *generate_global_variables(code_gen_T *cg) {
     symbol_table_entry_T *cur;
     char *tmp;
 
-    cg->output = realloc(cg->output, strlen(cg->output) + strlen(BSS) + 1);
-    strcat(cg->output, BSS);
+    cg->output = realloc(cg->output, strlen(cg->output) + strlen(BSS_SECTION) + 1);
+    strcat(cg->output, BSS_SECTION);
 
     for(i = 0; i < cg->sym_tbl->root->table->capacity; ++i) {
         cur = cg->sym_tbl->root->table->buckets[i];
@@ -85,7 +86,7 @@ static char *generate_code_rec(ast_node_T *ast, stack_T *astack, code_gen_T *cg,
     return tmp;
 }   
 
-code_gen_T *init_code_gen(register_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {
+code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {
     code_gen_T *cg = malloc(sizeof(code_gen_T));
     if(!cg)
         thrw(ALLOC_ERR);

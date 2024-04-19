@@ -465,7 +465,7 @@ quest_T *init_quest(const char *filename) {
         thrw(ALLOC_ERR);
 
     q->srcfile = strdup(filename);
-    q->destfile = get_new_filename(filename, ".asm");
+    q->destfile = get_new_filename(filename, "out.asm");
     q->src = read_file(filename);
     q->lexer = init_lexer(q->src);
 

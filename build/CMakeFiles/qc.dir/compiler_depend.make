@@ -226,6 +226,8 @@ CMakeFiles/qc.dir/src/code_gen/register.c.o: /home/goodman/school/Quest/src/code
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /home/goodman/school/Quest/src/utils/err/err.h \
+  /home/goodman/school/Quest/src/utils/err/errors.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
@@ -264,7 +266,11 @@ CMakeFiles/qc.dir/src/code_gen/register.c.o: /home/goodman/school/Quest/src/code
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h
 
 CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o: /home/goodman/school/Quest/src/code_gen/translation_rule.c \
   /usr/include/stdc-predef.h \

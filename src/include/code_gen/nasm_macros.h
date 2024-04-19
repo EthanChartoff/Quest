@@ -2,9 +2,9 @@
 //  op-code 
 // ==---------------==
 
-#define DATA "section .data\n"
-#define TEXT "section .text\n"
-#define BSS "section .bss\n"
+#define DATA_SECTION "section .data\n"
+#define TEXT_SECTION "section .text\n"
+#define BSS_SECTION "section .bss\n"
 
 #define GLOBAL(x) "global " x "\n"
 #define EXTERN(x) "extern " x "\n"

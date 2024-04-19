@@ -5,9 +5,9 @@ tmp resd 1
 section .text
 global _start
 _start:
-mov ax, 94
-mov [a], ax
-mov ax, 3
-mov [b], ax
-mov ax, 0
-mov [tmp], ax
+mov eax, 94
+mov [a], eax
+mov eax, 3
+mov [b], eax
+mov eax, 0
+mov [tmp], eax
