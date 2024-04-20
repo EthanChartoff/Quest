@@ -6,8 +6,8 @@ section .text
 global _start
 _start:
 mov eax, 94
-mov [a], eax
+mov DWORD PTR [a], eax
 mov eax, 3
-mov [b], eax
+mov DWORD PTR [b], eax
 mov eax, 0
-mov [tmp], eax
+mov DWORD PTR [tmp], eax

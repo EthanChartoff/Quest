@@ -14,10 +14,10 @@ char *trans_decl(ast_node_T *ast, stack_T *astack, register_pool_T **regs) {
     if(!tmp2)
         thrw(ALLOC_ERR);
     
-    register_T *reg = get_register(regs, DATA, DWORD);
+    register_T *reg = get_register(regs, DATA, TYPE_TO_SIZE(ast->st_entry->type));
     
     sprintf(tmp1, MOV, reg->name, ast->children[2]->symbol->symbol->terminal->value);
-    sprintf(tmp2, MOV_MEM, ast->children[1]->symbol->symbol->terminal->value, reg->name);
+    sprintf(tmp2, MOV_MEM_TYPE, SIZE_TO_STR(reg->size), ast->children[1]->symbol->symbol->terminal->value, reg->name);
     strcat(tmp1, tmp2);
 
     reg_free(regs, reg);

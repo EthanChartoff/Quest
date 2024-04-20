@@ -1,6 +1,7 @@
 #ifndef QUEST_REGISTER_H
 #define QUEST_REGISTER_H
 
+#include "../lexer/token.h"
 #include <stdint.h>
 
 #define LOW_BITS 0x3    // 0000 0011  

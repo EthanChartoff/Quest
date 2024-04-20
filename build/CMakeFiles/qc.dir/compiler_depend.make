@@ -58,6 +58,7 @@ CMakeFiles/qc.dir/src/code_gen/TTS.c.o: /home/goodman/school/Quest/src/code_gen/
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -123,6 +124,7 @@ CMakeFiles/qc.dir/src/code_gen/code_generator.c.o: /home/goodman/school/Quest/sr
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -151,6 +153,8 @@ CMakeFiles/qc.dir/src/code_gen/operand.c.o: /home/goodman/school/Quest/src/code_
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/code_gen/operand.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -170,7 +174,6 @@ CMakeFiles/qc.dir/src/code_gen/operand.c.o: /home/goodman/school/Quest/src/code_
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /home/goodman/school/Quest/src/include/parser/symbol.h \
   /home/goodman/school/Quest/src/include/lexer/token.h \
-  /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /home/goodman/school/Quest/src/include/parser/non_terminal.h \
   /home/goodman/school/Quest/src/include/parser/non_terminals_bnf.h \
   /home/goodman/school/Quest/src/utils/err/err.h \
@@ -209,6 +212,8 @@ CMakeFiles/qc.dir/src/code_gen/operand.c.o: /home/goodman/school/Quest/src/code_
 CMakeFiles/qc.dir/src/code_gen/register.c.o: /home/goodman/school/Quest/src/code_gen/register.c \
   /usr/include/stdc-predef.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
+  /home/goodman/school/Quest/src/include/lexer/tokens.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -328,6 +333,7 @@ CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o: /home/goodman/school/Quest/
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -347,6 +353,7 @@ CMakeFiles/qc.dir/src/code_gen/translations.c.o: /home/goodman/school/Quest/src/
   /home/goodman/school/Quest/src/utils/symbol_table/include/symbol_table.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -532,6 +539,7 @@ CMakeFiles/qc.dir/src/lang.c.o: /home/goodman/school/Quest/src/lang.c \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -834,6 +842,7 @@ CMakeFiles/qc.dir/src/main.c.o: /home/goodman/school/Quest/src/main.c \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -1737,6 +1746,7 @@ CMakeFiles/qc.dir/src/quest.c.o: /home/goodman/school/Quest/src/quest.c \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -2054,6 +2064,7 @@ CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o: /home/goodman/sch
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /home/goodman/school/Quest/src/include/code_gen/register.h \
+  /home/goodman/school/Quest/src/include/lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \

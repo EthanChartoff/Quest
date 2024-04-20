@@ -1,3 +1,6 @@
+#ifndef QUEST_NASM_MACROS_H
+#define QUEST_NASM_MACROS_H
+
 // ==---------------==
 //  op-code 
 // ==---------------==
@@ -23,15 +26,32 @@
 
 #define MEM(x) "[" (x) "]"
 
+#define TYPE_TO_SIZE(type) (    \
+    type == TOK_INT ? DWORD :   \
+    type == TOK_CHAR ? BYTE :   \
+    0                           \
+) 
+
+#define SIZE_TO_STR(size) (    \
+    size == DWORD ? "DWORD" : \
+    size == WORD ? "WORD" :   \
+    size == BYTE ? "BYTE" :   \
+    0                         \
+)
+
 // ==---------------==
 //  Instructions 
 // ==---------------==
 
 #define MOV "mov %s, %s\n"
 #define MOV_MEM "mov [%s], %s\n"
+#define MOV_MEM_TYPE "mov %s PTR [%s], %s\n"
 
 
 #define NOP "nop\n"
 
 
 
+
+
+#endif /* QUEST_NASM_MACROS_H */
