@@ -1,2 +1,3 @@
 int a = 94;
 int b = 3 + 4;
+int tmp = 1;

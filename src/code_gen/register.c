@@ -1,5 +1,6 @@
 #include "../include/code_gen/register.h"
 #include "../utils/err/err.h"
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,13 +15,14 @@ static register_T *get_data_byte_reg(register_pool_T **regs) {
 
         if(!(regs[i]->in_use & LOW_BITS)) {
             regs[i]->in_use = regs[i]->in_use | LOW_BITS;
-            return init_register(i, BYTE, NULL);
+            return init_register(i, BYTE, get_byte_data_reg_name(i, LOW_BITS));
         } else if(!(regs[i]->in_use & HIGH_BITS)) {
             regs[i]->in_use = regs[i]->in_use | HIGH_BITS;
-            return init_register(i, BYTE, NULL);
+            return init_register(i, BYTE, get_byte_data_reg_name(i, HIGH_BITS));
         }
     }
 
+    thrw(REG_NOT_FOUND_ERR);
     return NULL;
 }
 
@@ -36,6 +38,7 @@ static register_T *get_reg_reg(register_pool_T **regs, uint8_t type, uint8_t siz
         }
     }
 
+    thrw(REG_NOT_FOUND_ERR);
     return NULL;
 }
 
@@ -76,6 +79,10 @@ char *get_register_name(uint8_t type, uint8_t size) {
         size_num++;
 
     return strdup(REGS_STR[type][size_num]);
+}
+
+char *get_byte_data_reg_name(uint8_t type, uint8_t bits) {
+    return strdup(DATA_REGS_STR[type][bits == HIGH_BITS]);
 }
 
 // void reg_alloc(register_T *reg, uint64_t value) {

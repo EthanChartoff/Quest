@@ -65,26 +65,40 @@ static char *generate_global_variables(code_gen_T *cg) {
     return cg->output;
 }
 
-static char *generate_code_rec(ast_node_T *ast, stack_T *astack, code_gen_T *cg, char *tmp) {
+static void generate_code_rec(ast_node_T *ast, stack_T *astack, stack_T *code_stack, code_gen_T *cg) {
     if(!ast)
-        return tmp;
+        return;
     
     int i;
     for(i = 0; i < ast->n_children; ++i) {
-        generate_code_rec(ast->children[i], astack, cg, tmp);
+        generate_code_rec(ast->children[i], astack, code_stack, cg);
     }
 
     if(ast->symbol->sym_type == TERMINAL) {
         if(cg->tts->tok_translation[ast->symbol->symbol->terminal->type]) 
-            strcat(tmp, cg->tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, cg->registers));
+            stack_push(code_stack, cg->tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, code_stack, cg->registers));
     } 
     else {
         if(cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type])
-            strcat(tmp, cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, cg->registers));
+            stack_push(code_stack, cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, code_stack, cg->registers));
+    }
+}   
+
+static char *gen_code_instructions(ast_node_T *ast, code_gen_T *cg) {
+    stack_T *astack = stack_init();
+    stack_T *code_stack = stack_init();
+    char *tmp = calloc(1, 1);
+
+    generate_code_rec(ast, astack, code_stack, cg);
+    
+    tmp = stack_pop(code_stack);
+    while(!IS_EMPTY(code_stack)) {
+        printf("%s\n", (char *) stack_peek(code_stack));
+        tmp = strcat(stack_pop(code_stack), tmp);
     }
 
     return tmp;
-}   
+}
 
 code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {
     code_gen_T *cg = malloc(sizeof(code_gen_T));
@@ -105,17 +119,10 @@ code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_
 }
 
 char *generate_code(ast_node_T *ast, code_gen_T *cg) {
-    stack_T *astack = stack_init();
-    
-    char *tmp = generate_global_variables(cg);
-    cg->output = strdup(tmp);
-    free(tmp);
+    cg->output = strdup(generate_global_variables(cg));
     generate_text_section(cg);
-
-    tmp = calloc(1, 1);
-    strcat(cg->output, strdup(generate_code_rec(ast, astack, cg, tmp))); 
-    // free(tmp);
-
+    
+    strcat(cg->output, strdup(gen_code_instructions(ast, cg)));
     strcat(cg->output, END_PROGRAM);
 
     return cg->output;

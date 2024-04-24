@@ -1,5 +1,6 @@
 #include "include/stack.h"
 #include "../err/err.h"
+#include <stdio.h>
 
 stack_T* stack_init() {
   stack_T* s = (stack_T*)malloc(sizeof(stack_T));
@@ -27,11 +28,9 @@ void* stack_pop(stack_T* s) {
   if (IS_EMPTY(s)) {
     return NULL;
   }
-  stack_node_T* temp = s->top;
-  void* data = temp->data;
+  void* data = s->top->data;
 
   s->top = s->top->next;
-  free(temp);
   s->size--;
 
   return data;

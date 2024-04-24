@@ -35,6 +35,7 @@
 #define MOV "mov %s, %s\n"
 #define MOV_MEM "mov [%s], %s\n"
 #define MOV_MEM_TYPE "mov %s [%s], %s\n"
+#define MOV_REG_TYPE "mov %s, [%s]\n"
 
 #define OR "or %s, %s\n"
 #define XOR "xor %s, %s\n"
@@ -62,6 +63,11 @@
 #define JZ "jz %s\n"
 #define JNZ "jnz %s\n"
 #define JMP "jmp %s\n"
+
+#define SETG "setg %s\n"
+#define SETL "setl %s\n"
+#define SETE "sete %s\n"
+#define SETNE "setne %s\n"
 
 #define PUSH "push %s\n"
 #define POP "pop %s\n"

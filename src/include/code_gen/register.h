@@ -66,6 +66,13 @@ static const char *REGS_STR[NUM_REG][NUM_SIZE] = {
     {"r15b", "r15w", "r15d", "r15"}
 };
 
+static const char *DATA_REGS_STR[4][2] = {
+    {"al", "ah"},
+    {"cl", "ch"},
+    {"dl", "dh"},
+    {"bl", "bh"}
+};
+
 typedef struct REGISTER_STRUCT {
     register_E reg;         // reg type
     register_size_E size;   // reg size
@@ -83,6 +90,8 @@ register_pool_T *init_register_pool(uint8_t type);
 
 register_T *get_register(register_pool_T **regs, uint8_t type, uint8_t size);
 char *get_register_name(uint8_t type, uint8_t size);
+char *get_byte_data_reg_name(uint8_t type, uint8_t size);
+
 
 void reg_alloc(register_T *reg, uint64_t value);
 void reg_free(register_pool_T **regs, register_T *reg);

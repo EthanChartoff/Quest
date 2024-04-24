@@ -8,10 +8,10 @@
 
 typedef struct TRANSLATION_RULE_STRUCT {
     symbol_T *symbol;
-    char *(*translation)(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+    char *(*translation)(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs);
 } translation_rule_T;
 
-translation_rule_T *init_translation_rule(symbol_T *symbol, char *(*translation)(ast_node_T *ast, stack_T *astack, register_pool_T **regs));
+translation_rule_T *init_translation_rule(symbol_T *symbol, char *(*translation)(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs));
 
 
 #endif /* QUEST_TRANSLATION_RULE_H */
