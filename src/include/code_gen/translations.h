@@ -13,7 +13,15 @@
 #include "register.h"
 #include "../../utils/DS/include/stack.h"
 
+// tok
+char *trans_num_const(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+char *trans_plus(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+char *trans_minus(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+
+// nt
 char *trans_decl(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
+
 char *trans_mov(ast_node_T *ast, stack_T *astack, register_pool_T **regs);
 
 #endif /* QUEST_TRANSLATIONS_H */

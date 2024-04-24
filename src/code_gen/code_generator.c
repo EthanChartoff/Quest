@@ -96,6 +96,7 @@ code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_
     : copy_nasm_regs();
     cg->tts = tts;
     cg->sym_tbl = sym_tbl;
+    cg->label_counter = 0;
     cg->output = calloc(1, 1);
     if(!cg->output)
         thrw(ALLOC_ERR);
@@ -113,7 +114,9 @@ char *generate_code(ast_node_T *ast, code_gen_T *cg) {
 
     tmp = calloc(1, 1);
     strcat(cg->output, strdup(generate_code_rec(ast, astack, cg, tmp))); 
-    free(tmp);
+    // free(tmp);
+
+    strcat(cg->output, END_PROGRAM);
 
     return cg->output;
 }

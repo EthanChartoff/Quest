@@ -5,11 +5,13 @@
 #include "register.h"
 #include "../semantic_analizer/AST.h"
 #include "../../utils/symbol_table/include/symbol_table_tree.h"
+#include <stdint.h>
 
 typedef struct CODE_GENERATOR_STRUCT {
     register_pool_T **registers;
     tts_T *tts;
     symbol_table_tree_T *sym_tbl;
+    uint32_t label_counter;
     char *output;
 } code_gen_T;
 

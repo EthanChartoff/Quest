@@ -29,7 +29,7 @@ void compile(quest_T *q) {
     // parse_tree_traverse_postorder(tree->root, 0);
 
     ast_node_T *ast = build_ast(tree, q);
-    // traverse_ast(ast, 0); 
+    traverse_ast(ast, 0); 
 
     write_file(q->destfile, generate_code(ast, q->code_gen));
 }

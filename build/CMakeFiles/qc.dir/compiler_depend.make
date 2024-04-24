@@ -413,11 +413,7 @@ CMakeFiles/qc.dir/src/code_gen/translations.c.o: /home/goodman/school/Quest/src/
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/string.h \
-  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
-  /usr/include/strings.h
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
 
 CMakeFiles/qc.dir/src/io.c.o: /home/goodman/school/Quest/src/io.c \
   /usr/include/stdc-predef.h \
