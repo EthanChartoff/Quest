@@ -50,6 +50,11 @@ void stack_clear(stack_T* s) {
   }
 }
 
+void stack_flip(stack_T* s) {
+  
+}
+
 size_t stack_size(stack_T* s) {
   return s->size;
 }
+

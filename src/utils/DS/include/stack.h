@@ -21,6 +21,7 @@ void stack_push(stack_T* s, void* data);
 void *stack_pop(stack_T* s);
 void *stack_peek(stack_T* s);
 void stack_clear(stack_T* s);
+void stack_flip(stack_T* s);
 size_t stack_size(stack_T* s);
 
 #endif /* QUEST_STACK_H */

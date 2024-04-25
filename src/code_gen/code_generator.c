@@ -87,17 +87,21 @@ static void generate_code_rec(ast_node_T *ast, stack_T *astack, stack_T *code_st
 static char *gen_code_instructions(ast_node_T *ast, code_gen_T *cg) {
     stack_T *astack = stack_init();
     stack_T *code_stack = stack_init();
-    char *tmp = calloc(1, 1);
+    char *code = calloc(1, 1), *tmp = calloc(1, 1);
 
     generate_code_rec(ast, astack, code_stack, cg);
     
-    tmp = stack_pop(code_stack);
     while(!IS_EMPTY(code_stack)) {
-        printf("%s\n", (char *) stack_peek(code_stack));
-        tmp = strcat(stack_pop(code_stack), tmp);
+        tmp = stack_pop(code_stack);
+        
+        if(code) {
+            strcat(tmp, strdup(code));
+        }
+
+        code = tmp;
     }
 
-    return tmp;
+    return code;
 }
 
 code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {

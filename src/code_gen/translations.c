@@ -126,18 +126,17 @@ char *trans_decl(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register
 }   
 
 char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs) {
-    // char *tmp = alloc_instruction_mem();
+    char *tmp = alloc_instruction_mem();
 
-    // register_T *reg_exp = stack_pop(astack);
+    printf("%s\n", (char *) stack_peek(code_stack));
+    register_T *reg_exp = stack_pop(astack);
 
     // if without else
-    // if(ast->n_children == 2) {
-    //     tmp = stack_pop(code_stack);
-    //     printf("%s\n", tmp);
-    //     stack_push(code_stack, reg_exp);
-    // }
+    if(ast->n_children == 2) {
+        
+    }
 
-    // return tmp;
+    return tmp;
 }
 
 
