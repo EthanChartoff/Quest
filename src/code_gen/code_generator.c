@@ -118,24 +118,20 @@ static char *generate_code_rec(ast_node_T *ast, stack_T *astack, stack_T *code_s
     }
 
     // flip stack
-    // stack_T *tmp_stack = stack_init();
     char *tmp2;
-    // while(!IS_EMPTY(code_stack)) {
-    //     tmp2 = stack_pop(code_stack);
-    //     if(tmp2)
-    //         stack_push(tmp_stack, strdup(tmp2));
-    // }
-    // code_stack = tmp_stack;
 
     while(!IS_EMPTY(code_stack)) {
         tmp2 = stack_pop(code_stack);
 
         if(!tmp)
             tmp = strdup(tmp2);
-        else
+        else {
+            tmp = realloc(tmp, strlen(tmp) + strlen(tmp2) + 1);
             strcat(tmp, strdup(tmp2));
+        }
     }
 
+    // printf("tmp: %s\n", tmp);
     return tmp;
 }   
 

@@ -16,15 +16,18 @@ mov DWORD [b], ecx
 mov eax, [tmp]
 mov ecx, 1
 mov DWORD [tmp], ecx
-mov eax, [tmp]
-mov ecx, [a]
-mov DWORD [tmp], ecx
 mov eax, [a]
 mov ecx, [b]
-mov DWORD [a], ecx
-mov eax, [b]
+cmp ecx, eax
+setl al
+cmp al, 0
+jz end_if
 mov ecx, [tmp]
-mov DWORD [b], ecx
+mov edx, [a]
+mov ebx, [b]
+sub edx, ebx
+mov DWORD [tmp], edx
+end_if:
 mov rax, 60
 mov rdi, 0
 syscall
