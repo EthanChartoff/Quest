@@ -2,8 +2,6 @@ int a = 94;
 int b = 3 + 4;
 int tmp = 1;
 
-if(a < b) {
-    tmp = a;
-    a = b;
-    b = tmp;
-}
+tmp = a;
+a = b;
+b = tmp;

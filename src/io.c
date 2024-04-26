@@ -34,15 +34,18 @@ char* read_file(const char *filename) {
 }
 
 // writes to a file
-void write_file(const char *filename, char *content) {
+void write_file(const char *filename, const char *content) {
     FILE *fp;
     fp = fopen(filename, "w");
     if(fp == NULL) {
-        printf("Couldn't write to file %s\n", filename);
+        perror("Couldn't write to file");
         exit(1);
     }
 
-    fprintf(fp, "%s", content);
+    if(fputs(content, fp) == EOF) {
+        perror("Error writing to file");
+        exit(1);
+    }
     fclose(fp);
 }
 

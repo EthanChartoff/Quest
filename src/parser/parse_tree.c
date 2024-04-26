@@ -24,6 +24,22 @@ parse_tree_node_T *init_parse_tree_node(symbol_T *sym, ssize_t rule_index, parse
     return pt;
 }
 
+void parse_tree_free(parse_tree_node_T *tree) {
+    if(tree == NULL)
+        return;
+
+    if(tree->children) {
+        size_t i;
+        for(i = 0; i < tree->n_children; ++i) {
+            parse_tree_free(tree->children[i]);
+        }
+
+        free(tree->children);
+    }
+
+    free(tree);
+}
+
 parse_tree_node_T *init_parse_tree_leaf(symbol_T *sym) {
     parse_tree_node_T *pt = malloc(sizeof(parse_tree_node_T));
     if(!pt)

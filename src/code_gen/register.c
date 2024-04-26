@@ -94,10 +94,6 @@ char *get_byte_data_reg_name(uint8_t type, uint8_t bits) {
 
 void reg_free(register_pool_T **regs, register_T *reg) {
     uint64_t bits_off = ~((1 << (reg->size * 2)) - 1);
-
-    regs[reg->reg]->in_use = regs[reg->reg]->in_use & bits_off;
-    free(reg);
-
-    return;
+    regs[reg->reg]->in_use &= bits_off;
 }
 

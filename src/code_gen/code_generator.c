@@ -65,43 +65,85 @@ static char *generate_global_variables(code_gen_T *cg) {
     return cg->output;
 }
 
-static void generate_code_rec(ast_node_T *ast, stack_T *astack, stack_T *code_stack, code_gen_T *cg) {
-    if(!ast)
-        return;
-    
-    int i;
-    for(i = 0; i < ast->n_children; ++i) {
-        generate_code_rec(ast->children[i], astack, code_stack, cg);
+// reverser code string using its lines. for exampla:
+//  mov DWORD [a], ecx
+//  mov ecx, 94
+//  mov eax, [a]
+// should be
+//  mov eax, [a]
+//  mov ecx, 94
+//  mov DWORD [a], ecx
+static char *reverse_code(char *code) {
+    stack_T *code_stack = stack_init();
+    char *tmp = strtok(code, "\n");
+
+    while(tmp) {
+        stack_push(code_stack, strdup(tmp));
+        tmp = strtok(NULL, "\n");
     }
 
+    free(code);
+    code = calloc(1, 1);
+    while(!IS_EMPTY(code_stack)) {
+        tmp = stack_pop(code_stack);
+        code = realloc(code, strlen(code) + strlen(tmp) + 2);
+        strcat(code, tmp);
+        strcat(code, "\n");
+    }
+
+    return code;
+}
+
+static char *generate_code_rec(ast_node_T *ast, stack_T *astack, stack_T *code_stack, code_gen_T *cg, char *tmp) {
+    if(!ast)
+        return NULL;
+    
+    int i;
+    for(i = 0; i < ast->n_children ; ++i) {
+        tmp = generate_code_rec(ast->children[i], astack, stack_init(), cg, NULL);
+        if(tmp) 
+            stack_push(code_stack, strdup(tmp));
+        
+        free(tmp);
+    }
+
+    tmp = NULL;
     if(ast->symbol->sym_type == TERMINAL) {
         if(cg->tts->tok_translation[ast->symbol->symbol->terminal->type]) 
-            stack_push(code_stack, cg->tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, code_stack, cg->registers));
+            tmp = cg->tts->tok_translation[ast->symbol->symbol->terminal->type]->translation(ast, astack, code_stack, cg->registers);
     } 
     else {
         if(cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type])
-            stack_push(code_stack, cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, code_stack, cg->registers));
+            tmp = cg->tts->non_term_translation[ast->symbol->symbol->non_terminal->type]->translation(ast, astack, code_stack, cg->registers);
     }
+
+    // flip stack
+    // stack_T *tmp_stack = stack_init();
+    char *tmp2;
+    // while(!IS_EMPTY(code_stack)) {
+    //     tmp2 = stack_pop(code_stack);
+    //     if(tmp2)
+    //         stack_push(tmp_stack, strdup(tmp2));
+    // }
+    // code_stack = tmp_stack;
+
+    while(!IS_EMPTY(code_stack)) {
+        tmp2 = stack_pop(code_stack);
+
+        if(!tmp)
+            tmp = strdup(tmp2);
+        else
+            strcat(tmp, strdup(tmp2));
+    }
+
+    return tmp;
 }   
 
 static char *gen_code_instructions(ast_node_T *ast, code_gen_T *cg) {
     stack_T *astack = stack_init();
     stack_T *code_stack = stack_init();
-    char *code = calloc(1, 1), *tmp = calloc(1, 1);
 
-    generate_code_rec(ast, astack, code_stack, cg);
-    
-    while(!IS_EMPTY(code_stack)) {
-        tmp = stack_pop(code_stack);
-        
-        if(code) {
-            strcat(tmp, strdup(code));
-        }
-
-        code = tmp;
-    }
-
-    return code;
+    return reverse_code(generate_code_rec(ast, astack, code_stack, cg, NULL));
 }
 
 code_gen_T *init_code_gen(register_pool_T **registers, tts_T *tts, symbol_table_tree_T *sym_tbl) {
@@ -126,7 +168,7 @@ char *generate_code(ast_node_T *ast, code_gen_T *cg) {
     cg->output = strdup(generate_global_variables(cg));
     generate_text_section(cg);
     
-    strcat(cg->output, strdup(gen_code_instructions(ast, cg)));
+    strcat(cg->output, gen_code_instructions(ast, cg));
     strcat(cg->output, END_PROGRAM);
 
     return cg->output;

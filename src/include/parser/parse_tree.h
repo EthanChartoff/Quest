@@ -21,6 +21,8 @@ typedef struct PARSE_TREE_STRUCT {
 
 parse_tree_T *init_parse_tree(parse_tree_node_T *root, rule_T **rules, size_t n_rules);
 
+void parse_tree_free(parse_tree_node_T *tree);
+
 parse_tree_node_T *init_parse_tree_node(symbol_T *sym, ssize_t rule_index, parse_tree_node_T **children, size_t n_children);
 parse_tree_node_T *init_parse_tree_leaf(symbol_T *sym);
 

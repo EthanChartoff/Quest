@@ -7,7 +7,8 @@
 #include <string.h>
 
 static char *alloc_instruction_mem() {
-    char *tmp = calloc(1, 1);
+    char *tmp = malloc(1);
+    *tmp = '\0';
     if(!tmp)
         thrw(ALLOC_ERR);
 
@@ -37,9 +38,8 @@ char *trans_id(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_p
 char *trans_plus(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs) {
     char *tmp = alloc_instruction_mem();
 
-    register_T *reg1 = stack_pop(astack);
     register_T *reg2 = stack_pop(astack);
-
+    register_T *reg1 = stack_pop(astack);
 
     sprintf(tmp, ADD, reg1->name, reg2->name);
     stack_push(astack, reg1);
@@ -120,23 +120,25 @@ char *trans_decl(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register
     reg_free(regs, stack_pop(astack));
 
     sprintf(tmp, MOV_MEM_TYPE, SIZE_TO_STR(reg_const->size), ast->children[1]->symbol->symbol->terminal->value, reg_const->name);
+    
     reg_free(regs, reg_const);
 
     return tmp;
 }   
 
 char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs) {
-    char *tmp = alloc_instruction_mem();
+    // char *tmp = alloc_instruction_mem();
+    
+    // printf("lol%zd\n", code_stack->size);
 
-    printf("%s\n", (char *) stack_peek(code_stack));
-    register_T *reg_exp = stack_pop(astack);
+    // // register_T *reg_exp = stack_pop(astack);
 
-    // if without else
-    if(ast->n_children == 2) {
+    // // // if without else
+    // // if(ast->n_children == 2) {
         
-    }
+    // // }
 
-    return tmp;
+    // return tmp;
 }
 
 
