@@ -6,10 +6,10 @@ section .text
 global _start
 _start:
 mov eax, [a]
-mov ecx, 30
+mov ecx, 21
 mov DWORD [a], ecx
 mov eax, [b]
-mov ecx, 5
+mov ecx, 14
 mov DWORD [b], ecx
 mov eax, [tmp]
 mov ecx, 0
@@ -30,13 +30,6 @@ mov ecx, [b]
 mov edx, [tmp]
 mov DWORD [b], edx
 end_if:
-mov eax, [b]
-mov ecx, 0
-cmp eax, ecx
-setg al
-jmp loop
-jz end_loop
-cmp al, 0
 mov ecx, [a]
 mov edx, [b]
 cmp ecx, edx
@@ -57,17 +50,24 @@ sub edx, ebx
 mov DWORD [b], edx
 end:
 loop:
+cmp al, 0
+jz end_loop
+jmp loop
+mov eax, [b]
+mov ecx, 0
+cmp eax, ecx
+setg al
 end_loop:
 
-
 mov eax, '0'
-add [b], eax
+add [a], eax
 
 mov eax, 1
 mov edi, 1
-mov esi, b
+mov esi, a
 mov edx, 4
 syscall
+
 
 mov rax, 60
 mov rdi, 0

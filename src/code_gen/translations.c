@@ -219,7 +219,7 @@ char *trans_iteration_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack
     char *tmp4 = alloc_instruction_mem();
     char *tmp5 = alloc_instruction_mem();
 
-    char *tmp_if = stack_pop(code_stack);
+    char *tmp_while = stack_pop(code_stack);
     char *tmp_exp = stack_pop(code_stack);
 
     register_T *reg_exp = stack_pop(astack);
@@ -230,13 +230,15 @@ char *trans_iteration_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack
     sprintf(tmp4, JMP, "loop");
     sprintf(tmp5, LABEL("end_loop"));
 
-    tmp5 = realloc(tmp5, strlen(tmp_if) + strlen(tmp4) + strlen(tmp3) + strlen(tmp2) + strlen(tmp1) + strlen(tmp_exp) + strlen(tmp5) + 1);
-    strcat(tmp5, tmp1);
-    strcat(tmp5, tmp_if);
-    strcat(tmp5, tmp2);
-    strcat(tmp5, tmp3);
-    strcat(tmp5, tmp4);
+    // printf("%s\n", tmp_while);
+
+    tmp5 = realloc(tmp5, strlen(tmp_while) + strlen(tmp4) + strlen(tmp3) + strlen(tmp2) + strlen(tmp1) + strlen(tmp_exp) + strlen(tmp5) + 1);
     strcat(tmp5, tmp_exp);
+    strcat(tmp5, tmp4);
+    strcat(tmp5, tmp3);
+    strcat(tmp5, tmp2);
+    strcat(tmp5, tmp1);
+    strcat(tmp5, tmp_while);
 
     free(tmp1);
     free(tmp2);
