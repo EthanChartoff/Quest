@@ -455,6 +455,7 @@ static slr_T *init_default_lang(quest_T *q) {
     translation_rule_T *tts_nt[] = {
         init_translation_rule(declaration, &trans_decl),
         init_translation_rule(selection_statement, &trans_selection_stmt),
+        init_translation_rule(iteration_statement, &trans_iteration_stmt)
     };
 
     q->code_gen = init_code_gen(

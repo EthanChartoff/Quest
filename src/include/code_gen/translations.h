@@ -26,6 +26,6 @@ char *trans_less(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register
 // nt
 char *trans_decl(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs);
 char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs);
-
+char *trans_iteration_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs);
 
 #endif /* QUEST_TRANSLATIONS_H */

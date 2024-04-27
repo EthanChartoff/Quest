@@ -131,7 +131,6 @@ static char *generate_code_rec(ast_node_T *ast, stack_T *astack, stack_T *code_s
         }
     }
 
-    // printf("tmp: %s\n", tmp);
     return tmp;
 }   
 

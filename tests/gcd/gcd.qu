@@ -1,5 +1,5 @@
-int a = 94;
-int b = 3;
+int a = 30;
+int b = 5;
 int tmp = 0;
 
 if(a < b) {

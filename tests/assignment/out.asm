@@ -18,16 +18,27 @@ mov ecx, 1
 mov DWORD [tmp], ecx
 mov eax, [a]
 mov ecx, [b]
-cmp ecx, eax
-setl al
+cmp eax, ecx
+setg al
 cmp al, 0
-jz end_if
+jz else
 mov ecx, [tmp]
 mov edx, [a]
 mov ebx, [b]
 sub edx, ebx
 mov DWORD [tmp], edx
-end_if:
+jmp end
+else:
+mov ecx, [tmp]
+mov edx, [b]
+mov ebx, [a]
+sub edx, ebx
+mov DWORD [tmp], edx
+end:
+
+mov eax, [tmp]
+mov ecx, 35
+mov DWORD [tmp], ecx
 mov rax, 60
 mov rdi, 0
 syscall

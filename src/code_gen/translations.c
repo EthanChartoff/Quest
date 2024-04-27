@@ -86,7 +86,6 @@ char *trans_minus(ast_node_T *ast, stack_T *astack, stack_T *code_stack, registe
 char *trans_assign(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs) {
     char *tmp = alloc_instruction_mem();
     
-    printf("%zd\n", astack->size);
     register_T *reg_const = stack_pop(astack);
     reg_free(regs, stack_pop(astack));
 
@@ -102,8 +101,8 @@ char *trans_greater(ast_node_T *ast, stack_T *astack, stack_T *code_stack, regis
 
     register_T *reg1 = stack_pop(astack);
     register_T *reg2 = stack_pop(astack);
-
-    sprintf(tmp1, CMP, reg1->name, reg2->name);
+    
+    sprintf(tmp1, CMP, reg2->name, reg1->name);
     reg_free(regs, reg1);
     reg_free(regs, reg2);
 
@@ -122,7 +121,7 @@ char *trans_less(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register
     register_T *reg1 = stack_pop(astack);
     register_T *reg2 = stack_pop(astack);
 
-    sprintf(tmp1, CMP, reg1->name, reg2->name);
+    sprintf(tmp1, CMP, reg2->name, reg1->name);
     reg_free(regs, reg1);
     reg_free(regs, reg2);
 
@@ -152,6 +151,9 @@ char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack
     char *tmp1 = alloc_instruction_mem();
     char *tmp2 = alloc_instruction_mem();
     char *tmp3 = alloc_instruction_mem();
+    char *tmp4 = alloc_instruction_mem();
+    char *tmp5 = alloc_instruction_mem();
+
     char *tmp_exp = NULL;
     char *tmp_if = NULL;
     char *tmp_else = NULL;
@@ -172,6 +174,8 @@ char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack
         strcat(tmp3, tmp2);
         strcat(tmp3, tmp1);
         strcat(tmp3, tmp_exp);
+
+        tmp5 = strdup(tmp3);
     }
     // if with else
     else if(ast->n_children == 3) {
@@ -181,17 +185,65 @@ char *trans_selection_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack
 
         sprintf(tmp1, CMP, reg_exp->name, "0");
         sprintf(tmp2, JZ, "else");
-        sprintf(tmp3, LABEL("else"));
+        sprintf(tmp3, JMP, "end");
+        sprintf(tmp4, LABEL("else"));
+        sprintf(tmp5, LABEL("end"));
 
-        tmp3 = realloc(tmp3, strlen(tmp_else) + strlen(tmp1) + strlen(tmp2) + strlen(tmp_if) + strlen(tmp3) + 1);
-        strcat(tmp3, tmp_else);
-        strcat(tmp3, tmp2);
-        strcat(tmp3, tmp1);
-        strcat(tmp3, tmp_if);
+        tmp5 = realloc(tmp5, strlen(tmp_else) + strlen(tmp4) + strlen(tmp3) + strlen(tmp2) + strlen(tmp1) + strlen(tmp_exp) + strlen(tmp5) + 1);
+        strcat(tmp5, strdup(tmp_else));
+        strcat(tmp5, tmp4);
+        strcat(tmp5, tmp3);
+        strcat(tmp5, strdup(tmp_if));
+        strcat(tmp5, tmp2);
+        strcat(tmp5, tmp1);
+        strcat(tmp5, strdup(tmp_exp));
     }
     
+    free(tmp1);
+    free(tmp2);
+    free(tmp3);
+    free(tmp4);
+    free(tmp_exp);
+    free(tmp_if);
+    free(tmp_else);
+    
+
     reg_free(regs, reg_exp);
-    return tmp3;
+    return tmp5;
 }
 
+char *trans_iteration_stmt(ast_node_T *ast, stack_T *astack, stack_T *code_stack, register_pool_T **regs) {
+    char *tmp1 = alloc_instruction_mem();
+    char *tmp2 = alloc_instruction_mem();
+    char *tmp3 = alloc_instruction_mem();
+    char *tmp4 = alloc_instruction_mem();
+    char *tmp5 = alloc_instruction_mem();
 
+    char *tmp_if = stack_pop(code_stack);
+    char *tmp_exp = stack_pop(code_stack);
+
+    register_T *reg_exp = stack_pop(astack);
+
+    sprintf(tmp1, LABEL("loop"));
+    sprintf(tmp2, CMP, reg_exp->name, "0");
+    sprintf(tmp3, JZ, "end_loop");
+    sprintf(tmp4, JMP, "loop");
+    sprintf(tmp5, LABEL("end_loop"));
+
+    tmp5 = realloc(tmp5, strlen(tmp_if) + strlen(tmp4) + strlen(tmp3) + strlen(tmp2) + strlen(tmp1) + strlen(tmp_exp) + strlen(tmp5) + 1);
+    strcat(tmp5, tmp1);
+    strcat(tmp5, tmp_if);
+    strcat(tmp5, tmp2);
+    strcat(tmp5, tmp3);
+    strcat(tmp5, tmp4);
+    strcat(tmp5, tmp_exp);
+
+    free(tmp1);
+    free(tmp2);
+    free(tmp3);
+    free(tmp4);
+
+    reg_free(regs, reg_exp);
+
+    return tmp5;
+}
