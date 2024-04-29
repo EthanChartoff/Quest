@@ -7,28 +7,13 @@ statement ::= expression-statement
 			| compound-statement
 			| selection-statement
 			| iteration-statement
-			| jump-statement
-			| labeled-statement
+            | print-statement
 			| declaration
 
 declaration ::= type-specifier identifier '=' constant-expression ';'
 
-type-specifier ::= 'VOID'
-				  | 'CHAR'
-				  | 'SHORT'
-				  | 'INT'
-				  | 'LONG'
-				  | 'FLOAT'
-				  | 'DOUBLE'
-				  | 'SIGNED'
-				  | 'UNSIGNED'
-
-function-definition ::= type-specifier identifier '(' parameter-list ')' compound-statement
-
-parameter-list ::= parameter-declaration
-				   | parameter-declaration ',' parameter-list
-				   
-parameter-declaration ::= type-specifier identifier
+type-specifier ::= 'CHAR'
+				 | 'INT'
 
 expression-statement ::= constant-expression ';'
 
@@ -86,16 +71,6 @@ expression ::= constant-expression
 
 
 assignment-operator ::= '='
-                        | '*='
-                        | '/='
-                        | '%='
-                        | '+='                 
-						| '-='
-                        | '<<='
-                        | '>>='
-                        | '&='
-                        | '^='
-                        | '|='
 
 unary-operator ::=   '+'
                    | '-'
@@ -106,15 +81,8 @@ compound-statement ::= '{' statement-list '}'
 
 selection-statement ::= 'IF' '(' constant-expression ')' compound_statement
 						| 'IF' '(' constant-expression ')' compound_statement 'ELSE' compound_statement
-						| 'SWITCH' '(' constant-expression ')' compound_statement
 
 iteration-statement ::= 'WHILE' '(' constant-expression ')' compound_statement
-						| 'DO' compound_statement 'WHILE' '(' constant-expression ')' ';'
-						
-jump-statement ::= 'CONTINUE' ';'
-				   | 'BREAK' ';'
-				   | 'RET' constant-expression ';'
 
-labeled-statement ::= 'CASE' constant-expression ':' compound_statement
-					 | 'DEFAULT' ':' compound_statement
+print-statement ::= 'PRINT' '(' identifier ')' ';'
 

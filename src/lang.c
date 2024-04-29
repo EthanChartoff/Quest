@@ -1,6 +1,5 @@
 #include "include/lang.h"
 #include "include/code_gen/TTS.h"
-#include "include/code_gen/nasm_macros.h"
 #include "include/code_gen/translation_rule.h"
 #include "include/code_gen/translations.h"
 #include "include/io.h"
@@ -117,16 +116,6 @@ static slr_T *init_default_lang(quest_T *q) {
     symbol_T *bitnot = init_symbol_terminal(init_token("~", TOK_BITNOT));
 
     symbol_T *assign = init_symbol_terminal(init_token("=", TOK_EQUEL));
-    symbol_T *assign_plus = init_symbol_terminal(init_token("+=", TOK_PLUSEQUEL));
-    symbol_T *assign_minus = init_symbol_terminal(init_token("-=", TOK_MINUSEQUEL));
-    symbol_T *assign_multiply = init_symbol_terminal(init_token("*=", TOK_STAREQUEL));
-    symbol_T *assign_divide = init_symbol_terminal(init_token("/=", TOK_SLASHEQUEL));
-    symbol_T *assign_mod = init_symbol_terminal(init_token("%=", TOK_PRECENTEQUEL));
-    symbol_T *assign_lshift = init_symbol_terminal(init_token("<<=", TOK_SHIFTLEFTEQUEL));
-    symbol_T *assign_rshift = init_symbol_terminal(init_token(">>=", TOK_SHIFTRIGHTEQUEL));
-    symbol_T *assign_bitand = init_symbol_terminal(init_token("&=", TOK_ANDEQUEL));
-    symbol_T *assign_bitor = init_symbol_terminal(init_token("|=", TOK_OREQUEL));
-    symbol_T *assign_bitxor = init_symbol_terminal(init_token("^=", TOK_XOREQUEL));
 
     symbol_T *comma = init_symbol_terminal(init_token(",", TOK_COMMA));
     symbol_T *semicolon = init_symbol_terminal(init_token(";", TOK_SEMICOLON));
@@ -146,9 +135,7 @@ static slr_T *init_default_lang(quest_T *q) {
     symbol_T *string = init_symbol_terminal(init_token("str", TOK_STRING_LITERAL));
 
     symbol_T *int_tok = init_symbol_terminal(init_token("int", TOK_INT));
-    symbol_T *float_tok = init_symbol_terminal(init_token("float", TOK_FLOAT));
     symbol_T *char_tok = init_symbol_terminal(init_token("char", TOK_CHAR));
-    symbol_T *void_tok = init_symbol_terminal(init_token("void", TOK_VOID));
 
     symbol_T *return_tok = init_symbol_terminal(init_token("ret", TOK_RET));
 
@@ -173,16 +160,6 @@ static slr_T *init_default_lang(quest_T *q) {
     set_add(syms, not);
     set_add(syms, bitnot);
     set_add(syms, assign);
-    set_add(syms, assign_plus);
-    set_add(syms, assign_minus);
-    set_add(syms, assign_multiply);
-    set_add(syms, assign_divide);
-    set_add(syms, assign_mod);
-    set_add(syms, assign_lshift);
-    set_add(syms, assign_rshift);
-    set_add(syms, assign_bitand);
-    set_add(syms, assign_bitor);
-    set_add(syms, assign_bitxor);
     set_add(syms, comma);
     set_add(syms, semicolon);
     set_add(syms, lparen);
@@ -198,9 +175,7 @@ static slr_T *init_default_lang(quest_T *q) {
     set_add(syms, num);
     set_add(syms, string);
     set_add(syms, int_tok);
-    set_add(syms, float_tok);
     set_add(syms, char_tok);
-    set_add(syms, void_tok);
     set_add(syms, return_tok);
 
     /*
@@ -278,9 +253,7 @@ static slr_T *init_default_lang(quest_T *q) {
     rule_T *decl = init_rule(declaration->symbol->non_terminal, declaration_list, 5);
 
     rule_T *type_int = init_rule(type_specifier->symbol->non_terminal, &int_tok, 1);
-    rule_T *type_float = init_rule(type_specifier->symbol->non_terminal, &float_tok, 1);
     rule_T *type_char = init_rule(type_specifier->symbol->non_terminal, &char_tok, 1);
-    rule_T *type_void = init_rule(type_specifier->symbol->non_terminal, &void_tok, 1);
     
     /* 
         function
@@ -361,8 +334,6 @@ static slr_T *init_default_lang(quest_T *q) {
     set_add(rules, decl);
     set_add(rules, type_int);
     set_add(rules, type_char);
-    set_add(rules, type_float);
-    set_add(rules, type_void);
 
     set_add(rules, exp_stmt);
     set_add(rules, cnstnt_exp);

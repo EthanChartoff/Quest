@@ -6,10 +6,10 @@ section .text
 global _start
 _start:
 mov eax, [a]
-mov ecx, 21
+mov ecx, 9
 mov DWORD [a], ecx
 mov eax, [b]
-mov ecx, 14
+mov ecx, 6
 mov DWORD [b], ecx
 mov eax, [tmp]
 mov ecx, 0
