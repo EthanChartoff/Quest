@@ -104,7 +104,6 @@ void bnf_make_non_terminals(char *src, char *dest) {
     fprintf(fp_xlat, "set_T *syms = set_init(symbol_cmp_generic);\n");
 
 
-
     while (read != -1 && (read = getline(&line, &len, fp_src) != -1)) {
         if(strlen(line) > 1) {
             buffer = strdup(strtok(line, " ::="));

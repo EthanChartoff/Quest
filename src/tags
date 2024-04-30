@@ -1,0 +1,11 @@
+Mmain	main.c	/^int main(int argc, char* argv[]) {$/
+compile	quest.c	/^void compile(quest_T *q) {$/
+compile_file	quest.c	/^void compile_file(const char *filename) {$/
+get_new_filename	io.c	/^char *get_new_filename(const char *filename, const/
+init_default_lang	lang.c	/^static slr_T *init_default_lang(quest_T *q) {    $/
+init_quest	lang.c	/^quest_T *init_quest(const char *filename) {$/
+print_to_stderr	io.c	/^void print_to_stderr(char *content) {$/
+print_to_stdout	io.c	/^void print_to_stdout(char *content) {$/
+read_file	io.c	/^char* read_file(const char *filename) {$/
+write_file	io.c	/^void write_file(const char *filename, const char */
+write_file_append	io.c	/^void write_file_append(const char *filename, char /

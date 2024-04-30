@@ -1,0 +1,311 @@
+**program:**
+
+![program](diagram/program.png)
+
+```
+program  ::= statement-list
+```
+
+**statement-list:**
+
+![statement-list](diagram/statement-list.png)
+
+```
+statement-list
+         ::= statement+
+```
+
+referenced by:
+
+* compound-statement
+* program
+
+**statement:**
+
+![statement](diagram/statement.png)
+
+```
+statement
+         ::= expression-statement
+           | compound-statement
+           | selection-statement
+           | iteration-statement
+           | print-statement
+           | declaration
+```
+
+referenced by:
+
+* statement-list
+
+**declaration:**
+
+![declaration](diagram/declaration.png)
+
+```
+declaration
+         ::= type-specifier identifier '=' constant-expression ';'
+```
+
+referenced by:
+
+* statement
+
+**type-specifier:**
+
+![type-specifier](diagram/type-specifier.png)
+
+```
+type-specifier
+         ::= 'CHAR'
+           | 'INT'
+```
+
+referenced by:
+
+* declaration
+
+**expression-statement:**
+
+![expression-statement](diagram/expression-statement.png)
+
+```
+expression-statement
+         ::= constant-expression ';'
+```
+
+referenced by:
+
+* statement
+
+**constant-expression:**
+
+![constant-expression](diagram/constant-expression.png)
+
+```
+constant-expression
+         ::= logical-or-expression ( '=' logical-or-expression )*
+```
+
+referenced by:
+
+* declaration
+* expression-statement
+* iteration-statement
+* primary-expression
+* selection-statement
+
+**logical-or-expression:**
+
+![logical-or-expression](diagram/logical-or-expression.png)
+
+```
+logical-or-expression
+         ::= logical-and-expression ( '||' logical-and-expression )*
+```
+
+referenced by:
+
+* constant-expression
+
+**logical-and-expression:**
+
+![logical-and-expression](diagram/logical-and-expression.png)
+
+```
+logical-and-expression
+         ::= inclusive-or-expression ( '&&' inclusive-or-expression )*
+```
+
+referenced by:
+
+* logical-or-expression
+
+**inclusive-or-expression:**
+
+![inclusive-or-expression](diagram/inclusive-or-expression.png)
+
+```
+inclusive-or-expression
+         ::= exclusive-or-expression ( '|' exclusive-or-expression )*
+```
+
+referenced by:
+
+* logical-and-expression
+
+**exclusive-or-expression:**
+
+![exclusive-or-expression](diagram/exclusive-or-expression.png)
+
+```
+exclusive-or-expression
+         ::= and-expression ( '^' and-expression )*
+```
+
+referenced by:
+
+* inclusive-or-expression
+
+**and-expression:**
+
+![and-expression](diagram/and-expression.png)
+
+```
+and-expression
+         ::= equality-expression ( '&' equality-expression )*
+```
+
+referenced by:
+
+* exclusive-or-expression
+
+**equality-expression:**
+
+![equality-expression](diagram/equality-expression.png)
+
+```
+equality-expression
+         ::= relational-expression ( ( '==' | '!=' ) relational-expression )*
+```
+
+referenced by:
+
+* and-expression
+
+**relational-expression:**
+
+![relational-expression](diagram/relational-expression.png)
+
+```
+relational-expression
+         ::= shift-expression ( ( '<' | '>' | '<=' | '>=' ) shift-expression )*
+```
+
+referenced by:
+
+* equality-expression
+
+**shift-expression:**
+
+![shift-expression](diagram/shift-expression.png)
+
+```
+shift-expression
+         ::= additive-expression ( ( '<<' | '>>' ) additive-expression )*
+```
+
+referenced by:
+
+* relational-expression
+
+**additive-expression:**
+
+![additive-expression](diagram/additive-expression.png)
+
+```
+additive-expression
+         ::= multiplicative-expression ( ( '+' | '-' ) multiplicative-expression )*
+```
+
+referenced by:
+
+* shift-expression
+
+**multiplicative-expression:**
+
+![multiplicative-expression](diagram/multiplicative-expression.png)
+
+```
+multiplicative-expression
+         ::= primary-expression ( ( '*' | '/' | '%' ) primary-expression )*
+```
+
+referenced by:
+
+* additive-expression
+
+**primary-expression:**
+
+![primary-expression](diagram/primary-expression.png)
+
+```
+primary-expression
+         ::= identifier
+           | constant
+           | string
+           | '(' constant-expression ( ',' constant-expression )* ')'
+```
+
+referenced by:
+
+* multiplicative-expression
+
+**unary-operator:**
+
+![unary-operator](diagram/unary-operator.png)
+
+```
+unary-operator
+         ::= '+'
+           | '-'
+           | '~'
+           | '!'
+```
+
+**compound-statement:**
+
+![compound-statement](diagram/compound-statement.png)
+
+```
+compound-statement
+         ::= '{' statement-list '}'
+```
+
+referenced by:
+
+* statement
+
+**selection-statement:**
+
+![selection-statement](diagram/selection-statement.png)
+
+```
+selection-statement
+         ::= 'IF' '(' constant-expression ')' compound_statement ( 'ELSE' compound_statement )?
+```
+
+referenced by:
+
+* statement
+
+**iteration-statement:**
+
+![iteration-statement](diagram/iteration-statement.png)
+
+```
+iteration-statement
+         ::= 'WHILE' '(' constant-expression ')' compound_statement
+```
+
+referenced by:
+
+* statement
+
+**print-statement:**
+
+![print-statement](diagram/print-statement.png)
+
+```
+print-statement
+         ::= 'PRINT' '(' ( identifier | constant ) ')' ';'
+```
+
+referenced by:
+
+* statement
+
+## 
+![rr-2.1](diagram/rr-2.1.png) <sup>generated by [RR - Railroad Diagram Generator][RR]</sup>
+
+[RR]: https://www.bottlecaps.de/rr/ui

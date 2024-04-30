@@ -17,7 +17,6 @@ typedef enum ENTRY_TYPES_ENUM {
     GLOBAL,
     LOCAL
 } entry_type_E;
-    
 
 typedef struct SYMBOL_TABLE_ENTRY_STRUCT {
     char *name;

@@ -10,6 +10,6 @@ typedef struct LEXER_AUTOMATA_STRUCT {
     unsigned int n_symbols;     // number of symbols from the start of the 
 } lexer_automata_T;
 
-lexer_automata_T* init_lexer_automata(const char *auto_src, const char *states_src);
+lexer_automata_T *init_lexer_automata(const char *auto_src, const char *states_src);
 
 #endif

@@ -44,7 +44,6 @@ typedef struct LEXER_DFA_STRUCT {
     unsigned char n_flag_states;        // number of states defined by the flags
 } lexer_dfa_T;
 
-
 int init_dfa(token_T **toks, const size_t n_toks, const char *DFA_filename, const char *DFA_states_filename, const char *DFA_states_details_filename , unsigned short flags);
 int init_default_dfa();
 

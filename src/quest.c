@@ -6,6 +6,7 @@
 #include "include/parser/parser.h"
 #include "include/semantic_analizer/semantic_analyzer.h"
 #include "utils/DS/include/queue.h"
+#include "utils/lexer_DFA/include/lexer_DFA.h"
 
 void compile(quest_T *q) {
     lexer_T* lex = q->lexer;
@@ -37,4 +38,6 @@ void compile(quest_T *q) {
 void compile_file(const char *filename) {
     quest_T *q = init_quest(filename);
     compile(q);
+
+    // init_default_dfa();
 }

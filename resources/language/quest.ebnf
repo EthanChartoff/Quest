@@ -68,8 +68,6 @@ primary-expression ::= identifier
 expression ::= constant-expression 
              | expression ',' constant-expression
 
-
-
 assignment-operator ::= '='
 
 unary-operator ::=   '+'
@@ -85,4 +83,7 @@ selection-statement ::= 'IF' '(' constant-expression ')' compound_statement
 iteration-statement ::= 'WHILE' '(' constant-expression ')' compound_statement
 
 print-statement ::= 'PRINT' '(' identifier ')' ';'
+                  | 'PRINT' '(' constant ')' ';'
+
+
 

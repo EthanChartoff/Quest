@@ -1,11 +1,9 @@
 #include "../include/semantic_analizer/sdt.h"
-#include "../include/semantic_analizer/definitions.h"
 #include "../utils/err/err.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 
-sdt_T *match_parser_sdt_rules(rule_T **rules, size_t n_rules, semantic_rule_T **srs, size_t n_sr) {
+static sdt_T *match_parser_sdt_rules(rule_T **rules, size_t n_rules, semantic_rule_T **srs, size_t n_sr) {
     int i, j, flag;
     semantic_rule_T **definitions = calloc(n_rules, sizeof(semantic_rule_T *));
     if(!definitions)

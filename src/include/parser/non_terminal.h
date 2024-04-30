@@ -9,7 +9,7 @@ typedef enum NON_TERMINAL_ENUM {
 } non_terminal_E;
 
 
-typedef struct NON_TERMINAL_T {
+typedef struct NON_TERMINAL_STRUCT {
     non_terminal_E type;
     char *value;
 } non_terminal_T;

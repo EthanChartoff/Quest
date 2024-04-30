@@ -1,0 +1,19 @@
+goodman@goodman 
+--------------- 
+OS: Debian GNU/Linux 12 (bookworm) x86_64 
+Host: VivoBook_ASUSLaptop X415JA_X415JA 1.0 
+Kernel: 6.1.0-18-amd64 
+Uptime: 4 days, 4 hours, 48 mins 
+Packages: 2944 (dpkg), 7 (flatpak), 24 (snap) 
+Shell: bash 5.2.15 
+Resolution: 1366x768, 1920x1080 
+DE: Xfce 4.18 
+WM: Xfwm4 
+WM Theme: empty 
+Theme: Xfce [GTK2], Adwaita [GTK3] 
+Icons: Tango [GTK2], Adwaita [GTK3] 
+Terminal: x-terminal-emul 
+CPU: Intel i5-1035G1 (8) @ 3.600GHz 
+GPU: Intel Iris Plus Graphics G1 
+Memory: 6875MiB / 7682MiB 
+

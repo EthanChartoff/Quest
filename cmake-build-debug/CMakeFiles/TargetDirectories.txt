@@ -1,0 +1,7 @@
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/qc.dir
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/install.dir
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/install/local.dir
+/home/goodman/school/Quest/cmake-build-debug/CMakeFiles/install/strip.dir

@@ -31,7 +31,6 @@ symbol_T *init_symbol_non_terminal(non_terminal_T *nt) {
 }
 
 int symbol_equals(const symbol_T *sym1, const symbol_T *sym2) {
-
     return sym1->sym_type == sym2->sym_type 
         ? sym1->sym_type == TERMINAL 
             ? sym1->symbol->terminal->type == sym2->symbol->terminal->type

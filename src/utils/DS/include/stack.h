@@ -5,18 +5,23 @@
 
 #define IS_EMPTY(s) ((s)->top == NULL)
 
-typedef struct stack_node_T {
-  void* data;
-  struct stack_node_T* next;
+/**
+ * Structure of a stack node
+ */
+typedef struct STACK_NODE_STRUCT {
+  void *data;                      // The data stored in the stack node
+  struct STACK_NODE_STRUCT *next;  // Pointer to the next stack node
 } stack_node_T;
 
+/**
+ * Structure of a generic stack
+ */
 typedef struct GENERIC_STACK_STRUCT {
-  stack_node_T* top;
-  size_t size;
+  stack_node_T *top;               // Pointer to the top of the stack
+  size_t size;                     // Number of items in the stack
 } stack_T;
 
-
-stack_T* stack_init();
+stack_T *stack_init();
 void stack_push(stack_T* s, void* data);
 void *stack_pop(stack_T* s);
 void *stack_peek(stack_T* s);

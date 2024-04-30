@@ -69,10 +69,94 @@ include CMakeFiles/qc.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/qc.dir/flags.make
 
+CMakeFiles/qc.dir/src/code_gen/TTS.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/code_gen/TTS.c.o: src/code_gen/TTS.c
+CMakeFiles/qc.dir/src/code_gen/TTS.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/qc.dir/src/code_gen/TTS.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/code_gen/TTS.c.o -MF CMakeFiles/qc.dir/src/code_gen/TTS.c.o.d -o CMakeFiles/qc.dir/src/code_gen/TTS.c.o -c /home/goodman/school/Quest/src/code_gen/TTS.c
+
+CMakeFiles/qc.dir/src/code_gen/TTS.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/code_gen/TTS.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/code_gen/TTS.c > CMakeFiles/qc.dir/src/code_gen/TTS.c.i
+
+CMakeFiles/qc.dir/src/code_gen/TTS.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/code_gen/TTS.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/code_gen/TTS.c -o CMakeFiles/qc.dir/src/code_gen/TTS.c.s
+
+CMakeFiles/qc.dir/src/code_gen/code_generator.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/code_gen/code_generator.c.o: src/code_gen/code_generator.c
+CMakeFiles/qc.dir/src/code_gen/code_generator.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/qc.dir/src/code_gen/code_generator.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/code_gen/code_generator.c.o -MF CMakeFiles/qc.dir/src/code_gen/code_generator.c.o.d -o CMakeFiles/qc.dir/src/code_gen/code_generator.c.o -c /home/goodman/school/Quest/src/code_gen/code_generator.c
+
+CMakeFiles/qc.dir/src/code_gen/code_generator.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/code_gen/code_generator.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/code_gen/code_generator.c > CMakeFiles/qc.dir/src/code_gen/code_generator.c.i
+
+CMakeFiles/qc.dir/src/code_gen/code_generator.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/code_gen/code_generator.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/code_gen/code_generator.c -o CMakeFiles/qc.dir/src/code_gen/code_generator.c.s
+
+CMakeFiles/qc.dir/src/code_gen/operand.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/code_gen/operand.c.o: src/code_gen/operand.c
+CMakeFiles/qc.dir/src/code_gen/operand.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/qc.dir/src/code_gen/operand.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/code_gen/operand.c.o -MF CMakeFiles/qc.dir/src/code_gen/operand.c.o.d -o CMakeFiles/qc.dir/src/code_gen/operand.c.o -c /home/goodman/school/Quest/src/code_gen/operand.c
+
+CMakeFiles/qc.dir/src/code_gen/operand.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/code_gen/operand.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/code_gen/operand.c > CMakeFiles/qc.dir/src/code_gen/operand.c.i
+
+CMakeFiles/qc.dir/src/code_gen/operand.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/code_gen/operand.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/code_gen/operand.c -o CMakeFiles/qc.dir/src/code_gen/operand.c.s
+
+CMakeFiles/qc.dir/src/code_gen/register.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/code_gen/register.c.o: src/code_gen/register.c
+CMakeFiles/qc.dir/src/code_gen/register.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/qc.dir/src/code_gen/register.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/code_gen/register.c.o -MF CMakeFiles/qc.dir/src/code_gen/register.c.o.d -o CMakeFiles/qc.dir/src/code_gen/register.c.o -c /home/goodman/school/Quest/src/code_gen/register.c
+
+CMakeFiles/qc.dir/src/code_gen/register.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/code_gen/register.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/code_gen/register.c > CMakeFiles/qc.dir/src/code_gen/register.c.i
+
+CMakeFiles/qc.dir/src/code_gen/register.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/code_gen/register.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/code_gen/register.c -o CMakeFiles/qc.dir/src/code_gen/register.c.s
+
+CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o: src/code_gen/translation_rule.c
+CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o -MF CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o.d -o CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o -c /home/goodman/school/Quest/src/code_gen/translation_rule.c
+
+CMakeFiles/qc.dir/src/code_gen/translation_rule.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/code_gen/translation_rule.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/code_gen/translation_rule.c > CMakeFiles/qc.dir/src/code_gen/translation_rule.c.i
+
+CMakeFiles/qc.dir/src/code_gen/translation_rule.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/code_gen/translation_rule.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/code_gen/translation_rule.c -o CMakeFiles/qc.dir/src/code_gen/translation_rule.c.s
+
+CMakeFiles/qc.dir/src/code_gen/translations.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/code_gen/translations.c.o: src/code_gen/translations.c
+CMakeFiles/qc.dir/src/code_gen/translations.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/qc.dir/src/code_gen/translations.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/code_gen/translations.c.o -MF CMakeFiles/qc.dir/src/code_gen/translations.c.o.d -o CMakeFiles/qc.dir/src/code_gen/translations.c.o -c /home/goodman/school/Quest/src/code_gen/translations.c
+
+CMakeFiles/qc.dir/src/code_gen/translations.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/code_gen/translations.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/code_gen/translations.c > CMakeFiles/qc.dir/src/code_gen/translations.c.i
+
+CMakeFiles/qc.dir/src/code_gen/translations.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/code_gen/translations.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/code_gen/translations.c -o CMakeFiles/qc.dir/src/code_gen/translations.c.s
+
 CMakeFiles/qc.dir/src/io.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/io.c.o: src/io.c
 CMakeFiles/qc.dir/src/io.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/qc.dir/src/io.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/qc.dir/src/io.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/io.c.o -MF CMakeFiles/qc.dir/src/io.c.o.d -o CMakeFiles/qc.dir/src/io.c.o -c /home/goodman/school/Quest/src/io.c
 
 CMakeFiles/qc.dir/src/io.c.i: cmake_force
@@ -83,10 +167,24 @@ CMakeFiles/qc.dir/src/io.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/io.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/io.c -o CMakeFiles/qc.dir/src/io.c.s
 
+CMakeFiles/qc.dir/src/lang.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/lang.c.o: src/lang.c
+CMakeFiles/qc.dir/src/lang.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/qc.dir/src/lang.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/lang.c.o -MF CMakeFiles/qc.dir/src/lang.c.o.d -o CMakeFiles/qc.dir/src/lang.c.o -c /home/goodman/school/Quest/src/lang.c
+
+CMakeFiles/qc.dir/src/lang.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/lang.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/lang.c > CMakeFiles/qc.dir/src/lang.c.i
+
+CMakeFiles/qc.dir/src/lang.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/lang.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/lang.c -o CMakeFiles/qc.dir/src/lang.c.s
+
 CMakeFiles/qc.dir/src/lexer/lexer.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/lexer/lexer.c.o: src/lexer/lexer.c
 CMakeFiles/qc.dir/src/lexer/lexer.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/qc.dir/src/lexer/lexer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/qc.dir/src/lexer/lexer.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/lexer/lexer.c.o -MF CMakeFiles/qc.dir/src/lexer/lexer.c.o.d -o CMakeFiles/qc.dir/src/lexer/lexer.c.o -c /home/goodman/school/Quest/src/lexer/lexer.c
 
 CMakeFiles/qc.dir/src/lexer/lexer.c.i: cmake_force
@@ -100,7 +198,7 @@ CMakeFiles/qc.dir/src/lexer/lexer.c.s: cmake_force
 CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o: src/lexer/lexer_automata.c
 CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o -MF CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o.d -o CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o -c /home/goodman/school/Quest/src/lexer/lexer_automata.c
 
 CMakeFiles/qc.dir/src/lexer/lexer_automata.c.i: cmake_force
@@ -114,7 +212,7 @@ CMakeFiles/qc.dir/src/lexer/lexer_automata.c.s: cmake_force
 CMakeFiles/qc.dir/src/lexer/token.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/lexer/token.c.o: src/lexer/token.c
 CMakeFiles/qc.dir/src/lexer/token.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/qc.dir/src/lexer/token.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/qc.dir/src/lexer/token.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/lexer/token.c.o -MF CMakeFiles/qc.dir/src/lexer/token.c.o.d -o CMakeFiles/qc.dir/src/lexer/token.c.o -c /home/goodman/school/Quest/src/lexer/token.c
 
 CMakeFiles/qc.dir/src/lexer/token.c.i: cmake_force
@@ -128,7 +226,7 @@ CMakeFiles/qc.dir/src/lexer/token.c.s: cmake_force
 CMakeFiles/qc.dir/src/main.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/main.c.o: src/main.c
 CMakeFiles/qc.dir/src/main.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/qc.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/qc.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/main.c.o -MF CMakeFiles/qc.dir/src/main.c.o.d -o CMakeFiles/qc.dir/src/main.c.o -c /home/goodman/school/Quest/src/main.c
 
 CMakeFiles/qc.dir/src/main.c.i: cmake_force
@@ -139,10 +237,52 @@ CMakeFiles/qc.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/main.c -o CMakeFiles/qc.dir/src/main.c.s
 
+CMakeFiles/qc.dir/src/parser/action_table.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/action_table.c.o: src/parser/action_table.c
+CMakeFiles/qc.dir/src/parser/action_table.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/qc.dir/src/parser/action_table.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/action_table.c.o -MF CMakeFiles/qc.dir/src/parser/action_table.c.o.d -o CMakeFiles/qc.dir/src/parser/action_table.c.o -c /home/goodman/school/Quest/src/parser/action_table.c
+
+CMakeFiles/qc.dir/src/parser/action_table.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/action_table.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/action_table.c > CMakeFiles/qc.dir/src/parser/action_table.c.i
+
+CMakeFiles/qc.dir/src/parser/action_table.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/action_table.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/action_table.c -o CMakeFiles/qc.dir/src/parser/action_table.c.s
+
+CMakeFiles/qc.dir/src/parser/bnf.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/bnf.c.o: src/parser/bnf.c
+CMakeFiles/qc.dir/src/parser/bnf.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/qc.dir/src/parser/bnf.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/bnf.c.o -MF CMakeFiles/qc.dir/src/parser/bnf.c.o.d -o CMakeFiles/qc.dir/src/parser/bnf.c.o -c /home/goodman/school/Quest/src/parser/bnf.c
+
+CMakeFiles/qc.dir/src/parser/bnf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/bnf.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/bnf.c > CMakeFiles/qc.dir/src/parser/bnf.c.i
+
+CMakeFiles/qc.dir/src/parser/bnf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/bnf.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/bnf.c -o CMakeFiles/qc.dir/src/parser/bnf.c.s
+
+CMakeFiles/qc.dir/src/parser/goto_table.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/goto_table.c.o: src/parser/goto_table.c
+CMakeFiles/qc.dir/src/parser/goto_table.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/qc.dir/src/parser/goto_table.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/goto_table.c.o -MF CMakeFiles/qc.dir/src/parser/goto_table.c.o.d -o CMakeFiles/qc.dir/src/parser/goto_table.c.o -c /home/goodman/school/Quest/src/parser/goto_table.c
+
+CMakeFiles/qc.dir/src/parser/goto_table.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/goto_table.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/goto_table.c > CMakeFiles/qc.dir/src/parser/goto_table.c.i
+
+CMakeFiles/qc.dir/src/parser/goto_table.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/goto_table.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/goto_table.c -o CMakeFiles/qc.dir/src/parser/goto_table.c.s
+
 CMakeFiles/qc.dir/src/parser/grammer.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/parser/grammer.c.o: src/parser/grammer.c
 CMakeFiles/qc.dir/src/parser/grammer.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/qc.dir/src/parser/grammer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/qc.dir/src/parser/grammer.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/grammer.c.o -MF CMakeFiles/qc.dir/src/parser/grammer.c.o.d -o CMakeFiles/qc.dir/src/parser/grammer.c.o -c /home/goodman/school/Quest/src/parser/grammer.c
 
 CMakeFiles/qc.dir/src/parser/grammer.c.i: cmake_force
@@ -156,7 +296,7 @@ CMakeFiles/qc.dir/src/parser/grammer.c.s: cmake_force
 CMakeFiles/qc.dir/src/parser/lr_item.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/parser/lr_item.c.o: src/parser/lr_item.c
 CMakeFiles/qc.dir/src/parser/lr_item.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/qc.dir/src/parser/lr_item.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/qc.dir/src/parser/lr_item.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/lr_item.c.o -MF CMakeFiles/qc.dir/src/parser/lr_item.c.o.d -o CMakeFiles/qc.dir/src/parser/lr_item.c.o -c /home/goodman/school/Quest/src/parser/lr_item.c
 
 CMakeFiles/qc.dir/src/parser/lr_item.c.i: cmake_force
@@ -167,10 +307,66 @@ CMakeFiles/qc.dir/src/parser/lr_item.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/lr_item.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/lr_item.c -o CMakeFiles/qc.dir/src/parser/lr_item.c.s
 
+CMakeFiles/qc.dir/src/parser/lr_stack.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/lr_stack.c.o: src/parser/lr_stack.c
+CMakeFiles/qc.dir/src/parser/lr_stack.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/qc.dir/src/parser/lr_stack.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/lr_stack.c.o -MF CMakeFiles/qc.dir/src/parser/lr_stack.c.o.d -o CMakeFiles/qc.dir/src/parser/lr_stack.c.o -c /home/goodman/school/Quest/src/parser/lr_stack.c
+
+CMakeFiles/qc.dir/src/parser/lr_stack.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/lr_stack.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/lr_stack.c > CMakeFiles/qc.dir/src/parser/lr_stack.c.i
+
+CMakeFiles/qc.dir/src/parser/lr_stack.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/lr_stack.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/lr_stack.c -o CMakeFiles/qc.dir/src/parser/lr_stack.c.s
+
+CMakeFiles/qc.dir/src/parser/non_terminal.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/non_terminal.c.o: src/parser/non_terminal.c
+CMakeFiles/qc.dir/src/parser/non_terminal.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/qc.dir/src/parser/non_terminal.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/non_terminal.c.o -MF CMakeFiles/qc.dir/src/parser/non_terminal.c.o.d -o CMakeFiles/qc.dir/src/parser/non_terminal.c.o -c /home/goodman/school/Quest/src/parser/non_terminal.c
+
+CMakeFiles/qc.dir/src/parser/non_terminal.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/non_terminal.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/non_terminal.c > CMakeFiles/qc.dir/src/parser/non_terminal.c.i
+
+CMakeFiles/qc.dir/src/parser/non_terminal.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/non_terminal.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/non_terminal.c -o CMakeFiles/qc.dir/src/parser/non_terminal.c.s
+
+CMakeFiles/qc.dir/src/parser/parse_tree.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/parse_tree.c.o: src/parser/parse_tree.c
+CMakeFiles/qc.dir/src/parser/parse_tree.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/qc.dir/src/parser/parse_tree.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/parse_tree.c.o -MF CMakeFiles/qc.dir/src/parser/parse_tree.c.o.d -o CMakeFiles/qc.dir/src/parser/parse_tree.c.o -c /home/goodman/school/Quest/src/parser/parse_tree.c
+
+CMakeFiles/qc.dir/src/parser/parse_tree.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/parse_tree.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/parse_tree.c > CMakeFiles/qc.dir/src/parser/parse_tree.c.i
+
+CMakeFiles/qc.dir/src/parser/parse_tree.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/parse_tree.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/parse_tree.c -o CMakeFiles/qc.dir/src/parser/parse_tree.c.s
+
+CMakeFiles/qc.dir/src/parser/parser.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/parser.c.o: src/parser/parser.c
+CMakeFiles/qc.dir/src/parser/parser.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/qc.dir/src/parser/parser.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/parser.c.o -MF CMakeFiles/qc.dir/src/parser/parser.c.o.d -o CMakeFiles/qc.dir/src/parser/parser.c.o -c /home/goodman/school/Quest/src/parser/parser.c
+
+CMakeFiles/qc.dir/src/parser/parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/parser.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/parser.c > CMakeFiles/qc.dir/src/parser/parser.c.i
+
+CMakeFiles/qc.dir/src/parser/parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/parser.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/parser.c -o CMakeFiles/qc.dir/src/parser/parser.c.s
+
 CMakeFiles/qc.dir/src/parser/rule.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/parser/rule.c.o: src/parser/rule.c
 CMakeFiles/qc.dir/src/parser/rule.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/qc.dir/src/parser/rule.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/qc.dir/src/parser/rule.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/rule.c.o -MF CMakeFiles/qc.dir/src/parser/rule.c.o.d -o CMakeFiles/qc.dir/src/parser/rule.c.o -c /home/goodman/school/Quest/src/parser/rule.c
 
 CMakeFiles/qc.dir/src/parser/rule.c.i: cmake_force
@@ -181,10 +377,52 @@ CMakeFiles/qc.dir/src/parser/rule.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/rule.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/rule.c -o CMakeFiles/qc.dir/src/parser/rule.c.s
 
+CMakeFiles/qc.dir/src/parser/slr.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/slr.c.o: src/parser/slr.c
+CMakeFiles/qc.dir/src/parser/slr.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/qc.dir/src/parser/slr.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/slr.c.o -MF CMakeFiles/qc.dir/src/parser/slr.c.o.d -o CMakeFiles/qc.dir/src/parser/slr.c.o -c /home/goodman/school/Quest/src/parser/slr.c
+
+CMakeFiles/qc.dir/src/parser/slr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/slr.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/slr.c > CMakeFiles/qc.dir/src/parser/slr.c.i
+
+CMakeFiles/qc.dir/src/parser/slr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/slr.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/slr.c -o CMakeFiles/qc.dir/src/parser/slr.c.s
+
+CMakeFiles/qc.dir/src/parser/symbol.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/symbol.c.o: src/parser/symbol.c
+CMakeFiles/qc.dir/src/parser/symbol.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/qc.dir/src/parser/symbol.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/symbol.c.o -MF CMakeFiles/qc.dir/src/parser/symbol.c.o.d -o CMakeFiles/qc.dir/src/parser/symbol.c.o -c /home/goodman/school/Quest/src/parser/symbol.c
+
+CMakeFiles/qc.dir/src/parser/symbol.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/symbol.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/symbol.c > CMakeFiles/qc.dir/src/parser/symbol.c.i
+
+CMakeFiles/qc.dir/src/parser/symbol.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/symbol.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/symbol.c -o CMakeFiles/qc.dir/src/parser/symbol.c.s
+
+CMakeFiles/qc.dir/src/parser/symbol_set.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/parser/symbol_set.c.o: src/parser/symbol_set.c
+CMakeFiles/qc.dir/src/parser/symbol_set.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/qc.dir/src/parser/symbol_set.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/parser/symbol_set.c.o -MF CMakeFiles/qc.dir/src/parser/symbol_set.c.o.d -o CMakeFiles/qc.dir/src/parser/symbol_set.c.o -c /home/goodman/school/Quest/src/parser/symbol_set.c
+
+CMakeFiles/qc.dir/src/parser/symbol_set.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/parser/symbol_set.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/parser/symbol_set.c > CMakeFiles/qc.dir/src/parser/symbol_set.c.i
+
+CMakeFiles/qc.dir/src/parser/symbol_set.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/parser/symbol_set.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/parser/symbol_set.c -o CMakeFiles/qc.dir/src/parser/symbol_set.c.s
+
 CMakeFiles/qc.dir/src/quest.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/quest.c.o: src/quest.c
 CMakeFiles/qc.dir/src/quest.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/qc.dir/src/quest.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/qc.dir/src/quest.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/quest.c.o -MF CMakeFiles/qc.dir/src/quest.c.o.d -o CMakeFiles/qc.dir/src/quest.c.o -c /home/goodman/school/Quest/src/quest.c
 
 CMakeFiles/qc.dir/src/quest.c.i: cmake_force
@@ -195,10 +433,108 @@ CMakeFiles/qc.dir/src/quest.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/quest.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/quest.c -o CMakeFiles/qc.dir/src/quest.c.s
 
+CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o: src/semantic_analizer/AST.c
+CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o -MF CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o.d -o CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o -c /home/goodman/school/Quest/src/semantic_analizer/AST.c
+
+CMakeFiles/qc.dir/src/semantic_analizer/AST.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/semantic_analizer/AST.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/semantic_analizer/AST.c > CMakeFiles/qc.dir/src/semantic_analizer/AST.c.i
+
+CMakeFiles/qc.dir/src/semantic_analizer/AST.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/semantic_analizer/AST.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/semantic_analizer/AST.c -o CMakeFiles/qc.dir/src/semantic_analizer/AST.c.s
+
+CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: src/semantic_analizer/definitions.c
+CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o -MF CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o.d -o CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o -c /home/goodman/school/Quest/src/semantic_analizer/definitions.c
+
+CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/semantic_analizer/definitions.c > CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.i
+
+CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/semantic_analizer/definitions.c -o CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.s
+
+CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o: src/semantic_analizer/sdt.c
+CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o -MF CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o.d -o CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o -c /home/goodman/school/Quest/src/semantic_analizer/sdt.c
+
+CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/semantic_analizer/sdt.c > CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.i
+
+CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/semantic_analizer/sdt.c -o CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.s
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o: src/semantic_analizer/semantic_analyzer.c
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o -MF CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o.d -o CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o -c /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c > CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.i
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/semantic_analizer/semantic_analyzer.c -o CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.s
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: src/semantic_analizer/semantic_rule.c
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o -MF CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o.d -o CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o -c /home/goodman/school/Quest/src/semantic_analizer/semantic_rule.c
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/semantic_analizer/semantic_rule.c > CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.i
+
+CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/semantic_analizer/semantic_rule.c -o CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.s
+
+CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o: src/utils/DS/generic_set.c
+CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o -MF CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o.d -o CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o -c /home/goodman/school/Quest/src/utils/DS/generic_set.c
+
+CMakeFiles/qc.dir/src/utils/DS/generic_set.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/utils/DS/generic_set.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/utils/DS/generic_set.c > CMakeFiles/qc.dir/src/utils/DS/generic_set.c.i
+
+CMakeFiles/qc.dir/src/utils/DS/generic_set.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/DS/generic_set.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/DS/generic_set.c -o CMakeFiles/qc.dir/src/utils/DS/generic_set.c.s
+
+CMakeFiles/qc.dir/src/utils/DS/hashset.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/utils/DS/hashset.c.o: src/utils/DS/hashset.c
+CMakeFiles/qc.dir/src/utils/DS/hashset.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/qc.dir/src/utils/DS/hashset.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/DS/hashset.c.o -MF CMakeFiles/qc.dir/src/utils/DS/hashset.c.o.d -o CMakeFiles/qc.dir/src/utils/DS/hashset.c.o -c /home/goodman/school/Quest/src/utils/DS/hashset.c
+
+CMakeFiles/qc.dir/src/utils/DS/hashset.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/utils/DS/hashset.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/utils/DS/hashset.c > CMakeFiles/qc.dir/src/utils/DS/hashset.c.i
+
+CMakeFiles/qc.dir/src/utils/DS/hashset.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/DS/hashset.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/DS/hashset.c -o CMakeFiles/qc.dir/src/utils/DS/hashset.c.s
+
 CMakeFiles/qc.dir/src/utils/DS/queue.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/utils/DS/queue.c.o: src/utils/DS/queue.c
 CMakeFiles/qc.dir/src/utils/DS/queue.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/qc.dir/src/utils/DS/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/qc.dir/src/utils/DS/queue.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/DS/queue.c.o -MF CMakeFiles/qc.dir/src/utils/DS/queue.c.o.d -o CMakeFiles/qc.dir/src/utils/DS/queue.c.o -c /home/goodman/school/Quest/src/utils/DS/queue.c
 
 CMakeFiles/qc.dir/src/utils/DS/queue.c.i: cmake_force
@@ -212,7 +548,7 @@ CMakeFiles/qc.dir/src/utils/DS/queue.c.s: cmake_force
 CMakeFiles/qc.dir/src/utils/DS/stack.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/utils/DS/stack.c.o: src/utils/DS/stack.c
 CMakeFiles/qc.dir/src/utils/DS/stack.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/qc.dir/src/utils/DS/stack.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/qc.dir/src/utils/DS/stack.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/DS/stack.c.o -MF CMakeFiles/qc.dir/src/utils/DS/stack.c.o.d -o CMakeFiles/qc.dir/src/utils/DS/stack.c.o -c /home/goodman/school/Quest/src/utils/DS/stack.c
 
 CMakeFiles/qc.dir/src/utils/DS/stack.c.i: cmake_force
@@ -223,10 +559,38 @@ CMakeFiles/qc.dir/src/utils/DS/stack.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/DS/stack.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/DS/stack.c -o CMakeFiles/qc.dir/src/utils/DS/stack.c.s
 
+CMakeFiles/qc.dir/src/utils/err/err.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/utils/err/err.c.o: src/utils/err/err.c
+CMakeFiles/qc.dir/src/utils/err/err.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/qc.dir/src/utils/err/err.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/err/err.c.o -MF CMakeFiles/qc.dir/src/utils/err/err.c.o.d -o CMakeFiles/qc.dir/src/utils/err/err.c.o -c /home/goodman/school/Quest/src/utils/err/err.c
+
+CMakeFiles/qc.dir/src/utils/err/err.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/utils/err/err.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/utils/err/err.c > CMakeFiles/qc.dir/src/utils/err/err.c.i
+
+CMakeFiles/qc.dir/src/utils/err/err.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/err/err.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/err/err.c -o CMakeFiles/qc.dir/src/utils/err/err.c.s
+
+CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o: src/utils/hashes/hashes.c
+CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o -MF CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o.d -o CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o -c /home/goodman/school/Quest/src/utils/hashes/hashes.c
+
+CMakeFiles/qc.dir/src/utils/hashes/hashes.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/utils/hashes/hashes.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/utils/hashes/hashes.c > CMakeFiles/qc.dir/src/utils/hashes/hashes.c.i
+
+CMakeFiles/qc.dir/src/utils/hashes/hashes.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/hashes/hashes.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/hashes/hashes.c -o CMakeFiles/qc.dir/src/utils/hashes/hashes.c.s
+
 CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o: src/utils/lexer_DFA/lexer_DFA.c
 CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o -MF CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o.d -o CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o -c /home/goodman/school/Quest/src/utils/lexer_DFA/lexer_DFA.c
 
 CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.i: cmake_force
@@ -240,7 +604,7 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.s: cmake_force
 CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: CMakeFiles/qc.dir/flags.make
 CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: src/utils/lexer_DFA/transitions.c
 CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o: CMakeFiles/qc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o -MF CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o.d -o CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o -c /home/goodman/school/Quest/src/utils/lexer_DFA/transitions.c
 
 CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.i: cmake_force
@@ -251,41 +615,125 @@ CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/lexer_DFA/transitions.c -o CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.s
 
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o: src/utils/symbol_table/symbol_table.c
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o -MF CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o.d -o CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o -c /home/goodman/school/Quest/src/utils/symbol_table/symbol_table.c
+
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/utils/symbol_table/symbol_table.c > CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.i
+
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/symbol_table/symbol_table.c -o CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.s
+
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: CMakeFiles/qc.dir/flags.make
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: src/utils/symbol_table/symbol_table_tree.c
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o: CMakeFiles/qc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o -MF CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o.d -o CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o -c /home/goodman/school/Quest/src/utils/symbol_table/symbol_table_tree.c
+
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/goodman/school/Quest/src/utils/symbol_table/symbol_table_tree.c > CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.i
+
+CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/goodman/school/Quest/src/utils/symbol_table/symbol_table_tree.c -o CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.s
+
 # Object files for target qc
 qc_OBJECTS = \
+"CMakeFiles/qc.dir/src/code_gen/TTS.c.o" \
+"CMakeFiles/qc.dir/src/code_gen/code_generator.c.o" \
+"CMakeFiles/qc.dir/src/code_gen/operand.c.o" \
+"CMakeFiles/qc.dir/src/code_gen/register.c.o" \
+"CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o" \
+"CMakeFiles/qc.dir/src/code_gen/translations.c.o" \
 "CMakeFiles/qc.dir/src/io.c.o" \
+"CMakeFiles/qc.dir/src/lang.c.o" \
 "CMakeFiles/qc.dir/src/lexer/lexer.c.o" \
 "CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o" \
 "CMakeFiles/qc.dir/src/lexer/token.c.o" \
 "CMakeFiles/qc.dir/src/main.c.o" \
+"CMakeFiles/qc.dir/src/parser/action_table.c.o" \
+"CMakeFiles/qc.dir/src/parser/bnf.c.o" \
+"CMakeFiles/qc.dir/src/parser/goto_table.c.o" \
 "CMakeFiles/qc.dir/src/parser/grammer.c.o" \
 "CMakeFiles/qc.dir/src/parser/lr_item.c.o" \
+"CMakeFiles/qc.dir/src/parser/lr_stack.c.o" \
+"CMakeFiles/qc.dir/src/parser/non_terminal.c.o" \
+"CMakeFiles/qc.dir/src/parser/parse_tree.c.o" \
+"CMakeFiles/qc.dir/src/parser/parser.c.o" \
 "CMakeFiles/qc.dir/src/parser/rule.c.o" \
+"CMakeFiles/qc.dir/src/parser/slr.c.o" \
+"CMakeFiles/qc.dir/src/parser/symbol.c.o" \
+"CMakeFiles/qc.dir/src/parser/symbol_set.c.o" \
 "CMakeFiles/qc.dir/src/quest.c.o" \
+"CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o" \
+"CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o" \
+"CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o" \
+"CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o" \
+"CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o" \
+"CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o" \
+"CMakeFiles/qc.dir/src/utils/DS/hashset.c.o" \
 "CMakeFiles/qc.dir/src/utils/DS/queue.c.o" \
 "CMakeFiles/qc.dir/src/utils/DS/stack.c.o" \
+"CMakeFiles/qc.dir/src/utils/err/err.c.o" \
+"CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o" \
 "CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o" \
-"CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o"
+"CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o" \
+"CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o" \
+"CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o"
 
 # External object files for target qc
 qc_EXTERNAL_OBJECTS =
 
+qc: CMakeFiles/qc.dir/src/code_gen/TTS.c.o
+qc: CMakeFiles/qc.dir/src/code_gen/code_generator.c.o
+qc: CMakeFiles/qc.dir/src/code_gen/operand.c.o
+qc: CMakeFiles/qc.dir/src/code_gen/register.c.o
+qc: CMakeFiles/qc.dir/src/code_gen/translation_rule.c.o
+qc: CMakeFiles/qc.dir/src/code_gen/translations.c.o
 qc: CMakeFiles/qc.dir/src/io.c.o
+qc: CMakeFiles/qc.dir/src/lang.c.o
 qc: CMakeFiles/qc.dir/src/lexer/lexer.c.o
 qc: CMakeFiles/qc.dir/src/lexer/lexer_automata.c.o
 qc: CMakeFiles/qc.dir/src/lexer/token.c.o
 qc: CMakeFiles/qc.dir/src/main.c.o
+qc: CMakeFiles/qc.dir/src/parser/action_table.c.o
+qc: CMakeFiles/qc.dir/src/parser/bnf.c.o
+qc: CMakeFiles/qc.dir/src/parser/goto_table.c.o
 qc: CMakeFiles/qc.dir/src/parser/grammer.c.o
 qc: CMakeFiles/qc.dir/src/parser/lr_item.c.o
+qc: CMakeFiles/qc.dir/src/parser/lr_stack.c.o
+qc: CMakeFiles/qc.dir/src/parser/non_terminal.c.o
+qc: CMakeFiles/qc.dir/src/parser/parse_tree.c.o
+qc: CMakeFiles/qc.dir/src/parser/parser.c.o
 qc: CMakeFiles/qc.dir/src/parser/rule.c.o
+qc: CMakeFiles/qc.dir/src/parser/slr.c.o
+qc: CMakeFiles/qc.dir/src/parser/symbol.c.o
+qc: CMakeFiles/qc.dir/src/parser/symbol_set.c.o
 qc: CMakeFiles/qc.dir/src/quest.c.o
+qc: CMakeFiles/qc.dir/src/semantic_analizer/AST.c.o
+qc: CMakeFiles/qc.dir/src/semantic_analizer/definitions.c.o
+qc: CMakeFiles/qc.dir/src/semantic_analizer/sdt.c.o
+qc: CMakeFiles/qc.dir/src/semantic_analizer/semantic_analyzer.c.o
+qc: CMakeFiles/qc.dir/src/semantic_analizer/semantic_rule.c.o
+qc: CMakeFiles/qc.dir/src/utils/DS/generic_set.c.o
+qc: CMakeFiles/qc.dir/src/utils/DS/hashset.c.o
 qc: CMakeFiles/qc.dir/src/utils/DS/queue.c.o
 qc: CMakeFiles/qc.dir/src/utils/DS/stack.c.o
+qc: CMakeFiles/qc.dir/src/utils/err/err.c.o
+qc: CMakeFiles/qc.dir/src/utils/hashes/hashes.c.o
 qc: CMakeFiles/qc.dir/src/utils/lexer_DFA/lexer_DFA.c.o
 qc: CMakeFiles/qc.dir/src/utils/lexer_DFA/transitions.c.o
+qc: CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table.c.o
+qc: CMakeFiles/qc.dir/src/utils/symbol_table/symbol_table_tree.c.o
 qc: CMakeFiles/qc.dir/build.make
 qc: CMakeFiles/qc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C executable qc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/goodman/school/Quest/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Linking C executable qc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/qc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

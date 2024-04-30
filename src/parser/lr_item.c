@@ -236,3 +236,6 @@ set_T *lr0_items(grammer_T *grammer, lr_item_T *starting_item) {
 
 	return lr1;
 }
+
+
+

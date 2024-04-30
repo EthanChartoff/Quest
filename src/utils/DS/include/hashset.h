@@ -4,20 +4,18 @@
 //
 //===-----------------------------------------------------------------===
 
-// Define a node for the hash table
 typedef struct HASHSET_NODE_STRUCT {
-    void *data;           				// Pointer to hold generic data
-    struct HASHSET_NODE_STRUCT *next;
+    void *data;           				/* The data stored in the node */
+    struct HASHSET_NODE_STRUCT *next;  /* Pointer to the next node in the bucket */
 } hashset_node_T;
 
-// Define the hash table structure
 typedef struct HASHSET_STRUCT {
-    int size;
-	int capacity;  						// Current capacity of the hash table
-    float load_factor;
-    hashset_node_T **buckets;
-    unsigned int (*hash_func)(void *);
-    int (*compare_func)(void *, void *);
+    int size;               /* Number of elements in the set */
+	int capacity;			/* Number of buckets in the set */
+    float load_factor;      /* Maximum ratio of number of elements to number of buckets */
+    hashset_node_T **buckets; /* Array of bucket pointers */
+    unsigned int (*hash_func)(void *); /* Pointer to a hash function to hash data */
+    int (*compare_func)(void *, void *); /* Pointer to a comparison function to compare data */
 } hashset_T;
 
 

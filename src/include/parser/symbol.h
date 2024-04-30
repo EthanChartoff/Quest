@@ -28,5 +28,4 @@ int symbol_equals(const symbol_T *sym1, const symbol_T *sym2);
 int symbol_cmp(const symbol_T *sym1, const symbol_T *sym2);
 int symbol_cmp_generic(const void *sym1, const void *sym2);
 
-
 #endif

@@ -16,8 +16,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-
-// advance lexer to the next character in its source.
+// advance lexer to the next ch aracter in its source.
 void lexer_advance(lexer_T *lex) {
     if(lex->i < lex->src_size && lex->c != '\0') {
         lex->i++;

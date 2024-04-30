@@ -29,7 +29,4 @@ parse_tree_node_T *init_parse_tree_leaf(symbol_T *sym);
 void parse_tree_traverse_preorder(parse_tree_node_T *tree, int layer);
 void parse_tree_traverse_postorder(parse_tree_node_T *tree, int layer);
 
-
-
-
 #endif /* QUEST_PARSE_TREE_NODE_H */

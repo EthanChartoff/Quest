@@ -1,0 +1,289 @@
+digraph codeviz {
+    splines=true
+    sep="+15,15"
+    overlap=scalexy
+
+    node [shape=Mrecord, fontsize=12]
+
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/TTS.c"                                 [label = "src/code_gen/TTS.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/code_generator.c"                      [label = "src/code_gen/code_generator.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/operand.c"                             [label = "src/code_gen/operand.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/register.c"                            [label = "src/code_gen/register.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/translation_rule.c"                    [label = "src/code_gen/translation_rule.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/translations.c"                        [label = "src/code_gen/translations.c"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/TTS.h"                         [label = "src/include/code_gen/TTS.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/code_generator.h"              [label = "src/include/code_gen/code_generator.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/nasm_macros.h"                 [label = "src/include/code_gen/nasm_macros.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/operand.h"                     [label = "src/include/code_gen/operand.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/register.h"                    [label = "src/include/code_gen/register.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/translation_rule.h"            [label = "src/include/code_gen/translation_rule.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/translations.h"                [label = "src/include/code_gen/translations.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/io.h"                                   [label = "src/include/io.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lang.h"                                 [label = "src/include/lang.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/lexer.h"                          [label = "src/include/lexer/lexer.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/lexer_automata.h"                 [label = "src/include/lexer/lexer_automata.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/token.h"                          [label = "src/include/lexer/token.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/tokens.h"                         [label = "src/include/lexer/tokens.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/macros.h"                               [label = "src/include/macros.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/action_table.h"                  [label = "src/include/parser/action_table.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/bnf.h"                           [label = "src/include/parser/bnf.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/goto_table.h"                    [label = "src/include/parser/goto_table.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/grammer.h"                       [label = "src/include/parser/grammer.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/lr_item.h"                       [label = "src/include/parser/lr_item.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/lr_stack.h"                      [label = "src/include/parser/lr_stack.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/non_terminal.h"                  [label = "src/include/parser/non_terminal.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/non_terminals.h"                 [label = "src/include/parser/non_terminals.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/non_terminals_bnf.h"             [label = "src/include/parser/non_terminals_bnf.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/parse_tree.h"                    [label = "src/include/parser/parse_tree.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/parser.h"                        [label = "src/include/parser/parser.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/rule.h"                          [label = "src/include/parser/rule.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/slr.h"                           [label = "src/include/parser/slr.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/symbol.h"                        [label = "src/include/parser/symbol.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/symbol_set.h"                    [label = "src/include/parser/symbol_set.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/quest.h"                                [label = "src/include/quest.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/AST.h"                [label = "src/include/semantic_analizer/AST.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/definitions.h"        [label = "src/include/semantic_analizer/definitions.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/sdt.h"                [label = "src/include/semantic_analizer/sdt.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/semantic_analyzer.h"  [label = "src/include/semantic_analizer/semantic_analyzer.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/semantic_rule.h"      [label = "src/include/semantic_analizer/semantic_rule.h"]
+    node [fillcolor="#ff9999", style=filled] "src/io.c"                                           [label = "src/io.c"]
+    node [fillcolor="#ff9999", style=filled] "src/lang.c"                                         [label = "src/lang.c"]
+    node [fillcolor="#ff9999", style=filled] "src/lexer/lexer.c"                                  [label = "src/lexer/lexer.c"]
+    node [fillcolor="#ff9999", style=filled] "src/lexer/lexer_automata.c"                         [label = "src/lexer/lexer_automata.c"]
+    node [fillcolor="#ff9999", style=filled] "src/lexer/token.c"                                  [label = "src/lexer/token.c"]
+    node [fillcolor="#ff9999", style=filled] "src/main.c"                                         [label = "src/main.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/action_table.c"                          [label = "src/parser/action_table.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/bnf.c"                                   [label = "src/parser/bnf.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/goto_table.c"                            [label = "src/parser/goto_table.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/grammer.c"                               [label = "src/parser/grammer.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/lr_item.c"                               [label = "src/parser/lr_item.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/lr_stack.c"                              [label = "src/parser/lr_stack.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/non_terminal.c"                          [label = "src/parser/non_terminal.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/parse_tree.c"                            [label = "src/parser/parse_tree.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/parser.c"                                [label = "src/parser/parser.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/rule.c"                                  [label = "src/parser/rule.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/slr.c"                                   [label = "src/parser/slr.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/symbol.c"                                [label = "src/parser/symbol.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/symbol_set.c"                            [label = "src/parser/symbol_set.c"]
+    node [fillcolor="#ff9999", style=filled] "src/quest.c"                                        [label = "src/quest.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/AST.c"                        [label = "src/semantic_analizer/AST.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/definitions.c"                [label = "src/semantic_analizer/definitions.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/sdt.c"                        [label = "src/semantic_analizer/sdt.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/semantic_analyzer.c"          [label = "src/semantic_analizer/semantic_analyzer.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/semantic_rule.c"              [label = "src/semantic_analizer/semantic_rule.c"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/DS/generic_set.c"                         [label = "src/utils/DS/generic_set.c"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/DS/hashset.c"                             [label = "src/utils/DS/hashset.c"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/DS/include/generic_set.h"                 [label = "src/utils/DS/include/generic_set.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/DS/include/hashset.h"                     [label = "src/utils/DS/include/hashset.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/DS/include/queue.h"                       [label = "src/utils/DS/include/queue.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/DS/include/stack.h"                       [label = "src/utils/DS/include/stack.h"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/DS/queue.c"                               [label = "src/utils/DS/queue.c"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/DS/stack.c"                               [label = "src/utils/DS/stack.c"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/err/err.c"                                [label = "src/utils/err/err.c"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/err/err.h"                                [label = "src/utils/err/err.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/err/errors.h"                             [label = "src/utils/err/errors.h"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/hashes/hashes.c"                          [label = "src/utils/hashes/hashes.c"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/hashes/hashes.h"                          [label = "src/utils/hashes/hashes.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/lexer_DFA/include/lexer_DFA.h"            [label = "src/utils/lexer_DFA/include/lexer_DFA.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/lexer_DFA/include/transitions.h"          [label = "src/utils/lexer_DFA/include/transitions.h"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/lexer_DFA/lexer_DFA.c"                    [label = "src/utils/lexer_DFA/lexer_DFA.c"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/lexer_DFA/transitions.c"                  [label = "src/utils/lexer_DFA/transitions.c"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/symbol_table/include/symbol_table.h"      [label = "src/utils/symbol_table/include/symbol_table.h"]
+    node [fillcolor="#ccccff", style=filled] "src/utils/symbol_table/include/symbol_table_tree.h" [label = "src/utils/symbol_table/include/symbol_table_tree.h"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/symbol_table/symbol_table.c"              [label = "src/utils/symbol_table/symbol_table.c"]
+    node [fillcolor="#ff9999", style=filled] "src/utils/symbol_table/symbol_table_tree.c"         [label = "src/utils/symbol_table/symbol_table_tree.c"]
+
+    "src/code_gen/TTS.c"                                 -> "src/include/code_gen/TTS.h"
+    "src/code_gen/TTS.c"                                 -> "src/utils/err/err.h"
+    "src/code_gen/code_generator.c"                      -> "src/include/code_gen/code_generator.h"
+    "src/code_gen/code_generator.c"                      -> "src/include/code_gen/nasm_macros.h"
+    "src/code_gen/code_generator.c"                      -> "src/utils/err/err.h"
+    "src/code_gen/code_generator.c"                      -> "src/utils/DS/include/stack.h"
+    "src/code_gen/operand.c"                             -> "src/include/code_gen/operand.h"
+    "src/code_gen/operand.c"                             -> "src/utils/err/err.h"
+    "src/code_gen/register.c"                            -> "src/include/code_gen/register.h"
+    "src/code_gen/register.c"                            -> "src/utils/err/err.h"
+    "src/code_gen/translation_rule.c"                    -> "src/include/code_gen/translation_rule.h"
+    "src/code_gen/translation_rule.c"                    -> "src/utils/err/err.h"
+    "src/code_gen/translations.c"                        -> "src/include/code_gen/translations.h"
+    "src/code_gen/translations.c"                        -> "src/include/code_gen/nasm_macros.h"
+    "src/code_gen/translations.c"                        -> "src/include/code_gen/register.h"
+    "src/code_gen/translations.c"                        -> "src/utils/err/err.h"
+    "src/include/code_gen/TTS.h"                         -> "src/include/code_gen/translation_rule.h"
+    "src/include/code_gen/code_generator.h"              -> "src/include/code_gen/TTS.h"
+    "src/include/code_gen/code_generator.h"              -> "src/include/code_gen/register.h"
+    "src/include/code_gen/code_generator.h"              -> "src/include/semantic_analizer/AST.h"
+    "src/include/code_gen/code_generator.h"              -> "src/utils/symbol_table/include/symbol_table_tree.h"
+    "src/include/code_gen/operand.h"                     -> "src/include/code_gen/register.h"
+    "src/include/code_gen/operand.h"                     -> "src/include/parser/symbol.h"
+    "src/include/code_gen/register.h"                    -> "src/include/lexer/token.h"
+    "src/include/code_gen/translation_rule.h"            -> "src/include/parser/symbol.h"
+    "src/include/code_gen/translation_rule.h"            -> "src/include/semantic_analizer/AST.h"
+    "src/include/code_gen/translation_rule.h"            -> "src/utils/DS/include/stack.h"
+    "src/include/code_gen/translation_rule.h"            -> "src/include/code_gen/register.h"
+    "src/include/code_gen/translations.h"                -> "src/include/semantic_analizer/AST.h"
+    "src/include/code_gen/translations.h"                -> "src/include/code_gen/register.h"
+    "src/include/code_gen/translations.h"                -> "src/utils/DS/include/stack.h"
+    "src/include/lang.h"                                 -> "src/include/quest.h"
+    "src/include/lexer/lexer.h"                          -> "src/include/lexer/lexer_automata.h"
+    "src/include/lexer/lexer.h"                          -> "src/include/lexer/token.h"
+    "src/include/lexer/lexer_automata.h"                 -> "src/include/lexer/token.h"
+    "src/include/lexer/token.h"                          -> "src/include/lexer/tokens.h"
+    "src/include/parser/action_table.h"                  -> "src/include/parser/non_terminal.h"
+    "src/include/parser/action_table.h"                  -> "src/include/lexer/token.h"
+    "src/include/parser/goto_table.h"                    -> "src/include/parser/non_terminal.h"
+    "src/include/parser/grammer.h"                       -> "src/include/parser/non_terminal.h"
+    "src/include/parser/grammer.h"                       -> "src/include/parser/rule.h"
+    "src/include/parser/grammer.h"                       -> "src/include/parser/symbol.h"
+    "src/include/parser/grammer.h"                       -> "src/include/lexer/token.h"
+    "src/include/parser/grammer.h"                       -> "src/utils/DS/include/generic_set.h"
+    "src/include/parser/lr_item.h"                       -> "src/include/parser/grammer.h"
+    "src/include/parser/lr_item.h"                       -> "src/include/parser/non_terminal.h"
+    "src/include/parser/lr_item.h"                       -> "src/include/parser/rule.h"
+    "src/include/parser/lr_item.h"                       -> "src/include/parser/symbol_set.h"
+    "src/include/parser/lr_item.h"                       -> "src/include/parser/symbol.h"
+    "src/include/parser/lr_item.h"                       -> "src/include/parser/symbol_set.h"
+    "src/include/parser/lr_item.h"                       -> "src/utils/DS/include/generic_set.h"
+    "src/include/parser/non_terminal.h"                  -> "src/include/parser/non_terminals_bnf.h"
+    "src/include/parser/parse_tree.h"                    -> "src/include/parser/rule.h"
+    "src/include/parser/parse_tree.h"                    -> "src/include/parser/symbol.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/action_table.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/goto_table.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/grammer.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/lr_stack.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/parse_tree.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/rule.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/slr.h"
+    "src/include/parser/parser.h"                        -> "src/utils/DS/include/queue.h"
+    "src/include/parser/parser.h"                        -> "src/include/parser/symbol.h"
+    "src/include/parser/rule.h"                          -> "src/include/lexer/token.h"
+    "src/include/parser/rule.h"                          -> "src/include/parser/non_terminal.h"
+    "src/include/parser/rule.h"                          -> "src/include/parser/symbol.h"
+    "src/include/parser/slr.h"                           -> "src/utils/DS/include/generic_set.h"
+    "src/include/parser/slr.h"                           -> "src/include/parser/action_table.h"
+    "src/include/parser/slr.h"                           -> "src/include/parser/goto_table.h"
+    "src/include/parser/slr.h"                           -> "src/include/parser/grammer.h"
+    "src/include/parser/symbol.h"                        -> "src/include/lexer/token.h"
+    "src/include/parser/symbol.h"                        -> "src/include/parser/non_terminal.h"
+    "src/include/parser/symbol_set.h"                    -> "src/include/parser/symbol.h"
+    "src/include/quest.h"                                -> "src/include/code_gen/code_generator.h"
+    "src/include/quest.h"                                -> "src/include/lexer/lexer.h"
+    "src/include/quest.h"                                -> "src/include/parser/parser.h"
+    "src/include/quest.h"                                -> "src/include/semantic_analizer/sdt.h"
+    "src/include/semantic_analizer/AST.h"                -> "src/include/parser/symbol.h"
+    "src/include/semantic_analizer/definitions.h"        -> "src/include/semantic_analizer/AST.h"
+    "src/include/semantic_analizer/definitions.h"        -> "src/include/parser/parse_tree.h"
+    "src/include/semantic_analizer/definitions.h"        -> "src/utils/DS/include/stack.h"
+    "src/include/semantic_analizer/definitions.h"        -> "src/utils/symbol_table/include/symbol_table.h"
+    "src/include/semantic_analizer/sdt.h"                -> "src/utils/DS/include/generic_set.h"
+    "src/include/semantic_analizer/sdt.h"                -> "src/include/semantic_analizer/semantic_rule.h"
+    "src/include/semantic_analizer/semantic_analyzer.h"  -> "src/include/parser/parse_tree.h"
+    "src/include/semantic_analizer/semantic_analyzer.h"  -> "src/include/quest.h"
+    "src/include/semantic_analizer/semantic_analyzer.h"  -> "src/include/semantic_analizer/AST.h"
+    "src/include/semantic_analizer/semantic_analyzer.h"  -> "src/include/semantic_analizer/sdt.h"
+    "src/include/semantic_analizer/semantic_rule.h"      -> "src/include/parser/parse_tree.h"
+    "src/include/semantic_analizer/semantic_rule.h"      -> "src/utils/DS/include/stack.h"
+    "src/include/semantic_analizer/semantic_rule.h"      -> "src/utils/symbol_table/include/symbol_table.h"
+    "src/include/semantic_analizer/semantic_rule.h"      -> "src/include/semantic_analizer/AST.h"
+    "src/io.c"                                           -> "src/include/io.h"
+    "src/lang.c"                                         -> "src/include/lang.h"
+    "src/lang.c"                                         -> "src/include/code_gen/TTS.h"
+    "src/lang.c"                                         -> "src/include/code_gen/nasm_macros.h"
+    "src/lang.c"                                         -> "src/include/code_gen/translation_rule.h"
+    "src/lang.c"                                         -> "src/include/code_gen/translations.h"
+    "src/lang.c"                                         -> "src/include/io.h"
+    "src/lang.c"                                         -> "src/include/lexer/token.h"
+    "src/lang.c"                                         -> "src/include/parser/lr_item.h"
+    "src/lang.c"                                         -> "src/include/parser/parser.h"
+    "src/lang.c"                                         -> "src/include/parser/rule.h"
+    "src/lang.c"                                         -> "src/include/parser/slr.h"
+    "src/lang.c"                                         -> "src/include/macros.h"
+    "src/lang.c"                                         -> "src/include/parser/symbol.h"
+    "src/lang.c"                                         -> "src/include/quest.h"
+    "src/lang.c"                                         -> "src/include/semantic_analizer/definitions.h"
+    "src/lang.c"                                         -> "src/include/semantic_analizer/sdt.h"
+    "src/lang.c"                                         -> "src/include/semantic_analizer/semantic_rule.h"
+    "src/lang.c"                                         -> "src/utils/DS/include/generic_set.h"
+    "src/lang.c"                                         -> "src/utils/err/err.h"
+    "src/lexer/lexer.c"                                  -> "src/include/lexer/lexer.h"
+    "src/lexer/lexer.c"                                  -> "src/include/lexer/lexer_automata.h"
+    "src/lexer/lexer.c"                                  -> "src/include/macros.h"
+    "src/lexer/lexer.c"                                  -> "src/include/lexer/token.h"
+    "src/lexer/lexer_automata.c"                         -> "src/include/lexer/lexer_automata.h"
+    "src/lexer/lexer_automata.c"                         -> "src/utils/lexer_DFA/include/lexer_DFA.h"
+    "src/lexer/token.c"                                  -> "src/include/lexer/token.h"
+    "src/lexer/token.c"                                  -> "src/include/macros.h"
+    "src/main.c"                                         -> "src/include/quest.h"
+    "src/main.c"                                         -> "src/include/lang.h"
+    "src/parser/action_table.c"                          -> "src/include/parser/action_table.h"
+    "src/parser/action_table.c"                          -> "src/utils/err/err.h"
+    "src/parser/bnf.c"                                   -> "src/include/parser/bnf.h"
+    "src/parser/bnf.c"                                   -> "src/utils/err/err.h"
+    "src/parser/bnf.c"                                   -> "src/utils/DS/include/generic_set.h"
+    "src/parser/bnf.c"                                   -> "src/include/macros.h"
+    "src/parser/goto_table.c"                            -> "src/include/parser/goto_table.h"
+    "src/parser/goto_table.c"                            -> "src/utils/err/err.h"
+    "src/parser/grammer.c"                               -> "src/include/parser/grammer.h"
+    "src/parser/lr_item.c"                               -> "src/include/parser/lr_item.h"
+    "src/parser/lr_item.c"                               -> "src/include/macros.h"
+    "src/parser/lr_stack.c"                              -> "src/include/parser/lr_stack.h"
+    "src/parser/lr_stack.c"                              -> "src/utils/err/err.h"
+    "src/parser/non_terminal.c"                          -> "src/include/parser/non_terminal.h"
+    "src/parser/non_terminal.c"                          -> "src/include/macros.h"
+    "src/parser/parse_tree.c"                            -> "src/include/parser/parse_tree.h"
+    "src/parser/parse_tree.c"                            -> "src/utils/err/err.h"
+    "src/parser/parser.c"                                -> "src/include/parser/parser.h"
+    "src/parser/parser.c"                                -> "src/utils/err/err.h"
+    "src/parser/parser.c"                                -> "src/utils/DS/include/stack.h"
+    "src/parser/rule.c"                                  -> "src/include/parser/rule.h"
+    "src/parser/rule.c"                                  -> "src/include/macros.h"
+    "src/parser/slr.c"                                   -> "src/include/parser/slr.h"
+    "src/parser/slr.c"                                   -> "src/include/parser/lr_item.h"
+    "src/parser/slr.c"                                   -> "src/include/parser/bnf.h"
+    "src/parser/slr.c"                                   -> "src/include/macros.h"
+    "src/parser/slr.c"                                   -> "src/utils/err/err.h"
+    "src/parser/symbol.c"                                -> "src/include/parser/symbol.h"
+    "src/parser/symbol_set.c"                            -> "src/include/parser/symbol_set.h"
+    "src/quest.c"                                        -> "src/include/quest.h"
+    "src/quest.c"                                        -> "src/include/lang.h"
+    "src/quest.c"                                        -> "src/include/lexer/lexer.h"
+    "src/quest.c"                                        -> "src/include/io.h"
+    "src/quest.c"                                        -> "src/include/parser/parse_tree.h"
+    "src/quest.c"                                        -> "src/include/parser/parser.h"
+    "src/quest.c"                                        -> "src/include/semantic_analizer/semantic_analyzer.h"
+    "src/quest.c"                                        -> "src/utils/DS/include/queue.h"
+    "src/semantic_analizer/AST.c"                        -> "src/include/semantic_analizer/AST.h"
+    "src/semantic_analizer/AST.c"                        -> "src/utils/err/err.h"
+    "src/semantic_analizer/definitions.c"                -> "src/include/semantic_analizer/definitions.h"
+    "src/semantic_analizer/definitions.c"                -> "src/include/parser/parse_tree.h"
+    "src/semantic_analizer/definitions.c"                -> "src/utils/err/err.h"
+    "src/semantic_analizer/definitions.c"                -> "src/utils/symbol_table/include/symbol_table_tree.h"
+    "src/semantic_analizer/sdt.c"                        -> "src/include/semantic_analizer/sdt.h"
+    "src/semantic_analizer/sdt.c"                        -> "src/utils/err/err.h"
+    "src/semantic_analizer/semantic_analyzer.c"          -> "src/include/semantic_analizer/semantic_analyzer.h"
+    "src/semantic_analizer/semantic_analyzer.c"          -> "src/utils/DS/include/stack.h"
+    "src/semantic_analizer/semantic_analyzer.c"          -> "src/utils/symbol_table/include/symbol_table_tree.h"
+    "src/semantic_analizer/semantic_rule.c"              -> "src/include/semantic_analizer/semantic_rule.h"
+    "src/utils/DS/generic_set.c"                         -> "src/utils/DS/include/generic_set.h"
+    "src/utils/DS/hashset.c"                             -> "src/utils/DS/include/hashset.h"
+    "src/utils/DS/hashset.c"                             -> "src/utils/err/err.h"
+    "src/utils/DS/queue.c"                               -> "src/utils/DS/include/queue.h"
+    "src/utils/DS/stack.c"                               -> "src/utils/DS/include/stack.h"
+    "src/utils/DS/stack.c"                               -> "src/utils/err/err.h"
+    "src/utils/err/err.c"                                -> "src/utils/err/err.h"
+    "src/utils/err/err.c"                                -> "src/utils/err/errors.h"
+    "src/utils/err/err.h"                                -> "src/utils/err/errors.h"
+    "src/utils/hashes/hashes.c"                          -> "src/utils/hashes/hashes.h"
+    "src/utils/lexer_DFA/include/lexer_DFA.h"            -> "src/include/lexer/token.h"
+    "src/utils/lexer_DFA/include/transitions.h"          -> "src/utils/lexer_DFA/include/lexer_DFA.h"
+    "src/utils/lexer_DFA/lexer_DFA.c"                    -> "src/utils/lexer_DFA/include/lexer_DFA.h"
+    "src/utils/lexer_DFA/lexer_DFA.c"                    -> "src/utils/lexer_DFA/include/transitions.h"
+    "src/utils/lexer_DFA/lexer_DFA.c"                    -> "src/include/lexer/tokens.h"
+    "src/utils/lexer_DFA/lexer_DFA.c"                    -> "src/include/macros.h"
+    "src/utils/lexer_DFA/transitions.c"                  -> "src/utils/lexer_DFA/include/lexer_DFA.h"
+    "src/utils/symbol_table/include/symbol_table_tree.h" -> "src/utils/symbol_table/include/symbol_table.h"
+    "src/utils/symbol_table/symbol_table.c"              -> "src/utils/symbol_table/include/symbol_table.h"
+    "src/utils/symbol_table/symbol_table.c"              -> "src/utils/err/err.h"
+    "src/utils/symbol_table/symbol_table.c"              -> "src/utils/hashes/hashes.h"
+    "src/utils/symbol_table/symbol_table_tree.c"         -> "src/utils/symbol_table/include/symbol_table_tree.h"
+}

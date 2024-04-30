@@ -16,7 +16,7 @@ typedef struct GENERIC_SET_STRUCT {
 	size_t size;  								// Size of the set (number of elements)
 } set_T;
 
-set_T* set_init(int (*compare)(const void*, const void*));
+set_T *set_init(int (*compare)(const void*, const void*));
 int set_add(set_T* set, void* data);
 int set_add_all(set_T* set, set_T *more_set);
 int set_add_arr(set_T* set, void **more_set, size_t size);

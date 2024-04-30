@@ -28,5 +28,4 @@ int rule_cmp_generic(const void *rule1, const void *rule2);
 
 int find_first_nt(const rule_T *rule, int offset);
 
-
 #endif
