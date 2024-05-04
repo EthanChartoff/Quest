@@ -1,0 +1,37 @@
+digraph codeviz {
+    splines=true
+    sep="+15,15"
+    overlap=scalexy
+
+    node [shape=Mrecord, fontsize=12]
+
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/TTS.c"                      [label = "src/code_gen/TTS.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/code_generator.c"           [label = "src/code_gen/code_generator.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/operand.c"                  [label = "src/code_gen/operand.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/register.c"                 [label = "src/code_gen/register.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/translation_rule.c"         [label = "src/code_gen/translation_rule.c"]
+    node [fillcolor="#ff9999", style=filled] "src/code_gen/translations.c"             [label = "src/code_gen/translations.c"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/TTS.h"              [label = "src/include/code_gen/TTS.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/code_generator.h"   [label = "src/include/code_gen/code_generator.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/nasm_macros.h"      [label = "src/include/code_gen/nasm_macros.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/operand.h"          [label = "src/include/code_gen/operand.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/register.h"         [label = "src/include/code_gen/register.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/translation_rule.h" [label = "src/include/code_gen/translation_rule.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/code_gen/translations.h"     [label = "src/include/code_gen/translations.h"]
+
+    "src/code_gen/TTS.c"                      -> "src/include/code_gen/TTS.h"
+    "src/code_gen/code_generator.c"           -> "src/include/code_gen/code_generator.h"
+    "src/code_gen/code_generator.c"           -> "src/include/code_gen/nasm_macros.h"
+    "src/code_gen/operand.c"                  -> "src/include/code_gen/operand.h"
+    "src/code_gen/register.c"                 -> "src/include/code_gen/register.h"
+    "src/code_gen/translation_rule.c"         -> "src/include/code_gen/translation_rule.h"
+    "src/code_gen/translations.c"             -> "src/include/code_gen/translations.h"
+    "src/code_gen/translations.c"             -> "src/include/code_gen/nasm_macros.h"
+    "src/code_gen/translations.c"             -> "src/include/code_gen/register.h"
+    "src/include/code_gen/TTS.h"              -> "src/include/code_gen/translation_rule.h"
+    "src/include/code_gen/code_generator.h"   -> "src/include/code_gen/TTS.h"
+    "src/include/code_gen/code_generator.h"   -> "src/include/code_gen/register.h"
+    "src/include/code_gen/operand.h"          -> "src/include/code_gen/register.h"
+    "src/include/code_gen/translation_rule.h" -> "src/include/code_gen/register.h"
+    "src/include/code_gen/translations.h"     -> "src/include/code_gen/register.h"
+}

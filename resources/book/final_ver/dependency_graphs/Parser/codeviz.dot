@@ -1,0 +1,81 @@
+digraph codeviz {
+    splines=true
+    sep="+15,15"
+    overlap=scalexy
+
+    node [shape=Mrecord, fontsize=12]
+
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/action_table.h"      [label = "src/include/parser/action_table.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/bnf.h"               [label = "src/include/parser/bnf.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/goto_table.h"        [label = "src/include/parser/goto_table.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/grammer.h"           [label = "src/include/parser/grammer.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/lr_item.h"           [label = "src/include/parser/lr_item.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/lr_stack.h"          [label = "src/include/parser/lr_stack.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/non_terminal.h"      [label = "src/include/parser/non_terminal.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/non_terminals.h"     [label = "src/include/parser/non_terminals.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/non_terminals_bnf.h" [label = "src/include/parser/non_terminals_bnf.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/parse_tree.h"        [label = "src/include/parser/parse_tree.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/parser.h"            [label = "src/include/parser/parser.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/rule.h"              [label = "src/include/parser/rule.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/slr.h"               [label = "src/include/parser/slr.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/symbol.h"            [label = "src/include/parser/symbol.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/parser/symbol_set.h"        [label = "src/include/parser/symbol_set.h"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/action_table.c"              [label = "src/parser/action_table.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/bnf.c"                       [label = "src/parser/bnf.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/goto_table.c"                [label = "src/parser/goto_table.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/grammer.c"                   [label = "src/parser/grammer.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/lr_item.c"                   [label = "src/parser/lr_item.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/lr_stack.c"                  [label = "src/parser/lr_stack.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/non_terminal.c"              [label = "src/parser/non_terminal.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/parse_tree.c"                [label = "src/parser/parse_tree.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/parser.c"                    [label = "src/parser/parser.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/rule.c"                      [label = "src/parser/rule.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/slr.c"                       [label = "src/parser/slr.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/symbol.c"                    [label = "src/parser/symbol.c"]
+    node [fillcolor="#ff9999", style=filled] "src/parser/symbol_set.c"                [label = "src/parser/symbol_set.c"]
+
+    "src/include/parser/action_table.h"      -> "src/include/parser/non_terminal.h"
+    "src/include/parser/goto_table.h"        -> "src/include/parser/non_terminal.h"
+    "src/include/parser/grammer.h"           -> "src/include/parser/non_terminal.h"
+    "src/include/parser/grammer.h"           -> "src/include/parser/rule.h"
+    "src/include/parser/grammer.h"           -> "src/include/parser/symbol.h"
+    "src/include/parser/lr_item.h"           -> "src/include/parser/grammer.h"
+    "src/include/parser/lr_item.h"           -> "src/include/parser/non_terminal.h"
+    "src/include/parser/lr_item.h"           -> "src/include/parser/rule.h"
+    "src/include/parser/lr_item.h"           -> "src/include/parser/symbol_set.h"
+    "src/include/parser/lr_item.h"           -> "src/include/parser/symbol.h"
+    "src/include/parser/lr_item.h"           -> "src/include/parser/symbol_set.h"
+    "src/include/parser/non_terminal.h"      -> "src/include/parser/non_terminals_bnf.h"
+    "src/include/parser/parse_tree.h"        -> "src/include/parser/rule.h"
+    "src/include/parser/parse_tree.h"        -> "src/include/parser/symbol.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/action_table.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/goto_table.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/grammer.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/lr_stack.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/parse_tree.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/rule.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/slr.h"
+    "src/include/parser/parser.h"            -> "src/include/parser/symbol.h"
+    "src/include/parser/rule.h"              -> "src/include/parser/non_terminal.h"
+    "src/include/parser/rule.h"              -> "src/include/parser/symbol.h"
+    "src/include/parser/slr.h"               -> "src/include/parser/action_table.h"
+    "src/include/parser/slr.h"               -> "src/include/parser/goto_table.h"
+    "src/include/parser/slr.h"               -> "src/include/parser/grammer.h"
+    "src/include/parser/symbol.h"            -> "src/include/parser/non_terminal.h"
+    "src/include/parser/symbol_set.h"        -> "src/include/parser/symbol.h"
+    "src/parser/action_table.c"              -> "src/include/parser/action_table.h"
+    "src/parser/bnf.c"                       -> "src/include/parser/bnf.h"
+    "src/parser/goto_table.c"                -> "src/include/parser/goto_table.h"
+    "src/parser/grammer.c"                   -> "src/include/parser/grammer.h"
+    "src/parser/lr_item.c"                   -> "src/include/parser/lr_item.h"
+    "src/parser/lr_stack.c"                  -> "src/include/parser/lr_stack.h"
+    "src/parser/non_terminal.c"              -> "src/include/parser/non_terminal.h"
+    "src/parser/parse_tree.c"                -> "src/include/parser/parse_tree.h"
+    "src/parser/parser.c"                    -> "src/include/parser/parser.h"
+    "src/parser/rule.c"                      -> "src/include/parser/rule.h"
+    "src/parser/slr.c"                       -> "src/include/parser/slr.h"
+    "src/parser/slr.c"                       -> "src/include/parser/lr_item.h"
+    "src/parser/slr.c"                       -> "src/include/parser/bnf.h"
+    "src/parser/symbol.c"                    -> "src/include/parser/symbol.h"
+    "src/parser/symbol_set.c"                -> "src/include/parser/symbol_set.h"
+}

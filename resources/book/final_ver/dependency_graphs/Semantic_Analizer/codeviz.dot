@@ -1,0 +1,29 @@
+digraph codeviz {
+    splines=true
+    sep="+15,15"
+    overlap=scalexy
+
+    node [shape=Mrecord, fontsize=12]
+
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/AST.h"               [label = "src/include/semantic_analizer/AST.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/definitions.h"       [label = "src/include/semantic_analizer/definitions.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/sdt.h"               [label = "src/include/semantic_analizer/sdt.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/semantic_analyzer.h" [label = "src/include/semantic_analizer/semantic_analyzer.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/semantic_analizer/semantic_rule.h"     [label = "src/include/semantic_analizer/semantic_rule.h"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/AST.c"                       [label = "src/semantic_analizer/AST.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/definitions.c"               [label = "src/semantic_analizer/definitions.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/sdt.c"                       [label = "src/semantic_analizer/sdt.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/semantic_analyzer.c"         [label = "src/semantic_analizer/semantic_analyzer.c"]
+    node [fillcolor="#ff9999", style=filled] "src/semantic_analizer/semantic_rule.c"             [label = "src/semantic_analizer/semantic_rule.c"]
+
+    "src/include/semantic_analizer/definitions.h"       -> "src/include/semantic_analizer/AST.h"
+    "src/include/semantic_analizer/sdt.h"               -> "src/include/semantic_analizer/semantic_rule.h"
+    "src/include/semantic_analizer/semantic_analyzer.h" -> "src/include/semantic_analizer/AST.h"
+    "src/include/semantic_analizer/semantic_analyzer.h" -> "src/include/semantic_analizer/sdt.h"
+    "src/include/semantic_analizer/semantic_rule.h"     -> "src/include/semantic_analizer/AST.h"
+    "src/semantic_analizer/AST.c"                       -> "src/include/semantic_analizer/AST.h"
+    "src/semantic_analizer/definitions.c"               -> "src/include/semantic_analizer/definitions.h"
+    "src/semantic_analizer/sdt.c"                       -> "src/include/semantic_analizer/sdt.h"
+    "src/semantic_analizer/semantic_analyzer.c"         -> "src/include/semantic_analizer/semantic_analyzer.h"
+    "src/semantic_analizer/semantic_rule.c"             -> "src/include/semantic_analizer/semantic_rule.h"
+}

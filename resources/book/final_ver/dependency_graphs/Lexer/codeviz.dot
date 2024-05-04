@@ -1,0 +1,25 @@
+digraph codeviz {
+    splines=true
+    sep="+15,15"
+    overlap=scalexy
+
+    node [shape=Mrecord, fontsize=12]
+
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/lexer.h"          [label = "src/include/lexer/lexer.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/lexer_automata.h" [label = "src/include/lexer/lexer_automata.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/token.h"          [label = "src/include/lexer/token.h"]
+    node [fillcolor="#ccccff", style=filled] "src/include/lexer/tokens.h"         [label = "src/include/lexer/tokens.h"]
+    node [fillcolor="#ff9999", style=filled] "src/lexer/lexer.c"                  [label = "src/lexer/lexer.c"]
+    node [fillcolor="#ff9999", style=filled] "src/lexer/lexer_automata.c"         [label = "src/lexer/lexer_automata.c"]
+    node [fillcolor="#ff9999", style=filled] "src/lexer/token.c"                  [label = "src/lexer/token.c"]
+
+    "src/include/lexer/lexer.h"          -> "src/include/lexer/lexer_automata.h"
+    "src/include/lexer/lexer.h"          -> "src/include/lexer/token.h"
+    "src/include/lexer/lexer_automata.h" -> "src/include/lexer/token.h"
+    "src/include/lexer/token.h"          -> "src/include/lexer/tokens.h"
+    "src/lexer/lexer.c"                  -> "src/include/lexer/lexer.h"
+    "src/lexer/lexer.c"                  -> "src/include/lexer/lexer_automata.h"
+    "src/lexer/lexer.c"                  -> "src/include/lexer/token.h"
+    "src/lexer/lexer_automata.c"         -> "src/include/lexer/lexer_automata.h"
+    "src/lexer/token.c"                  -> "src/include/lexer/token.h"
+}
